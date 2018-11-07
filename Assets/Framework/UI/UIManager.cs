@@ -62,9 +62,16 @@ namespace Assets.Framework.UI
                 string path = panelPathDict.TryGet(panelName);
                 GameObject instPanel=GameObject.Instantiate(Resources.Load(path)) as GameObject;
 
-                instPanel.transform.SetParent(CanvasTransform,false);//TODO
-                panelDict.Add(panelName, instPanel.GetComponent<BasePanel>());
-                return instPanel.GetComponent<BasePanel>();
+                instPanel.transform.SetParent(CanvasTransform,false);
+
+                //TODO
+                panel = instPanel.GetComponent<BasePanel>();
+                panelDict.Add(panelName, panel);
+                panel.Init();
+                return panel;
+                
+                //panelDict.Add(panelName, instPanel.GetComponent<BasePanel>());
+                //return instPanel.GetComponent<BasePanel>();
             }
             else
             {
@@ -99,19 +106,45 @@ namespace Assets.Framework.UI
             }
         }
 
-        public void PushPanel(string panelName)
+        public void Show(string panelName)
         {
             if(panelStack==null)
             {
                 panelStack = new Stack<BasePanel>();
             }
+            //判断一下是否有正在显示的页面,有就暂停
+            if(panelStack.Count>0)
+            {
+                BasePanel topPanel = panelStack.Peek();
+                topPanel.OnPause();
+            }
             BasePanel panel = GetPanel(panelName);
+            panel.OnShow();
             panelStack.Push(panel);
         }
 
-        public void PopPanel(string panelName)
+        public void Hide(string panelName)
         {
+            if (panelStack == null)
+            {
+                panelStack = new Stack<BasePanel>();
+            }
 
+            if (panelStack.Count <= 0)
+            {
+                return;
+            }
+
+            BasePanel topPanel = panelStack.Pop();
+            topPanel.OnHide();
+
+            if (panelStack.Count <= 0)
+            {
+                return;
+            }
+
+            BasePanel topPanelNow = panelStack.Peek();
+            topPanelNow.OnResume();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Assets.Framework.UI
         private void Awake()
         {
             UIManager.GetInstance().ParseUIPanelTypeJson();
-            UIManager.GetInstance().PushPanel(UIPanelName.TestUIPanel);
+            UIManager.GetInstance().Show(UIPanelName.TestUIPanel);
         }
     }
 }

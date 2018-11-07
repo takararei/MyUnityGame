@@ -1,16 +1,23 @@
-﻿using System.Collections;
+﻿using Assets.Framework.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestUIPanel : MonoBehaviour {
+public class TestUIPanel : BasePanel {
 
-	// Use this for initialization
-	void Start () {
-		
+    //private CanvasGroup canvasGroup;
+    // Use this for initialization
+    public override void Start () {
+        base.Start();
+        //canvasGroup = GetComponent<CanvasGroup>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    public override void OnPause()
+    {
+        base.OnPause();
+        //canvasGroup.blocksRaycasts = false;
+    }
+    // Update is called once per frame
+    public override void Update () {
 		
 	}
 }

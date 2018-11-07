@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223534227212274890}
   - component: {fileID: 114911518624397152}
   - component: {fileID: 114116433241895576}
+  - component: {fileID: 225133002411092170}
   - component: {fileID: 114488539374468626}
   m_Layer: 5
   m_Name: TestUIPanel
@@ -262,3 +263,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &225133002411092170
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326115801294382}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
