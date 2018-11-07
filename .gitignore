@@ -1,0 +1,16 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+/Library
+/Temp
+/obj
+/UnityPackageManager
+/SourceCode/obj
+/Prompt/TextToAudioTool/msc
+/TextToAudioTool/IFly/obj
+/TextToAudioTool/Cortana/obj
+/RCCEditor/obj
+/SourceCodeEditor/obj
+*.suo
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
