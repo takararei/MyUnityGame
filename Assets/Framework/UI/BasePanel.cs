@@ -6,70 +6,50 @@ using UnityEngine;
 
 namespace Assets.Framework.UI
 {
-    public class BasePanel:MonoBehaviour
+    public class BasePanel: IBasePanel
     {
+        protected GameObject mRootUI;
         protected CanvasGroup canvasGroup;
-        /// <summary>
-        /// 处理一些初始化,如按钮注册
-        /// </summary>
+        protected GameObject UICanvas;
+        
         public virtual void Init()
         {
-            if (canvasGroup == null)
-            {
-                canvasGroup = GetComponent<CanvasGroup>();
-            }
+            UICanvas = UIManager.GetInstance().CanvasTransform.gameObject;
         }
 
-        public virtual void Start()
+        protected CanvasGroup GetCanvasGroup()
         {
-            if (canvasGroup == null)
+            canvasGroup = mRootUI.transform.GetComponent<CanvasGroup>();
+            if(canvasGroup==null)
             {
-                canvasGroup = GetComponent<CanvasGroup>();
+                Debug.Log(mRootUI.name+"没有canvasGroup组件");
             }
+            return canvasGroup;
         }
+        
 
         public virtual void Update()
         {
 
         }
 
-        /// <summary>
-        /// 界面显示
-        /// </summary>
+        
         public virtual void OnShow()
         {
-            //if (canvasGroup == null)
-            //{
-            //    canvasGroup = GetComponent<CanvasGroup>();
-            //}
-            canvasGroup.alpha = 1;
-            canvasGroup.blocksRaycasts = true;
+            mRootUI.SetActive(true);
         }
-
-        /// <summary>
-        /// 界面暂停交互
-        /// </summary>
+        
         public virtual void OnPause()
         {
-            canvasGroup.blocksRaycasts = false;
         }
-
-        /// <summary>
-        /// 界面重启交互
-        /// </summary>
+        
         public virtual void OnResume()
         {
-            canvasGroup.blocksRaycasts = true;
         }
-
-        /// <summary>
-        /// 界面关闭
-        /// </summary>
+        
         public virtual void OnHide()
         {
-            
-            canvasGroup.alpha = 0;
-            canvasGroup.blocksRaycasts = false;
+            mRootUI.SetActive(false);
         }
     }
 }

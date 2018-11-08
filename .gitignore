@@ -3,12 +3,6 @@
 /Library
 /obj
 /UnityPackageManager
-/SourceCode/obj
-/Prompt/TextToAudioTool/msc
-/TextToAudioTool/IFly/obj
-/TextToAudioTool/Cortana/obj
-/RCCEditor/obj
-/SourceCodeEditor/obj
 *.suo
 *.lock
 *.ide

@@ -1,22 +1,30 @@
-﻿using Assets.Framework.UI;
+﻿using Assets.Framework.Excel.Test;
+using Assets.Framework.Tools;
+using Assets.Framework.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestUIPanel : BasePanel {
 
-    //private CanvasGroup canvasGroup;
-    // Use this for initialization
-    public override void Start () {
-        base.Start();
-        //canvasGroup = GetComponent<CanvasGroup>();
-	}
-    public override void OnPause()
+    private Button mTestBtn;
+    public override void Init()
     {
-        base.OnPause();
-        //canvasGroup.blocksRaycasts = false;
+        base.Init();
+        mRootUI = UnityTool.FindChild(UICanvas, UIPanelName.TestUIPanel);
+        mTestBtn = UITool.FindChild<Button>(mRootUI, "TestBtn");
+
+        mTestBtn.onClick.AddListener(TestClick);
+        
     }
-    // Update is called once per frame
+    private void TestClick()
+    {
+        Debug.Log("测试点击");
+        TestDataManager manager = Resources.Load<TestDataManager>("AssetData/TestData");
+        //Debug.Log(manager.TestDataList[0].name);
+        manager.Test();
+    }
     public override void Update () {
 		
 	}

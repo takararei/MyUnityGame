@@ -61,13 +61,15 @@ namespace Assets.Framework.UI
                 //如果找不到 就实例
                 string path = panelPathDict.TryGet(panelName);
                 GameObject instPanel=GameObject.Instantiate(Resources.Load(path)) as GameObject;
-
+                instPanel.name = panelName;
                 instPanel.transform.SetParent(CanvasTransform,false);
 
                 //TODO
-                panel = instPanel.GetComponent<BasePanel>();
+                //panel = instPanel.GetComponent<BasePanel>();
+                panel = UIBusiness.GetPanelBusiness(panelName);
                 panelDict.Add(panelName, panel);
                 panel.Init();
+
                 return panel;
                 
                 //panelDict.Add(panelName, instPanel.GetComponent<BasePanel>());
@@ -145,6 +147,14 @@ namespace Assets.Framework.UI
 
             BasePanel topPanelNow = panelStack.Peek();
             topPanelNow.OnResume();
+        }
+
+        public void Update()
+        {
+            foreach(BasePanel panel in panelStack)
+            {
+                panel.Update();
+            }
         }
     }
 }
