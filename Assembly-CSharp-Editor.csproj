@@ -314,6 +314,15 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:/APP/Unity2018_2/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader">
+      <HintPath>D:/MyGraduation/Assets/Plugins/ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>D:/MyGraduation/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:/MyGraduation/Assets/Plugins/System.Data.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -331,15 +340,6 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>D:/MyGraduation/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ExcelDataReader">
-      <HintPath>D:/MyGraduation/Assets/Plugins/ExcelDataReader.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>D:/MyGraduation/Assets/Plugins/System.Data.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/APP/Unity2018_2/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
@@ -373,6 +373,10 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{90AECC37-149D-802B-C241-B271158C5475}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AssetBundleBrowser.Editor.csproj">
+      <Project>{797FC0C0-F09D-C2C4-3457-B87560C9EB06}</Project>
+      <Name>Unity.AssetBundleBrowser.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
