@@ -7,7 +7,7 @@ using UnityEditor;
 
 namespace Assets.Framework.Excel
 {
-    public abstract class BaseExcelEditor<T> : Editor
+    public class BaseExcelEditor : Editor
     {
         public static string excelPath
         {

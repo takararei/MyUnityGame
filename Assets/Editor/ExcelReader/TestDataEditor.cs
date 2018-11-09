@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Assets.Framework.Excel.Test
 {
-    public class TestDataEditor : BaseExcelEditor<TestDataObject>
+    public class TestDataEditor : BaseExcelEditor
     {
         [MenuItem("ExcelToAsset/TestData")]
         public static void ExcelToAsset()

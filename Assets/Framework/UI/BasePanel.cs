@@ -17,14 +17,16 @@ namespace Assets.Framework.UI
             UICanvas = UIManager.GetInstance().CanvasTransform.gameObject;
         }
 
-        protected CanvasGroup GetCanvasGroup()
+        protected bool SetCanvasGroup()
         {
             canvasGroup = mRootUI.transform.GetComponent<CanvasGroup>();
             if(canvasGroup==null)
             {
                 Debug.Log(mRootUI.name+"没有canvasGroup组件");
+                return false;
             }
-            return canvasGroup;
+            //return canvasGroup;
+            return true;
         }
         
 
