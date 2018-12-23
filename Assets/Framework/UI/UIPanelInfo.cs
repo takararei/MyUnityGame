@@ -10,5 +10,6 @@ namespace Assets.Framework.UI
     {
         public string panelName;
         public string path;
+        public string layer;
     }
 }

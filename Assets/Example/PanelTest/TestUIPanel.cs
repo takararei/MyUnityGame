@@ -1,4 +1,4 @@
-﻿using Assets.Framework.Excel.Test;
+﻿
 using Assets.Framework.Tools;
 using Assets.Framework.UI;
 using System.Collections;
@@ -13,7 +13,7 @@ public class TestUIPanel : BasePanel {
     public override void Init()
     {
         base.Init();
-        mRootUI = UnityTool.FindChild(UICanvas, UIPanelName.TestUIPanel);
+        //mRootUI = UnityTool.FindChild(UICanvas, UIPanelName.TestUIPanel);
         SetCanvasGroup();
         mTestBtn = UITool.FindChild<Button>(mRootUI, "TestBtn");
         mTestTxt = UITool.FindChild<Text>(mRootUI, "TestTxt");

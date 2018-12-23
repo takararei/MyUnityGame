@@ -6,15 +6,20 @@ using UnityEngine;
 
 namespace Assets.Framework.UI
 {
+    public class UILayer
+    {
+        public const string Background= "Background";
+        public const string Common = "Common";
+        public const string Top = "Top";
+    }
     public class BasePanel: IBasePanel
     {
         protected GameObject mRootUI;
         protected CanvasGroup canvasGroup;
         protected GameObject UICanvas;
-        
         public virtual void Init()
         {
-            UICanvas = UIManager.GetInstance().CanvasTransform.gameObject;
+            //UICanvas = UIManager.GetInstance().CanvasTransform.gameObject;
         }
 
         protected bool SetCanvasGroup()
@@ -52,6 +57,12 @@ namespace Assets.Framework.UI
         public virtual void OnHide()
         {
             mRootUI.SetActive(false);
+        }
+
+        public GameObject RootUI
+        {
+            get { return mRootUI; }
+            set { mRootUI = value; }
         }
     }
 }

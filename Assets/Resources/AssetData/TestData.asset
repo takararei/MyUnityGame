@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: TestData
   m_EditorClassIdentifier: 
   TestDataList:
-  - id: a
-    name: ceshi
-    path: ces
+  - id: 12
+    name: 2
+    path: a3

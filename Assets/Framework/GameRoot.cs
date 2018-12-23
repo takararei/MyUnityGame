@@ -11,8 +11,14 @@ namespace Assets.Framework
     {
         private void Awake()
         {
+            DontDestroyOnLoad(this);
             UIManager.GetInstance().ParseUIPanelTypeJson();
             UIManager.GetInstance().Show(UIPanelName.TestUIPanel);
+        }
+
+        private void Start()
+        {
+            
         }
 
         private void Update()

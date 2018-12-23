@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Framework.Excel.Test
+namespace Assets.Example
 {
     [Serializable]
     public class TestDataManager : ScriptableObject

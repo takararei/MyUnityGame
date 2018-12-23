@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Framework
+namespace Assets.Framework.Singleton
 {
-    public class Singleton<T> where T:class,new()
+    public class Singleton<T> where T:class,new()//必须是Class类型，必须有一个无参的构造函数
     {
         private static T _instance;
 

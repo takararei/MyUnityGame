@@ -1,26 +1,27 @@
 ﻿using Assets.Framework.Extension;
+using Assets.Framework.Singleton;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace Assets.Framework.UI
 {
-    public class UIManager:Singleton<UIManager>
+    public class UIManager : Singleton<UIManager>
     {
-        private const string UIRootName="Canvas";
-
+        private const string UIRootName = "Canvas";
         /// <summary>
         /// 面板实例的位置
         /// </summary>
+        #region Transform
         private Transform _canvasTransform;
-
+        private Transform _bgTransform;
+        private Transform _commonTransform;
+        private Transform _topTransform;
         public Transform CanvasTransform
         {
             get
             {
-                if(_canvasTransform==null)
+                if (_canvasTransform == null)
                 {
                     _canvasTransform = GameObject.Find(UIRootName).transform;
                 }
@@ -28,10 +29,58 @@ namespace Assets.Framework.UI
             }
         }
 
+        public Transform BGTransform
+        {
+            get
+            {
+                if (_bgTransform == null)
+                {
+                    _bgTransform = CanvasTransform.Find(UILayer.Background);
+                }
+                return _bgTransform;
+            }
+        }
+
+        public Transform CommonTransform
+        {
+
+            get
+            {
+                if (_commonTransform == null)
+                {
+                    _commonTransform = CanvasTransform.Find(UILayer.Common);
+                }
+                return _commonTransform;
+
+            }
+        }
+
+        public Transform TopTransform
+        {
+            get
+            {
+                if(_topTransform==null)
+                {
+                    _topTransform = CanvasTransform.Find(UILayer.Top);
+                }
+                return _topTransform;
+            }
+        }
+        #endregion Transform
+
+        public void Reset()
+        {
+            _canvasTransform = null;
+            _bgTransform = null;
+            _commonTransform = null;
+            _topTransform = null;
+            panelDict.Clear();
+        }
+
         /// <summary>
-        /// 存储所有面板 Prefab 路径
+        /// 存储所有面板信息，名称，地址，层级
         /// </summary>
-        private Dictionary<string, string> panelPathDict;
+        private Dictionary<string, UIPanelInfo> panelInfoDict;
 
         /// <summary>
         /// 保存所有被实例化的BasePanel组件,BasePanel
@@ -42,7 +91,7 @@ namespace Assets.Framework.UI
         /// 管理所有显示的面板 用栈
         /// </summary>
         private Stack<BasePanel> panelStack;
-
+        private Dictionary<string, BasePanel> panelShowDict;
 
         /// <summary>
         /// 根据面板类型得到实例化面板
@@ -53,25 +102,46 @@ namespace Assets.Framework.UI
             {
                 panelDict = new Dictionary<string, BasePanel>();
             }
-            
+
             BasePanel panel = panelDict.TryGet(panelName);
 
             if (panel == null)
             {
                 //如果找不到 就实例
-                string path = panelPathDict.TryGet(panelName);
-                GameObject instPanel=GameObject.Instantiate(Resources.Load(path)) as GameObject;
+                UIPanelInfo pInfo = panelInfoDict.TryGet(panelName);
+                string path = pInfo.path;
+                string layer = pInfo.layer;
+                GameObject instPanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
                 instPanel.name = panelName;
-                instPanel.transform.SetParent(CanvasTransform,false);
+
+                switch (layer)
+                {
+                    case UILayer.Background:
+                        instPanel.transform.SetParent(BGTransform, false);
+                        break;
+                    case UILayer.Common:
+                        instPanel.transform.SetParent(CommonTransform, false);
+                        break;
+                    case UILayer.Top:
+                        instPanel.transform.SetParent(TopTransform, false);
+                        break;
+                    default:
+                        Debug.LogError(pInfo.panelName+"没有设置层级");
+                        break;
+                }
+
+                instPanel.transform.SetParent(CanvasTransform, false);
 
                 //TODO
                 //panel = instPanel.GetComponent<BasePanel>();
                 panel = UIBusiness.GetPanelBusiness(panelName);
+                panel.RootUI = instPanel;
+                //panel.SetRootUI(instPanel);
                 panelDict.Add(panelName, panel);
                 panel.Init();
 
                 return panel;
-                
+
                 //panelDict.Add(panelName, instPanel.GetComponent<BasePanel>());
                 //return instPanel.GetComponent<BasePanel>();
             }
@@ -96,62 +166,90 @@ namespace Assets.Framework.UI
         /// </summary>
         public void ParseUIPanelTypeJson()
         {
-            panelPathDict = new Dictionary<string, string>();
+            if (panelInfoDict == null)
+                panelInfoDict = new Dictionary<string, UIPanelInfo>();
 
-            TextAsset ta= Resources.Load<TextAsset>("UIPanelType");
+            TextAsset ta = Resources.Load<TextAsset>("UIPanelType");
 
-            UIPanelTypeJson jsonObject =JsonUtility.FromJson<UIPanelTypeJson>(ta.text);
+            UIPanelTypeJson jsonObject = JsonUtility.FromJson<UIPanelTypeJson>(ta.text);
 
-            foreach(UIPanelInfo info in jsonObject.infoList)
+            foreach (UIPanelInfo info in jsonObject.infoList)
             {
-                panelPathDict.Add(info.panelName, info.path);
+                panelInfoDict.Add(info.panelName, info);
             }
+        }
+
+        public void ParseUIpanelTypeAsset()
+        {
+
         }
 
         public void Show(string panelName)
         {
-            if(panelStack==null)
+            //if (panelStack == null)
+            //{
+            //    panelStack = new Stack<BasePanel>();
+            //}
+            ////判断一下是否有正在显示的页面,有就暂停
+            //if (panelStack.Count > 0)
+            //{
+            //    BasePanel topPanel = panelStack.Peek();
+            //    topPanel.OnPause();
+            //}
+
+            if(panelShowDict==null)
             {
-                panelStack = new Stack<BasePanel>();
-            }
-            //判断一下是否有正在显示的页面,有就暂停
-            if(panelStack.Count>0)
-            {
-                BasePanel topPanel = panelStack.Peek();
-                topPanel.OnPause();
+                panelShowDict = new Dictionary<string, BasePanel>();
             }
             BasePanel panel = GetPanel(panelName);
+            panel.RootUI.transform.SetAsLastSibling();
             panel.OnShow();
-            panelStack.Push(panel);
+            //panelStack.Push(panel);
+            panelShowDict.Add(panelName, panel);
         }
 
         public void Hide(string panelName)
         {
-            if (panelStack == null)
+            //if (panelStack == null)
+            //{
+            //    panelStack = new Stack<BasePanel>();
+            //}
+
+            //if (panelStack.Count <= 0)
+            //{
+            //    return;
+            //}
+
+            //BasePanel topPanel = panelStack.Pop();
+            //topPanel.OnHide();
+
+            //if (panelStack.Count <= 0)
+            //{
+            //    return;
+            //}
+
+            //BasePanel topPanelNow = panelStack.Peek();
+            //topPanelNow.OnResume();
+
+            if (panelShowDict == null)
             {
-                panelStack = new Stack<BasePanel>();
+                panelShowDict = new Dictionary<string, BasePanel>();
             }
 
-            if (panelStack.Count <= 0)
-            {
-                return;
-            }
+            if (panelShowDict.Count <= 0) return;
 
-            BasePanel topPanel = panelStack.Pop();
-            topPanel.OnHide();
+            BasePanel panel = panelShowDict.TryGet(panelName);
 
-            if (panelStack.Count <= 0)
-            {
-                return;
-            }
+            if (panel == null) return;
 
-            BasePanel topPanelNow = panelStack.Peek();
-            topPanelNow.OnResume();
+            panel.OnHide();
+            panelShowDict.Remove(panelName);
+            
         }
 
         public void Update()
         {
-            foreach(BasePanel panel in panelStack)
+            foreach (BasePanel panel in panelStack)
             {
                 panel.Update();
             }

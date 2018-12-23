@@ -1,9 +1,9 @@
 {
-  "infoList":
-  [
+  "infoList": [
     {
       "panelName": "TestUIPanel",
-      "path": "UIPanel/TestUIPanel"
+      "path": "UIPanel/TestUIPanel",
+      "layer": "Common"
     }
 
   ]

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Framework.Excel.Test
+namespace Assets.Example
 {
     [Serializable]
     public class TestDataObject
     {
-        public string id;
+        public int id;
         public string name;
         public string path;
     }

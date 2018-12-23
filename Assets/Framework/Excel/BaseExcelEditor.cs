@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using UnityEditor;
-
+#if UNITY_EDITOR
 namespace Assets.Framework.Excel
 {
-    public class BaseExcelEditor : Editor
+    public class BaseExcelEditor : UnityEditor.Editor
     {
         public static string excelPath
         {
@@ -28,11 +27,12 @@ namespace Assets.Framework.Excel
                 Directory.CreateDirectory(savePath);
             }
 
-            AssetDatabase.CreateAsset(mgr, savePath + fileName + ".asset");
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            UnityEditor.AssetDatabase.CreateAsset(mgr, savePath + fileName + ".asset");
+            UnityEditor.AssetDatabase.SaveAssets();
+            UnityEditor.AssetDatabase.Refresh();
         }
         
         
     }
 }
+#endif
