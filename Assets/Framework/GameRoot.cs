@@ -1,4 +1,5 @@
-﻿using Assets.Framework.UI;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace Assets.Framework
             DontDestroyOnLoad(this);
             UIManager.GetInstance().ParseUIPanelTypeJson();
             UIManager.GetInstance().Show(UIPanelName.TestUIPanel);
+
+            AudioManager.GetInstance().Root = this.gameObject;
         }
 
         private void Start()

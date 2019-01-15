@@ -113,11 +113,11 @@ namespace Assets.Framework.UI
                 string layer = pInfo.layer;
                 GameObject instPanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
                 instPanel.name = panelName;
-
+                
                 switch (layer)
                 {
                     case UILayer.Background:
-                        instPanel.transform.SetParent(BGTransform, false);
+                        instPanel.transform.SetParent(BGTransform, false );
                         break;
                     case UILayer.Common:
                         instPanel.transform.SetParent(CommonTransform, false);
@@ -130,7 +130,7 @@ namespace Assets.Framework.UI
                         break;
                 }
 
-                instPanel.transform.SetParent(CanvasTransform, false);
+                //instPanel.transform.SetParent(CanvasTransform, false);
 
                 //TODO
                 //panel = instPanel.GetComponent<BasePanel>();
@@ -249,9 +249,10 @@ namespace Assets.Framework.UI
 
         public void Update()
         {
-            foreach (BasePanel panel in panelStack)
+            //if (panelStack.Count == 0) return;
+            foreach (KeyValuePair<string,BasePanel> panel in panelShowDict)
             {
-                panel.Update();
+                panel.Value.Update();
             }
         }
     }

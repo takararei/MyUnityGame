@@ -68,12 +68,20 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Example\ExcelToAsset\Test\TestDataManager.cs" />
+    <Compile Include="Assets\Example\ExcelToAsset\Test\TestDataObject.cs" />
+    <Compile Include="Assets\Example\ExcelToAsset\TestDataEditor.cs" />
+    <Compile Include="Assets\Example\PanelTest\TestUIPanel.cs" />
+    <Compile Include="Assets\Example\ScrollView\ScrollViewSet.cs" />
+    <Compile Include="Assets\Framework\Audio\AudioManager.cs" />
     <Compile Include="Assets\Framework\Excel\BaseExcelEditor.cs" />
-    <Compile Include="Assets\Framework\Excel\Test\TestDataManager.cs" />
-    <Compile Include="Assets\Framework\Excel\Test\TestDataObject.cs" />
     <Compile Include="Assets\Framework\Extension\DictionaryExtension.cs" />
+    <Compile Include="Assets\Framework\Extension\GameObjectExtension.cs" />
+    <Compile Include="Assets\Framework\Extension\ScrollRectExtension.cs" />
+    <Compile Include="Assets\Framework\Extension\TransformExtension.cs" />
     <Compile Include="Assets\Framework\GameRoot.cs" />
-    <Compile Include="Assets\Framework\Singleton.cs" />
+    <Compile Include="Assets\Framework\Singleton\Singleton.cs" />
+    <Compile Include="Assets\Framework\Singleton\SingletonReflection.cs" />
     <Compile Include="Assets\Framework\Tools\DGTool.cs" />
     <Compile Include="Assets\Framework\Tools\UITool.cs" />
     <Compile Include="Assets\Framework\Tools\UnityTool.cs" />
@@ -83,7 +91,11 @@
     <Compile Include="Assets\Framework\UI\UIManager.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelInfo.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelName.cs" />
-    <Compile Include="Assets\Scripts\Panel\TestUIPanel.cs" />
+    <Compile Include="Assets\Framework\Util\CommonUtil.cs" />
+    <Compile Include="Assets\Framework\Util\EditorUtil.cs" />
+    <Compile Include="Assets\Framework\Util\MathUtil.cs" />
+    <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
+    <Compile Include="Assets\TestPart.cs" />
     <None Include="Assets\DOTween\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/MyGraduation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
@@ -292,6 +304,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/APP/Unity2018_2/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:/MyGraduation/Assets/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="ExcelDataReader">
       <HintPath>D:/MyGraduation/Assets/Plugins/ExcelDataReader.dll</HintPath>
     </Reference>
@@ -306,9 +321,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>D:/MyGraduation/Assets/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/APP/Unity2018_2/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
