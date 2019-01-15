@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ScrollViewSet : MonoBehaviour {
-
+    public Button left;
+    public Button Right;
     private GridLayoutGroup glg;
     private RectTransform contentRect;
     private ScrollRect scrollRect;
@@ -14,20 +15,91 @@ public class ScrollViewSet : MonoBehaviour {
     void Start() {
         scrollRect = GetComponent<ScrollRect>();
         glg = GetComponentInChildren<GridLayoutGroup>();
-        contentRect = GameObject.Find("Content").transform as RectTransform;
+        
+        //contentRect = GameObject.Find("Content").transform as RectTransform;
         //contentRect.offsetMax = new Vector2((contentRect.childCount - 1) * (glg.cellSize.x + glg.spacing.x), 0);
         if(isColumn)
         {
             //SetContentY(scrollRect, glg);
             scrollRect.ContentAdaptiveY(glg);
+            left.onClick.AddListener(OnUp);
+            Right.onClick.AddListener(OnDown);
         }
         else
         {
             //SetContentX(scrollRect, glg);
             scrollRect.ContentAdaptiveX(glg);
+            left.onClick.AddListener(OnLeft);
+            Right.onClick.AddListener(OnRight);
         }
-       
+
     }
+    public void OnDown()
+    {
+  
+        //float contentLength = contentRect.rect.height - 2*glg.padding.top-glg.cellSize.y;
+        //float move = scrollRect.verticalNormalizedPosition - (glg.cellSize.y + glg.spacing.y) / contentLength;
+        float move = scrollRect.verticalNormalizedPosition - scrollRect.RatioUp(glg);
+
+        if (move <= 0.01)
+        {
+            scrollRect.verticalNormalizedPosition = 0;
+        }
+        else
+        {
+
+            scrollRect.verticalNormalizedPosition = move;
+        }
+    }
+
+    public void OnUp()
+    {
+        //float contentLength = contentRect.rect.height - 2 * glg.padding.top - glg.cellSize.y;
+        float move = scrollRect.verticalNormalizedPosition + scrollRect.RatioUp(glg);
+
+        if (move>= 0.99)
+        {
+            scrollRect.verticalNormalizedPosition = 1;
+        }
+        else
+        {
+
+            scrollRect.verticalNormalizedPosition = move;
+        }
+    }
+    public void OnLeft()
+    {
+        float contentLength =
+            scrollRect.content.rect.xMax - 2 * glg.padding.left - glg.cellSize.x;
+        float move= scrollRect.horizontalNormalizedPosition - (glg.cellSize.x + glg.spacing.x) / contentLength;
+        if(move<=0.01)
+        {
+            scrollRect.horizontalNormalizedPosition = 0;
+        }
+        else
+        {
+
+            scrollRect.horizontalNormalizedPosition = move;
+        }
+    }
+
+    public void OnRight()
+    {
+        
+        float contentLength =
+           scrollRect.content.rect.xMax - 2 * glg.padding.left - glg.cellSize.x;
+        float move= scrollRect.horizontalNormalizedPosition + (glg.cellSize.x + glg.spacing.x) / contentLength;
+        if(move>=0.99)
+        {
+            scrollRect.horizontalNormalizedPosition = 1;
+        }
+        else
+        {
+            scrollRect.horizontalNormalizedPosition = move;
+        }
+        
+    }
+
 
     /// <summary>
     /// 设置ScrollView中Content的Right值，仅宽度

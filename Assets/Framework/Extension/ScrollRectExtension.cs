@@ -47,5 +47,40 @@ namespace Assets.Framework.Extension
             float heightLength = pageNum * (grid.cellSize.y + grid.spacing.y);
             scrollRect.content.sizeDelta = new Vector2(rightLength, heightLength + offset);
         }
+        /// <summary>
+        /// 左0右1
+        /// </summary>
+        /// <param name="scrollRect"></param>
+        /// <param name="grid"></param>
+        /// <returns></returns>
+        public static float RatioRight(this ScrollRect scrollRect, GridLayoutGroup grid)
+        {
+            float contentLength= scrollRect.content.rect.xMax - 2 * grid.padding.left - grid.cellSize.x;
+            float ratio = (grid.cellSize.x + grid.spacing.x) / contentLength;
+            return ratio;
+        }
+
+        public static float RatioLeft(this ScrollRect scrollRect, GridLayoutGroup grid)
+        {
+            return -RatioRight(scrollRect, grid);
+        }
+        /// <summary>
+        /// 顶1底0
+        /// </summary>
+        /// <param name="scrollRect"></param>
+        /// <param name="grid"></param>
+        /// <returns></returns>
+        public static float RatioUp(this ScrollRect scrollRect, GridLayoutGroup grid)
+        {
+            float contentLength = scrollRect.content.rect.height - 2 * grid.padding.top - grid.cellSize.y;
+            float ratio = (grid.cellSize.y + grid.spacing.y) / contentLength;
+            return ratio;
+        }
+
+        public static float RatioDown(this ScrollRect scrollRect,GridLayoutGroup grid)
+        {
+            return -RatioUp(scrollRect, grid);
+        }
+        
     }
 }
