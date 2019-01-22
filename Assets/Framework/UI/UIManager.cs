@@ -181,7 +181,16 @@ namespace Assets.Framework.UI
 
         public void ParseUIpanelTypeAsset()
         {
+            if(panelInfoDict==null)
+            {
+                panelInfoDict = new Dictionary<string, UIPanelInfo>();
+            }
 
+            UIDataMgr uiMgr= Resources.Load<UIDataMgr>("AssetData/UIPanelData");
+            foreach(UIPanelInfo info in uiMgr.PanelInfoList)
+            {
+                panelInfoDict.Add(info.panelName, info);
+            }
         }
 
         public void Show(string panelName)

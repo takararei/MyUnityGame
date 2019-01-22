@@ -13,7 +13,7 @@ namespace Assets.Framework
         private void Awake()
         {
             DontDestroyOnLoad(this);
-            UIManager.GetInstance().ParseUIPanelTypeJson();
+            UIManager.GetInstance().ParseUIpanelTypeAsset();
             UIManager.GetInstance().Show(UIPanelName.TestUIPanel);
 
             AudioManager.GetInstance().Root = this.gameObject;
