@@ -30,7 +30,7 @@ namespace Assets.Framework.UI
                 {
                     excelReader.Read();
                     //除了第一行的字段名 和最后一行空白
-                    for (int i = 1; i < excelReader.RowCount - 1; i++)
+                    for (int i = 1; i < excelReader.RowCount; i++)
                     {
                         excelReader.Read();
                         UIPanelInfo pdata = new UIPanelInfo();

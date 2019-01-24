@@ -1,4 +1,5 @@
 ﻿using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using Assets.Framework.UI;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,26 @@ namespace Assets.Framework
 {
     public class GameRoot:MonoBehaviour
     {
+        private static GameRoot _instance;
+
+        public static GameRoot Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
         private void Awake()
         {
             DontDestroyOnLoad(this);
-            UIManager.GetInstance().ParseUIpanelTypeAsset();
-            UIManager.GetInstance().Show(UIPanelName.TestUIPanel);
+            _instance = this;
 
-            AudioManager.GetInstance().Root = this.gameObject;
+            FactoryManager.Instance.Init();
+            
+            AudioManager.Instance.Root = this.gameObject;
+            UIManager.Instance.Init();
+            UIManager.Instance.uiFacade.currentSceneState.EnterScene();
+
         }
 
         private void Start()
@@ -26,7 +40,14 @@ namespace Assets.Framework
 
         private void Update()
         {
-            UIManager.GetInstance().Update();
+            UIManager.Instance.Update();
         }
+
+        public GameObject CreateItem(GameObject itemGo)
+        {
+            GameObject go = Instantiate(itemGo);
+            return go;
+        }
+
     }
 }

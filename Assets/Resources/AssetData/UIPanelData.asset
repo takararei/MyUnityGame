@@ -16,3 +16,31 @@ MonoBehaviour:
     panelName: TestUIPanel
     path: UIPanel/TestUIPanel
     layer: Common
+  - id: 2
+    panelName: StartLoadPanel
+    path: Prefabs/UIPanel/StartLoadPanel
+    layer: Common
+  - id: 3
+    panelName: BeginPanel
+    path: Prefabs/UIPanel/BeginPanel
+    layer: Common
+  - id: 4
+    panelName: GameLoadPanel
+    path: Prefabs/UIPanel/GameLoadPanel
+    layer: Common
+  - id: 5
+    panelName: MainLoadPanel
+    path: Prefabs/UIPanel/MainLoadPanel
+    layer: Common
+  - id: 6
+    panelName: ShopLoadPanel
+    path: Prefabs/UIPanel/ShopLoadPanel
+    layer: Common
+  - id: 7
+    panelName: LevelIntroducePanel
+    path: Prefabs/UIPanel/LevelIntroducePanel
+    layer: Common
+  - id: 8
+    panelName: AchievementPanel
+    path: Prefabs/UIPanel/AchievementPanel
+    layer: Common

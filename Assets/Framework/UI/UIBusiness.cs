@@ -13,7 +13,7 @@ namespace Assets.Framework.UI
             switch (name)
             {
                 case UIPanelName.TestUIPanel: return new TestUIPanel();
-
+                case UIPanelName.StartLoadPanel: return new StartLoadPanel();
 
 
 

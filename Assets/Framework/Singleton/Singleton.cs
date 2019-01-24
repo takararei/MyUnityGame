@@ -12,20 +12,24 @@ namespace Assets.Framework.Singleton
         // 定义一个标识确保线程同步
         private static readonly object syslock = new object();
        
-        public static T GetInstance()
+        public static T Instance
         {
-            if(_instance==null)
+            get
             {
-                lock(syslock)
+
+                if (_instance == null)
                 {
-                    if(_instance==null)
+                    lock (syslock)
                     {
-                        _instance = new T();
+                        if (_instance == null)
+                        {
+                            _instance = new T();
+                        }
                     }
                 }
-            }
 
-            return _instance;
+                return _instance;
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Assets.Framework.Excel
         {
             get
             {
-                return "Assets/Excel/" + fileName + ".xlsx";
+                return "../MyGraduation/Excel/" + fileName + ".xlsx";
             }
         }
 
