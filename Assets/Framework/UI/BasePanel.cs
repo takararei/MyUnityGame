@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Framework.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,11 @@ namespace Assets.Framework.UI
         {
             get { return mRootUI; }
             set { mRootUI = value; }
+        }
+
+        protected T Find<T>(string uiName)
+        {
+            return UITool.FindChild<T>(mRootUI, uiName);
         }
     }
 }

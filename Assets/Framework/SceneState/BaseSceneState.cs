@@ -16,16 +16,16 @@ namespace Assets.Framework.SceneState
         public virtual void ExitScene()
         {
             UIManager.Instance.uiFacade.ClearPanelDict();
-            if (SceneManager.GetActiveScene().buildIndex + 1
-                <
-                SceneManager.sceneCountInBuildSettings)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            else
-            {
-                Debug.Log("当前场景"+"已是最后的场景");
-            }
+            //if (SceneManager.GetActiveScene().buildIndex + 1
+            //    <
+            //    SceneManager.sceneCountInBuildSettings)
+            //{
+            //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //}
+            //else
+            //{
+            //    Debug.Log("当前场景"+"已是最后的场景");
+            //}
             
         }
     }

@@ -112,7 +112,10 @@
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />
+    <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\BeginPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\MainPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\StartLoadPanel.cs" />
     <None Include="Assets\DOTween\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">

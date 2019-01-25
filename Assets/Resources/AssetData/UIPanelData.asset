@@ -29,12 +29,12 @@ MonoBehaviour:
     path: Prefabs/UIPanel/GameLoadPanel
     layer: Common
   - id: 5
-    panelName: MainLoadPanel
-    path: Prefabs/UIPanel/MainLoadPanel
+    panelName: MainPanel
+    path: Prefabs/UIPanel/MainPanel
     layer: Common
   - id: 6
-    panelName: ShopLoadPanel
-    path: Prefabs/UIPanel/ShopLoadPanel
+    panelName: ShopPanel
+    path: Prefabs/UIPanel/ShopPanel
     layer: Common
   - id: 7
     panelName: LevelIntroducePanel

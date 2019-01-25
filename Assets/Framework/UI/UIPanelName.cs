@@ -11,8 +11,8 @@ namespace Assets.Framework.UI
         public const string StartLoadPanel = "StartLoadPanel";
         public const string BeginPanel = "BeginPanel";
         public const string GameLoadPanel = "GameLoadPanel";
-        public const string MainLoadPanel = "MainLoadPanel";
-        public const string ShopLoadPanel = "ShopLoadPanel";
+        public const string MainPanel = "MainPanel";
+        public const string ShopPanel = "ShopPanel";
         public const string LevelIntroducePanel = "LevelIntroducePanel";
         public const string AchievementPanel = "AchievementPanel";
     }

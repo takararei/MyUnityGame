@@ -20,7 +20,6 @@ public class StartLoadPanel : BasePanel {
     
     void LoadNextScene()
     {
-        Debug.Log("Test");
         UIManager.Instance.uiFacade.ChangeSceneState(new BeginSceneState());
     }
 
