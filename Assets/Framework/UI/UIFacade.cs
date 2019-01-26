@@ -76,21 +76,30 @@ namespace Assets.Framework.UI
         //其他成员变量
         private GameObject mask;
         private Image maskImage;
+        private float maskTime=1.5f;
 
+        #region Panel-Dict
         /// <summary>
         /// 存储所有面板信息，名称，地址，层级
         /// </summary>
         private Dictionary<string, UIPanelInfo> panelInfoDict;
-
         /// <summary>
         /// 保存所有被实例化的BasePanel组件,BasePanel
         /// </summary>
         private Dictionary<string, BasePanel> panelDict;
-
         /// <summary>
         /// 管理所有显示的面板
         /// </summary>
         private Dictionary<string, BasePanel> panelShowDict;
+        /// <summary>
+        /// 管理实例化的面板游戏物体
+        /// </summary>
+        private Dictionary<string, GameObject> panelGODict;
+        /// <summary>
+        /// 当前场景的面板游戏物体
+        /// </summary>
+        public Dictionary<string, GameObject> currentScenePanelDict;
+        #endregion
 
         public UIFacade()
         {
@@ -99,12 +108,20 @@ namespace Assets.Framework.UI
 
         public void ClearPanelDict()
         {
+            //UIManager.Instance.ClearDict();
+            foreach (var item in currentScenePanelDict)
+            {
+                item.Value.transform.SetParent(GameRoot.Instance.transform);
+                UIManager.Instance.Hide(item.Value.name);
+            }
+            currentScenePanelDict.Clear();
+
             panelShowDict.Clear();
-            panelDict.Clear();
-            UIManager.Instance.ClearDict();
+            panelDict.Clear();//待定
+            
         }
 
-        #region 解析UIPanelData
+        #region Parse-UIPanelData
         /// <summary>
         /// JSON解析对象
         /// </summary>
@@ -148,6 +165,35 @@ namespace Assets.Framework.UI
         #endregion
 
         /// <summary>
+        /// 获取面板的游戏物体
+        /// </summary>
+        public GameObject GetPanelGameObject(string panelName,string path)
+        {
+            if(panelGODict==null)
+            {
+                panelGODict = new Dictionary<string, GameObject>();
+            }
+
+            GameObject instPanel = panelGODict.TryGet(panelName);
+
+            if (instPanel == null)
+            {
+                instPanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
+                instPanel.name = panelName;
+                panelGODict.Add(panelName, instPanel);
+            }
+
+            if(currentScenePanelDict==null)
+            {
+                currentScenePanelDict = new Dictionary<string, GameObject>();
+            }
+
+            if (!currentScenePanelDict.ContainsKey(panelName))
+                currentScenePanelDict.Add(panelName, instPanel);
+            return instPanel;
+        }
+
+        /// <summary>
         /// 根据面板类型得到实例化面板
         /// </summary>
         public BasePanel GetPanel(string panelName)
@@ -168,14 +214,16 @@ namespace Assets.Framework.UI
                     Debug.LogError("没有该面板的信息" + panelName);
                     return null;
                 }
-                GameObject instPanel=UIManager.Instance.currentScenePanelDict.TryGet(panelName);    
+
+                GameObject instPanel = GetPanelGameObject(panelName, pInfo.path);
+                //GameObject instPanel=UIManager.Instance.currentScenePanelDict.TryGet(panelName);    
                 
-                if (instPanel == null)
-                {
-                    instPanel = GameObject.Instantiate(Resources.Load(pInfo.path)) as GameObject;
-                    instPanel.name = panelName;
-                    UIManager.Instance.currentScenePanelDict.Add(panelName, instPanel);
-                }
+                //if (instPanel == null)
+                //{
+                //    instPanel = GameObject.Instantiate(Resources.Load(pInfo.path)) as GameObject;
+                //    instPanel.name = panelName;
+                //    UIManager.Instance.currentScenePanelDict.Add(panelName, instPanel);
+                //}
                 
                 switch (pInfo.layer)
                 {
@@ -244,11 +292,8 @@ namespace Assets.Framework.UI
                 panel.Value.Update();
             }
         }
-
-        public IBaseSceneState lastSceneState;
-        public IBaseSceneState currentSceneState;
-
-        #region 遮罩Mask
+        
+        #region Mask
         //显示遮罩
         private void ShowMask()
         {
@@ -257,7 +302,7 @@ namespace Assets.Framework.UI
                 DOTween.To(() => maskImage.color,
                 toColor => maskImage.color = toColor,
                 new Color(0, 0, 0, 1),
-                2f);
+                maskTime);
             t.OnComplete(ExitSceneComplete);
         }
 
@@ -266,7 +311,7 @@ namespace Assets.Framework.UI
             DOTween.To(() => maskImage.color,
                 toColor => maskImage.color = toColor,
                 new Color(0, 0, 0, 0),
-                2f);
+                maskTime);
         }
 
         public void InitMask()
@@ -276,14 +321,9 @@ namespace Assets.Framework.UI
         }
         #endregion 遮罩Mask
 
-        //UI部分
-        public GameObject CreateUIAndSetUIPosition(string uiName)
-        {
-            GameObject itemGo = FactoryManager.Instance.GetUI(uiName);
-            itemGo.transform.SetParent(CanvasTransform);
-            itemGo.transform.ResetLocal();
-            return itemGo;
-        }
+        #region SceneState
+        public IBaseSceneState lastSceneState;
+        public IBaseSceneState currentSceneState;
 
         public void ChangeSceneState(IBaseSceneState baseSceneState)
         {
@@ -297,6 +337,16 @@ namespace Assets.Framework.UI
             lastSceneState.ExitScene();
             currentSceneState.EnterScene();
             HideMask();
+        }
+        #endregion
+
+        //UI部分
+        public GameObject CreateUIAndSetUIPosition(string uiName)
+        {
+            GameObject itemGo = FactoryManager.Instance.GetUI(uiName);
+            itemGo.transform.SetParent(CanvasTransform);
+            itemGo.transform.ResetLocal();
+            return itemGo;
         }
 
     }

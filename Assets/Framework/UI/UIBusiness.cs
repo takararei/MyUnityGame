@@ -16,6 +16,8 @@ namespace Assets.Framework.UI
                 case UIPanelName.StartLoadPanel: return new StartLoadPanel();
                 case UIPanelName.BeginPanel: return new BeginPanel();
                 case UIPanelName.MainPanel: return new MainPanel();
+                case UIPanelName.ShopPanel: return new ShopPanel();
+                case UIPanelName.AchievementPanel:return new AchievementPanel();
 
                 default:
                     Debug.LogError("不存在此面板" + name);

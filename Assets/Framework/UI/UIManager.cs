@@ -55,12 +55,8 @@ namespace Assets.Framework.UI
         {
             foreach (var item in currentScenePanelDict)
             {
-                //item.Value.SetActive(false);
-                
                 item.Value.transform.SetParent(GameRoot.Instance.transform);
                 UIManager.Instance.Hide(item.Value.name);
-
-                //FactoryManager.Instance.PushUIPanel(item.Value.name, item.Value);
             }
 
             currentScenePanelDict.Clear();

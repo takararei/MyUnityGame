@@ -11,7 +11,16 @@ namespace Assets.Framework.Audio
     {
         private AudioListener mAudioListener;
         private AudioSource mBGMSource = null;
+        private AudioSource mEffectSource = null;
         public GameObject Root;
+        private bool playEffectMusic = true;
+        private bool playBGMusic = true;
+
+        public void CheckEffectSource()
+        {
+            if (mEffectSource == null)
+                mEffectSource = Root.AddComponent<AudioSource>();
+        }
         public void CheckBGMSource()
         {
             if(mBGMSource==null)
@@ -60,6 +69,32 @@ namespace Assets.Framework.Audio
         {
             mBGMSource.Pause();
             mBGMSource.mute = false;
+        }
+
+        public void PlayEffectMusic(AudioClip audioClip)
+        {
+            if (playEffectMusic)
+            {
+                mEffectSource.PlayOneShot(audioClip);
+            }
+        }
+
+        public void CloseOrOpenBGMusic()
+        {
+            playBGMusic = !playBGMusic;
+            if (playBGMusic)
+            {
+                BGMOn();
+            }
+            else
+            {
+                BGMOff();
+            }
+        }
+
+        public void CloseOrOpenEffectMusic()
+        {
+            playEffectMusic = !playEffectMusic;
         }
     }
 }
