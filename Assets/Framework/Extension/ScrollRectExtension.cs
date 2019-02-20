@@ -9,7 +9,7 @@ namespace Assets.Framework.Extension
     public static class ScrollRectExtension
     {
         /// <summary>
-        /// Conten宽自适应
+        /// Content宽自适应
         /// </summary>
         /// <param name="scrollRect"></param>
         /// <param name="grid"></param>
@@ -19,7 +19,7 @@ namespace Assets.Framework.Extension
             scrollRect.content.sizeDelta = new Vector2(rightLength, scrollRect.content.sizeDelta.y);
         }
         /// <summary>
-        /// Conten高自适应
+        /// Content高自适应
         /// </summary>
         /// <param name="scrollRect"></param>
         /// <param name="grid"></param>
@@ -30,7 +30,7 @@ namespace Assets.Framework.Extension
             scrollRect.content.sizeDelta = new Vector2(0, heightLength + offset);
         }
         /// <summary>
-        /// Conten宽高自适应
+        /// Content宽高自适应
         /// </summary>
         /// <param name="scrollRect"></param>
         /// <param name="grid"></param>

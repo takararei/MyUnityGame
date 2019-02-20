@@ -15,7 +15,7 @@ namespace Assets.Framework.UI
         public static void ExcelToAsset()
         {
             fileName = "UIPanelData";
-            UIDataMgr mgr = ScriptableObject.CreateInstance<UIDataMgr>();
+            UIPanelDataMgr mgr = ScriptableObject.CreateInstance<UIPanelDataMgr>();
             mgr.PanelInfoList = ReadExcel(excelPath);
 
             CreateAsset(mgr);

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Assets.Framework.UI
 {
     [Serializable]
-    public class UIDataMgr: ScriptableObject
+    public class UIPanelDataMgr: ScriptableObject
     {
         public List<UIPanelInfo> PanelInfoList;
     }

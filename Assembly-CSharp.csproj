@@ -88,7 +88,6 @@
     <Compile Include="Assets\Framework\Factory\RuntimeAnimatorControllerFactory.cs" />
     <Compile Include="Assets\Framework\Factory\SpriteFactory.cs" />
     <Compile Include="Assets\Framework\Factory\UIFactory.cs" />
-    <Compile Include="Assets\Framework\Factory\UIPanelFactory.cs" />
     <Compile Include="Assets\Framework\GameRoot.cs" />
     <Compile Include="Assets\Framework\SceneState\BaseSceneState.cs" />
     <Compile Include="Assets\Framework\SceneState\IBaseSceneState.cs" />
@@ -100,10 +99,10 @@
     <Compile Include="Assets\Framework\UI\BasePanel.cs" />
     <Compile Include="Assets\Framework\UI\IBasePanel.cs" />
     <Compile Include="Assets\Framework\UI\UIBusiness.cs" />
-    <Compile Include="Assets\Framework\UI\UIDataMgr.cs" />
     <Compile Include="Assets\Framework\UI\UIFacade.cs" />
     <Compile Include="Assets\Framework\UI\UIManager.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelDataEditor.cs" />
+    <Compile Include="Assets\Framework\UI\UIPanelDataMgr.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelInfo.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelName.cs" />
     <Compile Include="Assets\Framework\Util\CommonUtil.cs" />

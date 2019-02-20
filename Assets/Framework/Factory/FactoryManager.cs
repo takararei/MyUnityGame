@@ -9,7 +9,6 @@ namespace Assets.Framework.Factory
 {
     public enum FactoryType
     {
-        UIPanelFactory,
         UIFactory,
         GameFactory,
     }
@@ -23,7 +22,7 @@ namespace Assets.Framework.Factory
 
         public void Init()
         {
-            factoryDict.Add(FactoryType.UIPanelFactory, new UIPanelFactory());
+            //factoryDict.Add(FactoryType.UIPanelFactory, new UIPanelFactory());
             factoryDict.Add(FactoryType.UIFactory, new UIFactory());
             factoryDict.Add(FactoryType.GameFactory, new GameFactory());
             auidoClipFactory = new AudioClipFactory();
@@ -46,20 +45,20 @@ namespace Assets.Framework.Factory
             return runtimeAnimatorFactory.GetResource(resourcePath);
         }
 
-        public GameObject GetGameObjectResource(FactoryType factoryType, string resourcePath)
-        {
-            return factoryDict[factoryType].GetItem(resourcePath);
-        }
+        //public GameObject GetGameObjectResource(FactoryType factoryType, string resourcePath)
+        //{
+        //    return factoryDict[factoryType].GetItem(resourcePath);
+        //}
 
-        public void PushGameObjectToFactory(FactoryType factoryType, string itemName, GameObject itemGo)
-        {
-            factoryDict[factoryType].PushItem(itemName, itemGo);
-        }
+        //public void PushGameObjectToFactory(FactoryType factoryType, string itemName, GameObject itemGo)
+        //{
+        //    factoryDict[factoryType].PushItem(itemName, itemGo);
+        //}
 
-        public GameObject GetUIPanel(string resourcePath)
-        {
-            return factoryDict[FactoryType.UIPanelFactory].GetItem(resourcePath);
-        }
+        //public GameObject GetUIPanel(string resourcePath)
+        //{
+        //    return factoryDict[FactoryType.UIPanelFactory].GetItem(resourcePath);
+        //}
 
         public GameObject GetUI(string resourcePath)
         {
@@ -71,10 +70,10 @@ namespace Assets.Framework.Factory
             return factoryDict[FactoryType.GameFactory].GetItem(resourcePath);
         }
 
-        public void PushUIPanel(string itemName, GameObject itemGo)
-        {
-            factoryDict[FactoryType.UIPanelFactory].PushItem(itemName, itemGo);
-        }
+        //public void PushUIPanel(string itemName, GameObject itemGo)
+        //{
+        //    factoryDict[FactoryType.UIPanelFactory].PushItem(itemName, itemGo);
+        //}
 
         public void PushUI(string itemName, GameObject itemGo)
         {

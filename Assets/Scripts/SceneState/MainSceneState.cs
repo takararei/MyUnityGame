@@ -10,7 +10,7 @@ public class MainSceneState : BaseSceneState {
     public override void EnterScene()
     {
         base.EnterScene();
-        UIManager.Instance.Show("MainPanel");
+        UIManager.Instance.Show(UIPanelName.MainPanel);
     }
 
     public override void ExitScene()

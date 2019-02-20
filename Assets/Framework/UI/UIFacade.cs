@@ -84,19 +84,19 @@ namespace Assets.Framework.UI
         /// </summary>
         private Dictionary<string, UIPanelInfo> panelInfoDict;
         /// <summary>
-        /// 保存所有被实例化的BasePanel组件,BasePanel
+        /// 保存所有被实例化的BasePanel组件,BasePanel 脚本
         /// </summary>
         private Dictionary<string, BasePanel> panelDict;
         /// <summary>
-        /// 管理所有显示的面板
+        /// 管理所有显示的面板 脚本
         /// </summary>
         private Dictionary<string, BasePanel> panelShowDict;
         /// <summary>
-        /// 管理实例化的面板游戏物体
+        /// 管理实例化的面板游戏物体，预制体
         /// </summary>
         private Dictionary<string, GameObject> panelGODict;
         /// <summary>
-        /// 当前场景的面板游戏物体
+        /// 当前场景的面板游戏物体，预制体
         /// </summary>
         public Dictionary<string, GameObject> currentScenePanelDict;
         #endregion
@@ -156,7 +156,7 @@ namespace Assets.Framework.UI
                 panelInfoDict = new Dictionary<string, UIPanelInfo>();
             }
 
-            UIDataMgr uiMgr = Resources.Load<UIDataMgr>("AssetData/UIPanelData");
+            UIPanelDataMgr uiMgr = Resources.Load<UIPanelDataMgr>("AssetData/UIPanelData");
             foreach (UIPanelInfo info in uiMgr.PanelInfoList)
             {
                 panelInfoDict.Add(info.panelName, info);

@@ -51,15 +51,15 @@ namespace Assets.Framework.UI
             uiFacade.Update();
         }
 
-        public void ClearDict()
-        {
-            foreach (var item in currentScenePanelDict)
-            {
-                item.Value.transform.SetParent(GameRoot.Instance.transform);
-                UIManager.Instance.Hide(item.Value.name);
-            }
+        //public void ClearDict()
+        //{
+        //    foreach (var item in currentScenePanelDict)
+        //    {
+        //        item.Value.transform.SetParent(GameRoot.Instance.transform);
+        //        UIManager.Instance.Hide(item.Value.name);
+        //    }
 
-            currentScenePanelDict.Clear();
-        }
+        //    currentScenePanelDict.Clear();
+        //}
     }
 }

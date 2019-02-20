@@ -8,10 +8,10 @@ namespace Assets.Framework.Factory
 {
     public class BaseFactory:IBaseFactory
     {
-        //游戏物体资源
+        //游戏物体资源 存放已经加载过的资源，如 子弹，用于生成新子弹
         protected Dictionary<string, GameObject> factoryDict = new Dictionary<string, GameObject>();
 
-        //对象池字典 栈
+        //对象池字典 栈 (类型，对象链表) （子弹，子弹对象池）
         protected Dictionary<string, Stack<GameObject>> objectPoolDict = new Dictionary<string, Stack<GameObject>>();
 
         protected string loadPath;
