@@ -16,6 +16,12 @@ namespace Assets.Framework.Audio
         private bool playEffectMusic = true;
         private bool playBGMusic = true;
 
+        public override void Init()
+        {
+            //base.Init();
+            Root = GameRoot.Instance.gameObject;
+        }
+
         public void CheckEffectSource()
         {
             if (mEffectSource == null)

@@ -26,9 +26,9 @@ namespace Assets.Framework
             _instance = this;
 
             FactoryManager.Instance.Init();
-            
-            AudioManager.Instance.Root = this.gameObject;
+            AudioManager.Instance.Init();
             UIManager.Instance.Init();
+
             UIManager.Instance.uiFacade.currentSceneState.EnterScene();
 
         }

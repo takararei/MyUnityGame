@@ -89,6 +89,7 @@
     <Compile Include="Assets\Framework\Factory\SpriteFactory.cs" />
     <Compile Include="Assets\Framework\Factory\UIFactory.cs" />
     <Compile Include="Assets\Framework\GameRoot.cs" />
+    <Compile Include="Assets\Framework\PlayerManager.cs" />
     <Compile Include="Assets\Framework\SceneState\BaseSceneState.cs" />
     <Compile Include="Assets\Framework\SceneState\IBaseSceneState.cs" />
     <Compile Include="Assets\Framework\Singleton\Singleton.cs" />

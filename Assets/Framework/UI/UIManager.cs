@@ -15,8 +15,9 @@ namespace Assets.Framework.UI
         //当前场景所有的UIPanel预制体
         public Dictionary<string, GameObject> currentScenePanelDict;
 
-        public void Init()
+        public override void Init()
         {
+            //base.Init();
             uiFacade = new UIFacade();
             currentScenePanelDict = new Dictionary<string, GameObject>();
             ParseUIpanelTypeAsset();

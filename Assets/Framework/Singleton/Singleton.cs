@@ -31,5 +31,10 @@ namespace Assets.Framework.Singleton
                 return _instance;
             }
         }
+
+        public virtual void Init()
+        {
+
+        }
     }
 }

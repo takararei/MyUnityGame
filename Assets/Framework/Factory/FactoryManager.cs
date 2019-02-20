@@ -20,8 +20,9 @@ namespace Assets.Framework.Factory
         public SpriteFactory spriteFactory;
         public RuntimeAnimatorControllerFactory runtimeAnimatorFactory;
 
-        public void Init()
+        public override void Init()
         {
+            //base.Init();
             //factoryDict.Add(FactoryType.UIPanelFactory, new UIPanelFactory());
             factoryDict.Add(FactoryType.UIFactory, new UIFactory());
             factoryDict.Add(FactoryType.GameFactory, new GameFactory());
