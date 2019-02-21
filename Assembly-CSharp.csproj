@@ -71,6 +71,8 @@
     <Compile Include="Assets\Example\ExcelToAsset\Test\TestDataManager.cs" />
     <Compile Include="Assets\Example\ExcelToAsset\Test\TestDataObject.cs" />
     <Compile Include="Assets\Example\ExcelToAsset\TestDataEditor.cs" />
+    <Compile Include="Assets\Example\ListItem\ListControl.cs" />
+    <Compile Include="Assets\Example\ListItem\ListItemBtn.cs" />
     <Compile Include="Assets\Example\PanelTest\TestUIPanel.cs" />
     <Compile Include="Assets\Example\ScrollView\ScrollViewSet.cs" />
     <Compile Include="Assets\Framework\Audio\AudioManager.cs" />
@@ -111,11 +113,13 @@
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
+    <Compile Include="Assets\Scripts\DragMap.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\BeginPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\HelpPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\MainPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\ShopPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\StartLoadPanel.cs" />

@@ -47,13 +47,13 @@ namespace Assets.Framework.UI
             mRootUI.SetActive(true);
         }
         
-        public virtual void OnPause()
-        {
-        }
+        //public virtual void OnPause()
+        //{
+        //}
         
-        public virtual void OnResume()
-        {
-        }
+        //public virtual void OnResume()
+        //{
+        //}
         
         public virtual void OnHide()
         {

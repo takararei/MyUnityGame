@@ -15,5 +15,6 @@ namespace Assets.Framework.UI
         public const string ShopPanel = "ShopPanel";
         public const string LevelIntroducePanel = "LevelIntroducePanel";
         public const string AchievementPanel = "AchievementPanel";
+        public const string HelpPanel = "HelpPanel";
     }
 }

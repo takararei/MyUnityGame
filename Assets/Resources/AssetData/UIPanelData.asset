@@ -44,3 +44,7 @@ MonoBehaviour:
     panelName: AchievementPanel
     path: Prefabs/UIPanel/AchievementPanel
     layer: Common
+  - id: 9
+    panelName: HelpPanel
+    path: Prefabs/UIPanel/HelpPanel
+    layer: Common

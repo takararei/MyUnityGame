@@ -30,11 +30,11 @@ namespace Assets.Framework.UI
         /// <summary>
         /// 一些关闭交互
         /// </summary>
-        void OnPause();
+        //void OnPause();
 
         /// <summary>
         /// 重启交互
         /// </summary>
-        void OnResume();
+        //void OnResume();
     }
 }

@@ -5,8 +5,10 @@ using Assets.Framework.UI;
 using UnityEngine.UI;
 using Assets.Framework.Extension;
 using System;
+using UnityEngine.EventSystems;
 
-public class MainPanel : BasePanel {
+public class MainPanel : BasePanel
+{
 
     Button mBtn_Shop;
     Button mBtn_Achievement;
@@ -20,6 +22,11 @@ public class MainPanel : BasePanel {
     bool isSetActive = false;
     //地图关卡按钮
 
+    float dragPosXoffset;
+    float dragBeginPosX;
+    float dragEndPosX;
+    Image mImg_Map;
+    DragMap mDargMap;
     public override void Init()
     {
         base.Init();
@@ -33,7 +40,9 @@ public class MainPanel : BasePanel {
         mBtn_Music = Find<Button>("Btn_Music");
         mBtn_Home = Find<Button>("Btn_Home");
         mSetPanel = Find<Image>("SetPanel");
-       
+
+        mImg_Map = Find<Image>("Img_Map");
+        mDargMap = mImg_Map.GetComponent<DragMap>();
     }
 
     public override void OnShow()
@@ -41,15 +50,33 @@ public class MainPanel : BasePanel {
         base.OnShow();
         mSetPanel.gameObject.Hide();
         isSetActive = false;
-        mBtn_Shop.onClick.AddListener(()=>UIManager.Instance.Show(UIPanelName.ShopPanel));
-        mBtn_Achievement.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.AchievementPanel));
-        mBtn_Set.onClick.AddListener(OnButtonSetClick);
-        mBtn_Help.onClick.AddListener(() => { });//helpPanel
-        mTxt_Count.text = "";//
-        mBtn_SoundEffects.onClick.AddListener(()=> { });//
-        mBtn_Music.onClick.AddListener(() => { });//
-        mBtn_Home.onClick.AddListener(OnButtonHomeClick);
+        mImg_Map.transform.SetLocalPosX(mDargMap.MapPosXLeft);
 
+        mBtn_Shop.onClick.AddListener
+            (
+                () => UIManager.Instance.Show(UIPanelName.ShopPanel)
+            );
+        mBtn_Achievement.onClick.AddListener
+            (
+                () => UIManager.Instance.Show(UIPanelName.AchievementPanel)
+            );
+        
+        mBtn_Help.onClick.AddListener
+            (
+                () => UIManager.Instance.Show(UIPanelName.HelpPanel)
+            );
+        
+        mBtn_SoundEffects.onClick.AddListener
+            (
+                () => { }
+            );//
+        mBtn_Music.onClick.AddListener
+            (
+                () => { }
+            );//
+        mBtn_Home.onClick.AddListener(OnButtonHomeClick);
+        mBtn_Set.onClick.AddListener(OnButtonSetClick);
+        mTxt_Count.text = "";//
     }
 
     public override void OnHide()//TODO
@@ -62,7 +89,7 @@ public class MainPanel : BasePanel {
 
     private void OnButtonSetClick()
     {
-        if(isSetActive)
+        if (isSetActive)
         {
             mSetPanel.gameObject.Hide();
             isSetActive = false;
@@ -74,12 +101,11 @@ public class MainPanel : BasePanel {
         }
     }
 
-    
+
 
     private void OnButtonHomeClick()
     {
         UIManager.Instance.uiFacade.ChangeSceneState(new BeginSceneState());
     }
 
-    
 }

@@ -259,7 +259,7 @@ namespace Assets.Framework.UI
             }
 
             BasePanel panel = GetPanel(panelName);
-            panel.RootUI.transform.SetAsFirstSibling();
+            panel.RootUI.transform.SetAsLastSibling();
             panel.OnShow();
 
             if (!panelShowDict.ContainsKey(panelName))
