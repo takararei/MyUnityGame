@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Framework.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,11 +8,13 @@ public class ListControl : MonoBehaviour
 {
     public GameObject content;
     public ScrollRect scrollRect;
-    int lastID=-1;
+    //int lastID=-1;
     public List<ListItemBtn> BtnItemList=new List<ListItemBtn>();
+    public static Object res;
     void Start()
     {
-        Object res = Resources.Load("TestButton");
+        res = Resources.Load("TestButton");
+
         for (int i = 0; i < 20; i++)
         {
             //实例物体出来
@@ -19,37 +22,46 @@ public class ListControl : MonoBehaviour
             go.transform.SetParent(content.transform);
 
             //对应类
-            ListItemBtn lib = new ListItemBtn(go);
-            lib.ID = i;
-            lib.image.gameObject.SetActive(false);
-            lib.btn.onClick.AddListener(() =>
-                {
-                    if(lastID!=-1)
-                    {
-                        BtnItemList[lastID].image.gameObject.SetActive(false);
-                    }
-                    Debug.Log(lib.ID);
-                    lib.image.gameObject.SetActive(true);
-                    lastID = lib.ID;
-                }
-            );
-
-
+            ListItemBtn lib = new ListItemBtn(i,this);
             BtnItemList.Add(lib);
-
+            
         }
     }
+    
 
-   public class ListItemBtn
+   public class ListItemBtn:BaseUIListItem
     {
         public Image image;
         public Button btn;
-        public int ID = 0;
-
-        public ListItemBtn(GameObject go)
+        public static int lastID=-1;
+        public List<ListItemBtn> BtnList;
+        public ListItemBtn(int index, ListControl listC)
         {
-            btn = go.transform.Find("Button").GetComponent<Button>();
-            image = go.transform.Find("Image").GetComponent<Image>();
+            root = GameObject.Instantiate(res) as GameObject;
+            BtnList =listC.BtnItemList;
+
+            btn = Find<Button>("Button");
+            image = Find<Image>("Image");
+            image.gameObject.SetActive(false);
+            ID = index;
+            btn.onClick.AddListener(Test);
         }
+
+        public void Test()
+        {
+            if (ListItemBtn.lastID != -1)
+            {
+                BtnList[lastID].image.gameObject.SetActive(false);
+            }
+            image.gameObject.SetActive(true);
+            ListItemBtn.lastID = ID;
+        }
+
+        public override void Clear()
+        {
+            base.Clear();
+            btn.onClick.RemoveAllListeners();
+        }
+
     }
 }

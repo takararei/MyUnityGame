@@ -100,7 +100,9 @@
     <Compile Include="Assets\Framework\Tools\UITool.cs" />
     <Compile Include="Assets\Framework\Tools\UnityTool.cs" />
     <Compile Include="Assets\Framework\UI\BasePanel.cs" />
+    <Compile Include="Assets\Framework\UI\BaseUIListItem.cs" />
     <Compile Include="Assets\Framework\UI\IBasePanel.cs" />
+    <Compile Include="Assets\Framework\UI\IBaseUIListItem.cs" />
     <Compile Include="Assets\Framework\UI\UIBusiness.cs" />
     <Compile Include="Assets\Framework\UI\UIFacade.cs" />
     <Compile Include="Assets\Framework\UI\UIManager.cs" />
