@@ -9,8 +9,17 @@ namespace Assets.Framework.UI
 {
     public class BaseUIListItem:IBaseUIListItem
     {
-        protected GameObject root;
-        protected int ID;
+        public int id
+        {
+            get;
+            set;
+        }
+
+        public GameObject root
+        {
+            get;
+            set;
+        }
 
         protected T Find<T>(string uiName)
         {
@@ -21,15 +30,6 @@ namespace Assets.Framework.UI
         {
 
         }
-
-        public int GetID()
-        {
-            return ID;
-        }
-
-        public void SetID(int id)
-        {
-            ID = id;
-        }
+        
     }
 }

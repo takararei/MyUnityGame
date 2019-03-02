@@ -43,7 +43,7 @@ public class ListControl : MonoBehaviour
             btn = Find<Button>("Button");
             image = Find<Image>("Image");
             image.gameObject.SetActive(false);
-            ID = index;
+            id = index;
             btn.onClick.AddListener(Test);
         }
 
@@ -54,7 +54,7 @@ public class ListControl : MonoBehaviour
                 BtnList[lastID].image.gameObject.SetActive(false);
             }
             image.gameObject.SetActive(true);
-            ListItemBtn.lastID = ID;
+            ListItemBtn.lastID = id;
         }
 
         public override void Clear()

@@ -115,7 +115,6 @@
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
-    <Compile Include="Assets\Scripts\DragMap.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />

@@ -15,7 +15,12 @@ namespace Assets.Framework.UI
     }
     public class BasePanel: IBasePanel
     {
-        protected GameObject mRootUI;
+        public GameObject rootUI
+        {
+            get;
+            set;
+        }
+
         protected CanvasGroup canvasGroup;
         protected GameObject UICanvas;
         public virtual void Init()
@@ -25,10 +30,10 @@ namespace Assets.Framework.UI
 
         protected bool SetCanvasGroup()
         {
-            canvasGroup = mRootUI.transform.GetComponent<CanvasGroup>();
+            canvasGroup = rootUI.transform.GetComponent<CanvasGroup>();
             if(canvasGroup==null)
             {
-                Debug.Log(mRootUI.name+"没有canvasGroup组件");
+                Debug.Log(rootUI.name+"没有canvasGroup组件");
                 return false;
             }
             //return canvasGroup;
@@ -44,7 +49,7 @@ namespace Assets.Framework.UI
         
         public virtual void OnShow()
         {
-            mRootUI.SetActive(true);
+            rootUI.SetActive(true);
         }
         
         //public virtual void OnPause()
@@ -57,18 +62,12 @@ namespace Assets.Framework.UI
         
         public virtual void OnHide()
         {
-            mRootUI.SetActive(false);
-        }
-
-        public GameObject RootUI
-        {
-            get { return mRootUI; }
-            set { mRootUI = value; }
+            rootUI.SetActive(false);
         }
 
         protected T Find<T>(string uiName)
         {
-            return UITool.FindChild<T>(mRootUI, uiName);
+            return UITool.FindChild<T>(rootUI, uiName);
         }
     }
 }

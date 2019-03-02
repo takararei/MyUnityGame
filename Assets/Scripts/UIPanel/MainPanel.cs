@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 
 public class MainPanel : BasePanel
 {
-
     Button mBtn_Shop;
     Button mBtn_Achievement;
     Button mBtn_Set;
@@ -21,12 +20,17 @@ public class MainPanel : BasePanel
     Image mSetPanel;
     bool isSetActive = false;
     //地图关卡按钮
+    
+    float MapPosXLeft = -960;
+    float MapPosXRight = -1356.5f;
 
-    float dragPosXoffset;
-    float dragBeginPosX;
-    float dragEndPosX;
     Image mImg_Map;
-    DragMap mDargMap;
+    float dragLastPosX;
+    EventTrigger mImg_MapEventTrigger;
+    EventTrigger.Entry onDragEntry;
+    EventTrigger.Entry onPointerDownEntry;
+    
+
     public override void Init()
     {
         base.Init();
@@ -42,7 +46,13 @@ public class MainPanel : BasePanel
         mSetPanel = Find<Image>("SetPanel");
 
         mImg_Map = Find<Image>("Img_Map");
-        mDargMap = mImg_Map.GetComponent<DragMap>();
+        mImg_MapEventTrigger = mImg_Map.GetComponent<EventTrigger>();
+
+        onDragEntry = new EventTrigger.Entry();
+        onDragEntry.eventID = EventTriggerType.Drag;
+        onPointerDownEntry = new EventTrigger.Entry();
+        onPointerDownEntry.eventID = EventTriggerType.PointerDown;
+        
     }
 
     public override void OnShow()
@@ -50,32 +60,24 @@ public class MainPanel : BasePanel
         base.OnShow();
         mSetPanel.gameObject.Hide();
         isSetActive = false;
-        mImg_Map.transform.SetLocalPosX(mDargMap.MapPosXLeft);
 
-        mBtn_Shop.onClick.AddListener
-            (
-                () => UIManager.Instance.Show(UIPanelName.ShopPanel)
-            );
-        mBtn_Achievement.onClick.AddListener
-            (
-                () => UIManager.Instance.Show(UIPanelName.AchievementPanel)
-            );
-        
-        mBtn_Help.onClick.AddListener
-            (
-                () => UIManager.Instance.Show(UIPanelName.HelpPanel)
-            );
-        
-        mBtn_SoundEffects.onClick.AddListener
-            (
-                () => { }
-            );//
-        mBtn_Music.onClick.AddListener
-            (
-                () => { }
-            );//
-        mBtn_Home.onClick.AddListener(OnButtonHomeClick);
+        mImg_Map.transform.SetLocalPosX(MapPosXLeft);
+        //子面板显示
+        mBtn_Shop.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.ShopPanel));
+        mBtn_Achievement.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.AchievementPanel));
+        mBtn_Help.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.HelpPanel));
         mBtn_Set.onClick.AddListener(OnButtonSetClick);
+        //设置面板的部分
+        mBtn_SoundEffects.onClick.AddListener(() => { } );
+        mBtn_Music.onClick.AddListener(() => { });
+        mBtn_Home.onClick.AddListener(OnButtonHomeClick);
+
+        //地图部分
+        onDragEntry.callback.AddListener((data) => { OnDrag((PointerEventData)data); });
+        onPointerDownEntry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
+        mImg_MapEventTrigger.triggers.Add(onDragEntry);
+        mImg_MapEventTrigger.triggers.Add(onPointerDownEntry);
+
         mTxt_Count.text = "";//
     }
 
@@ -84,6 +86,13 @@ public class MainPanel : BasePanel
         base.OnHide();
         mSetPanel.gameObject.Show();
         isSetActive = true;
+
+
+        mImg_MapEventTrigger.triggers.Remove(onDragEntry);
+        mImg_MapEventTrigger.triggers.Remove(onPointerDownEntry);
+        onDragEntry.callback.RemoveAllListeners();
+        onPointerDownEntry.callback.RemoveAllListeners();
+        
     }
 
 
@@ -100,12 +109,27 @@ public class MainPanel : BasePanel
             isSetActive = true;
         }
     }
-
-
-
+    
     private void OnButtonHomeClick()
     {
         UIManager.Instance.uiFacade.ChangeSceneState(new BeginSceneState());
+    }
+
+
+    void OnPointerDown(PointerEventData eventData)
+    {
+        mSetPanel.gameObject.Hide();
+        isSetActive = false;
+    }
+    void OnDrag(PointerEventData eventData)
+    {
+        float dragPosXoffset = dragLastPosX - eventData.position.x;
+        float localPosX = mImg_Map.transform.localPosition.x - dragPosXoffset;
+        if (localPosX < MapPosXLeft && localPosX > MapPosXRight)
+        {
+            mImg_Map.transform.SetLocalPosX(localPosX);
+        }
+        dragLastPosX = eventData.position.x;
     }
 
 }

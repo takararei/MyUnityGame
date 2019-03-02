@@ -15,8 +15,8 @@ public class TestUIPanel : BasePanel {
         base.Init();
         //mRootUI = UnityTool.FindChild(UICanvas, UIPanelName.TestUIPanel);
         SetCanvasGroup();
-        mTestBtn = UITool.FindChild<Button>(mRootUI, "TestBtn");
-        mTestTxt = UITool.FindChild<Text>(mRootUI, "TestTxt");
+        mTestBtn = UITool.FindChild<Button>(rootUI, "TestBtn");
+        mTestTxt = UITool.FindChild<Text>(rootUI, "TestTxt");
         mTestBtn.onClick.AddListener(TestClick);
         
     }

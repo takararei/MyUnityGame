@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Framework.UI
 {
     public interface IBasePanel
     {
+        GameObject rootUI { get; set; }
         /// <summary>
         /// 处理一些初始化,如按钮赋值 注册监听
         /// </summary>

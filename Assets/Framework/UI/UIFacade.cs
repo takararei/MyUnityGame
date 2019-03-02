@@ -243,7 +243,7 @@ namespace Assets.Framework.UI
                 instPanel.transform.ResetLocal();
                 
                 panel = UIBusiness.GetPanelBusiness(panelName);
-                panel.RootUI = instPanel;
+                panel.rootUI = instPanel;
 
                 panelDict.Add(panelName, panel);
                 panel.Init();
@@ -259,7 +259,7 @@ namespace Assets.Framework.UI
             }
 
             BasePanel panel = GetPanel(panelName);
-            panel.RootUI.transform.SetAsLastSibling();
+            panel.rootUI.transform.SetAsLastSibling();
             panel.OnShow();
 
             if (!panelShowDict.ContainsKey(panelName))
