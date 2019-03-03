@@ -1,4 +1,5 @@
 ﻿using Assets.Framework;
+using Assets.Framework.SceneState;
 using Assets.Framework.UI;
 using DG.Tweening;
 using System.Collections;
@@ -20,7 +21,7 @@ public class StartLoadPanel : BasePanel {
     
     void LoadNextScene()
     {
-        UIManager.Instance.uiFacade.ChangeSceneState(new BeginSceneState());
+        SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
     }
 
     public override void Update()

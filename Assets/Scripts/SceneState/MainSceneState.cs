@@ -16,7 +16,7 @@ public class MainSceneState : BaseSceneState {
     public override void ExitScene()
     {
         base.ExitScene();
-        if(UIManager.Instance.uiFacade.currentSceneState.GetType()==typeof(BeginPanel))
+        if(SceneStateManager.Instance.currentSceneState.GetType()==typeof(BeginSceneState))
         {
             SceneManager.LoadScene(1);
         }

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Assets.Framework.SceneState;
+
 public class BeginPanel : BasePanel
 {
     private Button mBtn_SoundEffects;
@@ -101,7 +103,7 @@ public class BeginPanel : BasePanel
 
     public void OnButtonStartGameClick()//切换场景
     {
-        UIManager.Instance.uiFacade.ChangeSceneState(new MainSceneState());
+        SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
     }
     
 }

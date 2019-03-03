@@ -94,6 +94,7 @@
     <Compile Include="Assets\Framework\PlayerManager.cs" />
     <Compile Include="Assets\Framework\SceneState\BaseSceneState.cs" />
     <Compile Include="Assets\Framework\SceneState\IBaseSceneState.cs" />
+    <Compile Include="Assets\Framework\SceneState\SceneStateManager.cs" />
     <Compile Include="Assets\Framework\Singleton\Singleton.cs" />
     <Compile Include="Assets\Framework\Singleton\SingletonReflection.cs" />
     <Compile Include="Assets\Framework\Tools\DGTool.cs" />

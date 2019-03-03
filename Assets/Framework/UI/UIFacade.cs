@@ -72,11 +72,7 @@ namespace Assets.Framework.UI
             }
         }
         #endregion Transform
-
-        //其他成员变量
-        private GameObject mask;
-        private Image maskImage;
-        private float maskTime=1.5f;
+        
 
         #region Panel-Dict
         /// <summary>
@@ -103,7 +99,7 @@ namespace Assets.Framework.UI
 
         public UIFacade()
         {
-            InitMask();
+
         }
 
         public void ClearPanelDict()
@@ -293,53 +289,6 @@ namespace Assets.Framework.UI
             }
         }
         
-        #region Mask
-        //显示遮罩
-        private void ShowMask()
-        {
-            mask.transform.SetSiblingIndex(10);
-            Tween t =
-                DOTween.To(() => maskImage.color,
-                toColor => maskImage.color = toColor,
-                new Color(0, 0, 0, 1),
-                maskTime);
-            t.OnComplete(ExitSceneComplete);
-        }
-
-        private void HideMask()
-        {
-            DOTween.To(() => maskImage.color,
-                toColor => maskImage.color = toColor,
-                new Color(0, 0, 0, 0),
-                maskTime);
-        }
-
-        public void InitMask()
-        {
-            mask = CreateUIAndSetUIPosition("Img_Mask");
-            maskImage = mask.GetComponent<Image>();
-        }
-        #endregion 遮罩Mask
-
-        #region SceneState
-        public IBaseSceneState lastSceneState;
-        public IBaseSceneState currentSceneState;
-
-        public void ChangeSceneState(IBaseSceneState baseSceneState)
-        {
-            lastSceneState = currentSceneState;
-            ShowMask();
-            currentSceneState = baseSceneState;
-        }
-
-        private void ExitSceneComplete()
-        {
-            lastSceneState.ExitScene();
-            currentSceneState.EnterScene();
-            HideMask();
-        }
-        #endregion
-
         //UI部分
         public GameObject CreateUIAndSetUIPosition(string uiName)
         {

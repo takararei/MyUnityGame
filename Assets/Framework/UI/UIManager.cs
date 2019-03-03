@@ -11,17 +11,12 @@ namespace Assets.Framework.UI
     public class UIManager : Singleton<UIManager>
     {
         public UIFacade uiFacade;
-
-        //当前场景所有的UIPanel预制体
-        public Dictionary<string, GameObject> currentScenePanelDict;
-
+        
         public override void Init()
         {
-            //base.Init();
+            base.Init();
             uiFacade = new UIFacade();
-            currentScenePanelDict = new Dictionary<string, GameObject>();
             ParseUIpanelTypeAsset();
-            uiFacade.currentSceneState = new StartLoadSceneState();
         }
         
         /// <summary>
@@ -51,16 +46,6 @@ namespace Assets.Framework.UI
         {
             uiFacade.Update();
         }
-
-        //public void ClearDict()
-        //{
-        //    foreach (var item in currentScenePanelDict)
-        //    {
-        //        item.Value.transform.SetParent(GameRoot.Instance.transform);
-        //        UIManager.Instance.Hide(item.Value.name);
-        //    }
-
-        //    currentScenePanelDict.Clear();
-        //}
+        
     }
 }

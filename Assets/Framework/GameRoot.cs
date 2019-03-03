@@ -1,5 +1,6 @@
 ﻿using Assets.Framework.Audio;
 using Assets.Framework.Factory;
+using Assets.Framework.SceneState;
 using Assets.Framework.UI;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,8 @@ namespace Assets.Framework
             FactoryManager.Instance.Init();
             AudioManager.Instance.Init();
             UIManager.Instance.Init();
-
-            UIManager.Instance.uiFacade.currentSceneState.EnterScene();
+            SceneStateManager.Instance.Init();
+            //UIManager.Instance.uiFacade.currentSceneState.EnterScene();
 
         }
 

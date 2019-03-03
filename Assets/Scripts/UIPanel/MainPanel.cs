@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Assets.Framework.Extension;
 using System;
 using UnityEngine.EventSystems;
+using Assets.Framework.SceneState;
 
 public class MainPanel : BasePanel
 {
@@ -112,7 +113,7 @@ public class MainPanel : BasePanel
     
     private void OnButtonHomeClick()
     {
-        UIManager.Instance.uiFacade.ChangeSceneState(new BeginSceneState());
+        SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
     }
 
 
