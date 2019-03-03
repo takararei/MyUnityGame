@@ -1,6 +1,5 @@
 ﻿using Assets.Framework.Extension;
 using Assets.Framework.Factory;
-using Assets.Framework.SceneState;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;

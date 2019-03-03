@@ -61,7 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\ExcelReader\TestDataEditor.cs" />
+    <Compile Include="Assets\Editor\MapTool.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/MyGraduation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

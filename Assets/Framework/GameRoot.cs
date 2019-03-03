@@ -30,7 +30,6 @@ namespace Assets.Framework
             AudioManager.Instance.Init();
             UIManager.Instance.Init();
             SceneStateManager.Instance.Init();
-            //UIManager.Instance.uiFacade.currentSceneState.EnterScene();
 
         }
 
