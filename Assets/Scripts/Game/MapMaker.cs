@@ -23,7 +23,7 @@ public class MapMaker : MonoBehaviour
     private const int xColumn = 12;
 
     //路径点的X，Y
-
+    private GridPoint[,] gridPoints;
     private SpriteRenderer bgSR;
     private SpriteRenderer roadSR;
     
@@ -31,12 +31,17 @@ public class MapMaker : MonoBehaviour
     public Sprite gridSprite;
     public Sprite pathSprite;
     public GameObject[] itemPrefabs;//道具数组
+    
     private void Awake()
     {
         _instance = this;
+
         InitAllGrid();
+
         bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();
-        //roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
+        roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
+
+        gridPoints = new GridPoint[xColumn, yRow];
     }
 
     //初始化地图中所有的格子
@@ -53,6 +58,8 @@ public class MapMaker : MonoBehaviour
                 GridPoint gridPoint=grid.GetComponent<GridPoint>();
                 gridPoint.index.x = x;
                 gridPoint.index.y = y;
+
+                gridPoints[x, y] = gridPoint;
             }
         }
     }
@@ -102,4 +109,8 @@ public class MapMaker : MonoBehaviour
             }
         }
     }
+
+
+
+
 }

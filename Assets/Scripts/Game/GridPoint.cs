@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridPoint : MonoBehaviour {
+public class GridPoint : MonoBehaviour
+{
 
     private SpriteRenderer spriteRenderer;
     public GridIndex index;
@@ -25,9 +26,9 @@ public class GridPoint : MonoBehaviour {
         public bool isPathPoint;//是路径点
         public bool isTowerPoint;//建塔点
         public bool hasItem;//道具 
-        public bool hasTower;//塔
-        public int itemID;//持有的道具序号
-        public int towerID;//持有的塔序号
+        public bool hasTower;//塔--
+        public int itemID;//持有的道具序号 
+        public int towerID;//持有的塔序号--
     }
 
     private void Awake()
@@ -77,6 +78,11 @@ public class GridPoint : MonoBehaviour {
         gridState.hasItem = true;
     }
 
+    void SetTower()
+    {
+    }
+
+
     private void OnMouseDown()
     {
         //寻路点的设置
@@ -85,21 +91,21 @@ public class GridPoint : MonoBehaviour {
             SetPathPoint();
         }
 
-        else if(Input.GetKey(KeyCode.I))
+        else if (Input.GetKey(KeyCode.I))
         {
             SetItem();
         }
-        else if(Input.GetKey(KeyCode.T))
+        else if (Input.GetKey(KeyCode.T))
         {
-
+            SetTower();
         }
 
         //非寻路点，
-        else if(!gridState.isPathPoint)
+        else if (!gridState.isPathPoint)
         {
             gridState.isPathPoint = false;
             gridState.isTowerPoint = !gridState.isTowerPoint;
-            if(gridState.isTowerPoint)
+            if (gridState.isTowerPoint)
             {
                 spriteRenderer.enabled = true;
             }
