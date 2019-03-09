@@ -66,13 +66,23 @@ public class GridPoint : MonoBehaviour
 
     void SetItem()
     {
+        gridState.itemID = MapMaker.Instance.itemID;
+        if(gridState.itemID<0)
+        {
+            gridState.itemID = -1;
+            Destroy(currentItem);
+            gridState.hasItem = false;
+            return;
+        }
         if (currentItem == null)
         {
-
+            //产生道具
+            CreateItem();
         }
-        else
+        else//更换道具
         {
             Destroy(currentItem);
+            CreateItem();
 
         }
         gridState.hasItem = true;
@@ -80,7 +90,55 @@ public class GridPoint : MonoBehaviour
 
     void SetTower()
     {
+        gridState.towerID = MapMaker.Instance.towerID;
+        if (gridState.towerID < 0)
+        {
+            gridState.towerID = -1;
+            Destroy(currentTower);
+            gridState.hasTower = false;
+            return;
+        }
+        if (currentTower == null)
+        {
+            //产生道具
+            CreateTower();
+        }
+        else//更换道具
+        {
+            Destroy(currentTower);
+            CreateTower();
+
+        }
+        gridState.hasTower = true;
     }
+
+
+    public void CreateItem()
+    {
+        Vector3 creatPos = transform.position;
+        switch (MapMaker.Instance.itemSize)
+        {
+            case 1:
+                break;
+            case 2:
+                creatPos += new Vector3(MapMaker.Instance.gridWidth, 0) / 2;
+                break;
+            case 4:
+                creatPos += new Vector3(MapMaker.Instance.gridWidth, -MapMaker.Instance.gridHeight) / 2;
+                break;
+            default:
+                break;
+        }
+        //GameObject itemGo = Instantiate(itemPrefabs[gridState.itemID], creatPos, Quaternion.identity);
+        //currentItem = itemGo;
+    }
+
+    public void CreateTower()
+    {
+
+    }
+
+    
 
 
     private void OnMouseDown()

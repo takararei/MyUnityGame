@@ -7,47 +7,54 @@ public class MapMaker : MonoBehaviour
     private static MapMaker _instance;
     public static MapMaker Instance { get { return _instance; } }
 
-    public bool drawLine;
-    public GameObject gridGo;
-
-    //地图
-    private float mapWidth;
+    public bool drawLine;//是否画线辅助
+    public GameObject gridGo;//格子资源
+    
+    public float mapWidth;
     private float mapHeight;
-    //格子
-    private float gridWidth;
-    private float gridHeight;
-
-    public int levelID;//当前关卡数 可能还需要难度
-
+    [HideInInspector]
+    public float gridWidth;
+    [HideInInspector]
+    public float gridHeight;
     private const int yRow = 9;
     private const int xColumn = 12;
 
+    public int levelID;//当前关卡数 
+    public int difficulty;//当前难度
+
+    public int itemID;//摆放的道具ID
+    public int itemSize;
+    public int towerID;//摆放的炮塔ID
+
     //路径点的X，Y
     private GridPoint[,] gridPoints;
-    private SpriteRenderer bgSR;
-    private SpriteRenderer roadSR;
+
+    private SpriteRenderer bgSR;//获取背景
+    private SpriteRenderer roadSR;//获取地图
     
     //资源
     public Sprite gridSprite;
     public Sprite pathSprite;
     public GameObject[] itemPrefabs;//道具数组
+    public GameObject[] towerPrefabs;//建塔数组
     
     private void Awake()
     {
         _instance = this;
-
-        InitAllGrid();
-
+        InitAllGrid();//初始化所有的格子
+        //获取所有的道具
+        //获取所有的塔
         bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();
         roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
 
-        gridPoints = new GridPoint[xColumn, yRow];
+
     }
 
     //初始化地图中所有的格子
     public void InitAllGrid()
     {
         CalculateSize();
+        gridPoints = new GridPoint[xColumn, yRow];
         for (int x = 0; x < xColumn; x++)
         {
             for (int y = 0; y < yRow; y++)

@@ -122,6 +122,7 @@
     <Compile Include="Assets\Scripts\Game\MapMaker.cs" />
     <Compile Include="Assets\Scripts\Game\Round.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\MapMakerTool.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
