@@ -4,173 +4,115 @@ using UnityEngine;
 
 public class GridPoint : MonoBehaviour
 {
-
     private SpriteRenderer spriteRenderer;
-    public GridIndex index;
+    public GridIndex index;//--
     public GridSate gridState;
-    private Sprite gridSprite;//格子图片
-    private Sprite pathSprite;//自动寻路点
 
-    public GameObject currentItem;//当前格子持有道具
+    private Sprite gridSprite;//格子图片
+    private Sprite buildSprite;//建塔点
+    private Sprite towerSprite;//已有塔
+    
     public GameObject currentTower;//当前格子持有的炮塔
 
-    //格子索引
+    //格子索引-----
     public struct GridIndex
     {
         public int x;
         public int y;
     }
+    //----------
     //格子状态
+    [System.Serializable]
     public struct GridSate
     {
-        public bool isPathPoint;//是路径点
-        public bool isTowerPoint;//建塔点
-        public bool hasItem;//道具 
-        public bool hasTower;//塔--
-        public int itemID;//持有的道具序号 
-        public int towerID;//持有的塔序号--
+        public int id;
+        public bool isTowerPoint;//建塔点 空的
+        public bool hasTower;//塔 已经有塔了
+        public int towerID;//持有的塔序号
     }
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gridSprite = MapMaker.Instance.gridSprite;
-        pathSprite = MapMaker.Instance.pathSprite;
+        buildSprite = MapMaker.Instance.buildSprite;
+        towerSprite = MapMaker.Instance.towerSprite;
         InitGrid();
     }
 
-    void InitGrid()
+    public void InitGrid()
     {
-        gridState.isTowerPoint = true;
-        gridState.isPathPoint = false;
+        gridState.isTowerPoint = false;
         spriteRenderer.enabled = true;
-        gridState.hasItem = false;
         gridState.hasTower = false;
-        gridState.itemID = -1;
         gridState.towerID = -1;
     }
 
-    void SetPathPoint()
+    public void UpdateGrid()
     {
-        gridState.isPathPoint = !gridState.isPathPoint;
-        if (gridState.isPathPoint)
+        if (gridState.isTowerPoint)
         {
-            spriteRenderer.sprite = pathSprite;
+            if(gridState.hasTower)
+            {
+                spriteRenderer.sprite = towerSprite;
+            }
+            else
+            {
+                spriteRenderer.sprite = buildSprite;
+            }
         }
         else
         {
             spriteRenderer.sprite = gridSprite;
-            gridState.isTowerPoint = true;
         }
     }
 
-    void SetItem()
+    void SetTowerPoint()
     {
-        gridState.itemID = MapMaker.Instance.itemID;
-        if(gridState.itemID<0)
+        gridState.isTowerPoint = !gridState.isTowerPoint;
+        if (gridState.isTowerPoint)
         {
-            gridState.itemID = -1;
-            Destroy(currentItem);
-            gridState.hasItem = false;
-            return;
+            spriteRenderer.sprite = buildSprite;
         }
-        if (currentItem == null)
+        else
         {
-            //产生道具
-            CreateItem();
+            spriteRenderer.sprite = gridSprite;
+            gridState.isTowerPoint = false;
         }
-        else//更换道具
-        {
-            Destroy(currentItem);
-            CreateItem();
-
-        }
-        gridState.hasItem = true;
     }
 
     void SetTower()
     {
         gridState.towerID = MapMaker.Instance.towerID;
+        
         if (gridState.towerID < 0)
         {
-            gridState.towerID = -1;
-            Destroy(currentTower);
-            gridState.hasTower = false;
+            InitGrid();
+            Debug.Log("未设置塔的索引");
             return;
         }
-        if (currentTower == null)
-        {
-            //产生道具
-            CreateTower();
-        }
-        else//更换道具
-        {
-            Destroy(currentTower);
-            CreateTower();
-
-        }
+        spriteRenderer.sprite = towerSprite;
         gridState.hasTower = true;
+        gridState.isTowerPoint = true;
+        Debug.Log(gridState.towerID);
     }
-
-
-    public void CreateItem()
-    {
-        Vector3 creatPos = transform.position;
-        switch (MapMaker.Instance.itemSize)
-        {
-            case 1:
-                break;
-            case 2:
-                creatPos += new Vector3(MapMaker.Instance.gridWidth, 0) / 2;
-                break;
-            case 4:
-                creatPos += new Vector3(MapMaker.Instance.gridWidth, -MapMaker.Instance.gridHeight) / 2;
-                break;
-            default:
-                break;
-        }
-        //GameObject itemGo = Instantiate(itemPrefabs[gridState.itemID], creatPos, Quaternion.identity);
-        //currentItem = itemGo;
-    }
-
-    public void CreateTower()
-    {
-
-    }
-
-    
-
 
     private void OnMouseDown()
     {
-        //寻路点的设置
         if (Input.GetKey(KeyCode.P))
         {
-            SetPathPoint();
-        }
-
-        else if (Input.GetKey(KeyCode.I))
-        {
-            SetItem();
+            SetTowerPoint();
         }
         else if (Input.GetKey(KeyCode.T))
         {
             SetTower();
         }
-
-        //非寻路点，
-        else if (!gridState.isPathPoint)
+        //可以建塔的变图，已有塔的也变图。
+        //不可以建塔的就格子
+        else if (gridState.isTowerPoint)
         {
-            gridState.isPathPoint = false;
-            gridState.isTowerPoint = !gridState.isTowerPoint;
-            if (gridState.isTowerPoint)
-            {
-                spriteRenderer.enabled = true;
-            }
-            else
-            {
-                spriteRenderer.enabled = false;
-            }
+            InitGrid();
+            spriteRenderer.sprite = gridSprite;
         }
     }
 

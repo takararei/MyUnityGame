@@ -10,7 +10,7 @@ public class MapMaker : MonoBehaviour
     public bool drawLine;//是否画线辅助
     public GameObject gridGo;//格子资源
     
-    public float mapWidth;
+    private float mapWidth;
     private float mapHeight;
     [HideInInspector]
     public float gridWidth;
@@ -19,42 +19,40 @@ public class MapMaker : MonoBehaviour
     private const int yRow = 9;
     private const int xColumn = 12;
 
-    public int levelID;//当前关卡数 
-    public int difficulty;//当前难度
-
-    public int itemID;//摆放的道具ID
-    public int itemSize;
-    public int towerID;//摆放的炮塔ID
+    public int levelID=-1;//当前关卡数 
+    public int towerID=-1;//摆放的炮塔ID
 
     //路径点的X，Y
     private GridPoint[,] gridPoints;
+    public GridPoint[] allGrid;
 
     private SpriteRenderer bgSR;//获取背景
     private SpriteRenderer roadSR;//获取地图
     
     //资源
     public Sprite gridSprite;
-    public Sprite pathSprite;
-    public GameObject[] itemPrefabs;//道具数组
-    public GameObject[] towerPrefabs;//建塔数组
-    
+    public Sprite buildSprite;
+    public Sprite towerSprite;
+    public List<LevelMapData> mapDataList;
     private void Awake()
     {
         _instance = this;
+        mapDataList = new List<LevelMapData>();
         InitAllGrid();//初始化所有的格子
-        //获取所有的道具
-        //获取所有的塔
         bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();
         roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
-
-
     }
 
     //初始化地图中所有的格子
     public void InitAllGrid()
     {
         CalculateSize();
+        //--------
         gridPoints = new GridPoint[xColumn, yRow];
+        //---------
+
+        allGrid = new GridPoint[xColumn * yRow];
+        int num = 0;
         for (int x = 0; x < xColumn; x++)
         {
             for (int y = 0; y < yRow; y++)
@@ -63,10 +61,14 @@ public class MapMaker : MonoBehaviour
                 grid.transform.position = CorretPostion(x * gridWidth, y * gridHeight);
                 grid.transform.SetParent(transform);
                 GridPoint gridPoint=grid.GetComponent<GridPoint>();
+                //------
                 gridPoint.index.x = x;
                 gridPoint.index.y = y;
-
                 gridPoints[x, y] = gridPoint;
+                //--------
+                gridPoint.gridState.id = num;
+                allGrid[num] = gridPoint;
+                num++;
             }
         }
     }
