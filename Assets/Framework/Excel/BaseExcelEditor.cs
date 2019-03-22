@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExcelDataReader;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Assets.Framework.Excel
 {
     public class BaseExcelEditor : UnityEditor.Editor
     {
+        static IExcelDataReader reader;
         public static string excelPath
         {
             get
@@ -33,8 +35,20 @@ namespace Assets.Framework.Excel
             UnityEditor.AssetDatabase.Refresh();
             Debug.Log(fileName + "生成成功");
         }
+        public static void SetReader(IExcelDataReader ireader)
+        {
+            reader = ireader;
+        }
         
-        
+        public static string GetString(int index)
+        {
+            return reader.GetString(index);
+        }
+
+        public static int GetInt(int index)
+        {
+            return int.Parse(GetString(index));
+        }
     }
 }
 #endif
