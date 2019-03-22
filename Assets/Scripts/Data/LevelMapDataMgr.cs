@@ -7,17 +7,17 @@ public class LevelMapDataMgr : ScriptableObject
 {
     public List<LevelMapData> leveMapDataList;
 
-    //private static LevelMapDataMgr _instance;
-    //public static LevelMapDataMgr Instance
-    //{
-    //    get
-    //    {
-    //        if(_instance==null)
-    //        {
-    //            _instance = new LevelMapDataMgr();
-    //        }
-    //        return _instance;
-    //    }
-    //}
+    private static LevelMapDataMgr _instance;
+    public static LevelMapDataMgr Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Resources.Load<LevelMapDataMgr>("AssetData/LevelMapData");
+            }
+            return _instance;
+        }
+    }
 
 }

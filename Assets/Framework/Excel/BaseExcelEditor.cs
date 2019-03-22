@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 #if UNITY_EDITOR
 namespace Assets.Framework.Excel
 {
@@ -30,6 +31,7 @@ namespace Assets.Framework.Excel
             UnityEditor.AssetDatabase.CreateAsset(mgr, savePath + fileName + ".asset");
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
+            Debug.Log(fileName + "生成成功");
         }
         
         
