@@ -30,7 +30,7 @@ public class TowerInfo
 [System.Serializable]
 public class TowerInfoMgr:ScriptableObject
 {
-    public List<TowerInfo> towerInfoMgr;
+    public List<TowerInfo> towerInfoList;
     private static TowerInfoMgr _instance;
     public static TowerInfoMgr Instance
     {

@@ -14,7 +14,7 @@ public class TowerInfoEditor:BaseExcelEditor
     {
         fileName = "TowerInfo";
         TowerInfoMgr mgr = ScriptableObject.CreateInstance<TowerInfoMgr>();
-        mgr.towerInfoMgr = ReadExcel(excelPath);
+        mgr.towerInfoList = ReadExcel(excelPath);
         CreateAsset(mgr);
     }
 
