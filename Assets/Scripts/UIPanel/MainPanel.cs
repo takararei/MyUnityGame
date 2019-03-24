@@ -7,6 +7,7 @@ using Assets.Framework.Extension;
 using System;
 using UnityEngine.EventSystems;
 using Assets.Framework.SceneState;
+using Assets.Framework;
 
 public class MainPanel : BasePanel
 {
@@ -21,7 +22,7 @@ public class MainPanel : BasePanel
     Image mSetPanel;
     bool isSetActive = false;
     //地图关卡按钮
-    
+
     float MapPosXLeft = -960;
     float MapPosXRight = -1356.5f;
 
@@ -30,7 +31,7 @@ public class MainPanel : BasePanel
     EventTrigger mImg_MapEventTrigger;
     EventTrigger.Entry onDragEntry;
     EventTrigger.Entry onPointerDownEntry;
-    
+
 
     public override void Init()
     {
@@ -53,10 +54,13 @@ public class MainPanel : BasePanel
         onDragEntry.eventID = EventTriggerType.Drag;
         onPointerDownEntry = new EventTrigger.Entry();
         onPointerDownEntry.eventID = EventTriggerType.PointerDown;
-        
+        //获取一下当前完成的关卡数  假设两个 +1还未完成的下一关
+        //实例化三个关卡按钮到对应位置 读取levelinfo 添加到List里
+        //为每个button 注册事件
+        //获取关卡要更换的ui
     }
 
-    public class LevelButton:BaseUIListItem
+    public class LevelButton : BaseUIListItem
     {
         //获取level id
         //更新level是否通关，更换UI和星星
@@ -66,7 +70,48 @@ public class MainPanel : BasePanel
         Image star2;
         Image star3;
 
-        
+        public LevelButton(int index)
+        {
+            id = index;
+            //获取预制体并生成在指定位置
+            levelButton = Find<Button>("");
+            star1 = Find<Image>("");
+            star2 = Find<Image>("");
+            star3 = Find<Image>("");
+            levelButton.onClick.AddListener(OnButtonClick);
+        }
+
+        public void OnButtonClick()
+        {
+            GameRoot.Instance.pickLevel = id;
+            UIManager.Instance.Show(UIPanelName.LevelIntroducePanel);
+        }
+        public void ShowStar(int num)
+        {
+            if(num>=1)
+            {
+                star1.gameObject.Show();
+            }
+            else
+            {
+                Debug.Log("星级参数有误 关卡" + id);
+                return;
+            }
+            if(num>=2)
+            {
+                star2.gameObject.Show();
+            }
+            if(num==3)
+            {
+                star3.gameObject.Show();
+            }
+        }
+
+        public override void Clear()
+        {
+            base.Clear();
+            levelButton.onClick.RemoveAllListeners();
+        }
     }
 
     public override void OnShow()
@@ -82,7 +127,7 @@ public class MainPanel : BasePanel
         mBtn_Help.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.HelpPanel));
         mBtn_Set.onClick.AddListener(OnButtonSetClick);
         //设置面板的部分
-        mBtn_SoundEffects.onClick.AddListener(() => { } );
+        mBtn_SoundEffects.onClick.AddListener(() => { });
         mBtn_Music.onClick.AddListener(() => { });
         mBtn_Home.onClick.AddListener(OnButtonHomeClick);
 
@@ -95,9 +140,7 @@ public class MainPanel : BasePanel
         mTxt_Count.text = "";//
 
 
-        //获取一下当前完成的关卡数  假设两个 +1还未完成的下一关
-        //实例化三个关卡按钮到对应位置 读取levelinfo 添加到List里
-        //为每个button 注册事件
+
     }
 
     public override void OnHide()//TODO
@@ -111,7 +154,7 @@ public class MainPanel : BasePanel
         mImg_MapEventTrigger.triggers.Remove(onPointerDownEntry);
         onDragEntry.callback.RemoveAllListeners();
         onPointerDownEntry.callback.RemoveAllListeners();
-        
+
     }
 
 
@@ -128,7 +171,7 @@ public class MainPanel : BasePanel
             isSetActive = true;
         }
     }
-    
+
     private void OnButtonHomeClick()
     {
         SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());

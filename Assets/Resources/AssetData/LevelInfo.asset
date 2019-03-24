@@ -20,3 +20,4 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F\u7B2C\u4E00\u5173"
     mapPath: Pictures/Game/Map/1
     towerList: 01000000020000000300000004000000
+    levelPos: {x: 555.44995, y: 137, z: 0}

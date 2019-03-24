@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114752524781071928}
   - component: {fileID: 114049988535981018}
   m_Layer: 5
-  m_Name: Btn_Level
+  m_Name: Btn_MapLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5173\u5361\u6309\u94AE"
+  m_Text: "\u5173\u5361"
 --- !u!114 &114752524781071928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,10 +245,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 477, y: -128}
-  m_SizeDelta: {x: 266.7, y: 166.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -760.3, y: -109.8}
+  m_SizeDelta: {x: 116.099976, y: 130.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224976904654168948
 RectTransform:
@@ -265,6 +265,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -83.35, y: 150}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -51, y: 109}
+  m_SizeDelta: {x: 58.4, y: 58.4}
   m_Pivot: {x: 0.5, y: 0.5}

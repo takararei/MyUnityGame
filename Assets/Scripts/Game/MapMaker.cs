@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 一部分功能是用于配置 levelData数据的 最后用宏处理去掉
+/// </summary>
 public class MapMaker : MonoBehaviour
 {
     private static MapMaker _instance;

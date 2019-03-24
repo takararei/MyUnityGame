@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\EnemyInfoEditor.cs" />
+    <Compile Include="Assets\Editor\LevelButtonTool.cs" />
     <Compile Include="Assets\Editor\LevelInfoEditor.cs" />
     <Compile Include="Assets\Editor\MapTool.cs" />
     <Compile Include="Assets\Editor\RoundDataEditor.cs" />

@@ -13,7 +13,6 @@ namespace Assets.Framework
     public class GameRoot:MonoBehaviour
     {
         private static GameRoot _instance;
-
         public static GameRoot Instance
         {
             get
@@ -21,6 +20,8 @@ namespace Assets.Framework
                 return _instance;
             }
         }
+
+        public int pickLevel;
         private void Awake()
         {
             DontDestroyOnLoad(this);
