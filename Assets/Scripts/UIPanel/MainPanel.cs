@@ -56,6 +56,19 @@ public class MainPanel : BasePanel
         
     }
 
+    public class LevelButton:BaseUIListItem
+    {
+        //获取level id
+        //更新level是否通关，更换UI和星星
+        Button levelButton;//被点击时 显示关卡介绍面板 
+        Sprite finishSprite;//完成时更换ui资源
+        Image star1;
+        Image star2;
+        Image star3;
+
+        
+    }
+
     public override void OnShow()
     {
         base.OnShow();
@@ -80,6 +93,11 @@ public class MainPanel : BasePanel
         mImg_MapEventTrigger.triggers.Add(onPointerDownEntry);
 
         mTxt_Count.text = "";//
+
+
+        //获取一下当前完成的关卡数  假设两个 +1还未完成的下一关
+        //实例化三个关卡按钮到对应位置 读取levelinfo 添加到List里
+        //为每个button 注册事件
     }
 
     public override void OnHide()//TODO

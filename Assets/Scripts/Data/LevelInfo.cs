@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+
 [Serializable]
 public class LevelInfo
 {
@@ -13,4 +15,5 @@ public class LevelInfo
     public string levelIntroduce;
     public string mapPath;
     public List<int> towerList;
+    public Vector3 levelPos;
 }

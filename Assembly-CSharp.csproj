@@ -137,6 +137,7 @@
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\BeginPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\HelpPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\LevelIntroducePanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\MainPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\ShopPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\StartLoadPanel.cs" />
