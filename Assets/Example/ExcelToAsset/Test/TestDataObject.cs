@@ -12,5 +12,6 @@ namespace Assets.Example
         public string name;
         public string path;
         public string layer;
+        public List<int> test;
     }
 }

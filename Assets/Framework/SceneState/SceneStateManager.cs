@@ -53,6 +53,7 @@ namespace Assets.Framework.SceneState
                 toColor => maskImage.color = toColor,
                 new Color(0, 0, 0, 0),
                 maskTime);
+            
         }
 
         public void ChangeSceneState(IBaseSceneState baseSceneState)

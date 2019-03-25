@@ -46,11 +46,12 @@ public class MapTool : Editor {
             }
             if(GUILayout.Button("保存当前地图"))
             {
-                LevelMapDataMgr levelMapDataMgr = ScriptableObject.CreateInstance<LevelMapDataMgr>();
-                levelMapDataMgr.leveMapDataList = mapMaker.mapDataList;
-                UnityEditor.AssetDatabase.CreateAsset(levelMapDataMgr, "Assets/Resources/AssetData/LevelMapData.asset");
-                UnityEditor.AssetDatabase.SaveAssets();
-                UnityEditor.AssetDatabase.Refresh();
+                LevelMapDataMgr.Instance.leveMapDataList = mapMaker.mapDataList;
+//                 LevelMapDataMgr levelMapDataMgr = ScriptableObject.CreateInstance<LevelMapDataMgr>();
+//                 levelMapDataMgr.leveMapDataList = mapMaker.mapDataList;
+//                 UnityEditor.AssetDatabase.CreateAsset(levelMapDataMgr, "Assets/Resources/AssetData/LevelMapData.asset");
+//                 UnityEditor.AssetDatabase.SaveAssets();
+//                 UnityEditor.AssetDatabase.Refresh();
                 Debug.Log("保存成功");
             }
 

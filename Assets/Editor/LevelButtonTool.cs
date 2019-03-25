@@ -80,11 +80,6 @@ public class LevelButtonTool : Editor
                             lvInfoMgr.levelInfoList[i].levelPos = posList[i];
                         }
                     }
-                    LevelInfoMgr infoMgr = ScriptableObject.CreateInstance<LevelInfoMgr>();
-                    infoMgr.levelInfoList = lvInfoMgr.levelInfoList;
-                    UnityEditor.AssetDatabase.CreateAsset(infoMgr, "Assets/Resources/AssetData/LevelInfo.asset");
-                    UnityEditor.AssetDatabase.SaveAssets();
-                    UnityEditor.AssetDatabase.Refresh();
                     Debug.Log("保存成功");
                 }
                 

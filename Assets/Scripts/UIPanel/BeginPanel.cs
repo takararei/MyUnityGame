@@ -21,12 +21,16 @@ public class BeginPanel : BasePanel
     private Image mImg_Exit;
     private Button mBtn_CloseAbout;
     private Image mImg_About;
+    private Image mImg_EffectsOff;
+    private Image mImg_MusicOff;
     private float topUp = 772;
     private float topDown = 606;
     private float topMoveTime = 0.5f;
+    PlayerStatics pStatics;
     public override void Init()
     {
         base.Init();
+        pStatics = PlayerStatics.Instance;
         mBtn_SoundEffects = Find<Button>("Btn_SoundEffects");
         mBtn_Music = Find<Button>("Btn_Music");
         mBtn_StartGame = Find<Button>("Btn_StartGame");
@@ -37,7 +41,8 @@ public class BeginPanel : BasePanel
         mImg_Exit = Find<Image>("Img_Exit");
         mImg_About = Find<Image>("Img_About");
         mBtn_CloseAbout = Find<Button>("Btn_CloseAbout");
-        
+        mImg_EffectsOff = Find<Image>("Img_EffectsOff");
+        mImg_MusicOff = Find<Image>("Img_MusicOff");
     }
 
     public override void OnShow()
@@ -53,7 +58,9 @@ public class BeginPanel : BasePanel
         mBtn_Yes.onClick.AddListener(OnButtonYesClick);
         mBtn_No.onClick.AddListener(()=> { mImg_Exit.gameObject.Hide();MoveTopButtonDown(); });
         mBtn_CloseAbout.onClick.AddListener(() => { mImg_About.gameObject.Hide();MoveTopButtonDown(); });
-        
+
+        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }
     public void MoveTopButtonUp()
     {
@@ -87,18 +94,21 @@ public class BeginPanel : BasePanel
     private void OnButtonYesClick()
     {
         Application.Quit();
+        //保存数据之类的操作
     }
 
     
 
     public void OnButtonSoundEffectClick()
     {
-
+        pStatics.isEffectOff = !pStatics.isEffectOff;
+        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
     }
 
     public void OnButtonMusicClick()
     {
-
+        pStatics.isMusicOff = !pStatics.isMusicOff;
+        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }
 
     public void OnButtonStartGameClick()//切换场景

@@ -19,6 +19,8 @@ public class MainPanel : BasePanel
     Button mBtn_SoundEffects;
     Button mBtn_Music;
     Button mBtn_Home;
+    private Image mImg_EffectsOff;
+    private Image mImg_MusicOff;
     Image mSetPanel;
     bool isSetActive = false;
     //地图关卡按钮
@@ -32,11 +34,11 @@ public class MainPanel : BasePanel
     EventTrigger.Entry onDragEntry;
     EventTrigger.Entry onPointerDownEntry;
 
-
+    PlayerStatics pStatics;
     public override void Init()
     {
         base.Init();
-
+        pStatics = PlayerStatics.Instance;
         mBtn_Shop = Find<Button>("Btn_Shop");
         mBtn_Achievement = Find<Button>("Btn_Achievement");
         mBtn_Set = Find<Button>("Btn_Set");
@@ -46,6 +48,8 @@ public class MainPanel : BasePanel
         mBtn_Music = Find<Button>("Btn_Music");
         mBtn_Home = Find<Button>("Btn_Home");
         mSetPanel = Find<Image>("SetPanel");
+        mImg_EffectsOff = Find<Image>("Img_EffectsOff");
+        mImg_MusicOff = Find<Image>("Img_MusicOff");
 
         mImg_Map = Find<Image>("Img_Map");
         mImg_MapEventTrigger = mImg_Map.GetComponent<EventTrigger>();
@@ -127,8 +131,8 @@ public class MainPanel : BasePanel
         mBtn_Help.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.HelpPanel));
         mBtn_Set.onClick.AddListener(OnButtonSetClick);
         //设置面板的部分
-        mBtn_SoundEffects.onClick.AddListener(() => { });
-        mBtn_Music.onClick.AddListener(() => { });
+        mBtn_SoundEffects.onClick.AddListener(OnSoundEffect);
+        mBtn_Music.onClick.AddListener(OnMusic);
         mBtn_Home.onClick.AddListener(OnButtonHomeClick);
 
         //地图部分
@@ -137,24 +141,36 @@ public class MainPanel : BasePanel
         mImg_MapEventTrigger.triggers.Add(onDragEntry);
         mImg_MapEventTrigger.triggers.Add(onPointerDownEntry);
 
-        mTxt_Count.text = "";//
+        //其他
+        EventCenter.AddListener<int>(EventType.DoNumChange, SetDONum);
 
-
-
+        mTxt_Count.text = pStatics.DO.ToString();
+        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }
 
     public override void OnHide()//TODO
     {
         base.OnHide();
         mSetPanel.gameObject.Show();
-        isSetActive = true;
+        //isSetActive = true;
+        //其他
 
-
+        EventCenter.RemoveListener<int>(EventType.DoNumChange,SetDONum);
+        //地图相关
         mImg_MapEventTrigger.triggers.Remove(onDragEntry);
         mImg_MapEventTrigger.triggers.Remove(onPointerDownEntry);
         onDragEntry.callback.RemoveAllListeners();
         onPointerDownEntry.callback.RemoveAllListeners();
-
+        //设置面板
+        mBtn_Home.onClick.RemoveAllListeners();
+        mBtn_Music.onClick.RemoveAllListeners();
+        mBtn_SoundEffects.onClick.RemoveAllListeners();
+        mBtn_Set.onClick.RemoveAllListeners();
+        //子面板
+        mBtn_Help.onClick.RemoveAllListeners();
+        mBtn_Achievement.onClick.RemoveAllListeners();
+        mBtn_Shop.onClick.RemoveAllListeners();
     }
 
 
@@ -171,13 +187,20 @@ public class MainPanel : BasePanel
             isSetActive = true;
         }
     }
-
     private void OnButtonHomeClick()
     {
         SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
     }
-
-
+    void OnMusic()
+    {
+        pStatics.isEffectOff = !pStatics.isEffectOff;
+        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+    }
+    void OnSoundEffect()
+    {
+        pStatics.isMusicOff = !pStatics.isMusicOff;
+        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+    }
     void OnPointerDown(PointerEventData eventData)
     {
         mSetPanel.gameObject.Hide();
@@ -194,4 +217,8 @@ public class MainPanel : BasePanel
         dragLastPosX = eventData.position.x;
     }
 
+    void SetDONum(int num)
+    {
+        mTxt_Count.text = num.ToString();
+    }
 }

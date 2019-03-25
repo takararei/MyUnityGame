@@ -76,6 +76,9 @@
     <Compile Include="Assets\Example\PanelTest\TestUIPanel.cs" />
     <Compile Include="Assets\Example\ScrollView\ScrollViewSet.cs" />
     <Compile Include="Assets\Framework\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Framework\Event\CallBack.cs" />
+    <Compile Include="Assets\Framework\Event\EventCenter.cs" />
+    <Compile Include="Assets\Framework\Event\EventType.cs" />
     <Compile Include="Assets\Framework\Excel\BaseExcelEditor.cs" />
     <Compile Include="Assets\Framework\Extension\DictionaryExtension.cs" />
     <Compile Include="Assets\Framework\Extension\GameObjectExtension.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\Scripts\Data\LevelInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\LevelMapData.cs" />
     <Compile Include="Assets\Scripts\Data\LevelMapDataMgr.cs" />
+    <Compile Include="Assets\Scripts\Data\PlayerStatics.cs" />
     <Compile Include="Assets\Scripts\Data\RoundData.cs" />
     <Compile Include="Assets\Scripts\Data\RoundDataMgr.cs" />
     <Compile Include="Assets\Scripts\Enemy\BaseEnemy.cs" />
