@@ -8,6 +8,7 @@ using System;
 using UnityEngine.EventSystems;
 using Assets.Framework.SceneState;
 using Assets.Framework;
+using Assets.Framework.Factory;
 
 public class MainPanel : BasePanel
 {
@@ -35,10 +36,13 @@ public class MainPanel : BasePanel
     EventTrigger.Entry onPointerDownEntry;
 
     PlayerStatics pStatics;
+    LevelInfoMgr lvMgr;
+
     public override void Init()
     {
         base.Init();
         pStatics = PlayerStatics.Instance;
+        lvMgr = LevelInfoMgr.Instance;
         mBtn_Shop = Find<Button>("Btn_Shop");
         mBtn_Achievement = Find<Button>("Btn_Achievement");
         mBtn_Set = Find<Button>("Btn_Set");
@@ -58,64 +62,15 @@ public class MainPanel : BasePanel
         onDragEntry.eventID = EventTriggerType.Drag;
         onPointerDownEntry = new EventTrigger.Entry();
         onPointerDownEntry.eventID = EventTriggerType.PointerDown;
+
         //获取一下当前完成的关卡数  假设两个 +1还未完成的下一关
+
         //实例化三个关卡按钮到对应位置 读取levelinfo 添加到List里
+        lvBtnList = new List<LevelButton>();
+        
+
         //为每个button 注册事件
         //获取关卡要更换的ui
-    }
-
-    public class LevelButton : BaseUIListItem
-    {
-        //获取level id
-        //更新level是否通关，更换UI和星星
-        Button levelButton;//被点击时 显示关卡介绍面板 
-        Sprite finishSprite;//完成时更换ui资源
-        Image star1;
-        Image star2;
-        Image star3;
-
-        public LevelButton(int index)
-        {
-            id = index;
-            //获取预制体并生成在指定位置
-            levelButton = Find<Button>("");
-            star1 = Find<Image>("");
-            star2 = Find<Image>("");
-            star3 = Find<Image>("");
-            levelButton.onClick.AddListener(OnButtonClick);
-        }
-
-        public void OnButtonClick()
-        {
-            GameRoot.Instance.pickLevel = id;
-            UIManager.Instance.Show(UIPanelName.LevelIntroducePanel);
-        }
-        public void ShowStar(int num)
-        {
-            if(num>=1)
-            {
-                star1.gameObject.Show();
-            }
-            else
-            {
-                Debug.Log("星级参数有误 关卡" + id);
-                return;
-            }
-            if(num>=2)
-            {
-                star2.gameObject.Show();
-            }
-            if(num==3)
-            {
-                star3.gameObject.Show();
-            }
-        }
-
-        public override void Clear()
-        {
-            base.Clear();
-            levelButton.onClick.RemoveAllListeners();
-        }
     }
 
     public override void OnShow()
@@ -147,6 +102,9 @@ public class MainPanel : BasePanel
         mTxt_Count.text = pStatics.DO.ToString();
         mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
         mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+
+        SetLevelButton();
+        
     }
 
     public override void OnHide()//TODO
@@ -156,7 +114,7 @@ public class MainPanel : BasePanel
         //isSetActive = true;
         //其他
 
-        EventCenter.RemoveListener<int>(EventType.DoNumChange,SetDONum);
+        EventCenter.RemoveListener<int>(EventType.DoNumChange, SetDONum);
         //地图相关
         mImg_MapEventTrigger.triggers.Remove(onDragEntry);
         mImg_MapEventTrigger.triggers.Remove(onPointerDownEntry);
@@ -173,6 +131,37 @@ public class MainPanel : BasePanel
         mBtn_Shop.onClick.RemoveAllListeners();
     }
 
+    void SetLevelButton()
+    {
+        //如果没生成过
+        if (lvBtnList.Count == 0)
+        {
+            for (int i = 0; i < pStatics.finishedLevelCount + 1; i++)
+            {
+                GenerateLevelButton(i);
+            }
+        }
+        //如果生成过了，需要更新
+        else if (lvBtnList.Count < pStatics.finishedLevelCount + 1)
+        {
+            for (int i = lvBtnList.Count - 1; i < pStatics.finishedLevelCount + 1; i++)
+            {
+                GenerateLevelButton(i);
+            }
+        }
+    }
+    void GenerateLevelButton(int index)
+    {
+        GameObject lvBtn = FactoryManager.Instance.GetUI("Btn_MapLevel");
+        lvBtn.transform.SetParent(mImg_Map.transform);
+        lvBtn.transform.localPosition = lvMgr.levelInfoList[index].levelPos;
+        lvBtn.transform.localScale = Vector3.one;
+        LevelButton lb = new LevelButton(index,lvBtn);
+        //lb.ShowStar(pStatics.levelStar[index]);
+        lvBtnList.Add(lb);
+        //星星的更新 
+        
+    }
 
     private void OnButtonSetClick()
     {
@@ -220,5 +209,62 @@ public class MainPanel : BasePanel
     void SetDONum(int num)
     {
         mTxt_Count.text = num.ToString();
+    }
+
+    List<LevelButton> lvBtnList;
+    public class LevelButton : BaseUIListItem
+    {
+        //获取level id
+        //更新level是否通关，更换UI和星星
+        Button levelButton;//被点击时 显示关卡介绍面板 
+        Image Img_Btn;//未完成时更换ui资源
+        Image star1;
+        Image star2;
+        Image star3;
+
+        public LevelButton(int index,GameObject root)
+        {
+            id = index;
+            this.root = root;
+            //获取预制体并生成在指定位置
+            levelButton = root.GetComponent<Button>();
+            //star1 = Find<Image>("");
+            //star2 = Find<Image>("");
+            //star3 = Find<Image>("");
+            levelButton.onClick.AddListener(OnButtonClick);
+        }
+
+        public void OnButtonClick()
+        {
+            UIManager.Instance.Show(UIPanelName.LevelIntroducePanel);
+            EventCenter.Broadcast(EventType.LevelIntroduceUpdate, id);
+        }
+        public void ShowStar(int num)
+        {
+            if(num==0)
+            {
+                levelButton.image.sprite = FactoryManager.Instance.GetSprite("");//TODO
+                return;
+            }
+            if (num >= 1)
+            {
+                star1.gameObject.Show();
+            }
+            if (num >= 2)
+            {
+                star2.gameObject.Show();
+            }
+            if (num == 3)
+            {
+                star3.gameObject.Show();
+            }
+        }
+
+        public override void Clear()
+        {
+            base.Clear();
+            levelButton.onClick.RemoveAllListeners();
+        }
+
     }
 }

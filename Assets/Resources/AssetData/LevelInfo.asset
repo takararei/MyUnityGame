@@ -20,4 +20,31 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F\u7B2C\u4E00\u5173"
     mapPath: Pictures/Game/Map/1
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 555.44995, y: 137, z: 0}
+    levelPos: {x: 555, y: 137, z: 0}
+  - levelID: 2
+    levelName: "\u7B2C\u4E8C\u5173"
+    totalRound: 5
+    beginCoin: 500
+    life: 10
+    levelIntroduce: "\u8FD9\u662F2"
+    mapPath: Pictures/Game/Map/2
+    towerList: 01000000020000000300000004000000
+    levelPos: {x: 886.6351, y: 262.74878, z: 0}
+  - levelID: 3
+    levelName: "\u7B2C\u4E09\u5173"
+    totalRound: 8
+    beginCoin: 800
+    life: 10
+    levelIntroduce: "\u8FD9\u662F3"
+    mapPath: Pictures/Game/Map/3
+    towerList: 01000000020000000300000004000000
+    levelPos: {x: 1214.218, y: 58.009468, z: 0}
+  - levelID: 4
+    levelName: "\u7B2C4\u5173"
+    totalRound: 8
+    beginCoin: 800
+    life: 10
+    levelIntroduce: "\u8FD9\u662F4"
+    mapPath: Pictures/Game/Map/4
+    towerList: 01000000020000000300000004000000
+    levelPos: {x: 1555.4502, y: 211.56393, z: 0}

@@ -43,8 +43,11 @@ public class LevelInfoEditor:BaseExcelEditor
                     {
                         info.towerList.Add(int.Parse(towerStrArr[j]));
                     }
-                    if(i<=LevelInfoMgr.Instance.levelInfoList.Count-1)
-                        info.levelPos=LevelInfoMgr.Instance.levelInfoList[i].levelPos;
+                    if(i<=LevelInfoMgr.Instance.levelInfoList.Count)
+                    {
+                        info.levelPos = LevelInfoMgr.Instance.levelInfoList[i-1].levelPos;
+                    }
+                        
                     list.Add(info);
                 }
             }

@@ -1,4 +1,5 @@
-﻿using Assets.Framework.UI;
+﻿using Assets.Framework.Factory;
+using Assets.Framework.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,11 @@ public class LevelIntroducePanel : BasePanel
     Text levelIntroduce;
     Image smallMap;
     Button Btn_Begin;
+    LevelInfoMgr lvMgr;
     public override void Init()
     {
         base.Init();
+        lvMgr = LevelInfoMgr.Instance;
         closeBtn = Find<Button>("Btn_Close");
         Btn_Begin = Find<Button>("Btn_Begin");
         smallMap = Find<Image>("SmallMap");
@@ -26,6 +29,13 @@ public class LevelIntroducePanel : BasePanel
         base.OnShow();
         closeBtn.onClick.AddListener(()=> { UIManager.Instance.Hide(UIPanelName.LevelIntroducePanel); });
         Btn_Begin.onClick.AddListener(OnEnterGame);
+        EventCenter.AddListener<int>(EventType.LevelIntroduceUpdate, UpdateLevelInfo);
+    }
+    public override void OnHide()
+    {
+        base.OnHide();
+        closeBtn.onClick.RemoveAllListeners();
+        Btn_Begin.onClick.RemoveAllListeners();
     }
 
     public void OnEnterGame()
@@ -33,12 +43,14 @@ public class LevelIntroducePanel : BasePanel
 
     }
 
-    public override void OnHide()
+    public void UpdateLevelInfo(int index)
     {
-        base.OnHide();
-        closeBtn.onClick.RemoveAllListeners();
-        Btn_Begin.onClick.RemoveAllListeners();
+        //smallMap.sprite = FactoryManager.Instance.GetSprite(lvMgr.levelInfoList[index].mapPath);
+        levelName.text = lvMgr.levelInfoList[index].levelName;
+        levelIntroduce.text = lvMgr.levelInfoList[index].levelIntroduce;
     }
+
+    
 
     
 }
