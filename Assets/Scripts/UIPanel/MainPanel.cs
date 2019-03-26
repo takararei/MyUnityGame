@@ -166,6 +166,7 @@ public class MainPanel : BasePanel
     }
     void RemoveLevelButton()
     {
+        if (lvBtnList.Count == 0) return;
         for(int i=0;i<lvBtnList.Count;i++)
         {
             FactoryManager.Instance.PushUI("Btn_MapLevel", mImg_Map.transform.GetChild(0).gameObject);

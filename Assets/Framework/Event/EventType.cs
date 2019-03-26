@@ -4,4 +4,5 @@
     LevelIntroduceUpdate,
     ItemIntroduceUpdate,
     ItemCountUpdate,
+    AcItemUpdate,
 }

@@ -119,6 +119,8 @@
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
+    <Compile Include="Assets\Scripts\Data\AchievementInfo.cs" />
+    <Compile Include="Assets\Scripts\Data\AchievementInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\ItemInfo.cs" />
     <Compile Include="Assets\Scripts\Data\ItemInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\LevelInfo.cs" />

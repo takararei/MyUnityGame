@@ -107,7 +107,10 @@ namespace Assets.Framework.UI
             foreach (var item in currentScenePanelDict)
             {
                 item.Value.transform.SetParent(GameRoot.Instance.transform);
-                UIManager.Instance.Hide(item.Value.name);
+                if(item.Value.activeSelf!=false)
+                {
+                    UIManager.Instance.Hide(item.Value.name);
+                }
             }
             currentScenePanelDict.Clear();
 

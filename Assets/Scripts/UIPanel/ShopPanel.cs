@@ -49,15 +49,18 @@ public class ShopPanel : BasePanel
         mBtn_Buy.onClick.AddListener(OnBuyButtonClick);
 
         mTxt_Count.text = pStatics.DO.ToString();
+
         SetItemHold();
         SetItemGoods();
         ItemIntroduceUpdate(0);
         EventCenter.AddListener<int>(EventType.ItemIntroduceUpdate, ItemIntroduceUpdate);
+        EventCenter.AddListener<int>(EventType.DoNumChange, SetDONum);
     }
 
     public override void OnHide()
     {
         base.OnHide();
+        EventCenter.RemoveListener<int>(EventType.DoNumChange, SetDONum);
         EventCenter.RemoveListener<int>(EventType.ItemIntroduceUpdate, ItemIntroduceUpdate);
         RemoveItemGoods();
         RemoveItemHold();
@@ -67,11 +70,16 @@ public class ShopPanel : BasePanel
 
     public void ItemIntroduceUpdate(int index)
     {
+        pickItem = index;
         mTxt_Name.text = itemMgr.itemInfoList[index].name;
         mTxt_Introduce.text = itemMgr.itemInfoList[index].introduce;
         mTxt_Diamond.text = itemMgr.itemInfoList[index].price.ToString();
     }
 
+    public void SetDONum(int num)
+    {
+        mTxt_Count.text = num.ToString();
+    }
     public void SetItemHold()
     {
         for (int i = 0; i < itemMgr.itemInfoList.Count; i++)
@@ -98,6 +106,7 @@ public class ShopPanel : BasePanel
     }
     public void RemoveItemGoods()
     {
+        if (itemShopBtnList.Count == 0) return;
         for(int i=0;i<itemShopBtnList.Count;i++)
         {
             FactoryManager.Instance.PushUI(StringMgr.ItemShopButton, GoodsContent.GetChild(0).gameObject);
@@ -107,6 +116,7 @@ public class ShopPanel : BasePanel
     }
     public void RemoveItemHold()
     {
+        if (itemHoldList.Count == 0) return;
         for(int i=0;i<itemHoldList.Count;i++)
         {
             FactoryManager.Instance.PushUI(StringMgr.ItemHold, PackageContent.GetChild(0).gameObject);
@@ -117,7 +127,14 @@ public class ShopPanel : BasePanel
 
     private void OnBuyButtonClick()
     {
-
+        if(itemMgr.itemInfoList[pickItem].price<=pStatics.DO)
+        {
+            pStatics.DO-=itemMgr.itemInfoList[pickItem].price;
+            pStatics.itemNum[pickItem]++;
+            EventCenter.Broadcast(EventType.ItemCountUpdate);
+            EventCenter.Broadcast(EventType.DoNumChange,pStatics.DO);
+        }
+        
     }
 
 

@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\AchievementInfoEditor.cs" />
     <Compile Include="Assets\Editor\EnemyInfoEditor.cs" />
     <Compile Include="Assets\Editor\ItemInfoEditor.cs" />
     <Compile Include="Assets\Editor\LevelButtonTool.cs" />

@@ -15,6 +15,7 @@ public class PlayerStatics:ScriptableObject
     public bool isEffectOff;//音效开关
     public List<int> levelStar;
     public List<int> itemNum;
+    public List<AchievementRecord> achievementList;
     private static PlayerStatics _instance;
     public static PlayerStatics Instance
     {
@@ -28,6 +29,12 @@ public class PlayerStatics:ScriptableObject
         }
     }
 
+}
+[Serializable]
+public class AchievementRecord
+{
+    public int record;
+    public bool isFinished;
 }
 #if UNITY_EDITOR
 public class PlayerStaticsEditor:Editor
