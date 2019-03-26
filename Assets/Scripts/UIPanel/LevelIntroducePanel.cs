@@ -1,4 +1,6 @@
-﻿using Assets.Framework.Factory;
+﻿using Assets.Framework;
+using Assets.Framework.Factory;
+using Assets.Framework.SceneState;
 using Assets.Framework.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ public class LevelIntroducePanel : BasePanel
     Image smallMap;
     Button Btn_Begin;
     LevelInfoMgr lvMgr;
+    int pickLevel;
     public override void Init()
     {
         base.Init();
@@ -40,11 +43,13 @@ public class LevelIntroducePanel : BasePanel
 
     public void OnEnterGame()
     {
-
+        GameRoot.Instance.pickLevel = pickLevel;
+        SceneStateManager.Instance.ChangeSceneState(new GameLoadSceneState());
     }
 
     public void UpdateLevelInfo(int index)
     {
+        pickLevel = index;
         //smallMap.sprite = FactoryManager.Instance.GetSprite(lvMgr.levelInfoList[index].mapPath);
         levelName.text = lvMgr.levelInfoList[index].levelName;
         levelIntroduce.text = lvMgr.levelInfoList[index].levelIntroduce;

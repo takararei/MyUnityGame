@@ -5,8 +5,8 @@ using UnityEngine;
 public class GridPoint : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    public GridIndex index;//--
-    public GridSate gridState;
+    //public GridIndex index;//--
+    public GridState gridState;
 
     private Sprite gridSprite;//格子图片
     private Sprite buildSprite;//建塔点
@@ -15,15 +15,15 @@ public class GridPoint : MonoBehaviour
     public GameObject currentTower;//当前格子持有的炮塔
 
     //格子索引-----
-    public struct GridIndex
-    {
-        public int x;
-        public int y;
-    }
+    //public struct GridIndex
+    //{
+    //    public int x;
+    //    public int y;
+    //}
     //----------
     //格子状态
     [System.Serializable]
-    public struct GridSate
+    public struct GridState
     {
         public int id;
         public bool isTowerPoint;//建塔点 空的
@@ -33,10 +33,13 @@ public class GridPoint : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+#if Tool
         gridSprite = MapMaker.Instance.gridSprite;
         buildSprite = MapMaker.Instance.buildSprite;
         towerSprite = MapMaker.Instance.towerSprite;
+#endif
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
         InitGrid();
     }
 
@@ -47,7 +50,29 @@ public class GridPoint : MonoBehaviour
         gridState.hasTower = false;
         gridState.towerID = -1;
     }
+    
+    public void UpdateGrid()
+    {
+        if(gridState.isTowerPoint)
+        {
+            if(gridState.hasTower)
+            {
+                //实例化塔 TODO
+            }
+            else
+            {
+                gameObject.SetActive(true);
+            }
+        }
+            
+    }
 
+    public void OnMouseDown()
+    {
+        Debug.Log(gridState.id);
+    }
+
+#if Tool
     public void UpdateGrid()
     {
         if (gridState.isTowerPoint)
@@ -115,5 +140,5 @@ public class GridPoint : MonoBehaviour
             spriteRenderer.sprite = gridSprite;
         }
     }
-
+#endif
 }

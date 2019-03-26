@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using Assets.Framework;
+using Assets.Framework.Extension;
+using Assets.Framework.Factory;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
@@ -6,51 +9,59 @@ using UnityEngine;
 /// </summary>
 public class MapMaker : MonoBehaviour
 {
-    private static MapMaker _instance;
-    public static MapMaker Instance { get { return _instance; } }
-
-    public bool drawLine;//是否画线辅助
+    
     public GameObject gridGo;//格子资源
     
     private float mapWidth;
     private float mapHeight;
-    [HideInInspector]
-    public float gridWidth;
-    [HideInInspector]
-    public float gridHeight;
+    private float gridWidth;
+    private float gridHeight;
     private const int yRow = 9;
     private const int xColumn = 12;
 
     public int levelID=-1;//当前关卡数 
-    public int towerID=-1;//摆放的炮塔ID
+    
 
     //路径点的X，Y
-    private GridPoint[,] gridPoints;
+    //private GridPoint[,] gridPoints;
     public GridPoint[] allGrid;
 
     private SpriteRenderer bgSR;//获取背景
     private SpriteRenderer roadSR;//获取地图
-    
-    //资源
-    public Sprite gridSprite;
-    public Sprite buildSprite;
-    public Sprite towerSprite;
-    public List<LevelMapData> mapDataList;
+
+
+    LevelMapDataMgr lvMapMgr;
     private void Awake()
     {
+#if Tool
         _instance = this;
         mapDataList = new List<LevelMapData>();
+#endif
+        lvMapMgr = LevelMapDataMgr.Instance;
         InitAllGrid();//初始化所有的格子
-        bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();
+        bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();//背景待定
         roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
+        LoadLevelMap(GameRoot.Instance.pickLevel);
     }
-
+    public void LoadLevelMap(int index)
+    {
+        //bgSR.sprite = FactoryManager.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath);待定
+        //roadSR.sprite= FactoryManager.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath);TODO
+        //加载地图，加载建塔格子，加载怪物
+        int count = lvMapMgr.leveMapDataList[index].gridStateList.Count;
+        for (int i = 0; i <count;i++)
+        {
+            GridPoint.GridState state = lvMapMgr.leveMapDataList[index].gridStateList[i];
+            allGrid[state.id].gridState = state;
+            allGrid[state.id].UpdateGrid();
+        }
+    }
     //初始化地图中所有的格子
     public void InitAllGrid()
     {
         CalculateSize();
         //--------
-        gridPoints = new GridPoint[xColumn, yRow];
+        //gridPoints = new GridPoint[xColumn, yRow];
         //---------
 
         allGrid = new GridPoint[xColumn * yRow];
@@ -64,13 +75,14 @@ public class MapMaker : MonoBehaviour
                 grid.transform.SetParent(transform);
                 GridPoint gridPoint=grid.GetComponent<GridPoint>();
                 //------
-                gridPoint.index.x = x;
-                gridPoint.index.y = y;
-                gridPoints[x, y] = gridPoint;
+                //gridPoint.index.x = x;
+                //gridPoint.index.y = y;
+                //gridPoints[x, y] = gridPoint;
                 //--------
                 gridPoint.gridState.id = num;
                 allGrid[num] = gridPoint;
                 num++;
+                grid.Hide();
             }
         }
     }
@@ -97,6 +109,21 @@ public class MapMaker : MonoBehaviour
         gridHeight = mapHeight / yRow;
     }
 
+
+
+#if Tool
+    public int towerID = -1;//摆放的炮塔ID
+    //资源
+    public Sprite gridSprite;
+    public Sprite buildSprite;
+    public Sprite towerSprite;
+
+    private static MapMaker _instance;
+    public static MapMaker Instance { get { return _instance; } }
+
+    public bool drawLine;//是否画线辅助
+
+    public List<LevelMapData> mapDataList;
     //画出蓝线格子
     private void OnDrawGizmos()
     {
@@ -121,7 +148,5 @@ public class MapMaker : MonoBehaviour
         }
     }
 
-
-
-
+#endif
 }

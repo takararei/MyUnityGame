@@ -49,18 +49,3 @@ public class AchievementRecord
     public bool isFinished;
 }
 
-#if UNITY_EDITOR
-public class PlayerStaticsEditor:Editor
-{ 
-    [MenuItem("ExcelToAsset/PlayerStatics")]
-    public static void Click()
-    {
-        PlayerStatics player = ScriptableObject.CreateInstance<PlayerStatics>();
-        UnityEditor.AssetDatabase.CreateAsset(player, "Assets/Resources/AssetData/PlayerStatics.asset");
-        UnityEditor.AssetDatabase.SaveAssets();
-        UnityEditor.AssetDatabase.Refresh();
-        Debug.Log("PlayerStatics生成成功");
-    }
-}
-
-#endif

@@ -48,3 +48,7 @@ MonoBehaviour:
     panelName: HelpPanel
     path: Prefabs/UIPanel/HelpPanel
     layer: Common
+  - id: 10
+    panelName: GamePlayPanel
+    path: Prefabs/UIPanel/GamePlayPanel
+    layer: Common

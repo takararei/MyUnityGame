@@ -7,5 +7,5 @@ using UnityEngine;
 public class LevelMapData
 {
     public int levelID;
-    public List<GridPoint.GridSate> gridStateList;
+    public List<GridPoint.GridState> gridStateList;
 }

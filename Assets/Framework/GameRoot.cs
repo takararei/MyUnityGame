@@ -20,7 +20,7 @@ namespace Assets.Framework
                 return _instance;
             }
         }
-        
+        public int pickLevel;
         private void Awake()
         {
             DontDestroyOnLoad(this);

@@ -20,6 +20,8 @@ namespace Assets.Framework.UI
                 case UIPanelName.AchievementPanel:return new AchievementPanel();
                 case UIPanelName.HelpPanel:return new HelpPanel();
                 case UIPanelName.LevelIntroducePanel:return new LevelIntroducePanel();
+                case UIPanelName.GameLoadPanel:return new GameLoadPanel();
+                case UIPanelName.GamePlayPanel:return new GamePlayPanel();
                 default:
                     Debug.LogError("不存在此面板" + name);
                     return null;

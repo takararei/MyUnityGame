@@ -3,9 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+    private static GameController _instance;
+    public static GameController Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
+    int currentLevel;
+    private void Awake()
+    {
+        _instance = this;
+    }
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

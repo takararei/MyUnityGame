@@ -94,7 +94,6 @@
     <Compile Include="Assets\Framework\Factory\SpriteFactory.cs" />
     <Compile Include="Assets\Framework\Factory\UIFactory.cs" />
     <Compile Include="Assets\Framework\GameRoot.cs" />
-    <Compile Include="Assets\Framework\PlayerManager.cs" />
     <Compile Include="Assets\Framework\SceneState\BaseSceneState.cs" />
     <Compile Include="Assets\Framework\SceneState\IBaseSceneState.cs" />
     <Compile Include="Assets\Framework\SceneState\SceneStateManager.cs" />
@@ -140,12 +139,16 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LevelButonMaker.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />
+    <Compile Include="Assets\Scripts\SceneState\GameLoadSceneState.cs" />
+    <Compile Include="Assets\Scripts\SceneState\GamePlaySceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
     <Compile Include="Assets\Scripts\Tower\BaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\BeginPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\GameLoadPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\GamePlayPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\HelpPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\LevelIntroducePanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\MainPanel.cs" />

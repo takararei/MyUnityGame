@@ -67,6 +67,7 @@
     <Compile Include="Assets\Editor\LevelButtonTool.cs" />
     <Compile Include="Assets\Editor\LevelInfoEditor.cs" />
     <Compile Include="Assets\Editor\MapTool.cs" />
+    <Compile Include="Assets\Editor\PlayerStaticsEditor.cs" />
     <Compile Include="Assets\Editor\RoundDataEditor.cs" />
     <Compile Include="Assets\Editor\TowerInfoEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">

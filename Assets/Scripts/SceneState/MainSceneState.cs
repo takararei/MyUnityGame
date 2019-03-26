@@ -20,5 +20,9 @@ public class MainSceneState : BaseSceneState {
         {
             SceneManager.LoadScene(1);
         }
+        else if(SceneStateManager.Instance.currentSceneState.GetType() ==typeof(GameLoadSceneState))
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }

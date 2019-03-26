@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+#if Tool
 [CustomEditor(typeof(MapMaker))]
 public class MapTool : Editor {
     private MapMaker mapMaker;
@@ -29,7 +30,7 @@ public class MapTool : Editor {
             {
                 LevelMapData md = new LevelMapData();
                 md.levelID = mapMaker.levelID;
-                md.gridStateList = new List<GridPoint.GridSate>();
+                md.gridStateList = new List<GridPoint.GridState>();
                 foreach (GridPoint gp in allGrid)
                 {
                     if(gp.gridState.isTowerPoint)
@@ -66,7 +67,7 @@ public class MapTool : Editor {
                     gp.InitGrid();
                 }
 
-                foreach(GridPoint.GridSate gs in mapDataList[mapMaker.levelID-1].gridStateList)
+                foreach(GridPoint.GridState gs in mapDataList[mapMaker.levelID-1].gridStateList)
                 {
                     allGrid[gs.id].gridState = gs;
                     allGrid[gs.id].UpdateGrid();
@@ -85,3 +86,4 @@ public class MapTool : Editor {
     }
 
 }
+#endif

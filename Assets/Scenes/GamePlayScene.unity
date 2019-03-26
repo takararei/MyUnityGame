@@ -377,7 +377,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1277825395267366, guid: 1c37347f684005f4a8c538814301e3dd, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212732599164292072, guid: 1c37347f684005f4a8c538814301e3dd,
         type: 2}
@@ -490,18 +490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1c334fed1c7c744bd9762b2dcfb43b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawLine: 0
   gridGo: {fileID: 1226033913211972, guid: abfc8cc65a418e840b9633b4a5b09038, type: 2}
-  mapWidth: 13.333334
-  gridWidth: 1.1111112
-  gridHeight: 1.1111112
   levelID: 1
-  towerID: 0
   allGrid: []
-  gridSprite: {fileID: 21300000, guid: 821d31df00fe71541be354c11f3bf9cb, type: 3}
-  buildSprite: {fileID: 21300000, guid: 390e906b40206c04d91028320349312a, type: 3}
-  towerSprite: {fileID: 21300000, guid: 6e5329ada4c5c4b4492b0082a5a5d628, type: 3}
-  mapDataList: []
 --- !u!114 &2144740252
 MonoBehaviour:
   m_ObjectHideFlags: 0
