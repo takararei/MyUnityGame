@@ -29,6 +29,18 @@ public class PlayerStatics:ScriptableObject
         }
     }
 
+    public void SetACData(AcType index,int num)
+    {
+        int id = (int)index;
+        Instance.achievementList[id].record += num;
+        if (Instance.achievementList[id].record >= AchievementInfoMgr.Instance.infoList[id].Count
+            &&Instance.achievementList[id].isFinished!=true)
+        {
+            Instance.achievementList[id].isFinished = true;
+            EventCenter.Broadcast(EventType.AcItemUpdate);
+        }
+    }
+
 }
 [Serializable]
 public class AchievementRecord
@@ -36,6 +48,7 @@ public class AchievementRecord
     public int record;
     public bool isFinished;
 }
+
 #if UNITY_EDITOR
 public class PlayerStaticsEditor:Editor
 { 

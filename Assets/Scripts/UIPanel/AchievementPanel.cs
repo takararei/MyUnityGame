@@ -83,13 +83,13 @@ public class AchievementPanel : BasePanel
         {
             if (PlayerStatics.Instance.achievementList[id].isFinished)
             {
-                //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.FinshedSprite);
-                Debug.Log("完成");
+                //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.FinshedSprite);TODO
+                Debug.Log(id+" 完成");
             }
             else
             {
                 //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.unFinishSprite);
-                Debug.Log("未完成");
+                Debug.Log(id+" 未完成");
             }
         }
 

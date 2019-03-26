@@ -12,3 +12,8 @@ public class AchievementInfo
     public string unFinishSprite;
     public string FinshedSprite;
 }
+
+public enum AcType
+{
+    FirstGold,
+}

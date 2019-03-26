@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoList:
   - id: 1
-    name: "\u8D5A\u94B1\u738B"
+    name: "\u7B2C\u4E00\u6876\u91D1"
     introduce: "\u7D2F\u8BA1\u83B7\u5F97\u94BB\u77F3\u8FBE\u5230100\u4E2A"
     Count: 100
     unFinishSprite: "\u5730\u5740"
