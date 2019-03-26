@@ -2,4 +2,6 @@
 {
     DoNumChange,
     LevelIntroduceUpdate,
+    ItemIntroduceUpdate,
+    ItemCountUpdate,
 }

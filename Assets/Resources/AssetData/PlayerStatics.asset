@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee1b36aef096a144ad563e66bf05446, type: 3}
   m_Name: PlayerStatics
   m_EditorClassIdentifier: 
-  levelStar: 020000000200000000000000
   finishedLevelCount: 2
   DO: 50
-  itemNum: 0
   isMusicOff: 1
   isEffectOff: 1
+  levelStar: 020000000200000000000000
+  itemNum: 0200000004000000060000000700000008000000

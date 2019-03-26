@@ -119,6 +119,8 @@
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
+    <Compile Include="Assets\Scripts\Data\ItemInfo.cs" />
+    <Compile Include="Assets\Scripts\Data\ItemInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\LevelInfo.cs" />
     <Compile Include="Assets\Scripts\Data\LevelInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\LevelMapData.cs" />
@@ -126,6 +128,7 @@
     <Compile Include="Assets\Scripts\Data\PlayerStatics.cs" />
     <Compile Include="Assets\Scripts\Data\RoundData.cs" />
     <Compile Include="Assets\Scripts\Data\RoundDataMgr.cs" />
+    <Compile Include="Assets\Scripts\Data\StringMgr.cs" />
     <Compile Include="Assets\Scripts\Enemy\BaseEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\IBaseEnemy.cs" />
     <Compile Include="Assets\Scripts\Game\GridPoint.cs" />

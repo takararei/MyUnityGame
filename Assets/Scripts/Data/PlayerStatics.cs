@@ -7,14 +7,14 @@ using UnityEngine;
 [Serializable]
 public class PlayerStatics:ScriptableObject
 {
-    public List<int> levelStar;
+    
     public int finishedLevelCount;//当前完成的关卡总数
     public int DO;//钻石数
-    public int itemNum;//某道具持有数
     //成就列表记录
     public bool isMusicOff;//音乐开关
     public bool isEffectOff;//音效开关
-
+    public List<int> levelStar;
+    public List<int> itemNum;
     private static PlayerStatics _instance;
     public static PlayerStatics Instance
     {

@@ -113,8 +113,10 @@ public class MainPanel : BasePanel
         mSetPanel.gameObject.Show();
         //isSetActive = true;
         //其他
+        RemoveLevelButton();
 
         EventCenter.RemoveListener<int>(EventType.DoNumChange, SetDONum);
+
         //地图相关
         mImg_MapEventTrigger.triggers.Remove(onDragEntry);
         mImg_MapEventTrigger.triggers.Remove(onPointerDownEntry);
@@ -152,15 +154,24 @@ public class MainPanel : BasePanel
     }
     void GenerateLevelButton(int index)
     {
-        GameObject lvBtn = FactoryManager.Instance.GetUI("Btn_MapLevel");
+        GameObject lvBtn = FactoryManager.Instance.GetUI(StringMgr.Btn_MapLevel);
         lvBtn.transform.SetParent(mImg_Map.transform);
         lvBtn.transform.localPosition = lvMgr.levelInfoList[index].levelPos;
         lvBtn.transform.localScale = Vector3.one;
         LevelButton lb = new LevelButton(index,lvBtn);
-        //lb.ShowStar(pStatics.levelStar[index]);
+        lb.ShowStar(pStatics.levelStar[index]);
         lvBtnList.Add(lb);
         //星星的更新 
         
+    }
+    void RemoveLevelButton()
+    {
+        for(int i=0;i<lvBtnList.Count;i++)
+        {
+            FactoryManager.Instance.PushUI("Btn_MapLevel", mImg_Map.transform.GetChild(0).gameObject);
+            lvBtnList[i].Clear();
+        }
+        lvBtnList.Clear();
     }
 
     private void OnButtonSetClick()
@@ -228,10 +239,14 @@ public class MainPanel : BasePanel
             this.root = root;
             //获取预制体并生成在指定位置
             levelButton = root.GetComponent<Button>();
-            //star1 = Find<Image>("");
-            //star2 = Find<Image>("");
-            //star3 = Find<Image>("");
+            star1 = Find<Image>("Img_Star1");
+            star2 = Find<Image>("Img_Star2");
+            star3 = Find<Image>("Img_Star3");
             levelButton.onClick.AddListener(OnButtonClick);
+
+            star1.gameObject.Hide();
+            star2.gameObject.Hide();
+            star3.gameObject.Hide();
         }
 
         public void OnButtonClick()
@@ -243,7 +258,7 @@ public class MainPanel : BasePanel
         {
             if(num==0)
             {
-                levelButton.image.sprite = FactoryManager.Instance.GetSprite("");//TODO
+                //levelButton.image.sprite = FactoryManager.Instance.GetSprite("");//TODO
                 return;
             }
             if (num >= 1)
@@ -264,6 +279,9 @@ public class MainPanel : BasePanel
         {
             base.Clear();
             levelButton.onClick.RemoveAllListeners();
+            star1.gameObject.Show();
+            star2.gameObject.Show();
+            star3.gameObject.Show();
         }
 
     }

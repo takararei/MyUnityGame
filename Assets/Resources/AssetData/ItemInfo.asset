@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76d42800850c9e47bfa0baaf0d0038d, type: 3}
+  m_Name: ItemInfo
+  m_EditorClassIdentifier: 
+  itemInfoList:
+  - id: 1
+    name: "\u751F\u547D"
+    introduce: "\u53EF\u4EE5\u52A02\u70B9\u751F\u547D\uFF0C\u4E00\u5C40\u53EA\u80FD\u7528\u4E00\u6B21"
+    CD: -1
+    time: 0
+    price: 50
+  - id: 2
+    name: "\u7269\u7406\u52A0\u6210"
+    introduce: "\u7269\u7406\u4F24\u5BB3\u63D0\u5347\u5230150%"
+    CD: 20
+    time: 5
+    price: 50
+  - id: 3
+    name: "\u9B54\u6CD5\u52A0\u6210"
+    introduce: "\u9B54\u6CD5\u4F24\u5BB3150"
+    CD: 20
+    time: 5
+    price: 50
+  - id: 4
+    name: "\u51BB\u7ED3"
+    introduce: "\u51BB\u7ED3\u5168\u573A\u654C\u4EBA"
+    CD: 20
+    time: 5
+    price: 50
+  - id: 5
+    name: "\u51CF\u901F"
+    introduce: "\u51CF\u901F\u5168\u573A\u654C\u4EBA"
+    CD: 20
+    time: 5
+    price: 50
