@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Round
 {
-    [System.Serializable]
-    public struct RoundInfo
-    {
-        public int[] enemyIDList;
-    }
 
     protected int id;
     protected Level mLevel;
-    public RoundInfo roundInfo;
     protected Round nextRound;
-
+    public List<RoundData> roundInfo;
     public void SetNextRound(Round round)
     {
         nextRound = round;

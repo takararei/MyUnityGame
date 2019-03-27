@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Framework.SceneState
@@ -26,8 +27,18 @@ namespace Assets.Framework.SceneState
         {
             base.Init();
             InitMask();
-            currentSceneState = new StartLoadSceneState();
-            currentSceneState.EnterScene();
+            //currentSceneState = new StartLoadSceneState();
+            //currentSceneState.EnterScene();
+            if (GameRoot.Instance.toMainScene)
+            {
+                SceneManager.LoadScene(2);
+                currentSceneState = new MainSceneState();
+                currentSceneState.EnterScene();
+            }else
+            {
+                currentSceneState = new StartLoadSceneState();
+                currentSceneState.EnterScene();
+            }
         }
 
         private void InitMask()

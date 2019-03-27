@@ -27,7 +27,7 @@ public class MainPanel : BasePanel
     //地图关卡按钮
 
     float MapPosXLeft = -960;
-    float MapPosXRight = -1356.5f;
+    float MapPosXRight = -3000;
 
     Image mImg_Map;
     float dragLastPosX;
@@ -192,12 +192,12 @@ public class MainPanel : BasePanel
     {
         SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
     }
-    void OnMusic()
+    void OnSoundEffect()
     {
         pStatics.isEffectOff = !pStatics.isEffectOff;
         mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
     }
-    void OnSoundEffect()
+    void OnMusic()
     {
         pStatics.isMusicOff = !pStatics.isMusicOff;
         mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
@@ -206,6 +206,7 @@ public class MainPanel : BasePanel
     {
         mSetPanel.gameObject.Hide();
         isSetActive = false;
+        dragLastPosX = eventData.position.x; ;
     }
     void OnDrag(PointerEventData eventData)
     {
@@ -216,6 +217,7 @@ public class MainPanel : BasePanel
             mImg_Map.transform.SetLocalPosX(localPosX);
         }
         dragLastPosX = eventData.position.x;
+        Debug.Log(mImg_Map.transform.localPosition.x);
     }
 
     void SetDONum(int num)

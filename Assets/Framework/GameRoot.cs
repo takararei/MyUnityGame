@@ -21,6 +21,7 @@ namespace Assets.Framework
             }
         }
         public int pickLevel;
+        public bool toMainScene;
         private void Awake()
         {
             DontDestroyOnLoad(this);
