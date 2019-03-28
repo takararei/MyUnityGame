@@ -261,7 +261,7 @@ public class MainPanel : BasePanel
         {
             if(num==0)
             {
-                //levelButton.image.sprite = FactoryManager.Instance.GetSprite("");//TODO
+                levelButton.image.sprite = FactoryManager.Instance.GetSprite(StringMgr.Sprite_UnFinished);
                 return;
             }
             if (num >= 1)

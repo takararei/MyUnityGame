@@ -11,4 +11,5 @@ public static class StringMgr
     public const string Btn_MapLevel = "Btn_MapLevel";
     public const string Img_Mask = "Img_Mask";
     public const string AchievementItem = "AchievementItem";
+    public const string Sprite_UnFinished = "Change/unFinishedLevel";
 }
