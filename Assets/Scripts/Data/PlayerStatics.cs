@@ -16,6 +16,8 @@ public class PlayerStatics:ScriptableObject
     public List<int> levelStar;
     public List<int> itemNum;
     public List<AchievementRecord> achievementList;
+
+    public int nowLevel;
     private static PlayerStatics _instance;
     public static PlayerStatics Instance
     {

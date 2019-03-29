@@ -52,3 +52,7 @@ MonoBehaviour:
     panelName: GamePlayPanel
     path: Prefabs/UIPanel/GamePlayPanel
     layer: Common
+  - id: 11
+    panelName: GamePausePanel
+    path: Prefabs/UIPanel/GamePausePanel
+    layer: Common

@@ -7,5 +7,5 @@ public class RoundData
     public int levelID;
     public int index;
     public List<int> enemyList;
-    public List<int> pathList;
+    public List<Vector3> pathList;
 }

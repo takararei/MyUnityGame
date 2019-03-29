@@ -22,8 +22,7 @@ public class MapMaker : MonoBehaviour
     public int levelID=-1;//当前关卡数 
     
 
-    //路径点的X，Y
-    //private GridPoint[,] gridPoints;
+    //路径点
     public GridPoint[] allGrid;
 
     private SpriteRenderer bgSR;//获取背景
@@ -41,7 +40,7 @@ public class MapMaker : MonoBehaviour
         InitAllGrid();//初始化所有的格子
         bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();//背景待定
         roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
-        LoadLevelMap(GameRoot.Instance.pickLevel);
+        LoadLevelMap(PlayerStatics.Instance.nowLevel);
     }
     public void LoadLevelMap(int index)
     {
@@ -60,9 +59,6 @@ public class MapMaker : MonoBehaviour
     public void InitAllGrid()
     {
         CalculateSize();
-        //--------
-        //gridPoints = new GridPoint[xColumn, yRow];
-        //---------
 
         allGrid = new GridPoint[xColumn * yRow];
         int num = 0;
@@ -73,16 +69,14 @@ public class MapMaker : MonoBehaviour
                 GameObject grid = Instantiate(gridGo, transform.position, transform.rotation);
                 grid.transform.position = CorretPostion(x * gridWidth, y * gridHeight);
                 grid.transform.SetParent(transform);
+                
                 GridPoint gridPoint=grid.GetComponent<GridPoint>();
-                //------
-                //gridPoint.index.x = x;
-                //gridPoint.index.y = y;
-                //gridPoints[x, y] = gridPoint;
-                //--------
                 gridPoint.gridState.id = num;
                 allGrid[num] = gridPoint;
                 num++;
                 grid.Hide();
+                //PathPointRecord.instance.pathList.Add(grid.transform.position);
+                //Debug.Log(grid.transform.position);
             }
         }
     }

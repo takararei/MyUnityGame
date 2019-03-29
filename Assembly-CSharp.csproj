@@ -117,6 +117,9 @@
     <Compile Include="Assets\Framework\Util\EditorUtil.cs" />
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
+    <Compile Include="Assets\Scripts\Builder\EnemyBuilder.cs" />
+    <Compile Include="Assets\Scripts\Builder\IBuilder.cs" />
+    <Compile Include="Assets\Scripts\Builder\TowerBuilder.cs" />
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfo.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfoMgr.cs" />
@@ -126,6 +129,7 @@
     <Compile Include="Assets\Scripts\Data\LevelInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\LevelMapData.cs" />
     <Compile Include="Assets\Scripts\Data\LevelMapDataMgr.cs" />
+    <Compile Include="Assets\Scripts\Data\PathPointRecord.cs" />
     <Compile Include="Assets\Scripts\Data\PlayerStatics.cs" />
     <Compile Include="Assets\Scripts\Data\RoundData.cs" />
     <Compile Include="Assets\Scripts\Data\RoundDataMgr.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\BeginPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\GameLoadPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanel\GamePausePanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\GamePlayPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\HelpPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\LevelIntroducePanel.cs" />

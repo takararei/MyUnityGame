@@ -20,7 +20,6 @@ namespace Assets.Framework
                 return _instance;
             }
         }
-        public int pickLevel;
         public bool toMainScene;
         private void Awake()
         {

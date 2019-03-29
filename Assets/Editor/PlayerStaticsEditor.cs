@@ -15,3 +15,14 @@ public class PlayerStaticsEditor : BaseExcelEditor
         CreateAsset(player);
     }
 }
+
+public class PahtPointEditor:BaseExcelEditor
+{
+    [UnityEditor.MenuItem("ExcelToAsset/PathPointRecord")]
+    public static void Click()
+    {
+        fileName = "PathPointRecord";
+        PathPointRecord player = ScriptableObject.CreateInstance<PathPointRecord>();
+        CreateAsset(player);
+    }
+}

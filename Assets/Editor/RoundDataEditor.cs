@@ -29,7 +29,7 @@ public class RoundDataEditor : BaseExcelEditor
                     excelReader.Read();
                     RoundData rdata = new RoundData();
                     rdata.enemyList = new List<int>();
-                    rdata.pathList = new List<int>();
+                    rdata.pathList = new List<Vector3>();
                     rdata.levelID = int.Parse(excelReader.GetString(0));
                     rdata.index = int.Parse(excelReader.GetString(1));
                     string[] enemyStrArr=excelReader.GetString(2).Split(',');
@@ -40,7 +40,7 @@ public class RoundDataEditor : BaseExcelEditor
                     string[] pathStrArr = excelReader.GetString(3).Split(',');
                     for(int k=0;k<pathStrArr.Length;k++)
                     {
-                        rdata.pathList.Add(int.Parse(pathStrArr[k]));
+                        rdata.pathList.Add(PathPointRecord.instance.pathList[int.Parse(pathStrArr[k])]);
                     }
                     list.Add(rdata);
                 }

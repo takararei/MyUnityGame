@@ -31,7 +31,15 @@ public class EnemyInfoEditor:BaseExcelEditor
                     excelReader.Read();
                     EnemyInfo info = new EnemyInfo();
                     info.enemyId = GetInt(0);
-
+                    info.Name = GetString(1);
+                    info.Introduce = GetString(2);
+                    info.killCoin = GetInt(3);
+                    info.killDO = GetInt(4);
+                    info.life = GetInt(5);
+                    info.speed = GetInt(6);
+                    info.Def = GetInt(7);
+                    info.Mdef = GetInt(8);
+                    info.heart = GetInt(9);
                     list.Add(info);
                 }
             }

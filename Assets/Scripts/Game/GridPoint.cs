@@ -13,14 +13,6 @@ public class GridPoint : MonoBehaviour
     private Sprite towerSprite;//已有塔
     
     public GameObject currentTower;//当前格子持有的炮塔
-
-    //格子索引-----
-    //public struct GridIndex
-    //{
-    //    public int x;
-    //    public int y;
-    //}
-    //----------
     //格子状态
     [System.Serializable]
     public struct GridState
