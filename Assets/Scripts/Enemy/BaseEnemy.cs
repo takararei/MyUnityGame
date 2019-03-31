@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(RuntimeAnimatorController))]
 public class BaseEnemy : MonoBehaviour,IBaseEnemy
 {
     public EnemyInfo enemyInfo;
@@ -10,7 +12,23 @@ public class BaseEnemy : MonoBehaviour,IBaseEnemy
     private Animator animator;
     private List<Vector3> pathPointList;
 
+    int currentLife;
 
+    //用于计数的属性或开关
+    private int roadPointIndex = 1;
+    private bool reachEnd;//到达终点
+    private bool hasDecreasSpeed;//是否减速
+
+    private float decreaseSpeedTimeVal;//减速计时器
+    private float decreaseTime;//减速持续的具体时间
+
+    //资源
+    public AudioClip dieAudioClip;
+    public RuntimeAnimatorController runtimeAnimatorController;
+    private void Awake()
+    {
+        
+    }
 }
 [System.Serializable]
 public class EnemyInfo

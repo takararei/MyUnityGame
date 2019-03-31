@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour {
     int nowRound;
     int DO;
     //获得当前波次数据，怪物数据，路径数据
+
+
+
     public bool isPause;
     LevelInfoMgr lvInfoMgr;
     PlayerStatics pStatics;
