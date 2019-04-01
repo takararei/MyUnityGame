@@ -72,7 +72,6 @@ public class MapMaker : MonoBehaviour
                 num++;
                 grid.Hide();
                 //PathPointRecord.instance.pathList.Add(grid.transform.position);
-                //Debug.Log(grid.transform.position);
             }
         }
 

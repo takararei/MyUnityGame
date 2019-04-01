@@ -21,10 +21,10 @@ public class GameController : MonoBehaviour {
     public bool isPause;
     Level level;
     //获得当前波次数据，怪物数据，路径数据
-    public int currRoundkillNum;
-    public List<RoundData> roundDataList;
-    public List<int> enemyIdList;
-    public List<Vector3> currRoundPathList;
+    public int currRoundkillNum;//被杀的怪物数量 判断是否进入下一回合
+    //public List<RoundData> roundDataList;//当前关卡每回合的数据，主要是路径和怪物序列
+    public List<int> enemyIdList;//当前回合的怪物序列
+    public List<Vector3> currRoundPathList;//当前回合的路径
 
     EnemyBuilder enemyBuilder;
     TowerBuilder towerBuilder;
@@ -74,17 +74,17 @@ public class GameController : MonoBehaviour {
             }
             else
             {
-                if (!creatingMonster)
+                if (!creatingEnemy)
                 {
                     CreateEnemy();
                 }
             }
         }
-        else//暂停了
+        else
         {
             //暂停
             StopCreateEnemy();
-            creatingMonster = false;
+            creatingEnemy = false;
         }
 	}
 
@@ -94,10 +94,9 @@ public class GameController : MonoBehaviour {
         if(currEnemyIDIndex<enemyIdList.Count)
         {
             enemyBuilder.EnemyId = enemyIdList[currEnemyIDIndex];
+            enemyBuilder.enemyPathList = level.roundList[level.currentRound].info.pathList;
+            enemyBuilder.GetProduct();
         }
-        GameObject enemyGO = enemyBuilder.GetProduct();
-        enemyGO.transform.SetParent(transform);
-        enemyGO.transform.position=level.roundList[level.currentRound].info.pathList[0];
         currEnemyIDIndex++;
         if(currEnemyIDIndex>=enemyIdList.Count)
         {
@@ -113,10 +112,10 @@ public class GameController : MonoBehaviour {
         DO = 0;
     }
 
-    bool creatingMonster;
+    bool creatingEnemy;
     public void CreateEnemy()
     {
-        creatingMonster = true;
+        creatingEnemy = true;
         InvokeRepeating("InstantiateEnemy", 1, 1);
     }
 

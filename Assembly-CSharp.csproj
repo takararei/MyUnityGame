@@ -123,6 +123,8 @@
     <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfo.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfoMgr.cs" />
+    <Compile Include="Assets\Scripts\Data\EnemyInfo.cs" />
+    <Compile Include="Assets\Scripts\Data\EnemyInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\ItemInfo.cs" />
     <Compile Include="Assets\Scripts\Data\ItemInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\LevelInfo.cs" />
@@ -134,6 +136,8 @@
     <Compile Include="Assets\Scripts\Data\RoundData.cs" />
     <Compile Include="Assets\Scripts\Data\RoundDataMgr.cs" />
     <Compile Include="Assets\Scripts\Data\StringMgr.cs" />
+    <Compile Include="Assets\Scripts\Data\TowerInfo.cs" />
+    <Compile Include="Assets\Scripts\Data\TowerInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Enemy\BaseEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\IBaseEnemy.cs" />
     <Compile Include="Assets\Scripts\Game\GridPoint.cs" />

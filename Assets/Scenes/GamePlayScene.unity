@@ -502,6 +502,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
+  currRoundkillNum: 0
+  enemyIdList: 
+  currRoundPathList: []
+  currEnemyIDIndex: 0
 --- !u!4 &2144740253
 Transform:
   m_ObjectHideFlags: 0

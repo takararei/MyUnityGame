@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4682208999740476}
   - component: {fileID: 212089158421238502}
+  - component: {fileID: 114249372537010338}
   - component: {fileID: 95570205897107184}
   - component: {fileID: 61142995069192730}
   - component: {fileID: 50544226103685944}
@@ -334,6 +335,32 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114249372537010338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240297610658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6f5091f3ad66647a9e244bcc5b2b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyInfo:
+    enemyId: 0
+    killCoin: 0
+    killDO: 0
+    life: 0
+    speed: 0
+    Def: 0
+    Mdef: 0
+    Name: 
+    Introduce: 
+    heart: 0
+    path: 
+  pathPointList: []
+  dieAudioClip: {fileID: 0}
+  runtimeAnimatorController: {fileID: 0}
 --- !u!114 &114500332330382574
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,7 +9,7 @@ namespace Assets.Framework.Factory
         protected string LoadPath;
         public RuntimeAnimatorControllerFactory()
         {
-            LoadPath = "Animator/";
+            LoadPath = "Animator/Animator/";
         }
         public RuntimeAnimatorController GetResource(string resourcePath)
         {
