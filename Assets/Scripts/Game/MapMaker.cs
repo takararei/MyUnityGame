@@ -24,8 +24,7 @@ public class MapMaker : MonoBehaviour
 
     //路径点
     public GridPoint[] allGrid;
-
-    private SpriteRenderer bgSR;//获取背景
+    
     private SpriteRenderer roadSR;//获取地图
 
 
@@ -37,15 +36,12 @@ public class MapMaker : MonoBehaviour
         mapDataList = new List<LevelMapData>();
 #endif
         lvMapMgr = LevelMapDataMgr.Instance;
-        InitAllGrid();//初始化所有的格子
-        bgSR = transform.Find("BG").GetComponent<SpriteRenderer>();//背景待定
-        roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
-        LoadLevelMap(PlayerStatics.Instance.nowLevel);
+        //InitAllGrid();//初始化所有的格子
+        //LoadLevelMap(PlayerStatics.Instance.nowLevel);
     }
     public void LoadLevelMap(int index)
     {
-        //bgSR.sprite = FactoryManager.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath);待定
-        //roadSR.sprite= FactoryManager.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath);TODO
+        roadSR.sprite = FactoryManager.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath); 
         //加载地图，加载建塔格子，加载怪物
         int count = lvMapMgr.leveMapDataList[index].gridStateList.Count;
         for (int i = 0; i <count;i++)
@@ -79,6 +75,8 @@ public class MapMaker : MonoBehaviour
                 //Debug.Log(grid.transform.position);
             }
         }
+
+        roadSR = transform.Find("Road").GetComponent<SpriteRenderer>();
     }
 
     //纠正格子位置

@@ -22,10 +22,10 @@ namespace Assets.Framework.UI
         /// <summary>
         /// 解析JSON文件
         /// </summary>
-        public void ParseUIPanelTypeJson()
-        {
-            uiFacade.ParseUIPanelTypeJson();
-        }
+        //public void ParseUIPanelTypeJson()
+        //{
+        //    uiFacade.ParseUIPanelTypeJson();
+        //}
 
         public void ParseUIpanelTypeAsset()
         {

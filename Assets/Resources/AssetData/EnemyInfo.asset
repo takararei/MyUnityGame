@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: EnemyInfo
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyInfoMgr
+  enemyInfoList:
+  - enemyId: 1
+    killCoin: 20
+    killDO: 0
+    life: 30
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA1"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA1"
+    heart: 1
+    path: Enemy/1

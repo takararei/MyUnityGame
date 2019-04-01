@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Round
 {
-
     protected int id;
-    protected Level mLevel;
+    public RoundData info;
     protected Round nextRound;
-    public List<RoundData> roundInfo;
+    public Round(RoundData data)
+    {
+        info = data;
+        id = info.index-1;
+    }
     public void SetNextRound(Round round)
     {
         nextRound = round;
@@ -23,6 +26,8 @@ public class Round
         else
         {
             //敌人处理
+            GameController.Instance.enemyIdList = info.enemyList;
+            GameController.Instance.CreateEnemy();
         }
     }
 

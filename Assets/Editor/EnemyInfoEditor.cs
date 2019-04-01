@@ -40,6 +40,7 @@ public class EnemyInfoEditor:BaseExcelEditor
                     info.Def = GetInt(7);
                     info.Mdef = GetInt(8);
                     info.heart = GetInt(9);
+                    info.path = GetString(10);
                     list.Add(info);
                 }
             }

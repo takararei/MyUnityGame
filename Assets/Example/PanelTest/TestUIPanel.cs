@@ -9,14 +9,14 @@ using DG.Tweening;
 public class TestUIPanel : BasePanel {
 
     private Button mTestBtn;
-    Text mTestTxt;
+    //Text mTestTxt;
     public override void Init()
     {
         base.Init();
         //mRootUI = UnityTool.FindChild(UICanvas, UIPanelName.TestUIPanel);
         SetCanvasGroup();
         mTestBtn = UITool.FindChild<Button>(rootUI, "TestBtn");
-        mTestTxt = UITool.FindChild<Text>(rootUI, "TestTxt");
+        //mTestTxt = UITool.FindChild<Text>(rootUI, "TestTxt");
         mTestBtn.onClick.AddListener(TestClick);
         
     }

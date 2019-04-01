@@ -2,15 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
+[System.Serializable]
+public class EnemyInfo
+{
+    public int enemyId;
+    public int killCoin;
+    public int killDO;//钻石数
+    public int life;
+    public float speed;
+    public int Def;//物理防御
+    public int Mdef;//魔法防御
+    public string Name;
+    public string Introduce;
+    public int heart;
+    public string path;
+}
+[System.Serializable]
+public class EnemyInfoMgr : ScriptableObject
+{
+    public List<EnemyInfo> enemyInfoList;
+    private static EnemyInfoMgr _instance;
+    public static EnemyInfoMgr Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Resources.Load<EnemyInfoMgr>("AssetData/EnemyInfo");
+            }
+            return _instance;
+        }
+    }
+}
+
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(RuntimeAnimatorController))]
+[RequireComponent(typeof(Animator))]
 public class BaseEnemy : MonoBehaviour,IBaseEnemy
 {
     public EnemyInfo enemyInfo;
-    public GameObject enemyGO;
+    //public GameObject enemyGO;
 
     private Animator animator;
-    private List<Vector3> pathPointList;
+    private Slider slider;//血条
+    private AudioSource audioSource;
+    public List<Vector3> pathPointList;
 
     int currentLife;
 
@@ -27,39 +64,19 @@ public class BaseEnemy : MonoBehaviour,IBaseEnemy
     public RuntimeAnimatorController runtimeAnimatorController;
     private void Awake()
     {
-        
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
-}
-[System.Serializable]
-public class EnemyInfo
-{
-    public int enemyId;
-    public int killCoin;
-    public int killDO;//钻石数
-    public int life;
-    public float speed;
-    public int Def;//物理防御
-    public int Mdef;//魔法防御
-    public string Name;
-    public string Introduce;
-    public int heart;
-}
-[System.Serializable]
-public class EnemyInfoMgr:ScriptableObject
-{
-    public List<EnemyInfo> enemyInfoList;
-    private static EnemyInfoMgr _instance;
-    public static EnemyInfoMgr Instance
+
+
+    private void Update()
     {
-        get
+        if(GameController.Instance.isPause)
         {
-            if (_instance == null)
-            {
-                _instance = Resources.Load<EnemyInfoMgr>("AssetData/EnemyInfo");
-            }
-            return _instance;
+            return;
         }
     }
 }
+
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Framework.Factory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
     public GameObject GetProduct()
     {
         //获取游戏预制体，GetData,getotherResource
+        //GameObject go=FactoryManager.Instance.GetGame();
+
+        //return go;
         throw new NotImplementedException();
     }
 

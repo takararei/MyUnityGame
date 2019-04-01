@@ -123,29 +123,29 @@ namespace Assets.Framework.UI
         /// <summary>
         /// JSON解析对象
         /// </summary>
-        [Serializable]
-        class UIPanelTypeJson
-        {
-            public List<UIPanelInfo> infoList;
-        }
+        //[Serializable]
+        //class UIPanelTypeJson
+        //{
+        //    public List<UIPanelInfo> infoList;
+        //}
 
         /// <summary>
         /// 解析JSON文件
         /// </summary>
-        public void ParseUIPanelTypeJson()
-        {
-            if (panelInfoDict == null)
-                panelInfoDict = new Dictionary<string, UIPanelInfo>();
+        //public void ParseUIPanelTypeJson()
+        //{
+        //    if (panelInfoDict == null)
+        //        panelInfoDict = new Dictionary<string, UIPanelInfo>();
 
-            TextAsset ta = Resources.Load<TextAsset>("UIPanelType");
+        //    TextAsset ta = Resources.Load<TextAsset>("UIPanelType");
 
-            UIPanelTypeJson jsonObject = JsonUtility.FromJson<UIPanelTypeJson>(ta.text);
+        //    UIPanelTypeJson jsonObject = JsonUtility.FromJson<UIPanelTypeJson>(ta.text);
 
-            foreach (UIPanelInfo info in jsonObject.infoList)
-            {
-                panelInfoDict.Add(info.panelName, info);
-            }
-        }
+        //    foreach (UIPanelInfo info in jsonObject.infoList)
+        //    {
+        //        panelInfoDict.Add(info.panelName, info);
+        //    }
+        //}
 
         public void ParseUIpanelTypeAsset()
         {
