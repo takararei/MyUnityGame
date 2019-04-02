@@ -32,7 +32,18 @@ public class TowerInfoEditor:BaseExcelEditor
                     excelReader.Read();
                     TowerInfo info = new TowerInfo();
                     info.towerId = GetInt(0);
-                    
+                    info.Name = GetString(1);
+                    info.Introduce = GetString(2);
+                    info.buildCoin = GetInt(3);
+                    info.sellCoin = GetInt(4);
+                    info.damageType = GetInt(5);
+                    info.damageRange = GetFloat(6);
+                    info.CD = GetInt(7);
+                    info.damage = GetInt(8);
+                    info.Range = GetInt(9);
+                    info.bullectId = GetInt(10);
+                    info.nextTowerId = GetInt(11);
+                    info.path = GetString(12);
                     list.Add(info);
                 }
             }

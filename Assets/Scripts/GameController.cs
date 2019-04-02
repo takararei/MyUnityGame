@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Assets.Framework.Factory;
+using Assets.Framework.Tools;
+using Assets.Framework.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +17,7 @@ public class GameController : MonoBehaviour {
     }
 
     int currentLevel;//当前关卡
-    int coin;
+    public int coin;
     int life;
     int nowRound;
     int DO;
@@ -27,7 +30,7 @@ public class GameController : MonoBehaviour {
     public List<Vector3> currRoundPathList;//当前回合的路径
 
     EnemyBuilder enemyBuilder;
-    TowerBuilder towerBuilder;
+    public TowerBuilder towerBuilder;
 
     LevelInfoMgr lvInfoMgr;
     PlayerStatics pStatics;
@@ -35,6 +38,10 @@ public class GameController : MonoBehaviour {
     MapMaker mapMaker;
 
     public int currEnemyIDIndex;
+    
+    public GridPoint selectGrid;
+    public TowerSetCanvas towerSetCanvas;
+    public TowerSetPanel towerSetPanel;
     private void Awake()
     {
         _instance = this;
@@ -43,6 +50,12 @@ public class GameController : MonoBehaviour {
         mapMaker = GetComponent<MapMaker>();
         enemyBuilder = new EnemyBuilder();
         towerBuilder = new TowerBuilder();
+        //GameObject TowerSetgo=FactoryManager.Instance.GetUI("TowerSetCanvas");
+        //TowerSetgo.transform.SetParent(GameObject.Find("Canvas/Top").transform);
+        //TowerSetgo.transform.localScale = Vector3.one;
+        //towerSetCanvas = TowerSetgo.GetComponent<TowerSetCanvas>();
+
+        UIManager.Instance.Show(UIPanelName.TowerSetPanel);
 
         currentLevel = pStatics.nowLevel;
         info = lvInfoMgr.levelInfoList[currentLevel];
@@ -54,7 +67,6 @@ public class GameController : MonoBehaviour {
 
         level = new Level(info);
         level.HandleRound();
-        //level.roundList[level.currentRound].info.pathList获取当前的波次路径
 
     }
     // Use this for initialization
@@ -88,6 +100,7 @@ public class GameController : MonoBehaviour {
         }
 	}
 
+#region EnemySet
     //具体产怪方法
     private void InstantiateEnemy()
     {
@@ -103,27 +116,16 @@ public class GameController : MonoBehaviour {
             StopCreateEnemy();
         }
     }
-
-    public void SetLevelData(LevelInfo info)
-    {
-        coin = info.beginCoin;
-        life = info.life;
-        nowRound = 0;
-        DO = 0;
-    }
-
     bool creatingEnemy;
     public void CreateEnemy()
     {
         creatingEnemy = true;
         InvokeRepeating("InstantiateEnemy", 1, 1);
     }
-
     private void StopCreateEnemy()
     {
         CancelInvoke();
     }
-
     public void AddRoundNum()
     {
         currEnemyIDIndex = 0;
@@ -131,4 +133,51 @@ public class GameController : MonoBehaviour {
         level.AddRoundNum();
         level.HandleRound();
     }
+#endregion
+
+    public void TowerSet()
+    {
+        towerBuilder.TowerId = selectGrid.gridState.towerID;
+        towerBuilder.pos = selectGrid.transform.position;
+        towerBuilder.GetProduct();
+        
+        selectGrid = null;
+        UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+    }
+    public void RestartGame()
+    {
+
+    }
+    public void SetLevelData(LevelInfo info)
+    {
+        coin = info.beginCoin;
+        life = info.life;
+        nowRound = 0;
+        DO = 0;
+    }
+    
+    public void HandleGrid(GridPoint gp)
+    {
+        UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+        if (selectGrid==null)
+        {
+            selectGrid = gp;
+            UIManager.Instance.Show(UIPanelName.TowerSetPanel);
+            towerSetPanel.CorrectTowerSetPanel();
+        }
+        else if(selectGrid==gp)
+        {
+            selectGrid = null;
+            UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+            towerSetPanel.ResetPanelPos();
+        }
+        else
+        {
+            selectGrid = gp;
+            UIManager.Instance.Show(UIPanelName.TowerSetPanel);
+            towerSetPanel.CorrectTowerSetPanel();
+        }
+    }
+
+    
 }

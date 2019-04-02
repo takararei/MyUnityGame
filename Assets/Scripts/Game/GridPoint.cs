@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GridPoint : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class GridPoint : MonoBehaviour
         
         InitGrid();
     }
-
+   
     public void InitGrid()
     {
         gridState.isTowerPoint = false;
@@ -42,28 +43,51 @@ public class GridPoint : MonoBehaviour
         gridState.hasTower = false;
         gridState.towerID = -1;
     }
-    
+#if Game    
     public void UpdateGrid()
     {
         if(gridState.isTowerPoint)
         {
             if(gridState.hasTower)
             {
-                //实例化塔 TODO
+                spriteRenderer.enabled = false;
             }
             else
             {
+                //检查是否有塔，有的话就删除
                 gameObject.SetActive(true);
+                spriteRenderer.enabled = true;
             }
         }
             
     }
 
-    public void OnMouseDown()
+    public void SetTowerID(int i)
     {
-        Debug.Log(gridState.id);
+        gridState.towerID = i;
+        if(i==-1)
+        {
+            gridState.hasTower = false;
+        }
+        else
+        {
+            gridState.hasTower = true;
+        }
+
+        UpdateGrid();
     }
 
+    public void OnMouseDown()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log("??");
+            return;
+        }
+        //显示建塔的预制体
+        GameController.Instance.HandleGrid(this);
+    }
+#endif
 #if Tool
     public void UpdateGrid()
     {

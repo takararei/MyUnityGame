@@ -33,7 +33,7 @@ public class MapMaker : MonoBehaviour
     {
 #if Tool
         _instance = this;
-        mapDataList = new List<LevelMapData>();
+        InitAllGrid();
 #endif
         lvMapMgr = LevelMapDataMgr.Instance;
         //InitAllGrid();//初始化所有的格子
@@ -70,7 +70,9 @@ public class MapMaker : MonoBehaviour
                 gridPoint.gridState.id = num;
                 allGrid[num] = gridPoint;
                 num++;
+#if Game
                 grid.Hide();
+#endif
                 //PathPointRecord.instance.pathList.Add(grid.transform.position);
             }
         }
@@ -114,7 +116,8 @@ public class MapMaker : MonoBehaviour
 
     public bool drawLine;//是否画线辅助
 
-    public List<LevelMapData> mapDataList;
+    //public List<LevelMapData> mapDataList;
+    public LevelMapData mapData;
     //画出蓝线格子
     private void OnDrawGizmos()
     {

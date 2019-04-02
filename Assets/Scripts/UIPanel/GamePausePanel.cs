@@ -1,4 +1,5 @@
-﻿using Assets.Framework.UI;
+﻿using Assets.Framework.SceneState;
+using Assets.Framework.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,11 +52,13 @@ public class GamePausePanel:BasePanel
     private void OnExitGame()
     {
         //回到主场景，重置GameController
+        SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
     }
 
     private void OnRestart()
     {
         //重置GameController
+        GameController.Instance.RestartGame();
     }
 
     private void OnEffectClick()

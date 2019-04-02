@@ -7,28 +7,29 @@ using UnityEngine;
 [CustomEditor(typeof(MapMaker))]
 public class MapTool : Editor {
     private MapMaker mapMaker;
-    private List<LevelMapData> mapDataList;
+    //private List<LevelMapData> mapDataList;
     private GridPoint[] allGrid;
+    LevelMapData md;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         if(Application.isPlaying)
         {
             mapMaker = MapMaker.Instance;
-            mapDataList = mapMaker.mapDataList;
+            //mapDataList = mapMaker.mapDataList;
             allGrid = mapMaker.allGrid;
-            LevelMapDataMgr levelMgr = Resources.Load<LevelMapDataMgr>("AssetData/LevelMapData");
-            //如果路径存在,先读取文件
-            if (levelMgr != null)
-            {
-                mapDataList = levelMgr.leveMapDataList;
-            }
+            //LevelMapDataMgr levelMgr = Resources.Load<LevelMapDataMgr>("AssetData/LevelMapData");
+            ////如果路径存在,先读取文件
+            //if (levelMgr != null)
+            //{
+            //    mapDataList = levelMgr.leveMapDataList;
+            //}
 
             EditorGUILayout.BeginHorizontal();
         
             if(GUILayout.Button("搜集地图数据"))
             {
-                LevelMapData md = new LevelMapData();
+                md = new LevelMapData();
                 md.levelID = mapMaker.levelID;
                 md.gridStateList = new List<GridPoint.GridState>();
                 foreach (GridPoint gp in allGrid)
@@ -38,21 +39,31 @@ public class MapTool : Editor {
                         md.gridStateList.Add(gp.gridState);
                     }
                 }
-                //如果是新关卡 则添加
-                if(md.levelID>mapDataList.Count)
-                {
-                    mapDataList.Add(md);
-                }
-                mapDataList[md.levelID - 1] = md;
+                mapMaker.mapData = md;
             }
             if(GUILayout.Button("保存当前地图"))
             {
-                LevelMapDataMgr.Instance.leveMapDataList = mapMaker.mapDataList;
-//                 LevelMapDataMgr levelMapDataMgr = ScriptableObject.CreateInstance<LevelMapDataMgr>();
-//                 levelMapDataMgr.leveMapDataList = mapMaker.mapDataList;
-//                 UnityEditor.AssetDatabase.CreateAsset(levelMapDataMgr, "Assets/Resources/AssetData/LevelMapData.asset");
-//                 UnityEditor.AssetDatabase.SaveAssets();
-//                 UnityEditor.AssetDatabase.Refresh();
+                //如果是新关卡 则添加
+                LevelMapDataMgr mgrP = Resources.Load<LevelMapDataMgr>("AssetData/LevelMapData");
+                if (md.levelID > mgrP.leveMapDataList.Count)
+                {
+                    //mapDataList.Add(md);
+                    mgrP.leveMapDataList.Add(md);
+                }
+                else
+                {
+                    mgrP.leveMapDataList[md.levelID - 1] = md;
+                }
+                LevelMapDataMgr mgr = ScriptableObject.CreateInstance<LevelMapDataMgr>();
+                //LevelMapDataMgr mgr = new LevelMapDataMgr();
+                mgr.leveMapDataList = new List<LevelMapData>();
+                for (int i = 0; i < mgrP.leveMapDataList.Count; i++)
+                {
+                    mgr.leveMapDataList.Add(mgrP.leveMapDataList[i]);
+                }
+                UnityEditor.AssetDatabase.CreateAsset(mgr, "Assets/Resources/AssetData/LevelMapData.asset");
+                UnityEditor.AssetDatabase.SaveAssets();
+                UnityEditor.AssetDatabase.Refresh();
                 Debug.Log("保存成功");
             }
 
@@ -67,7 +78,7 @@ public class MapTool : Editor {
                     gp.InitGrid();
                 }
 
-                foreach(GridPoint.GridState gs in mapDataList[mapMaker.levelID-1].gridStateList)
+                foreach(GridPoint.GridState gs in LevelMapDataMgr.Instance.leveMapDataList[mapMaker.levelID-1].gridStateList)
                 {
                     allGrid[gs.id].gridState = gs;
                     allGrid[gs.id].UpdateGrid();

@@ -14,17 +14,43 @@ MonoBehaviour:
   leveMapDataList:
   - levelID: 1
     gridStateList:
-    - id: 89
+    - id: 2
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-  - levelID: 2
-    gridStateList:
-    - id: 34
+    - id: 5
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-    - id: 42
+    - id: 15
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 24
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
       isTowerPoint: 1
       hasTower: 0
       towerID: -1

@@ -18,5 +18,6 @@ namespace Assets.Framework.UI
         public const string HelpPanel = "HelpPanel";
         public const string GamePlayPanel = "GamePlayPanel";
         public const string GamePausePanel = "GamePausePanel";
+        public const string TowerSetPanel = "TowerSetPanel";
     }
 }

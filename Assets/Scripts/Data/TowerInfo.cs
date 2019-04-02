@@ -18,4 +18,5 @@ public class TowerInfo
     public int bullectId;//子弹
     public string Introduce;
     public string Name;
+    public string path;
 }

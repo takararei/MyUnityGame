@@ -49,6 +49,11 @@ namespace Assets.Framework.Excel
         {
             return int.Parse(GetString(index));
         }
+
+        public static float GetFloat(int index)
+        {
+            return float.Parse(GetString(index));
+        }
     }
 }
 #endif
