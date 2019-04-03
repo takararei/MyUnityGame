@@ -27,7 +27,8 @@ public class Round
         {
             //敌人处理
             GameController.Instance.enemyIdList = info.enemyList;
-            GameController.Instance.CreateEnemy();
+            //GameController.Instance.CreateEnemy();
+            GameController.Instance.isNeedCreateEnemy = true;
         }
     }
 

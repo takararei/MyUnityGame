@@ -144,7 +144,6 @@
     <Compile Include="Assets\Scripts\Game\Level.cs" />
     <Compile Include="Assets\Scripts\Game\MapMaker.cs" />
     <Compile Include="Assets\Scripts\Game\Round.cs" />
-    <Compile Include="Assets\Scripts\Game\TowerSetCanvas.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LevelButonMaker.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />

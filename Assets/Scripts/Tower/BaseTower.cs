@@ -20,14 +20,15 @@ public class BaseTower : MonoBehaviour, IBaseTower
             return _attackRender;
         }
     }
-    public Animator animator;
-    public Transform target;
+    //public Animator animator;
+    //public Transform target;
     TowerProperty towerProperty;
     private void Awake()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         towerProperty = GetComponent<TowerProperty>();
+        enemyTargetList = new List<Transform>();
     }
     private void Start()
     {
@@ -35,32 +36,39 @@ public class BaseTower : MonoBehaviour, IBaseTower
     }
     private void Update()
     {
-        if (target != null && target.gameObject.activeSelf == false)
+        if(towerProperty.target == null&&enemyTargetList.Count!=0)
         {
-            target = null;
+            towerProperty.target = enemyTargetList[0];
+        }
+        if (towerProperty.target != null && towerProperty.target.gameObject.activeSelf == false)
+        {
+            enemyTargetList.Remove(towerProperty.target);
+            towerProperty.target = null;
         }
     }
-
+    List<Transform> enemyTargetList;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "enemy" && towerProperty.target == null)
+        if(other.tag=="enemy")
         {
-            towerProperty.target = other.transform;
+            enemyTargetList.Add(other.transform);
         }
+        
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "enemy" && towerProperty.target == null)
-        {
-            towerProperty.target = other.transform;
-        }
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (towerProperty.target == other.transform)
+        if(other.tag=="enemy")
         {
-            towerProperty.target = null;
+            enemyTargetList.Remove(other.transform);
+            if(towerProperty.target==other.transform)
+            {
+                towerProperty.target = null;
+            }
         }
     }
 }

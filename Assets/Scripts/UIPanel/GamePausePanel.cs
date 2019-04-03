@@ -33,7 +33,7 @@ public class GamePausePanel:BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        btn_Close.onClick.AddListener(() => { UIManager.Instance.Hide(UIPanelName.GamePausePanel); });
+        btn_Close.onClick.AddListener(OnClosePanel);
         btn_Music.onClick.AddListener(OnMusicClick);
         btn_SoundEffect.onClick.AddListener(OnEffectClick);
         btn_Restart.onClick.AddListener(OnRestart);
@@ -47,6 +47,12 @@ public class GamePausePanel:BasePanel
         btn_SoundEffect.onClick.RemoveAllListeners();
         btn_Music.onClick.RemoveAllListeners();
         btn_Close.onClick.RemoveAllListeners();
+    }
+
+    private void OnClosePanel()
+    {
+        UIManager.Instance.Hide(UIPanelName.GamePausePanel);
+        GameController.Instance.isPause = false;
     }
 
     private void OnExitGame()

@@ -49,12 +49,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         if (GameController.Instance.isPause)
         {
+            animator.speed = 0;
             return;
         }
         if(!isSetData)
         {
             return;
         }
+        animator.speed = 1;
         if (!reachEnd)
         {
             transform.position = Vector3.Lerp(

@@ -270,7 +270,7 @@ public class TowerSetPanel : BasePanel
         {
             if (!isActive) return;
             GameController.Instance.selectGrid.SetTowerID(id);
-            GameController.Instance.TowerSet();
+            GameController.Instance.CreateTower();
 
         }
 

@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
     int currentLevel;//当前关卡
     public int coin;
     int life;
-    int nowRound;
+    int nowRound=1;
     int DO;
     public bool isPause;
     Level level;
@@ -40,7 +40,6 @@ public class GameController : MonoBehaviour {
     public int currEnemyIDIndex;
     
     public GridPoint selectGrid;
-    public TowerSetCanvas towerSetCanvas;
     public TowerSetPanel towerSetPanel;
     private void Awake()
     {
@@ -50,10 +49,6 @@ public class GameController : MonoBehaviour {
         mapMaker = GetComponent<MapMaker>();
         enemyBuilder = new EnemyBuilder();
         towerBuilder = new TowerBuilder();
-        //GameObject TowerSetgo=FactoryManager.Instance.GetUI("TowerSetCanvas");
-        //TowerSetgo.transform.SetParent(GameObject.Find("Canvas/Top").transform);
-        //TowerSetgo.transform.localScale = Vector3.one;
-        //towerSetCanvas = TowerSetgo.GetComponent<TowerSetCanvas>();
 
         UIManager.Instance.Show(UIPanelName.TowerSetPanel);
 
@@ -69,38 +64,71 @@ public class GameController : MonoBehaviour {
         level.HandleRound();
 
     }
-    // Use this for initialization
-    void Start () {
-		
-	}
+
 	
-	// Update is called once per frame
-	void Update () {
-		if(!isPause)
+	void Update ()
+    {
+        //if (!isPause)
+        //{
+        //    //产怪逻辑
+        //    if (currRoundkillNum >= enemyIdList.Count)
+        //    {
+        //        //添加当前回合数的索引
+        //        AddRoundNum();
+        //    }
+        //    else
+        //    {
+        //        if (!creatingEnemy)
+        //        {
+        //            CreateEnemy();//就是检查一下是不是还没有生成完毕
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    //暂停
+        //    StopCreateEnemy();
+        //    creatingEnemy = false;
+        //}
+
+        if (!isPause)
         {
             //产怪逻辑
-            if (currRoundkillNum >=enemyIdList.Count)
+            if (currRoundkillNum >= enemyIdList.Count)
             {
                 //添加当前回合数的索引
                 AddRoundNum();
             }
             else
             {
-                if (!creatingEnemy)
+                if(isNeedCreateEnemy)
                 {
-                    CreateEnemy();
+                    if(timeCreatEnemy>=timeCD)
+                    {
+                        InstantiateEnemy();
+                        timeCreatEnemy = 0;
+                    }
+                    else
+                    {
+                        timeCreatEnemy += Time.deltaTime;
+                    }
                 }
             }
         }
         else
         {
-            //暂停
-            StopCreateEnemy();
-            creatingEnemy = false;
+            
         }
-	}
+    }
 
-#region EnemySet
+    public void RestartGame()
+    {
+
+    }
+
+    float timeCreatEnemy=1;
+    float timeCD = 1;
+    public bool isNeedCreateEnemy;
     //具体产怪方法
     private void InstantiateEnemy()
     {
@@ -113,29 +141,39 @@ public class GameController : MonoBehaviour {
         currEnemyIDIndex++;
         if(currEnemyIDIndex>=enemyIdList.Count)
         {
-            StopCreateEnemy();
+            //StopCreateEnemy();
+            isNeedCreateEnemy = false;
+            timeCreatEnemy = 1;
         }
     }
-    bool creatingEnemy;
-    public void CreateEnemy()
-    {
-        creatingEnemy = true;
-        InvokeRepeating("InstantiateEnemy", 1, 1);
-    }
-    private void StopCreateEnemy()
-    {
-        CancelInvoke();
-    }
+    //bool creatingEnemy;
+    //public void CreateEnemy()
+    //{
+    //    creatingEnemy = true;
+    //    InvokeRepeating("InstantiateEnemy", 1, 1);
+    //}
+    //private void StopCreateEnemy()
+    //{
+    //    CancelInvoke();
+    //}
+
+
+/// <summary>
+/// 回合添加处理
+/// </summary>
     public void AddRoundNum()
     {
         currEnemyIDIndex = 0;
         currRoundkillNum = 0;
         level.AddRoundNum();
         level.HandleRound();
+        nowRound++;
+        //更新面板上的回合显示
     }
-#endregion
-
-    public void TowerSet()
+/// <summary>
+/// 创建塔
+/// </summary>
+    public void CreateTower()
     {
         towerBuilder.selectGrid = selectGrid;
         towerBuilder.TowerId = towerBuilder.selectGrid.gridState.towerID;
@@ -146,18 +184,20 @@ public class GameController : MonoBehaviour {
         selectGrid = null;
         UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
     }
-    public void RestartGame()
-    {
 
-    }
+    
     public void SetLevelData(LevelInfo info)
     {
         coin = info.beginCoin;
         life = info.life;
-        nowRound = 0;
+        nowRound = 1;
         DO = 0;
     }
-    
+ 
+    /// <summary>
+    /// 处理格子，塔的创建和显示
+    /// </summary>
+    /// <param name="gp"></param>
     public void HandleGrid(GridPoint gp)
     {
         //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);

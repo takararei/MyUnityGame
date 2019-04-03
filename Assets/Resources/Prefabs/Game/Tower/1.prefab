@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 95345108940517800}
   - component: {fileID: 58946667974068458}
   - component: {fileID: 114268261683672172}
+  - component: {fileID: 114760085002110350}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -127,7 +128,7 @@ Animator:
   m_GameObject: {fileID: 1576163384179136}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: af37890804447fe4a8eb67620b74337f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0d074a1001bf5ce479ca448534d92f26, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -162,7 +163,17 @@ MonoBehaviour:
     Name: 
     path: 
   bullectGO: {fileID: 0}
-  animator: {fileID: 0}
+--- !u!114 &114760085002110350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576163384179136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2749434c70d1c994e916a2d819ae1e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   target: {fileID: 0}
 --- !u!212 &212186203464708410
 SpriteRenderer:
