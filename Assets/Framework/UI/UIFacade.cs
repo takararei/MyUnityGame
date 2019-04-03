@@ -115,7 +115,12 @@ namespace Assets.Framework.UI
             currentScenePanelDict.Clear();
 
             panelShowDict.Clear();
-            panelDict.Clear();//待定
+            //panelDict.Clear();//待定
+            foreach(var item in panelDict)
+            {
+                item.Value.Destroy();
+            }
+            panelDict.Clear();
             
         }
 

@@ -137,8 +137,10 @@ public class GameController : MonoBehaviour {
 
     public void TowerSet()
     {
-        towerBuilder.TowerId = selectGrid.gridState.towerID;
-        towerBuilder.pos = selectGrid.transform.position;
+        towerBuilder.selectGrid = selectGrid;
+        towerBuilder.TowerId = towerBuilder.selectGrid.gridState.towerID;
+        towerBuilder.pos = towerBuilder.selectGrid.transform.position;
+        
         towerBuilder.GetProduct();
         
         selectGrid = null;
@@ -158,24 +160,29 @@ public class GameController : MonoBehaviour {
     
     public void HandleGrid(GridPoint gp)
     {
-        UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+        //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
         if (selectGrid==null)
         {
             selectGrid = gp;
             UIManager.Instance.Show(UIPanelName.TowerSetPanel);
             towerSetPanel.CorrectTowerSetPanel();
+            //如果有塔就显示塔的范围
+            selectGrid.TowerRange(true);
         }
         else if(selectGrid==gp)
         {
+            selectGrid.TowerRange(false);
             selectGrid = null;
             UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
             towerSetPanel.ResetPanelPos();
         }
         else
         {
+            selectGrid.TowerRange(false);
             selectGrid = gp;
             UIManager.Instance.Show(UIPanelName.TowerSetPanel);
             towerSetPanel.CorrectTowerSetPanel();
+            selectGrid.TowerRange(true);
         }
     }
 

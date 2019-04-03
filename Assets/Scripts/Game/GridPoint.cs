@@ -14,6 +14,7 @@ public class GridPoint : MonoBehaviour
     private Sprite towerSprite;//已有塔
     
     public GameObject currentTower;//当前格子持有的炮塔
+    public BaseTower baseTower;
     //格子状态
     [System.Serializable]
     public struct GridState
@@ -81,11 +82,18 @@ public class GridPoint : MonoBehaviour
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("??");
             return;
         }
         //显示建塔的预制体
         GameController.Instance.HandleGrid(this);
+    }
+
+    public void TowerRange(bool isShow)
+    {
+        if(gridState.hasTower)
+        {
+            baseTower.attackRangeSr.enabled = isShow;
+        }
     }
 #endif
 #if Tool

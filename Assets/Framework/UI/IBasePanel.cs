@@ -38,5 +38,7 @@ namespace Assets.Framework.UI
         /// 重启交互
         /// </summary>
         //void OnResume();
+
+        void Destroy();
     }
 }

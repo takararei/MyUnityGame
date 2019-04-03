@@ -17,6 +17,9 @@ public class TowerSetPanel : BasePanel
     Button UpLevelBtn;
     Button SellBtn;
     Text Txt_UpPrice;
+    Image Img_UpPriceBG;
+    bool isUpLevel;
+
     public override void Init()
     {
         base.Init();
@@ -33,6 +36,7 @@ public class TowerSetPanel : BasePanel
         UpLevelBtn = Find<Button>("UpLevel");
         SellBtn = Find<Button>("Sell");
         Txt_UpPrice = Find<Text>("Up_Price");
+        Img_UpPriceBG = Find<Image>("Img_UpPriceBG");
         SetTowerBtn();
         GameController.Instance.towerSetPanel = this;
     }
@@ -40,7 +44,6 @@ public class TowerSetPanel : BasePanel
     public void SetTowerBtn()
     {
         //获取头4位并且赋值
-        //LevelInfoMgr.Instance.levelInfoList[PlayerStatics.Instance.nowLevel].towerList;
         for (int i = 0; i < 4; i++)
         {
             GameObject go = FactoryManager.Instance.GetUI("TowerSelectBtn");
@@ -55,12 +58,34 @@ public class TowerSetPanel : BasePanel
 
     }
 
-    public void UpdateBtnSprite()
+    public override void OnShow()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            towerBtnArr[i].UpdateSprite();
-        }
+        if (rootUI.gameObject.activeSelf)
+            return;
+        base.OnShow();
+        SellBtn.onClick.AddListener(SellClick);
+        UpLevelBtn.onClick.AddListener(UpClick);
+    }
+
+    public override void OnHide()
+    {
+        if (!rootUI.gameObject.activeSelf)
+            return;
+        base.OnHide();
+
+        UpLevelBtn.onClick.RemoveAllListeners();
+        SellBtn.onClick.RemoveAllListeners();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+    }
+
+    public override void Destroy()
+    {
+        base.Destroy();
+        RemoveListenerTowerBtn();
     }
 
     public void RemoveListenerTowerBtn()
@@ -70,18 +95,7 @@ public class TowerSetPanel : BasePanel
             towerBtnArr[i].Clear();
         }
     }
-    public override void OnShow()
-    {
-        base.OnShow();
-        UpdateBtnSprite();
-    }
-
-    public override void OnHide()
-    {
-        base.OnHide();
-        //RemoveListenerTowerBtn();
-    }
-
+   
     public void CorrectTowerSetPanel()
     {
         GridPoint selectGrid = GameController.Instance.selectGrid;
@@ -92,6 +106,7 @@ public class TowerSetPanel : BasePanel
             TowerSet.gameObject.SetActive(true);
             TowerSelect.gameObject.SetActive(false);
             CorrectTowerSet(selectGrid.gridState.id);
+            UpdateTowerSet(selectGrid);
         }
         else
         {
@@ -99,6 +114,7 @@ public class TowerSetPanel : BasePanel
             TowerSelect.gameObject.SetActive(true);
             TowerSet.gameObject.SetActive(false);
             CorrectTowerSelect(selectGrid.gridState.id);
+            UpdateBtnSprite();
         }
 
     }
@@ -163,6 +179,43 @@ public class TowerSetPanel : BasePanel
         rootUI.transform.position = new Vector3(-900, 0, 0);
     }
 
+    void SellClick()
+    {
+
+    }
+
+    void UpClick()
+    {
+        if (!isUpLevel) return;
+    }
+
+    public void UpdateBtnSprite()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            towerBtnArr[i].UpdateSprite();
+        }
+    }
+
+    void UpdateTowerSet(GridPoint selectGrid)
+    {
+        //获得当前的
+        isUpLevel = false;
+        int index = selectGrid.baseTower.towerInfo.nextTowerId;
+        int upCoin = TowerInfoMgr.Instance.towerInfoList[index - 1].buildCoin;
+        if(upCoin<=GameController.Instance.coin)
+        {
+            UpLevelBtn.image.sprite = FactoryManager.Instance.GetSprite("Change/tUp_1");
+            Img_UpPriceBG.gameObject.SetActive(true);
+            Txt_UpPrice.text = upCoin.ToString();
+            isUpLevel = true;
+        }
+        else
+        {
+            UpLevelBtn.image.sprite = FactoryManager.Instance.GetSprite("Change/tUp_2");
+            Img_UpPriceBG.gameObject.SetActive(false);
+        }
+    }
 
 
     public class TowerButton : BaseUIListItem
@@ -216,7 +269,6 @@ public class TowerSetPanel : BasePanel
         void OnBtnClick()
         {
             if (!isActive) return;
-            Debug.Log(id);
             GameController.Instance.selectGrid.SetTowerID(id);
             GameController.Instance.TowerSet();
 
