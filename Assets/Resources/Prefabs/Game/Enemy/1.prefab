@@ -359,10 +359,8 @@ MonoBehaviour:
     heart: 0
     path: 
   pathPointList: []
+  currentLife: 0
   isSetData: 0
-  rAnimator1: {fileID: 0}
-  rAnimator2: {fileID: 0}
-  rAnimator3: {fileID: 0}
   dieAudioClip: {fileID: 0}
 --- !u!114 &114500332330382574
 MonoBehaviour:
@@ -499,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:

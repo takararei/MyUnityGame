@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Framework.Factory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ public class TowerProperty:MonoBehaviour
     private Animator animator;
     protected float timeVal;//攻击计时器
     bool isBeginCD;
+    GameObject bullectGO;
     private void Awake()
     {
         baseTower = GetComponent<BaseTower>();
@@ -55,6 +57,15 @@ public class TowerProperty:MonoBehaviour
         }
         animator.Play("Attack");
         isBeginCD = true;
+        bullectGO = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);
+        bullectGO.transform.position = transform.position-new Vector3(0,0,2);
+        Bullect bu = bullectGO.GetComponent<Bullect>();
+        bu.targetTrans = target;
+        bu.towerInfo = baseTower.towerInfo;
+        //bu.towerID = baseTower.towerInfo.towerId;
+        //bu.attackValue = baseTower.towerInfo.damage;
+        //bu.attackType = baseTower.towerInfo.damageType;
+        bu.isSetData = true;
     }
 
 }

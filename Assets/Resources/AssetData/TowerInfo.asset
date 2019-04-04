@@ -18,10 +18,10 @@ MonoBehaviour:
     damageType: 1
     damageRange: 1.3
     CD: 1
-    damage: 50
+    damage: 20
     Range: 1
     nextTowerId: 2
-    bullectId: 1
+    bullectPath: Bullect/1
     Introduce: "\u58541\u58541"
     Name: "\u58541"
     path: Tower/1
@@ -31,10 +31,10 @@ MonoBehaviour:
     damageType: 1
     damageRange: 1.4
     CD: 1
-    damage: 50
+    damage: 20
     Range: 1
     nextTowerId: 2
-    bullectId: 1
+    bullectPath: Bullect/1
     Introduce: "\u58541\u58542"
     Name: "\u58542"
     path: Tower/2
@@ -44,10 +44,10 @@ MonoBehaviour:
     damageType: 1
     damageRange: 1.5
     CD: 1
-    damage: 50
+    damage: 20
     Range: 1
     nextTowerId: 2
-    bullectId: 1
+    bullectPath: Bullect/1
     Introduce: "\u58541\u58543"
     Name: "\u58543"
     path: Tower/3
@@ -57,10 +57,10 @@ MonoBehaviour:
     damageType: 1
     damageRange: 1.6
     CD: 1
-    damage: 50
+    damage: 20
     Range: 1
     nextTowerId: 2
-    bullectId: 1
+    bullectPath: Bullect/1
     Introduce: "\u58541\u58544"
     Name: "\u58544"
     path: Tower/4

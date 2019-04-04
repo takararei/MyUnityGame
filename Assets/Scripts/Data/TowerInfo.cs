@@ -15,7 +15,7 @@ public class TowerInfo
     public int damage;//伤害
     public int Range;//攻击范围
     public int nextTowerId;//升级的下一个塔索引
-    public int bullectId;//子弹
+    public string bullectPath;//子弹
     public string Introduce;
     public string Name;
     public string path;

@@ -65,6 +65,15 @@ public class TowerSetPanel : BasePanel
         base.OnShow();
         SellBtn.onClick.AddListener(SellClick);
         UpLevelBtn.onClick.AddListener(UpClick);
+        if(TowerSelect.gameObject.activeSelf)
+        {
+            UpdateBtnSprite();
+        }
+        if(TowerSet.gameObject.activeSelf)
+        {
+            UpdateTowerSet(GameController.Instance.selectGrid);
+        }
+        
     }
 
     public override void OnHide()
@@ -107,7 +116,7 @@ public class TowerSetPanel : BasePanel
             TowerSelect.gameObject.SetActive(false);
             CorrectTowerSet(selectGrid.gridState.id);
             UpdateTowerSet(selectGrid);
-        }
+        }  
         else
         {
             //显示选择
@@ -269,8 +278,13 @@ public class TowerSetPanel : BasePanel
         void OnBtnClick()
         {
             if (!isActive) return;
-            GameController.Instance.selectGrid.SetTowerID(id);
+            GridPoint gp = GameController.Instance.selectGrid;
+            gp.SetTowerID(id);
             GameController.Instance.CreateTower();
+            GameController.Instance.ChangeCoin(-gp.baseTower.towerInfo.buildCoin);
+            //GameController.Instance.selectGrid.SetTowerID(id);
+            //GameController.Instance.CreateTower();
+            //GameController.Instance.ChangeCoin(-GameController.Instance.selectGrid.baseTower.towerInfo.buildCoin);
 
         }
 

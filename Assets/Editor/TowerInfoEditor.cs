@@ -41,7 +41,7 @@ public class TowerInfoEditor:BaseExcelEditor
                     info.CD = GetInt(7);
                     info.damage = GetInt(8);
                     info.Range = GetInt(9);
-                    info.bullectId = GetInt(10);
+                    info.bullectPath = GetString(10);
                     info.nextTowerId = GetInt(11);
                     info.path = GetString(12);
                     list.Add(info);

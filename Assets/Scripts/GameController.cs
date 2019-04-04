@@ -17,13 +17,20 @@ public class GameController : MonoBehaviour {
     }
 
     int currentLevel;//当前关卡
-    public int coin;
+    public int coin
+    {
+        get { return _Coin; }
+    }
+
+    private int _Coin;
     int life;
     int nowRound=1;
     int DO;
+
     public bool isPause;
+    public bool isGameOver;
+
     Level level;
-    //获得当前波次数据，怪物数据，路径数据
     public int currRoundkillNum;//被杀的怪物数量 判断是否进入下一回合
     //public List<RoundData> roundDataList;//当前关卡每回合的数据，主要是路径和怪物序列
     public List<int> enemyIdList;//当前回合的怪物序列
@@ -169,6 +176,7 @@ public class GameController : MonoBehaviour {
         level.HandleRound();
         nowRound++;
         //更新面板上的回合显示
+        ChangeRound();
     }
 /// <summary>
 /// 创建塔
@@ -186,9 +194,9 @@ public class GameController : MonoBehaviour {
     }
 
     
-    public void SetLevelData(LevelInfo info)
+    void SetLevelData(LevelInfo info)
     {
-        coin = info.beginCoin;
+        _Coin = info.beginCoin;
         life = info.life;
         nowRound = 1;
         DO = 0;
@@ -224,6 +232,30 @@ public class GameController : MonoBehaviour {
             towerSetPanel.CorrectTowerSetPanel();
             selectGrid.TowerRange(true);
         }
+    }
+
+    public void ChangeCoin(int num)
+    {
+        _Coin += num;
+        EventCenter.Broadcast(EventType.Play_CoinUpdate, _Coin);
+    }
+
+    public void ChangeLife(int num)
+    {
+        life += num;
+        if(life<=0)
+        {
+            life = 0;
+            //游戏结束 显示结束面板
+            isGameOver = true;
+        }
+        EventCenter.Broadcast(EventType.Play_LifeUpdate, life);
+
+    }
+
+    public void ChangeRound()
+    {
+        EventCenter.Broadcast(EventType.Play_NowRoundUpdate, nowRound);
     }
 
     

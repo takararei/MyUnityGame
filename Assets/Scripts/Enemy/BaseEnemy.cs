@@ -17,7 +17,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     private AudioSource audioSource;
     public List<Vector3> pathPointList;
 
-    int currentLife;
+    public int currentLife;
 
     public bool isSetData;
     //用于计数的属性或开关
@@ -27,13 +27,13 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
     private float decreaseSpeedTimeVal;//减速计时器
     private float decreaseTime;//减速持续的具体时间
-    RuntimeAnimatorController rA;
-    [HideInInspector]
-    public RuntimeAnimatorController rAnimator1;
-    [HideInInspector]
-    public RuntimeAnimatorController rAnimator2;
-    [HideInInspector]
-    public RuntimeAnimatorController rAnimator3;
+    //RuntimeAnimatorController rA;
+    //[HideInInspector]
+    //public RuntimeAnimatorController rAnimator1;
+    //[HideInInspector]
+    //public RuntimeAnimatorController rAnimator2;
+    //[HideInInspector]
+    //public RuntimeAnimatorController rAnimator3;
 
     //资源
     public AudioClip dieAudioClip;
@@ -63,22 +63,32 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
                     transform.position, //起点
                 pathPointList[roadPointIndex],//终点
                 1 / Vector3.Distance(transform.position, pathPointList[roadPointIndex]) * Time.deltaTime * enemyInfo.speed);
-        }
 
-        if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
-        {
-            //确定下一点存在
-            if (roadPointIndex + 1 < pathPointList.Count)
+            if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
             {
-                //通过正负值来决定是否转向
-                CorrectRotate(roadPointIndex);
-                roadPointIndex++;
-                if (roadPointIndex >= pathPointList.Count)
+                
+                //确定下一点存在
+                if (roadPointIndex + 1 < pathPointList.Count)
+                {
+                    //通过正负值来决定是否转向
+                    CorrectRotate(roadPointIndex);
+                    Debug.Log(roadPointIndex);
+                    roadPointIndex++;
+                } 
+                else
                 {
                     reachEnd = true;
                 }
             }
         }
+        else
+        {
+            DestroyEnemy();
+            //玩家总生命值减少
+            GameController.Instance.ChangeLife(-enemyInfo.heart);
+        }
+
+        
     }
 
     private void OnMouseDown()
@@ -95,28 +105,32 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         if (xOffset < 0)//右走
         {//播放左右走的动画
             transform.eulerAngles = new Vector3(0, 0, 0);
-            rA = rAnimator1;
+            //rA = rAnimator1;
+            animator.Play("Right");
         }
         else if (xOffset > 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
-            rA = rAnimator1;
+            //rA = rAnimator1;
+            animator.Play("Right");
         }
         else if (yOffset > 0)
         {
             //正面走的动画
-            rA = rAnimator2;
+            //rA = rAnimator2;
+            animator.Play("Front");
         }
         else if (yOffset < 0)
         {
             //背面走的动画
-            rA = rAnimator3;
+            //rA = rAnimator3;
+            animator.Play("Back");
         }
 
-        if (animator.runtimeAnimatorController != rA)
-        {
-            animator.runtimeAnimatorController = rA;
-        }
+        //if (animator.runtimeAnimatorController != rA)
+        //{
+        //    animator.runtimeAnimatorController = rA;
+        //}
         slider.gameObject.transform.eulerAngles = Vector3.zero;
     }
 
@@ -139,15 +153,32 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         if(!reachEnd)
         {
             //被玩家杀死 处理一些金币等
+            GameController.Instance.ChangeCoin(enemyInfo.killCoin);
         }
-
-        FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
+        GameController.Instance.currRoundkillNum++;
         ResetEnemy();
+        FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
+        
     }
 
-    public void TakeDamage(int num)
+    public void TakeDamage(Bullect bullect)
     {
-
+        if(bullect.towerInfo.damageType==1)
+        {
+            currentLife -= bullect.towerInfo.damage;//加上一些加成护甲之类的
+        }
+        else
+        {
+            //魔法攻击
+        }
+        
+        if(currentLife<=0)
+        {
+            //死亡的一些效果
+            DestroyEnemy();
+            return;
+        }
+        slider.value = (float)currentLife / enemyInfo.life;
     }
 }
 

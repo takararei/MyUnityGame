@@ -15,7 +15,7 @@ MonoBehaviour:
   - enemyId: 1
     killCoin: 20
     killDO: 0
-    life: 30
+    life: 100
     speed: 1
     Def: 0
     Mdef: 0

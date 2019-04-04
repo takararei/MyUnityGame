@@ -152,6 +152,7 @@
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
     <Compile Include="Assets\Scripts\Tower\BaseTower.cs" />
+    <Compile Include="Assets\Scripts\Tower\Bullect.cs" />
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerProperty.cs" />
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />

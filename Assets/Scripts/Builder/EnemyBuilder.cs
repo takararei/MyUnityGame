@@ -16,11 +16,12 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
         //EnemyInfoMgr 对敌人类中的参数进行赋值
         productClassGo.enemyInfo = EnemyInfoMgr.Instance.enemyInfoList[EnemyId - 1];
         productClassGo.pathPointList = enemyPathList;
-        productClassGo.rAnimator1= FactoryManager.Instance.GetRuntimeAnimatorController("diren" + EnemyId + "_" + 1);
-        productClassGo.rAnimator2 = FactoryManager.Instance.GetRuntimeAnimatorController("diren" + EnemyId + "_" + 2);
-        productClassGo.rAnimator3 = FactoryManager.Instance.GetRuntimeAnimatorController("diren" + EnemyId + "_" + 3);
+        productClassGo.currentLife = productClassGo.enemyInfo.life;
+        //productClassGo.rAnimator1= FactoryManager.Instance.GetRuntimeAnimatorController("Enemy/diren" + EnemyId + "_" + 1);
+        //productClassGo.rAnimator2 = FactoryManager.Instance.GetRuntimeAnimatorController("Enemy/diren" + EnemyId + "_" + 2);
+        //productClassGo.rAnimator3 = FactoryManager.Instance.GetRuntimeAnimatorController("Enemy/diren" + EnemyId + "_" + 3);
         productClassGo.CorrectRotate(0);
-        //productClassGo.isSetData = true;
+        productClassGo.isSetData = true;
     } 
 
     public void GetOtherResource(BaseEnemy productClassGo)
