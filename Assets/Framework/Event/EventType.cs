@@ -12,4 +12,7 @@
     Play_CoinUpdate,
     Play_LifeUpdate,
     Play_NowRoundUpdate,
+
+
+    GameOver,
 }

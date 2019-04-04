@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class GamePausePanel:BasePanel
 {
-
     Button btn_Close;
     Button btn_Music;
     Button btn_SoundEffect;
@@ -64,6 +63,7 @@ public class GamePausePanel:BasePanel
     private void OnRestart()
     {
         //重置GameController
+        UIManager.Instance.Hide(UIPanelName.GamePausePanel);
         GameController.Instance.RestartGame();
     }
 

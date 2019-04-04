@@ -1,8 +1,10 @@
-﻿using Assets.Framework.UI;
+﻿using Assets.Framework.SceneState;
+using Assets.Framework.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GamePlayPanel:BasePanel
@@ -14,7 +16,9 @@ public class GamePlayPanel:BasePanel
     Text Txt_Coin;
     PlayerStatics pStatics;
     LevelInfoMgr lvInfoMgr;
-    
+    Button btn_Restart;
+    Button btn_ExitGame;
+    Image GameOver;
     public override void Init()
     {
         base.Init();
@@ -25,7 +29,10 @@ public class GamePlayPanel:BasePanel
         Txt_NowRound = Find<Text>("Txt_NowRound");
         Txt_Life = Find<Text>("Txt_Life");
         Txt_Coin = Find<Text>("Txt_Coin");
-
+        btn_Restart = Find<Button>("Btn_Restart");
+        btn_ExitGame = Find<Button>("Btn_ExitGame");
+        GameOver = Find<Image>("GameOver");
+        GameOver.gameObject.SetActive(false);
     }
 
     public override void OnShow()
@@ -39,7 +46,10 @@ public class GamePlayPanel:BasePanel
         EventCenter.AddListener<int>(EventType.Play_CoinUpdate, SetCoinNum);
         EventCenter.AddListener<int>(EventType.Play_LifeUpdate, SetLifeNum);
         EventCenter.AddListener<int>(EventType.Play_NowRoundUpdate, SetNowRound);
+        EventCenter.AddListener(EventType.GameOver, OnGameOver);
         pauseBtn.onClick.AddListener(OnPauseClick);
+        btn_Restart.onClick.AddListener(OnRestart);
+        btn_ExitGame.onClick.AddListener(OnExitGame);
     }
 
     
@@ -47,11 +57,14 @@ public class GamePlayPanel:BasePanel
     public override void OnHide()
     {
         base.OnHide();
-
+        btn_ExitGame.onClick.RemoveAllListeners();
+        btn_Restart.onClick.RemoveAllListeners();
         pauseBtn.onClick.RemoveAllListeners();
+        EventCenter.RemoveListener(EventType.GameOver, OnGameOver);
         EventCenter.RemoveListener<int>(EventType.Play_NowRoundUpdate, SetNowRound);
         EventCenter.RemoveListener<int>(EventType.Play_LifeUpdate, SetLifeNum);
         EventCenter.RemoveListener<int>(EventType.Play_CoinUpdate, SetCoinNum);
+        GameOver.gameObject.SetActive(true);
     }
 
 
@@ -75,4 +88,22 @@ public class GamePlayPanel:BasePanel
         GameController.Instance.isPause = true;
         UIManager.Instance.Show(UIPanelName.GamePausePanel);
     }
+
+    private void OnExitGame()
+    {
+        //回到主场景，重置GameController
+        SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
+    }
+
+    private void OnRestart()
+    {
+        GameController.Instance.RestartGame();
+        GameOver.gameObject.SetActive(false);
+    }
+
+    private void OnGameOver()
+    {
+        GameOver.gameObject.SetActive(true);
+    }
+  
 }

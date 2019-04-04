@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Tools;
+﻿using Assets.Framework.Factory;
+using Assets.Framework.Tools;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,6 @@ using UnityEngine;
 public class BaseTower : MonoBehaviour, IBaseTower
 {
     public TowerInfo towerInfo;
-    public GameObject bullectGO;
     private CircleCollider2D circleCollider;//范围
     private SpriteRenderer _attackRender;
     public SpriteRenderer attackRangeSr
@@ -70,6 +70,12 @@ public class BaseTower : MonoBehaviour, IBaseTower
                 towerProperty.target = null;
             }
         }
+    }
+
+    public void Recycle()
+    {
+        towerProperty.Recycle();
+        FactoryManager.Instance.PushGame(towerInfo.path, gameObject);
     }
 }
 

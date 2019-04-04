@@ -276,6 +276,7 @@ public class MainPanel : BasePanel
             {
                 star3.gameObject.Show();
             }
+            levelButton.image.sprite = FactoryManager.Instance.GetSprite(StringMgr.Sprite_Finished);
         }
 
         public override void Clear()

@@ -9,9 +9,6 @@ public class Bullect:MonoBehaviour
     public Transform targetTrans;
     public TowerInfo towerInfo;
     public float moveSpeed=1;
-    //public int towerID;
-    //public int attackValue;
-    //public int attackType;
     public bool isSetData;
     private void Update()
     {
@@ -31,7 +28,6 @@ public class Bullect:MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetTrans.position,
               1 / Vector3.Distance(transform.position, targetTrans.position * Time.deltaTime * moveSpeed));
-        //Vector3 targetPos = new Vector3(targetTrans.position.x, targetTrans.position.y,2);
         transform.right = targetTrans.position - transform.position;
     }
 
@@ -42,6 +38,7 @@ public class Bullect:MonoBehaviour
         if(gameObject.activeSelf==true)//未被回收
         {
             FactoryManager.Instance.PushGame(towerInfo.bullectPath,gameObject);
+            isSetData = false;
         }
     }
 
@@ -61,5 +58,11 @@ public class Bullect:MonoBehaviour
             DestoryBullect();
         }
     }
+    
+    void Recycle()
+    {
+        DestoryBullect();
+    }
+
 
 }

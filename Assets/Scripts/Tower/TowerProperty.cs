@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-public class TowerProperty:MonoBehaviour
+public class TowerProperty : MonoBehaviour
 {
     public Transform target;
     private BaseTower baseTower;
@@ -16,14 +16,18 @@ public class TowerProperty:MonoBehaviour
     {
         baseTower = GetComponent<BaseTower>();
         animator = GetComponent<Animator>();
-        
+
     }
-    
+
     private void Update()
     {
-        if(isBeginCD)
+        if (target == null || GameController.Instance.isPause == true)
         {
-            if(timeVal>=baseTower.towerInfo.CD)
+            return;
+        }
+        if (isBeginCD)
+        {
+            if (timeVal >= baseTower.towerInfo.CD)
             {
                 timeVal = 0;
                 isBeginCD = false;
@@ -34,14 +38,10 @@ public class TowerProperty:MonoBehaviour
             }
         }
 
-        if(target==null||GameController.Instance.isPause==true)
-        {
-            return;
-        }
-        Vector3 targetPos=new Vector3(target.position.x, target.position.y, 2);
+        Vector3 targetPos = new Vector3(target.position.x, target.position.y, 2);
         transform.up = targetPos - transform.position;
-
-        if(isBeginCD==false)
+        transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
+        if (isBeginCD == false)
         {
             Attack();
         }
@@ -51,21 +51,26 @@ public class TowerProperty:MonoBehaviour
 
     protected virtual void Attack()
     {
-        if(target==null)
+        if (target == null)
         {
             return;
         }
         animator.Play("Attack");
         isBeginCD = true;
         bullectGO = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);
-        bullectGO.transform.position = transform.position-new Vector3(0,0,2);
+        bullectGO.transform.SetParent(GameController.Instance.gameTrans);
+        bullectGO.transform.position = transform.position - new Vector3(0, 0, 2);
+        bullectGO.transform.right = Vector3.right;
         Bullect bu = bullectGO.GetComponent<Bullect>();
         bu.targetTrans = target;
         bu.towerInfo = baseTower.towerInfo;
-        //bu.towerID = baseTower.towerInfo.towerId;
-        //bu.attackValue = baseTower.towerInfo.damage;
-        //bu.attackType = baseTower.towerInfo.damageType;
         bu.isSetData = true;
     }
 
+    public void Recycle()
+    {
+        timeVal = 0;//攻击计时器
+        isBeginCD = false;
+        target = null;
+    }
 }

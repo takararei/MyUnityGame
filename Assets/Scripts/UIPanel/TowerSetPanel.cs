@@ -38,7 +38,6 @@ public class TowerSetPanel : BasePanel
         Txt_UpPrice = Find<Text>("Up_Price");
         Img_UpPriceBG = Find<Image>("Img_UpPriceBG");
         SetTowerBtn();
-        GameController.Instance.towerSetPanel = this;
     }
 
     public void SetTowerBtn()
@@ -60,9 +59,8 @@ public class TowerSetPanel : BasePanel
 
     public override void OnShow()
     {
-        if (rootUI.gameObject.activeSelf)
-            return;
         base.OnShow();
+        CorrectTowerSetPanel();
         SellBtn.onClick.AddListener(SellClick);
         UpLevelBtn.onClick.AddListener(UpClick);
         if(TowerSelect.gameObject.activeSelf)
@@ -78,12 +76,12 @@ public class TowerSetPanel : BasePanel
 
     public override void OnHide()
     {
-        if (!rootUI.gameObject.activeSelf)
-            return;
         base.OnHide();
-
+        ResetPanelPos();
         UpLevelBtn.onClick.RemoveAllListeners();
         SellBtn.onClick.RemoveAllListeners();
+        TowerSelect.gameObject.SetActive(true);
+        TowerSet.gameObject.SetActive(true);
     }
 
     public override void Update()
@@ -108,6 +106,7 @@ public class TowerSetPanel : BasePanel
     public void CorrectTowerSetPanel()
     {
         GridPoint selectGrid = GameController.Instance.selectGrid;
+        if (GameController.Instance.selectGrid == null) return;
         rootUI.transform.position = Camera.main.WorldToScreenPoint(selectGrid.transform.position);
         if (selectGrid.gridState.hasTower)
         {
@@ -212,7 +211,7 @@ public class TowerSetPanel : BasePanel
         isUpLevel = false;
         int index = selectGrid.baseTower.towerInfo.nextTowerId;
         int upCoin = TowerInfoMgr.Instance.towerInfoList[index - 1].buildCoin;
-        if(upCoin<=GameController.Instance.coin)
+        if(upCoin<=GameController.Instance.Coin)
         {
             UpLevelBtn.image.sprite = FactoryManager.Instance.GetSprite("Change/tUp_1");
             Img_UpPriceBG.gameObject.SetActive(true);
@@ -261,7 +260,7 @@ public class TowerSetPanel : BasePanel
         {
             isActive = false;
             //查看一下钱够不够，够就isActive=true;
-            if (GameController.Instance.coin >= TowerInfoMgr.Instance.towerInfoList[id - 1].buildCoin)
+            if (GameController.Instance.Coin >= TowerInfoMgr.Instance.towerInfoList[id - 1].buildCoin)
             {
                 isActive = true;
             }
@@ -282,9 +281,6 @@ public class TowerSetPanel : BasePanel
             gp.SetTowerID(id);
             GameController.Instance.CreateTower();
             GameController.Instance.ChangeCoin(-gp.baseTower.towerInfo.buildCoin);
-            //GameController.Instance.selectGrid.SetTowerID(id);
-            //GameController.Instance.CreateTower();
-            //GameController.Instance.ChangeCoin(-GameController.Instance.selectGrid.baseTower.towerInfo.buildCoin);
 
         }
 

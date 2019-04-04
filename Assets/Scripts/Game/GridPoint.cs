@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Framework.Factory;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -56,6 +57,11 @@ public class GridPoint : MonoBehaviour
             else
             {
                 //检查是否有塔，有的话就删除
+                if(currentTower!=null)
+                {
+                    
+                    baseTower.Recycle();
+                }
                 gameObject.SetActive(true);
                 spriteRenderer.enabled = true;
             }

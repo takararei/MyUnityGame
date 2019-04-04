@@ -17,9 +17,6 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
         productClassGo.enemyInfo = EnemyInfoMgr.Instance.enemyInfoList[EnemyId - 1];
         productClassGo.pathPointList = enemyPathList;
         productClassGo.currentLife = productClassGo.enemyInfo.life;
-        //productClassGo.rAnimator1= FactoryManager.Instance.GetRuntimeAnimatorController("Enemy/diren" + EnemyId + "_" + 1);
-        //productClassGo.rAnimator2 = FactoryManager.Instance.GetRuntimeAnimatorController("Enemy/diren" + EnemyId + "_" + 2);
-        //productClassGo.rAnimator3 = FactoryManager.Instance.GetRuntimeAnimatorController("Enemy/diren" + EnemyId + "_" + 3);
         productClassGo.CorrectRotate(0);
         productClassGo.isSetData = true;
     } 
@@ -35,7 +32,7 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
         GameObject go = FactoryManager.Instance.GetGame(EnemyInfoMgr.Instance.enemyInfoList[EnemyId-1].path);
         BaseEnemy enemy = GetProductClass(go);
         GetData(enemy);
-        go.transform.SetParent(GameController.Instance.transform);
+        go.transform.SetParent(GameController.Instance.gameTrans);
         go.transform.position = enemyPathList[0];
         enemy.isSetData = true;
         return go;

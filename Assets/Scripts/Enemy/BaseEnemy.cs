@@ -27,13 +27,6 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
     private float decreaseSpeedTimeVal;//减速计时器
     private float decreaseTime;//减速持续的具体时间
-    //RuntimeAnimatorController rA;
-    //[HideInInspector]
-    //public RuntimeAnimatorController rAnimator1;
-    //[HideInInspector]
-    //public RuntimeAnimatorController rAnimator2;
-    //[HideInInspector]
-    //public RuntimeAnimatorController rAnimator3;
 
     //资源
     public AudioClip dieAudioClip;
@@ -72,7 +65,6 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
                 {
                     //通过正负值来决定是否转向
                     CorrectRotate(roadPointIndex);
-                    Debug.Log(roadPointIndex);
                     roadPointIndex++;
                 } 
                 else
@@ -146,6 +138,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         decreaseSpeedTimeVal = 0;
         decreaseTime = 0;
         //CancelDecreaseDebuff();
+
+        FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
     }
 
     public void DestroyEnemy()
@@ -154,11 +148,10 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         {
             //被玩家杀死 处理一些金币等
             GameController.Instance.ChangeCoin(enemyInfo.killCoin);
+            //钻石
         }
         GameController.Instance.currRoundkillNum++;
         ResetEnemy();
-        FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
-        
     }
 
     public void TakeDamage(Bullect bullect)
@@ -179,6 +172,11 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             return;
         }
         slider.value = (float)currentLife / enemyInfo.life;
+    }
+
+    void Recycle()
+    {
+        ResetEnemy();
     }
 }
 

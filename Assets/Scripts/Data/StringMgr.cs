@@ -12,4 +12,5 @@ public static class StringMgr
     public const string Img_Mask = "Img_Mask";
     public const string AchievementItem = "AchievementItem";
     public const string Sprite_UnFinished = "Change/unFinishedLevel";
+    public const string Sprite_Finished = "Change/FinishedLevel";
 }

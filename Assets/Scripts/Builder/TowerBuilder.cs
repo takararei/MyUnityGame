@@ -28,6 +28,7 @@ public class TowerBuilder : IBuilder<BaseTower>
         GetData(tower);
         go.transform.SetParent(selectGrid.transform);
         go.transform.position = new Vector3(pos.x,pos.y,2);//此处后期转向需要矫正
+        go.transform.up = Vector3.up;
         selectGrid.currentTower = go;//格子要持有这个塔
         selectGrid.baseTower = go.GetComponent<BaseTower>();
         return go;
