@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Name: PlayerStatics
   m_EditorClassIdentifier: 
   finishedLevelCount: 2
-  DO: 0
+  DO: 450
   isMusicOff: 1
   isEffectOff: 1
   levelStar: 020000000200000000000000
-  itemNum: 0200000004000000070000000700000008000000
+  itemNum: 0300000004000000070000000700000008000000
   achievementList:
   - record: 0
     isFinished: 0
+  nowLevel: 0

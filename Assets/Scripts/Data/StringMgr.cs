@@ -13,4 +13,7 @@ public static class StringMgr
     public const string AchievementItem = "AchievementItem";
     public const string Sprite_UnFinished = "Change/unFinishedLevel";
     public const string Sprite_Finished = "Change/FinishedLevel";
+
+    public const string isMusicOff = "isMusicOff";
+    public const string isEffectOff = "isEffectOff";
 }

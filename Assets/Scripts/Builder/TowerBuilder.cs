@@ -13,7 +13,7 @@ public class TowerBuilder : IBuilder<BaseTower>
     public void GetData(BaseTower productClassGo)
     {
         productClassGo.towerInfo = TowerInfoMgr.Instance.towerInfoList[TowerId - 1];
-        productClassGo.attackRangeSr.enabled = false;
+        productClassGo.AttackRangeSr.enabled = false;
     }
 
     public void GetOtherResource(BaseTower productClassGo)

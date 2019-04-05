@@ -21,11 +21,15 @@ namespace Assets.Framework
             }
         }
         public bool toMainScene;
+        public int pickLevel;
+        public PlayerData playerData;
+        PlayerDataOperator pdOperator;
         private void Awake()
         {
             DontDestroyOnLoad(this);
             _instance = this;
-
+            pdOperator = new PlayerDataOperator();
+            playerData = pdOperator.LoadPlayerData();
             FactoryManager.Instance.Init();
             AudioManager.Instance.Init();
             UIManager.Instance.Init();

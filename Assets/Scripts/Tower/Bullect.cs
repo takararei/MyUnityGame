@@ -8,8 +8,14 @@ public class Bullect:MonoBehaviour
 {
     public Transform targetTrans;
     public TowerInfo towerInfo;
+    Animator animator;
     public float moveSpeed=1;
     public bool isSetData;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Update()
     {
         //if(GameController.Instance.isGameOver)
@@ -18,14 +24,18 @@ public class Bullect:MonoBehaviour
         //    return;
         //}
         if (GameController.Instance.isPause||!isSetData)
+        {
+            animator.speed = 0;
             return;
+        }
+            
         //如果飞到一半突然物体已经消失 则子弹也消失
-        if (targetTrans == null || !targetTrans.gameObject.activeSelf|| GameController.Instance.isGameOver)
+        if (targetTrans == null || !targetTrans.gameObject.activeSelf)//|| GameController.Instance.isGameOver)
         {
             DestoryBullect();
             return;
         }
-
+        animator.speed = 1;
         transform.position = Vector3.Lerp(transform.position, targetTrans.position,
               1 / Vector3.Distance(transform.position, targetTrans.position * Time.deltaTime * moveSpeed));
         transform.right = targetTrans.position - transform.position;

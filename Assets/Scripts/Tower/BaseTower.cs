@@ -9,7 +9,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
     public TowerInfo towerInfo;
     private CircleCollider2D circleCollider;//范围
     private SpriteRenderer _attackRender;
-    public SpriteRenderer attackRangeSr
+    public SpriteRenderer AttackRangeSr
     {
         get
         {
@@ -75,6 +75,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
     public void Recycle()
     {
         towerProperty.Recycle();
+        enemyTargetList.Clear();
         FactoryManager.Instance.PushGame(towerInfo.path, gameObject);
     }
 }

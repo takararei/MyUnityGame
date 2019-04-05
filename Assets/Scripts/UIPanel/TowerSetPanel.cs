@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Extension;
+﻿using Assets.Framework;
+using Assets.Framework.Extension;
 using Assets.Framework.Factory;
 using Assets.Framework.UI;
 using System;
@@ -20,6 +21,8 @@ public class TowerSetPanel : BasePanel
     Image Img_UpPriceBG;
     bool isUpLevel;
 
+    public GridPoint selectGrid;
+
     public override void Init()
     {
         base.Init();
@@ -38,6 +41,12 @@ public class TowerSetPanel : BasePanel
         Txt_UpPrice = Find<Text>("Up_Price");
         Img_UpPriceBG = Find<Image>("Img_UpPriceBG");
         SetTowerBtn();
+        SellBtn.onClick.AddListener(SellClick);
+        UpLevelBtn.onClick.AddListener(UpClick);
+        TowerSelect.gameObject.SetActive(false);
+        TowerSet.gameObject.SetActive(false);
+        EventCenter.AddListener<GridPoint>(EventType.HandleGrid, HandleGrid);
+        EventCenter.AddListener(EventType.RestartGame,RestartGame);
     }
 
     public void SetTowerBtn()
@@ -51,7 +60,7 @@ public class TowerSetPanel : BasePanel
             go.transform.position = pos[i].position;
             btnTransArr[i] = go.transform;
             TowerButton tb =
-                new TowerButton(LevelInfoMgr.Instance.levelInfoList[PlayerStatics.Instance.nowLevel].towerList[i], go);
+                new TowerButton(LevelInfoMgr.Instance.levelInfoList[GameRoot.Instance.pickLevel].towerList[i], go,this);
             towerBtnArr[i] = tb;
         }
 
@@ -60,39 +69,40 @@ public class TowerSetPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        CorrectTowerSetPanel();
-        SellBtn.onClick.AddListener(SellClick);
-        UpLevelBtn.onClick.AddListener(UpClick);
-        if(TowerSelect.gameObject.activeSelf)
-        {
-            UpdateBtnSprite();
-        }
-        if(TowerSet.gameObject.activeSelf)
-        {
-            UpdateTowerSet(GameController.Instance.selectGrid);
-        }
-        
     }
 
     public override void OnHide()
     {
         base.OnHide();
         ResetPanelPos();
-        UpLevelBtn.onClick.RemoveAllListeners();
-        SellBtn.onClick.RemoveAllListeners();
-        TowerSelect.gameObject.SetActive(true);
-        TowerSet.gameObject.SetActive(true);
+        selectGrid = null;
     }
 
     public override void Update()
     {
         base.Update();
+        if (TowerSelect.gameObject.activeSelf)
+        {
+            UpdateBtnSprite();
+        }
+        if (TowerSet.gameObject.activeSelf)
+        {
+            UpdateTowerSet(selectGrid);
+        }
     }
 
     public override void Destroy()
     {
         base.Destroy();
+        EventCenter.RemoveListener(EventType.RestartGame, RestartGame);
+        EventCenter.RemoveListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         RemoveListenerTowerBtn();
+        ResetPanelPos();
+        UpLevelBtn.onClick.RemoveAllListeners();
+        SellBtn.onClick.RemoveAllListeners();
+        TowerSelect.gameObject.SetActive(true);
+        TowerSet.gameObject.SetActive(true);
+        selectGrid = null;
     }
 
     public void RemoveListenerTowerBtn()
@@ -105,8 +115,14 @@ public class TowerSetPanel : BasePanel
    
     public void CorrectTowerSetPanel()
     {
-        GridPoint selectGrid = GameController.Instance.selectGrid;
-        if (GameController.Instance.selectGrid == null) return;
+        //GridPoint selectGrid = GameController.Instance.selectGrid;
+        //if (GameController.Instance.selectGrid == null) return;
+        if (selectGrid == null) 
+        {
+            TowerSet.gameObject.SetActive(false);
+            TowerSelect.gameObject.SetActive(false);
+            return;
+        }
         rootUI.transform.position = Camera.main.WorldToScreenPoint(selectGrid.transform.position);
         if (selectGrid.gridState.hasTower)
         {
@@ -126,6 +142,7 @@ public class TowerSetPanel : BasePanel
         }
 
     }
+
     void CorrectTowerSelect(int index)
     {
         if (index <= 7)
@@ -187,6 +204,41 @@ public class TowerSetPanel : BasePanel
         rootUI.transform.position = new Vector3(-900, 0, 0);
     }
 
+    /// <summary>
+    /// 处理格子，塔的创建和显示
+    /// </summary>
+    /// <param name="gp"></param>
+    public void HandleGrid(GridPoint gp)
+    {
+        if (selectGrid == null)
+        {
+            selectGrid = gp;
+            //UIManager.Instance.Show(UIPanelName.TowerSetPanel);
+            //CorrectTowerSetPanel();
+            //如果有塔就显示塔的范围
+            selectGrid.TowerRange(true);
+        }
+        else if (selectGrid == gp)
+        {
+            selectGrid.TowerRange(false);
+            selectGrid = null;
+            //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+
+        }
+        else
+        {
+            selectGrid.TowerRange(false);
+            //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+            selectGrid = gp;
+            //UIManager.Instance.Show(UIPanelName.TowerSetPanel);
+            //CorrectTowerSetPanel();
+            selectGrid.TowerRange(true);
+        }
+
+        CorrectTowerSetPanel();
+    }
+
+
     void SellClick()
     {
 
@@ -225,6 +277,14 @@ public class TowerSetPanel : BasePanel
         }
     }
 
+    void RestartGame()
+    {
+        selectGrid = null;
+        TowerSelect.gameObject.SetActive(false);
+        TowerSet.gameObject.SetActive(false);
+        ResetPanelPos();
+    }
+
 
     public class TowerButton : BaseUIListItem
     {
@@ -232,10 +292,12 @@ public class TowerSetPanel : BasePanel
         Text Txt_Price;
         Button btn;
         bool isActive;
-        public TowerButton(int index, GameObject go)
+        TowerSetPanel panel;
+        public TowerButton(int index, GameObject go, TowerSetPanel bspanel)
         {
             id = index;
             root = go;
+            panel = bspanel;
             img_PriceBG = Find<Image>("Img_PriceBG");
             Txt_Price = Find<Text>("Txt_Price");
             btn = go.GetComponent<Button>();
@@ -277,9 +339,12 @@ public class TowerSetPanel : BasePanel
         void OnBtnClick()
         {
             if (!isActive) return;
-            GridPoint gp = GameController.Instance.selectGrid;
+            //GridPoint gp = GameController.Instance.selectGrid;
+            GridPoint gp = panel.selectGrid;
+            if (gp == null) return;
+
             gp.SetTowerID(id);
-            GameController.Instance.CreateTower();
+            GameController.Instance.CreateTower(gp);
             GameController.Instance.ChangeCoin(-gp.baseTower.towerInfo.buildCoin);
 
         }

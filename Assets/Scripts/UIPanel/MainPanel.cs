@@ -67,7 +67,7 @@ public class MainPanel : BasePanel
 
         //实例化三个关卡按钮到对应位置 读取levelinfo 添加到List里
         lvBtnList = new List<LevelButton>();
-        
+
 
         //为每个button 注册事件
         //获取关卡要更换的ui
@@ -100,9 +100,10 @@ public class MainPanel : BasePanel
         EventCenter.AddListener<int>(EventType.DoNumChange, SetDONum);
 
         mTxt_Count.text = pStatics.DO.ToString();
-        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
-        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
-
+        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
         SetLevelButton();
         
     }
@@ -115,6 +116,8 @@ public class MainPanel : BasePanel
         //其他
         RemoveLevelButton();
 
+        mImg_EffectsOff.gameObject.SetActive(true);
+        mImg_MusicOff.gameObject.SetActive(true);
         EventCenter.RemoveListener<int>(EventType.DoNumChange, SetDONum);
 
         //地图相关
@@ -194,13 +197,17 @@ public class MainPanel : BasePanel
     }
     void OnSoundEffect()
     {
-        pStatics.isEffectOff = !pStatics.isEffectOff;
-        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
+        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        //pStatics.isEffectOff = !pStatics.isEffectOff;
+        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
     }
     void OnMusic()
     {
-        pStatics.isMusicOff = !pStatics.isMusicOff;
-        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
+        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        //pStatics.isMusicOff = !pStatics.isMusicOff;
+        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }
     void OnPointerDown(PointerEventData eventData)
     {

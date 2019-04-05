@@ -18,6 +18,7 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
         productClassGo.pathPointList = enemyPathList;
         productClassGo.currentLife = productClassGo.enemyInfo.life;
         productClassGo.CorrectRotate(0);
+        productClassGo.Sign.enabled = false;
         productClassGo.isSetData = true;
     } 
 

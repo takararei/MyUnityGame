@@ -3,6 +3,7 @@ using Assets.Framework.Tools;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
@@ -27,7 +28,18 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
     private float decreaseSpeedTimeVal;//减速计时器
     private float decreaseTime;//减速持续的具体时间
-
+    private SpriteRenderer _Sign;
+    public SpriteRenderer Sign
+    {
+        get
+        {
+            if(_Sign==null)
+            {
+                _Sign= UITool.FindChild<SpriteRenderer>(gameObject, "Sign");
+            }
+            return _Sign;
+        }
+    }
     //资源
     public AudioClip dieAudioClip;
     private void Awake()
@@ -85,7 +97,12 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
     private void OnMouseDown()
     {
-        
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        EventCenter.Broadcast(EventType.HandleEnemy, this);
+
     }
 
     public void CorrectRotate(int index)
@@ -137,6 +154,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         dieAudioClip = null;
         decreaseSpeedTimeVal = 0;
         decreaseTime = 0;
+        _Sign.enabled = false;
         //CancelDecreaseDebuff();
 
         FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
@@ -163,6 +181,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         else
         {
             //魔法攻击
+            currentLife -= bullect.towerInfo.damage;
         }
         
         if(currentLife<=0)
@@ -172,6 +191,11 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             return;
         }
         slider.value = (float)currentLife / enemyInfo.life;
+    }
+
+    public void SetEnemySign(bool isEnabled)
+    {
+        _Sign.enabled = isEnabled;
     }
 
     void Recycle()

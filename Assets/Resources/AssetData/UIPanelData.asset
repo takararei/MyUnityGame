@@ -60,3 +60,11 @@ MonoBehaviour:
     panelName: TowerSetPanel
     path: Prefabs/UIPanel/TowerSetPanel
     layer: Common
+  - id: 13
+    panelName: GameWinPanel
+    path: Prefabs/UIPanel/GameWinPanel
+    layer: Common
+  - id: 14
+    panelName: GameOverPanel
+    path: Prefabs/UIPanel/GameOverPanel
+    layer: Common

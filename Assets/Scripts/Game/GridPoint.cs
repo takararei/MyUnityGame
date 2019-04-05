@@ -91,14 +91,15 @@ public class GridPoint : MonoBehaviour
             return;
         }
         //显示建塔的预制体
-        GameController.Instance.HandleGrid(this);
+        //GameController.Instance.HandleGrid(this);
+        EventCenter.Broadcast(EventType.HandleGrid, this);
     }
 
     public void TowerRange(bool isShow)
     {
         if(gridState.hasTower)
         {
-            baseTower.attackRangeSr.enabled = isShow;
+            baseTower.AttackRangeSr.enabled = isShow;
         }
     }
 #endif

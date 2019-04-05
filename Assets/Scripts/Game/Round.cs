@@ -26,9 +26,9 @@ public class Round
         else
         {
             //敌人处理
-            GameController.Instance.enemyIdList = info.enemyList;
-            //GameController.Instance.CreateEnemy();
-            GameController.Instance.isNeedCreateEnemy = true;
+            GameController.Instance.CreateEnemy(info.enemyList);
+            //GameController.Instance.enemyIdList = info.enemyList;
+            //GameController.Instance.isNeedCreateEnemy = true;
         }
     }
 

@@ -26,11 +26,9 @@ public class BeginPanel : BasePanel
     private float topUp = 772;
     private float topDown = 606;
     private float topMoveTime = 0.5f;
-    PlayerStatics pStatics;
     public override void Init()
     {
         base.Init();
-        pStatics = PlayerStatics.Instance;
         mBtn_SoundEffects = Find<Button>("Btn_SoundEffects");
         mBtn_Music = Find<Button>("Btn_Music");
         mBtn_StartGame = Find<Button>("Btn_StartGame");
@@ -59,8 +57,10 @@ public class BeginPanel : BasePanel
         mBtn_No.onClick.AddListener(()=> { mImg_Exit.gameObject.Hide();MoveTopButtonDown(); });
         mBtn_CloseAbout.onClick.AddListener(() => { mImg_About.gameObject.Hide();MoveTopButtonDown(); });
 
-        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
-        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
     }
     public void MoveTopButtonUp()
     {
@@ -89,6 +89,8 @@ public class BeginPanel : BasePanel
         mBtn_SoundEffects.onClick.RemoveListener(OnButtonSoundEffectClick);
         mImg_Exit.gameObject.Show();
         mImg_About.gameObject.Show();
+        mImg_EffectsOff.gameObject.SetActive(true);
+        mImg_MusicOff.gameObject.SetActive(true);
     }
     
     private void OnButtonYesClick()
@@ -101,14 +103,19 @@ public class BeginPanel : BasePanel
 
     public void OnButtonSoundEffectClick()
     {
-        pStatics.isEffectOff = !pStatics.isEffectOff;
-        mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
+        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        //pStatics.isEffectOff = !pStatics.isEffectOff;
+        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
     }
 
     public void OnButtonMusicClick()
     {
-        pStatics.isMusicOff = !pStatics.isMusicOff;
-        mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
+        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+
+        //pStatics.isMusicOff = !pStatics.isMusicOff;
+        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }
 
     public void OnButtonStartGameClick()//切换场景

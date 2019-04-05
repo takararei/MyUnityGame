@@ -585,6 +585,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toMainScene: 1
+  pickLevel: 0
+  playerData:
+    finishedLevelCount: 0
+    DO: 0
+    levelStar: 
+    itemNum: 
+    achievementList: []
 --- !u!4 &944021906
 Transform:
   m_ObjectHideFlags: 0

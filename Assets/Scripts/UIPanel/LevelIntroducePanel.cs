@@ -43,7 +43,7 @@ public class LevelIntroducePanel : BasePanel
 
     public void OnEnterGame()
     {
-        PlayerStatics.Instance.nowLevel = pickLevel;
+        GameRoot.Instance.pickLevel = pickLevel;
         SceneStateManager.Instance.ChangeSceneState(new GameLoadSceneState());
     }
 

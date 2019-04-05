@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 处理回合，判断胜利
+/// </summary>
 public class Level
 {
     public LevelInfo info;
@@ -33,6 +36,7 @@ public class Level
         if (currentRound >= info.totalRound)
         {
             //胜利
+            GameController.Instance.GameWin();
         }
         else if (currentRound == info.totalRound - 1)
         {
