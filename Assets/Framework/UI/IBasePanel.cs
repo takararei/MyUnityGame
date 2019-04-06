@@ -39,6 +39,6 @@ namespace Assets.Framework.UI
         /// </summary>
         //void OnResume();
 
-        void Destroy();
+        void OnDestroy();
     }
 }

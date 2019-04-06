@@ -12,6 +12,7 @@
     
     GameOver,
     GameWin,
+    GamePause,
     RestartGame,
 
     HandleGrid,

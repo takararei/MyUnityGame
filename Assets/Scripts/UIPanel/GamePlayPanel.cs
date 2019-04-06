@@ -108,9 +108,9 @@ public class GamePlayPanel:BasePanel
         }
     }
 
-    public override void Destroy()
+    public override void OnDestroy()
     {
-        base.Destroy();
+        base.OnDestroy();
         enemyInfoPanel.SetActive(true);
         towerInfoPanel.SetActive(true);
         selectGrid = null;
@@ -159,6 +159,7 @@ public class GamePlayPanel:BasePanel
         Txt_EnemyName.text = info.Name;
         Txt_TotalLife.text = info.life.ToString();
         Txt_Def.text = info.Def.ToString();
+        Txt_Mdef.text = info.Mdef.ToString();
         Txt_Magic.text = info.Mdef.ToString();
         Txt_Heart.text = info.heart.ToString();
         Txt_Speed.text = info.speed.ToString();

@@ -57,7 +57,7 @@ public class TowerProperty : MonoBehaviour
         }
         animator.Play("Attack");
         isBeginCD = true;
-        bullectGO = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);
+        bullectGO = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);//可以考虑做成BullectBuilderTODO
         bullectGO.transform.SetParent(GameController.Instance.gameTrans);
         bullectGO.transform.position = transform.position - new Vector3(0, 0, 2);
         bullectGO.transform.right = Vector3.right;

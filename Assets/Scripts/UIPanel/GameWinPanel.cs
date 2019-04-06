@@ -54,9 +54,9 @@ public class GameWinPanel:BasePanel
         UIManager.Instance.Hide(UIPanelName.GameWinPanel);
     }
 
-    public override void Destroy()
+    public override void OnDestroy()
     {
-        base.Destroy();
+        base.OnDestroy();
         star1.gameObject.SetActive(true);
         star2.gameObject.SetActive(true);
         star3.gameObject.SetActive(true);

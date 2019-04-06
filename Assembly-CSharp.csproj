@@ -117,6 +117,7 @@
     <Compile Include="Assets\Framework\Util\EditorUtil.cs" />
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
+    <Compile Include="Assets\Scripts\Builder\BullectBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\EnemyBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\IBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\TowerBuilder.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
     <Compile Include="Assets\Scripts\Tower\BaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\Bullect.cs" />
+    <Compile Include="Assets\Scripts\Tower\Effect.cs" />
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerProperty.cs" />
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />

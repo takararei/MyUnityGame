@@ -20,13 +20,12 @@ public class BaseTower : MonoBehaviour, IBaseTower
             return _attackRender;
         }
     }
-    //public Animator animator;
-    //public Transform target;
-    TowerProperty towerProperty;
+    [HideInInspector]
+    public TowerProperty towerProperty;
+
     private void Awake()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        //animator = GetComponent<Animator>();
         towerProperty = GetComponent<TowerProperty>();
         enemyTargetList = new List<Transform>();
     }
@@ -36,7 +35,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
     }
     private void Update()
     {
-        if(towerProperty.target == null&&enemyTargetList.Count!=0)
+        if (towerProperty.target == null && enemyTargetList.Count != 0)
         {
             towerProperty.target = enemyTargetList[0];
         }
@@ -49,23 +48,32 @@ public class BaseTower : MonoBehaviour, IBaseTower
     List<Transform> enemyTargetList;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag=="enemy")
+        if (other.tag == "enemy")
         {
-            enemyTargetList.Add(other.transform);
+            if(!enemyTargetList.Contains(other.transform))
+            {
+                enemyTargetList.Add(other.transform);
+            }
         }
-        
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-
+        if (other.tag == "enemy")
+        {
+            if (!enemyTargetList.Contains(other.transform))
+            {
+                enemyTargetList.Add(other.transform);
+            }
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag=="enemy")
+        if (other.tag == "enemy")
         {
             enemyTargetList.Remove(other.transform);
-            if(towerProperty.target==other.transform)
+            if (towerProperty.target == other.transform)
             {
                 towerProperty.target = null;
             }

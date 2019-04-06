@@ -72,7 +72,7 @@ namespace Assets.Framework.UI
             return UITool.FindChild<T>(rootUI, uiName);
         }
 
-        public virtual void Destroy()
+        public virtual void OnDestroy()
         {
 
         }

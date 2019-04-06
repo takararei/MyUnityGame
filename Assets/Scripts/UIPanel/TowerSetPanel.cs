@@ -91,9 +91,9 @@ public class TowerSetPanel : BasePanel
         }
     }
 
-    public override void Destroy()
+    public override void OnDestroy()
     {
-        base.Destroy();
+        base.OnDestroy();
         EventCenter.RemoveListener(EventType.RestartGame, RestartGame);
         EventCenter.RemoveListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         RemoveListenerTowerBtn();
@@ -102,6 +102,7 @@ public class TowerSetPanel : BasePanel
         SellBtn.onClick.RemoveAllListeners();
         TowerSelect.gameObject.SetActive(true);
         TowerSet.gameObject.SetActive(true);
+        Img_UpPriceBG.gameObject.SetActive(true);
         selectGrid = null;
     }
 
@@ -112,7 +113,7 @@ public class TowerSetPanel : BasePanel
             towerBtnArr[i].Clear();
         }
     }
-   
+   //判断显示升级面板还是建塔面板
     public void CorrectTowerSetPanel()
     {
         //GridPoint selectGrid = GameController.Instance.selectGrid;
@@ -142,7 +143,7 @@ public class TowerSetPanel : BasePanel
         }
 
     }
-
+    //建塔面板纠正位置
     void CorrectTowerSelect(int index)
     {
         if (index <= 7)
@@ -181,6 +182,7 @@ public class TowerSetPanel : BasePanel
             btnTransArr[2].position = pos[2].position;
         }
     }
+    //建塔面板纠正位置
     void CorrectTowerSet(int index)
     {
         if (index % 9 == 0)
@@ -241,12 +243,26 @@ public class TowerSetPanel : BasePanel
 
     void SellClick()
     {
-
+        int sellCoin = selectGrid.baseTower.towerInfo.sellCoin;
+        selectGrid.baseTower.Recycle();
+        selectGrid.InitGrid();
+        selectGrid.SetTowerID(-1);//重新置为建塔点
+        GameController.Instance.ChangeCoin(sellCoin);
+        EventCenter.Broadcast(EventType.HandleGrid, selectGrid);
     }
 
     void UpClick()
     {
         if (!isUpLevel) return;
+        //删除当前格子下的塔，回收，更新格子塔的信息
+        int nextId = selectGrid.baseTower.towerInfo.nextTowerId;
+        selectGrid.baseTower.Recycle();
+        selectGrid.InitGrid();
+        //生成新的塔
+        //获取下一个塔的id
+        selectGrid.SetTowerID(nextId);
+        GameController.Instance.CreateTower(selectGrid);
+
     }
 
     public void UpdateBtnSprite()
@@ -345,7 +361,7 @@ public class TowerSetPanel : BasePanel
 
             gp.SetTowerID(id);
             GameController.Instance.CreateTower(gp);
-            GameController.Instance.ChangeCoin(-gp.baseTower.towerInfo.buildCoin);
+            //GameController.Instance.ChangeCoin(-gp.baseTower.towerInfo.buildCoin);
 
         }
 
@@ -353,6 +369,7 @@ public class TowerSetPanel : BasePanel
         {
             base.Clear();
             btn.onClick.RemoveAllListeners();
+            img_PriceBG.gameObject.SetActive(true);
         }
 
     }

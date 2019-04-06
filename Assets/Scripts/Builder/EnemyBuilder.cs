@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class EnemyBuilder : IBuilder<BaseEnemy>
 {
-    public int EnemyId;
-    public List<Vector3> enemyPathList;
-    private GameObject enemyGo;
+    public int EnemyId;//敌人编号
+    public List<Vector3> enemyPathList;//敌人路径
+    //private GameObject enemyGo;
 
     public void GetData(BaseEnemy productClassGo)
     {
@@ -19,7 +19,7 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
         productClassGo.currentLife = productClassGo.enemyInfo.life;
         productClassGo.CorrectRotate(0);
         productClassGo.Sign.enabled = false;
-        productClassGo.isSetData = true;
+        //productClassGo.isSetData = true;
     } 
 
     public void GetOtherResource(BaseEnemy productClassGo)

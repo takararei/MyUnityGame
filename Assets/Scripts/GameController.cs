@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 
     EnemyBuilder enemyBuilder;
     TowerBuilder towerBuilder;
-
+    //BullectBuilder bullectBuilder;TODO
     LevelInfoMgr lvInfoMgr;
     MapMaker mapMaker;
     LevelInfo info;
@@ -44,7 +44,8 @@ public class GameController : MonoBehaviour
     public int Life { get { return life; } }
     int life;
     int nowRound = 1;
-    int DO;
+    public int DO { get { return _DO; } }
+    private int _DO;
 
     //选中的格子
     //public GridPoint selectGrid;
@@ -62,12 +63,10 @@ public class GameController : MonoBehaviour
         gameTrans = UnityTool.FindChild(gameObject, "Game").transform;
         lvInfoMgr = LevelInfoMgr.Instance;
         mapMaker = GetComponent<MapMaker>();
-        UIManager.Instance.Show(UIPanelName.TowerSetPanel);
-        //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
+
         enemyBuilder = new EnemyBuilder();
         towerBuilder = new TowerBuilder();
-        
-
+        //bullectBuilder = new BullectBuilder();TODO
         currentLevel = GameRoot.Instance.pickLevel;
         info = lvInfoMgr.levelInfoList[currentLevel];
         //初始化地图
@@ -195,7 +194,7 @@ public class GameController : MonoBehaviour
         towerBuilder.pos = towerBuilder.selectGrid.transform.position;
 
         towerBuilder.GetProduct();
-
+        ChangeCoin(-selectGrid.baseTower.towerInfo.buildCoin);
         EventCenter.Broadcast<GridPoint>(EventType.HandleGrid, selectGrid);
 
         //selectGrid = null;
@@ -208,7 +207,7 @@ public class GameController : MonoBehaviour
         _Coin = info.beginCoin;
         life = info.life;
         nowRound = 1;
-        DO = 0;
+        _DO = 0;
         EventCenter.Broadcast(EventType.Play_CoinUpdate, _Coin);
         EventCenter.Broadcast(EventType.Play_LifeUpdate, life);
         EventCenter.Broadcast(EventType.Play_NowRoundUpdate, nowRound);
@@ -251,7 +250,7 @@ public class GameController : MonoBehaviour
     {
         isPause = true;
         UIManager.Instance.Show(UIPanelName.GameWinPanel);
-        //更新玩家记录的星级
+        //更新玩家记录的星级 TODO
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
     }
 }

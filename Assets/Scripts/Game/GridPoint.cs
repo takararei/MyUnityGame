@@ -44,6 +44,8 @@ public class GridPoint : MonoBehaviour
         spriteRenderer.enabled = true;
         gridState.hasTower = false;
         gridState.towerID = -1;
+        currentTower = null;
+        baseTower = null;
     }
 #if Game    
     public void UpdateGrid()
@@ -72,7 +74,8 @@ public class GridPoint : MonoBehaviour
     public void SetTowerID(int i)
     {
         gridState.towerID = i;
-        if(i==-1)
+        gridState.isTowerPoint = true;
+        if (i==-1)
         {
             gridState.hasTower = false;
         }

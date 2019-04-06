@@ -118,7 +118,7 @@ namespace Assets.Framework.UI
             //panelDict.Clear();//待定
             foreach(var item in panelDict)
             {
-                item.Value.Destroy();
+                item.Value.OnDestroy();
             }
             panelDict.Clear();
             

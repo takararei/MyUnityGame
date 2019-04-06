@@ -31,10 +31,10 @@ MonoBehaviour:
     damageType: 1
     damageRange: 1.4
     CD: 1
-    damage: 20
+    damage: 30
     Range: 1
     nextTowerId: 2
-    bullectPath: Bullect/1
+    bullectPath: Bullect/2
     Introduce: "\u58541\u58542"
     Name: "\u58542"
     path: Tower/2

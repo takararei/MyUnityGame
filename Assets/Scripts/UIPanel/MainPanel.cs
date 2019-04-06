@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 using Assets.Framework.SceneState;
 using Assets.Framework;
 using Assets.Framework.Factory;
+using Assets.Framework.Tools;
 
 public class MainPanel : BasePanel
 {
@@ -20,9 +21,13 @@ public class MainPanel : BasePanel
     Button mBtn_SoundEffects;
     Button mBtn_Music;
     Button mBtn_Home;
+    Button mBtn_Delete;
+    Button mBtn_Sure;
+    Button mBtn_Cancle;
     private Image mImg_EffectsOff;
     private Image mImg_MusicOff;
     Image mSetPanel;
+    Image mDeletePanel;
     bool isSetActive = false;
     //地图关卡按钮
 
@@ -48,13 +53,16 @@ public class MainPanel : BasePanel
         mBtn_Set = Find<Button>("Btn_Set");
         mBtn_Help = Find<Button>("Btn_Help");
         mTxt_Count = Find<Text>("Txt_Count");
-        mBtn_SoundEffects = Find<Button>("Btn_SoundEffects");
-        mBtn_Music = Find<Button>("Btn_Music");
-        mBtn_Home = Find<Button>("Btn_Home");
         mSetPanel = Find<Image>("SetPanel");
-        mImg_EffectsOff = Find<Image>("Img_EffectsOff");
-        mImg_MusicOff = Find<Image>("Img_MusicOff");
-
+        mDeletePanel = Find<Image>("DeletePanel");
+        mBtn_SoundEffects = UITool.FindChild<Button>(mSetPanel.gameObject, "Btn_SoundEffects");
+        mBtn_Music = UITool.FindChild<Button>(mSetPanel.gameObject, "Btn_Music");
+        mBtn_Home = UITool.FindChild<Button>(mSetPanel.gameObject, "Btn_Home");
+        mBtn_Delete = UITool.FindChild<Button>(mSetPanel.gameObject, "Btn_Delete");
+        mImg_EffectsOff = UITool.FindChild<Image>(mSetPanel.gameObject, "Img_EffectsOff");
+        mImg_MusicOff = UITool.FindChild<Image>(mSetPanel.gameObject, "Img_MusicOff");
+        mBtn_Sure = UITool.FindChild<Button>(mDeletePanel.gameObject, "Btn_Sure");
+        mBtn_Cancle = UITool.FindChild<Button>(mDeletePanel.gameObject, "Btn_Cancle");
         mImg_Map = Find<Image>("Img_Map");
         mImg_MapEventTrigger = mImg_Map.GetComponent<EventTrigger>();
 
@@ -77,6 +85,7 @@ public class MainPanel : BasePanel
     {
         base.OnShow();
         mSetPanel.gameObject.Hide();
+        mDeletePanel.gameObject.Hide();
         isSetActive = false;
 
         mImg_Map.transform.SetLocalPosX(MapPosXLeft);
@@ -89,7 +98,9 @@ public class MainPanel : BasePanel
         mBtn_SoundEffects.onClick.AddListener(OnSoundEffect);
         mBtn_Music.onClick.AddListener(OnMusic);
         mBtn_Home.onClick.AddListener(OnButtonHomeClick);
-
+        mBtn_Delete.onClick.AddListener(OnButtonDeleteClick);
+        mBtn_Sure.onClick.AddListener(OnButtonSureClick);
+        mBtn_Cancle.onClick.AddListener(OnButtonCancleClick);
         //地图部分
         onDragEntry.callback.AddListener((data) => { OnDrag((PointerEventData)data); });
         onPointerDownEntry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
@@ -105,13 +116,15 @@ public class MainPanel : BasePanel
         mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
         mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
         SetLevelButton();
-        
-    }
 
-    public override void OnHide()//TODO
+    }
+    
+
+    public override void OnHide()
     {
         base.OnHide();
         mSetPanel.gameObject.Show();
+        mDeletePanel.gameObject.Show();
         //isSetActive = true;
         //其他
         RemoveLevelButton();
@@ -126,11 +139,15 @@ public class MainPanel : BasePanel
         onDragEntry.callback.RemoveAllListeners();
         onPointerDownEntry.callback.RemoveAllListeners();
         //设置面板
+        mBtn_Cancle.onClick.RemoveAllListeners();
+        mBtn_Sure.onClick.RemoveAllListeners();
+        mBtn_Delete.onClick.RemoveAllListeners();
         mBtn_Home.onClick.RemoveAllListeners();
         mBtn_Music.onClick.RemoveAllListeners();
         mBtn_SoundEffects.onClick.RemoveAllListeners();
-        mBtn_Set.onClick.RemoveAllListeners();
+
         //子面板
+        mBtn_Set.onClick.RemoveAllListeners();
         mBtn_Help.onClick.RemoveAllListeners();
         mBtn_Achievement.onClick.RemoveAllListeners();
         mBtn_Shop.onClick.RemoveAllListeners();
@@ -161,16 +178,16 @@ public class MainPanel : BasePanel
         lvBtn.transform.SetParent(mImg_Map.transform);
         lvBtn.transform.localPosition = lvMgr.levelInfoList[index].levelPos;
         lvBtn.transform.localScale = Vector3.one;
-        LevelButton lb = new LevelButton(index,lvBtn);
+        LevelButton lb = new LevelButton(index, lvBtn);
         lb.ShowStar(pStatics.levelStar[index]);
         lvBtnList.Add(lb);
         //星星的更新 
-        
+
     }
     void RemoveLevelButton()
     {
         if (lvBtnList.Count == 0) return;
-        for(int i=0;i<lvBtnList.Count;i++)
+        for (int i = 0; i < lvBtnList.Count; i++)
         {
             FactoryManager.Instance.PushUI("Btn_MapLevel", mImg_Map.transform.GetChild(0).gameObject);
             lvBtnList[i].Clear();
@@ -194,6 +211,18 @@ public class MainPanel : BasePanel
     private void OnButtonHomeClick()
     {
         SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
+    }
+    private void OnButtonDeleteClick()
+    {
+        mDeletePanel.gameObject.Show();
+    }
+    private void OnButtonCancleClick()
+    {
+        mDeletePanel.gameObject.Hide();
+    }
+    private void OnButtonSureClick()
+    {
+        //TODO删除数据 回到begin页面
     }
     void OnSoundEffect()
     {
@@ -243,7 +272,7 @@ public class MainPanel : BasePanel
         Image star2;
         Image star3;
 
-        public LevelButton(int index,GameObject root)
+        public LevelButton(int index, GameObject root)
         {
             id = index;
             this.root = root;
@@ -266,7 +295,7 @@ public class MainPanel : BasePanel
         }
         public void ShowStar(int num)
         {
-            if(num==0)
+            if (num == 0)
             {
                 levelButton.image.sprite = FactoryManager.Instance.GetSprite(StringMgr.Sprite_UnFinished);
                 return;
