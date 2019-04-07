@@ -62,6 +62,13 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             return;
         }
         animator.speed = 1;
+
+        EnemyMove();
+        
+    }
+
+    public void EnemyMove()
+    {
         if (!reachEnd)
         {
             transform.position = Vector3.Lerp(
@@ -71,14 +78,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
             if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
             {
-                
+
                 //确定下一点存在
                 if (roadPointIndex + 1 < pathPointList.Count)
                 {
                     //通过正负值来决定是否转向
                     CorrectRotate(roadPointIndex);
                     roadPointIndex++;
-                } 
+                }
                 else
                 {
                     reachEnd = true;
@@ -91,8 +98,6 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             //玩家总生命值减少
             GameController.Instance.ChangeLife(-enemyInfo.heart);
         }
-
-        
     }
 
     private void OnMouseDown()
@@ -114,36 +119,28 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         if (xOffset < 0)//右走
         {//播放左右走的动画
             transform.eulerAngles = new Vector3(0, 0, 0);
-            //rA = rAnimator1;
             animator.Play("Right");
         }
         else if (xOffset > 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
-            //rA = rAnimator1;
             animator.Play("Right");
         }
         else if (yOffset > 0)
         {
             //正面走的动画
-            //rA = rAnimator2;
             animator.Play("Front");
         }
         else if (yOffset < 0)
         {
             //背面走的动画
-            //rA = rAnimator3;
             animator.Play("Back");
         }
-
-        //if (animator.runtimeAnimatorController != rA)
-        //{
-        //    animator.runtimeAnimatorController = rA;
-        //}
+        
         slider.gameObject.transform.eulerAngles = Vector3.zero;
     }
 
-    public void ResetEnemy()
+    public virtual void ResetEnemy()
     {
         reachEnd = false;
         isSetData = false;
@@ -172,7 +169,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         ResetEnemy();
     }
 
-    public void TakeDamage(Bullect bullect)
+    public virtual void TakeDamage(Bullect bullect)
     {
         if(bullect.towerInfo.damageType==1)
         {

@@ -215,8 +215,6 @@ public class TowerSetPanel : BasePanel
         if (selectGrid == null)
         {
             selectGrid = gp;
-            //UIManager.Instance.Show(UIPanelName.TowerSetPanel);
-            //CorrectTowerSetPanel();
             //如果有塔就显示塔的范围
             selectGrid.TowerRange(true);
         }
@@ -224,16 +222,11 @@ public class TowerSetPanel : BasePanel
         {
             selectGrid.TowerRange(false);
             selectGrid = null;
-            //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
-
         }
         else
         {
             selectGrid.TowerRange(false);
-            //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
             selectGrid = gp;
-            //UIManager.Instance.Show(UIPanelName.TowerSetPanel);
-            //CorrectTowerSetPanel();
             selectGrid.TowerRange(true);
         }
 
@@ -262,7 +255,6 @@ public class TowerSetPanel : BasePanel
         //获取下一个塔的id
         selectGrid.SetTowerID(nextId);
         GameController.Instance.CreateTower(selectGrid);
-
     }
 
     public void UpdateBtnSprite()
@@ -300,7 +292,6 @@ public class TowerSetPanel : BasePanel
         TowerSet.gameObject.SetActive(false);
         ResetPanelPos();
     }
-
 
     public class TowerButton : BaseUIListItem
     {
@@ -355,14 +346,11 @@ public class TowerSetPanel : BasePanel
         void OnBtnClick()
         {
             if (!isActive) return;
-            //GridPoint gp = GameController.Instance.selectGrid;
             GridPoint gp = panel.selectGrid;
             if (gp == null) return;
 
             gp.SetTowerID(id);
             GameController.Instance.CreateTower(gp);
-            //GameController.Instance.ChangeCoin(-gp.baseTower.towerInfo.buildCoin);
-
         }
 
         public override void Clear()

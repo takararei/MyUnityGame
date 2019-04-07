@@ -30,17 +30,17 @@ public class PlayerStatics:ScriptableObject
         }
     }
 
-    public void SetACData(AcType index,int num)
-    {
-        int id = (int)index;
-        Instance.achievementList[id].record += num;
-        if (Instance.achievementList[id].record >= AchievementInfoMgr.Instance.infoList[id].Count
-            &&Instance.achievementList[id].isFinished!=true)
-        {
-            Instance.achievementList[id].isFinished = true;
-            EventCenter.Broadcast(EventType.AcItemUpdate);
-        }
-    }
+    //public void SetACData(AcType index,int num)
+    //{
+    //    int id = (int)index;
+    //    Instance.achievementList[id].record += num;
+    //    if (Instance.achievementList[id].record >= AchievementInfoMgr.Instance.infoList[id].Count
+    //        &&Instance.achievementList[id].isFinished!=true)
+    //    {
+    //        Instance.achievementList[id].isFinished = true;
+    //        EventCenter.Broadcast(EventType.AcItemUpdate);
+    //    }
+    //}
 
 }
 [Serializable]

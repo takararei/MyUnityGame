@@ -121,9 +121,9 @@
     <Compile Include="Assets\Scripts\Builder\EnemyBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\IBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\TowerBuilder.cs" />
-    <Compile Include="Assets\Scripts\CanvasDontDestroy.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfo.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfoMgr.cs" />
+    <Compile Include="Assets\Scripts\Data\AchievementSystem.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\ItemInfo.cs" />
@@ -148,7 +148,6 @@
     <Compile Include="Assets\Scripts\Game\MapMaker.cs" />
     <Compile Include="Assets\Scripts\Game\Round.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\LevelButonMaker.cs" />
     <Compile Include="Assets\Scripts\SceneState\BeginSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\GameLoadSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\GamePlaySceneState.cs" />
@@ -159,6 +158,9 @@
     <Compile Include="Assets\Scripts\Tower\Effect.cs" />
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerProperty.cs" />
+    <Compile Include="Assets\Scripts\UI\AchievementTip.cs" />
+    <Compile Include="Assets\Scripts\UI\CanvasDontDestroy.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelButonMaker.cs" />
     <Compile Include="Assets\Scripts\UIPanel\AchievementPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\BeginPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\GameLoadPanel.cs" />
@@ -172,7 +174,6 @@
     <Compile Include="Assets\Scripts\UIPanel\ShopPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\StartLoadPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\TowerSetPanel.cs" />
-    <None Include="Assets\DOTween\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/MyGraduation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
