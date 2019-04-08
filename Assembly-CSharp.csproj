@@ -153,10 +153,13 @@
     <Compile Include="Assets\Scripts\SceneState\GamePlaySceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
+    <Compile Include="Assets\Scripts\Tower\ArrowProperty.cs" />
     <Compile Include="Assets\Scripts\Tower\BaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\Bullect.cs" />
     <Compile Include="Assets\Scripts\Tower\Effect.cs" />
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
+    <Compile Include="Assets\Scripts\Tower\MagicBullect.cs" />
+    <Compile Include="Assets\Scripts\Tower\MagicProperty.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerProperty.cs" />
     <Compile Include="Assets\Scripts\UI\AchievementTip.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasDontDestroy.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Assets\Scripts\UIPanel\ShopPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\StartLoadPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanel\TowerSetPanel.cs" />
+    <None Include="Assets\DOTween\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/MyGraduation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

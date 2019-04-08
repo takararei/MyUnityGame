@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class TowerBuilder : IBuilder<BaseTower>
 {
-    public int TowerId;
-    public Vector3 pos;
+    private int TowerId;
+    private Vector3 pos;
     public GridPoint selectGrid;
     public void GetData(BaseTower productClassGo)
     {
@@ -23,6 +23,8 @@ public class TowerBuilder : IBuilder<BaseTower>
 
     public GameObject GetProduct()
     {
+        TowerId = selectGrid.gridState.towerID;
+        pos = selectGrid.transform.position;
         GameObject go = FactoryManager.Instance.GetGame(TowerInfoMgr.Instance.towerInfoList[TowerId - 1].path);
         BaseTower tower = GetProductClass(go);
         GetData(tower);

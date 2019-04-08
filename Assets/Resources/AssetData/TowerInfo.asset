@@ -43,11 +43,11 @@ MonoBehaviour:
     sellCoin: 60
     damageType: 1
     damageRange: 1.5
-    CD: 1
-    damage: 20
+    CD: 5
+    damage: 5
     Range: 1
     nextTowerId: 2
-    bullectPath: Bullect/1
+    bullectPath: Bullect/3
     Introduce: "\u58541\u58543"
     Name: "\u58543"
     path: Tower/3
@@ -60,7 +60,7 @@ MonoBehaviour:
     damage: 20
     Range: 1
     nextTowerId: 2
-    bullectPath: Bullect/1
+    bullectPath: Bullect/4
     Introduce: "\u58541\u58544"
     Name: "\u58544"
     path: Tower/4

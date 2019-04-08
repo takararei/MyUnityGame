@@ -7,8 +7,20 @@ using UnityEngine;
 public class BaseTower : MonoBehaviour, IBaseTower
 {
     public TowerInfo towerInfo;
-    private CircleCollider2D circleCollider;//范围
-    private SpriteRenderer _attackRender;
+    protected CircleCollider2D _circleCollider;//范围
+    public CircleCollider2D CirecleCollider
+    {
+        get
+        {
+            if (_circleCollider == null)
+            {
+                _circleCollider = gameObject.GetComponent<CircleCollider2D>();
+            }
+            return _circleCollider;
+        }
+    }
+
+    protected SpriteRenderer _attackRender;
     public SpriteRenderer AttackRangeSr
     {
         get
@@ -23,17 +35,16 @@ public class BaseTower : MonoBehaviour, IBaseTower
     [HideInInspector]
     public TowerProperty towerProperty;
 
-    private void Awake()
+    protected void Awake()
     {
-        circleCollider = GetComponent<CircleCollider2D>();
         towerProperty = GetComponent<TowerProperty>();
         enemyTargetList = new List<Transform>();
     }
-    private void Start()
+    protected void Start()
     {
 
     }
-    private void Update()
+    protected void Update()
     {
         if (towerProperty.target == null && enemyTargetList.Count != 0)
         {
@@ -45,8 +56,8 @@ public class BaseTower : MonoBehaviour, IBaseTower
             towerProperty.target = null;
         }
     }
-    List<Transform> enemyTargetList;
-    private void OnTriggerEnter2D(Collider2D other)
+    protected List<Transform> enemyTargetList;
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "enemy")
         {
@@ -58,7 +69,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    protected void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "enemy")
         {
@@ -68,7 +79,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+    protected void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "enemy")
         {
@@ -85,6 +96,11 @@ public class BaseTower : MonoBehaviour, IBaseTower
         towerProperty.Recycle();
         enemyTargetList.Clear();
         FactoryManager.Instance.PushGame(towerInfo.path, gameObject);
+    }
+
+    public virtual void GetProperty()
+    {
+        towerProperty.Property();
     }
 }
 

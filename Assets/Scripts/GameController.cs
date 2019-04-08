@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 
     EnemyBuilder enemyBuilder;
     TowerBuilder towerBuilder;
-    //BullectBuilder bullectBuilder;TODO
+    BullectBuilder bullectBuilder;//TODO
     LevelInfoMgr lvInfoMgr;
     MapMaker mapMaker;
     LevelInfo info;
@@ -66,8 +66,8 @@ public class GameController : MonoBehaviour
 
         enemyBuilder = new EnemyBuilder();
         towerBuilder = new TowerBuilder();
-        //bullectBuilder = new BullectBuilder();TODO
-        currentLevel = GameRoot.Instance.pickLevel;
+        bullectBuilder = new BullectBuilder(); //TODO
+         currentLevel = GameRoot.Instance.pickLevel;
         info = lvInfoMgr.levelInfoList[currentLevel];
         //初始化地图
         mapMaker.InitAllGrid();
@@ -190,8 +190,8 @@ public class GameController : MonoBehaviour
     public void CreateTower(GridPoint selectGrid)
     {
         towerBuilder.selectGrid = selectGrid;
-        towerBuilder.TowerId = towerBuilder.selectGrid.gridState.towerID;
-        towerBuilder.pos = towerBuilder.selectGrid.transform.position;
+        //towerBuilder.TowerId = towerBuilder.selectGrid.gridState.towerID;
+        //towerBuilder.pos = towerBuilder.selectGrid.transform.position;
 
         towerBuilder.GetProduct();
         ChangeCoin(-selectGrid.baseTower.towerInfo.buildCoin);
@@ -201,6 +201,11 @@ public class GameController : MonoBehaviour
         //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
     }
 
+    public void CreateBullect(BaseTower tower)
+    {
+        bullectBuilder.baseTower = tower;
+        bullectBuilder.GetProduct();
+    }
 
     void SetLevelData(LevelInfo info)
     {
