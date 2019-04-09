@@ -153,6 +153,7 @@
     <Compile Include="Assets\Scripts\SceneState\GamePlaySceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\MainSceneState.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartLoadSceneState.cs" />
+    <Compile Include="Assets\Scripts\Tower\ArrowBullect.cs" />
     <Compile Include="Assets\Scripts\Tower\ArrowProperty.cs" />
     <Compile Include="Assets\Scripts\Tower\BaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\Bullect.cs" />
@@ -160,6 +161,8 @@
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\MagicBullect.cs" />
     <Compile Include="Assets\Scripts\Tower\MagicProperty.cs" />
+    <Compile Include="Assets\Scripts\Tower\SlowBullect.cs" />
+    <Compile Include="Assets\Scripts\Tower\SlowProperty.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerProperty.cs" />
     <Compile Include="Assets\Scripts\UI\AchievementTip.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasDontDestroy.cs" />

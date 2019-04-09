@@ -9,7 +9,7 @@ public class ArrowProperty : TowerProperty
     Transform arrow2;
     Animator animator1;
     Animator animator2;
-
+    Transform bullectBornTrans;
     bool isArrow1Shotted;
     
 
@@ -66,6 +66,12 @@ public class ArrowProperty : TowerProperty
         arrow1.up = Vector3.up;
         arrow2.up = -Vector3.up;
         bullectBornTrans = null;
+    }
+
+    public override void GetBullectProperty(Bullect obj)
+    {
+        obj.transform.position = bullectBornTrans.position-new Vector3(0,0,2);
+        
     }
 
 }

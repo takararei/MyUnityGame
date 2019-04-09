@@ -13,13 +13,12 @@ public class TowerProperty : MonoBehaviour
     protected float timeVal;//攻击计时器
     protected bool isBeginCD;
     [HideInInspector]
-    public Transform bullectBornTrans;
+    //public Transform bullectBornTrans;
     GameObject bullectGO;
     private void Awake()
     {
         baseTower = GetComponent<BaseTower>();
         animator = GetComponent<Animator>();
-        bullectBornTrans = this.transform;
     }
 
     private void Update()
@@ -84,8 +83,9 @@ public class TowerProperty : MonoBehaviour
         target = null;
     }
 
-    public virtual void Property()
+    public virtual void GetBullectProperty(Bullect obj)
     {
-
     }
+
+   
 }

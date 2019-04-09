@@ -6,12 +6,17 @@ using System.Text;
 using UnityEngine;
 public class Bullect:MonoBehaviour
 {
+    [HideInInspector]
     public Transform targetTrans;
-    public TowerInfo towerInfo;
-    public Transform towerTrans;
+    //public TowerInfo towerInfo;
+    [HideInInspector]
+    //public Transform towerTrans;
     protected Animator animator;
+    [HideInInspector]
     public float moveSpeed=1;
+    [HideInInspector]
     public bool isSetData;
+    public BaseTower bsTower;
 
     private void Awake()
     {
@@ -49,10 +54,11 @@ public class Bullect:MonoBehaviour
 
     protected virtual void DestoryBullect()
     {
+        animator.speed = 0;
         targetTrans = null;
         if(gameObject.activeSelf==true)//未被回收
         {
-            FactoryManager.Instance.PushGame(towerInfo.bullectPath,gameObject);
+            FactoryManager.Instance.PushGame(bsTower.towerInfo.bullectPath,gameObject);
         }
         isSetData = false;
     }

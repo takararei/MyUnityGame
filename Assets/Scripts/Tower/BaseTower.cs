@@ -56,7 +56,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
             towerProperty.target = null;
         }
     }
-    protected List<Transform> enemyTargetList;
+    public List<Transform> enemyTargetList;
     protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "enemy")
@@ -98,10 +98,6 @@ public class BaseTower : MonoBehaviour, IBaseTower
         FactoryManager.Instance.PushGame(towerInfo.path, gameObject);
     }
 
-    public virtual void GetProperty()
-    {
-        towerProperty.Property();
-    }
 }
 
 
