@@ -10,6 +10,7 @@ using Assets.Framework.SceneState;
 using Assets.Framework;
 using Assets.Framework.Factory;
 using Assets.Framework.Tools;
+using Assets.Framework.Audio;
 
 public class MainPanel : BasePanel
 {
@@ -113,8 +114,8 @@ public class MainPanel : BasePanel
         mTxt_Count.text = pStatics.DO.ToString();
         //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
         //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
-        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
-        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playBGMusic);
         SetLevelButton();
 
     }
@@ -226,15 +227,17 @@ public class MainPanel : BasePanel
     }
     void OnSoundEffect()
     {
-        PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
-        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        //PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
+        AudioManager.Instance.CloseOrOpenEffectMusic();
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
         //pStatics.isEffectOff = !pStatics.isEffectOff;
         //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
     }
     void OnMusic()
     {
-        PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
-        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        //PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
+        AudioManager.Instance.CloseOrOpenBGMusic();
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playBGMusic);
         //pStatics.isMusicOff = !pStatics.isMusicOff;
         //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }

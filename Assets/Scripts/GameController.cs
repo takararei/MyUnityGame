@@ -89,6 +89,10 @@ public class GameController : MonoBehaviour
             if (currRoundkillNum >= enemyIdList.Count)
             {
                 //添加当前回合数的索引
+                if(level.currentRound>=level.info.totalRound)
+                {
+                    return;
+                }
                 AddRoundNum();
             }
             else
@@ -160,7 +164,7 @@ public class GameController : MonoBehaviour
         {
             //StopCreateEnemy();
             isNeedCreateEnemy = false;
-            timeCreatEnemy = 1;
+            timeCreatEnemy = 1;//下次产怪 开关一开就产怪
         }
     }
 

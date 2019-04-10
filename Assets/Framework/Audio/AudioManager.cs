@@ -7,19 +7,27 @@ using UnityEngine;
 
 namespace Assets.Framework.Audio
 {
-    public class AudioManager:Singleton<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         private AudioListener mAudioListener;
         private AudioSource mBGMSource = null;
         private AudioSource mEffectSource = null;
         public GameObject Root;
-        private bool playEffectMusic = true;
-        private bool playBGMusic = true;
+        public bool playEffectMusic = true;
+        public bool playBGMusic = true;
 
         public override void Init()
         {
             //base.Init();
             Root = GameRoot.Instance.gameObject;
+            if (PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1)
+            {
+                playEffectMusic = false;
+            }
+            if (PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1)
+            {
+                playBGMusic = false;
+            }
         }
 
         public void CheckEffectSource()
@@ -29,7 +37,7 @@ namespace Assets.Framework.Audio
         }
         public void CheckBGMSource()
         {
-            if(mBGMSource==null)
+            if (mBGMSource == null)
                 mBGMSource = Root.AddComponent<AudioSource>();
         }
 
@@ -38,29 +46,29 @@ namespace Assets.Framework.Audio
             if (mAudioListener == null)
                 mAudioListener = Root.AddComponent<AudioListener>();
         }
-        
+
         //TODO
-        public void BGMPlay(string bgmName,bool loop)
+        public void BGMPlay(string bgmName, bool loop)
         {
             CheckAudioListener();
             CheckBGMSource();
-            AudioClip bgm= Resources.Load<AudioClip>(bgmName);//TODO
+            AudioClip bgm = Resources.Load<AudioClip>(bgmName);//TODO
             mBGMSource.clip = bgm;
             mBGMSource.loop = loop;
             mBGMSource.Play();
         }
 
-        public void BGMPause()
+        private void BGMPause()
         {
             mBGMSource.Pause();
         }
 
-        public void BGMStop()
+        private void BGMStop()
         {
             mBGMSource.Stop();
         }
 
-        public void BGMUnPause()
+        private void BGMUnPause()
         {
             mBGMSource.UnPause();
         }
@@ -88,6 +96,7 @@ namespace Assets.Framework.Audio
         public void CloseOrOpenBGMusic()
         {
             playBGMusic = !playBGMusic;
+            SetMusicPrefs(playBGMusic);
             if (playBGMusic)
             {
                 BGMOn();
@@ -101,6 +110,34 @@ namespace Assets.Framework.Audio
         public void CloseOrOpenEffectMusic()
         {
             playEffectMusic = !playEffectMusic;
+            SetEffectPrefs(playEffectMusic);
         }
+
+        private void SetMusicPrefs(bool isMusicPlay)
+        {
+            if (isMusicPlay)
+            {
+                PlayerPrefs.SetInt(StringMgr.isMusicOff, 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(StringMgr.isMusicOff, 1);
+            }
+        }
+
+        private void SetEffectPrefs(bool isEffectPlay)
+        {
+            if (isEffectPlay)
+            {
+                PlayerPrefs.SetInt(StringMgr.isEffectOff, 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(StringMgr.isEffectOff, 1);
+            }
+        }
+
+
+        
     }
 }

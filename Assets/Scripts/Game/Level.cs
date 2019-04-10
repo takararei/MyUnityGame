@@ -9,7 +9,7 @@ public class Level
 {
     public LevelInfo info;
     public Round[] roundList;
-    public int currentRound;
+    public int currentRound;//从0记
     public List<RoundData> roundInfoList;
     public Level(LevelInfo lvinfo)
     {
@@ -33,15 +33,18 @@ public class Level
 
     public void HandleRound()
     {
+        Debug.Log(currentRound);
         if (currentRound >= info.totalRound)
         {
             //胜利
             GameController.Instance.GameWin();
+            Debug.Log("胜利");
         }
         else if (currentRound == info.totalRound - 1)
         {
             //最后一波怪的UI显示音乐播放
-
+            Debug.Log("还有最后一波");
+            roundList[currentRound].Handle(currentRound);
         }
         else
         {

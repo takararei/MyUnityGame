@@ -10,6 +10,7 @@ public class BeginSceneState : BaseSceneState {
     {
         base.EnterScene();
         UIManager.Instance.Show(UIPanelName.BeginPanel);
+        //添加背景音乐
     }
 
     public override void ExitScene()

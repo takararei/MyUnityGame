@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Round
 {
-    protected int id;
+    protected int id;//从0起
     public RoundData info;
     protected Round nextRound;
     public Round(RoundData data)

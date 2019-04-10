@@ -1,4 +1,5 @@
-﻿using Assets.Framework.SceneState;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.SceneState;
 using Assets.Framework.UI;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,10 @@ public class GamePausePanel:BasePanel
         btn_SoundEffect.onClick.AddListener(OnEffectClick);
         btn_Restart.onClick.AddListener(OnRestart);
         btn_ExitGame.onClick.AddListener(OnExitGame);
-        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
-        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playBGMusic);
+        //mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        //mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
     }
     public override void OnHide()
     {
@@ -73,16 +76,20 @@ public class GamePausePanel:BasePanel
 
     private void OnEffectClick()
     {
-        PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
-        mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        //PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
+        //mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        AudioManager.Instance.CloseOrOpenEffectMusic();
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
         //pStatics.isEffectOff = !pStatics.isEffectOff;
         //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
     }
 
     private void OnMusicClick()
     {
-        PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
-        mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        //PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
+        //mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        AudioManager.Instance.CloseOrOpenBGMusic();
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
         //pStatics.isMusicOff = !pStatics.isMusicOff;
         //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
     }
