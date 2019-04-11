@@ -71,15 +71,9 @@ public class MainPanel : BasePanel
         onDragEntry.eventID = EventTriggerType.Drag;
         onPointerDownEntry = new EventTrigger.Entry();
         onPointerDownEntry.eventID = EventTriggerType.PointerDown;
-
-        //获取一下当前完成的关卡数  假设两个 +1还未完成的下一关
-
-        //实例化三个关卡按钮到对应位置 读取levelinfo 添加到List里
+        
         lvBtnList = new List<LevelButton>();
-
-
-        //为每个button 注册事件
-        //获取关卡要更换的ui
+        
     }
 
     public override void OnShow()
@@ -91,9 +85,21 @@ public class MainPanel : BasePanel
 
         mImg_Map.transform.SetLocalPosX(MapPosXLeft);
         //子面板显示
-        mBtn_Shop.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.ShopPanel));
-        mBtn_Achievement.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.AchievementPanel));
-        mBtn_Help.onClick.AddListener(() => UIManager.Instance.Show(UIPanelName.HelpPanel));
+        mBtn_Shop.onClick.AddListener(() => 
+        {
+            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIManager.Instance.Show(UIPanelName.ShopPanel);
+        });
+        mBtn_Achievement.onClick.AddListener(() => 
+        {
+            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIManager.Instance.Show(UIPanelName.AchievementPanel);
+        });
+        mBtn_Help.onClick.AddListener(() =>
+        {
+            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIManager.Instance.Show(UIPanelName.HelpPanel);
+        });
         mBtn_Set.onClick.AddListener(OnButtonSetClick);
         //设置面板的部分
         mBtn_SoundEffects.onClick.AddListener(OnSoundEffect);
@@ -112,10 +118,9 @@ public class MainPanel : BasePanel
         EventCenter.AddListener<int>(EventType.DoNumChange, SetDONum);
 
         mTxt_Count.text = pStatics.DO.ToString();
-        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
-        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playBGMusic);
+
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayBGMusic);
         SetLevelButton();
 
     }
@@ -198,6 +203,7 @@ public class MainPanel : BasePanel
 
     private void OnButtonSetClick()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         if (isSetActive)
         {
             mSetPanel.gameObject.Hide();
@@ -211,35 +217,35 @@ public class MainPanel : BasePanel
     }
     private void OnButtonHomeClick()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
     }
     private void OnButtonDeleteClick()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         mDeletePanel.gameObject.Show();
     }
     private void OnButtonCancleClick()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         mDeletePanel.gameObject.Hide();
     }
     private void OnButtonSureClick()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         //TODO删除数据 回到begin页面
     }
     void OnSoundEffect()
     {
-        //PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         AudioManager.Instance.CloseOrOpenEffectMusic();
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
-        //pStatics.isEffectOff = !pStatics.isEffectOff;
-        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
     }
     void OnMusic()
     {
-        //PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         AudioManager.Instance.CloseOrOpenBGMusic();
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playBGMusic);
-        //pStatics.isMusicOff = !pStatics.isMusicOff;
-        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayBGMusic);
     }
     void OnPointerDown(PointerEventData eventData)
     {
@@ -293,6 +299,7 @@ public class MainPanel : BasePanel
 
         public void OnButtonClick()
         {
+            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
             UIManager.Instance.Show(UIPanelName.LevelIntroducePanel);
             EventCenter.Broadcast(EventType.LevelIntroduceUpdate, id);
         }

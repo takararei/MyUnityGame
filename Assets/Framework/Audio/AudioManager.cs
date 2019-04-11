@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Singleton;
+﻿using Assets.Framework.Factory;
+using Assets.Framework.Singleton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +14,25 @@ namespace Assets.Framework.Audio
         private AudioSource mBGMSource = null;
         private AudioSource mEffectSource = null;
         public GameObject Root;
-        public bool playEffectMusic = true;
-        public bool playBGMusic = true;
+        public bool isPlayEffectMusic = true;
+        public bool isPlayBGMusic = true;
 
         public override void Init()
         {
-            //base.Init();
             Root = GameRoot.Instance.gameObject;
+            mAudioListener = Root.GetComponent<AudioListener>();
+            mBGMSource = Root.GetComponents<AudioSource>()[0];
+            mEffectSource = Root.GetComponents<AudioSource>()[1];
+            CheckAudioListener();
+            CheckEffectSource();
+            CheckBGMSource();
             if (PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1)
             {
-                playEffectMusic = false;
+                CloseOrOpenEffectMusic();
             }
             if (PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1)
             {
-                playBGMusic = false;
+                CloseOrOpenBGMusic();
             }
         }
 
@@ -46,16 +52,25 @@ namespace Assets.Framework.Audio
             if (mAudioListener == null)
                 mAudioListener = Root.AddComponent<AudioListener>();
         }
-
-        //TODO
-        public void BGMPlay(string bgmName, bool loop)
+        
+        public void PlayBGM(string bgmName, bool loop=true)
         {
-            CheckAudioListener();
-            CheckBGMSource();
-            AudioClip bgm = Resources.Load<AudioClip>(bgmName);//TODO
-            mBGMSource.clip = bgm;
-            mBGMSource.loop = loop;
-            mBGMSource.Play();
+            if(isPlayBGMusic)
+            {
+                AudioClip bgm = FactoryManager.Instance.GetAudioClip(bgmName); 
+                mBGMSource.clip = bgm;
+                mBGMSource.loop = loop;
+                mBGMSource.Play();
+            }
+           
+        }
+        public void PlayEffectMusic(string effectName)
+        {
+            if (isPlayEffectMusic)
+            {
+                AudioClip effect = FactoryManager.Instance.GetAudioClip(effectName);
+                mEffectSource.PlayOneShot(effect);
+            }
         }
 
         private void BGMPause()
@@ -85,19 +100,12 @@ namespace Assets.Framework.Audio
             mBGMSource.mute = false;
         }
 
-        public void PlayEffectMusic(AudioClip audioClip)
-        {
-            if (playEffectMusic)
-            {
-                mEffectSource.PlayOneShot(audioClip);
-            }
-        }
-
+        
         public void CloseOrOpenBGMusic()
         {
-            playBGMusic = !playBGMusic;
-            SetMusicPrefs(playBGMusic);
-            if (playBGMusic)
+            isPlayBGMusic = !isPlayBGMusic;
+            SetMusicPrefs(isPlayBGMusic);
+            if (isPlayBGMusic)
             {
                 BGMOn();
             }
@@ -109,8 +117,8 @@ namespace Assets.Framework.Audio
 
         public void CloseOrOpenEffectMusic()
         {
-            playEffectMusic = !playEffectMusic;
-            SetEffectPrefs(playEffectMusic);
+            isPlayEffectMusic = !isPlayEffectMusic;
+            SetEffectPrefs(isPlayEffectMusic);
         }
 
         private void SetMusicPrefs(bool isMusicPlay)

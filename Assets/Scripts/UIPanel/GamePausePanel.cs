@@ -38,10 +38,8 @@ public class GamePausePanel:BasePanel
         btn_SoundEffect.onClick.AddListener(OnEffectClick);
         btn_Restart.onClick.AddListener(OnRestart);
         btn_ExitGame.onClick.AddListener(OnExitGame);
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playBGMusic);
-        //mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
-        //mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayBGMusic);
     }
     public override void OnHide()
     {
@@ -57,6 +55,7 @@ public class GamePausePanel:BasePanel
 
     private void OnClosePanel()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         UIManager.Instance.Hide(UIPanelName.GamePausePanel);
         GameController.Instance.isPause = false;
     }
@@ -64,34 +63,30 @@ public class GamePausePanel:BasePanel
     private void OnExitGame()
     {
         //回到主场景，重置GameController
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
     }
 
     private void OnRestart()
     {
         //重置GameController
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         UIManager.Instance.Hide(UIPanelName.GamePausePanel);
         GameController.Instance.RestartGame();
     }
 
     private void OnEffectClick()
     {
-        //PlayerPrefs.SetInt(StringMgr.isEffectOff, PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1 ? 0 : 1);
-        //mImg_EffectsOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isEffectOff) == 1);
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         AudioManager.Instance.CloseOrOpenEffectMusic();
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
-        //pStatics.isEffectOff = !pStatics.isEffectOff;
-        //mImg_EffectsOff.gameObject.SetActive(pStatics.isEffectOff);
+        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
     }
 
     private void OnMusicClick()
     {
-        //PlayerPrefs.SetInt(StringMgr.isMusicOff, PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1 ? 0 : 1);
-        //mImg_MusicOff.gameObject.SetActive(PlayerPrefs.GetInt(StringMgr.isMusicOff) == 1);
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         AudioManager.Instance.CloseOrOpenBGMusic();
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.playEffectMusic);
-        //pStatics.isMusicOff = !pStatics.isMusicOff;
-        //mImg_MusicOff.gameObject.SetActive(pStatics.isMusicOff);
+        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
     }
 
     

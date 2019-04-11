@@ -1,4 +1,5 @@
 ﻿using Assets.Framework;
+using Assets.Framework.Audio;
 using Assets.Framework.SceneState;
 using Assets.Framework.Tools;
 using Assets.Framework.UI;
@@ -150,6 +151,7 @@ public class GamePlayPanel:BasePanel
 
     private void OnPauseClick()
     {
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         GameController.Instance.isPause = true;
         UIManager.Instance.Show(UIPanelName.GamePausePanel);
     }

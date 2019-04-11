@@ -16,4 +16,8 @@ public static class StringMgr
 
     public const string isMusicOff = "isMusicOff";
     public const string isEffectOff = "isEffectOff";
+
+    public const string Button_Clip = "ButtonClick";
+    public const string BeginBGM = "Man At Arms";
+    public const string MainBGM = "Best Picture";
 }

@@ -24,11 +24,11 @@ public class Bullect:MonoBehaviour
     }
     private void Update()
     {
-        //if(GameController.Instance.isGameOver)
-        //{
-        //    DestoryBullect();
-        //    return;
-        //}
+        if (GameController.Instance.isGameOver)
+        {
+            DestoryBullect();
+            return;
+        }
         if (GameController.Instance.isPause||!isSetData)
         {
             animator.speed = 0;

@@ -22,9 +22,9 @@ public class GameController : MonoBehaviour
     
 
     public bool isPause;
-    //public bool isGameOver;
+    public bool isGameOver;
 
-    
+
     public int currRoundkillNum;//被杀的怪物数量 判断是否进入下一回合
     public int currEnemyIDIndex;//当前波次怪物生成到的索引
 
@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 
     EnemyBuilder enemyBuilder;
     TowerBuilder towerBuilder;
-    BullectBuilder bullectBuilder;//TODO
+    BullectBuilder bullectBuilder;
     LevelInfoMgr lvInfoMgr;
     MapMaker mapMaker;
     LevelInfo info;
@@ -250,7 +250,7 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        //isGameOver = true;
+        isGameOver = true;
         isPause = true;
         UIManager.Instance.Show(UIPanelName.GameOverPanel);
     }

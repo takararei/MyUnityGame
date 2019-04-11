@@ -193,7 +193,6 @@ GameObject:
   m_Component:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
-  - component: {fileID: 534669903}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -201,13 +200,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &534669903
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -468,14 +460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
-  isGameOver: 0
   currRoundkillNum: 0
+  currEnemyIDIndex: 0
   enemyIdList: 
   currRoundPathList: []
-  currEnemyIDIndex: 0
-  selectGrid: {fileID: 0}
   gameTrans: {fileID: 0}
-  isNeedCreateEnemy: 0
 --- !u!4 &2144740253
 Transform:
   m_ObjectHideFlags: 0

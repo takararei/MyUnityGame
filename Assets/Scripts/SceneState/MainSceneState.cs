@@ -1,4 +1,5 @@
-﻿using Assets.Framework.SceneState;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.SceneState;
 using Assets.Framework.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ public class MainSceneState : BaseSceneState {
     public override void EnterScene()
     {
         base.EnterScene();
+        AudioManager.Instance.PlayBGM(StringMgr.MainBGM);
         UIManager.Instance.Show(UIPanelName.MainPanel);
     }
 
