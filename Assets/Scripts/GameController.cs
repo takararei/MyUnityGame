@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
     float timeCreatEnemy = 1;
     float timeCD = 1;
     bool isNeedCreateEnemy;
-
+    public Vector3 beginPos;
     private void Awake()
     {
         _instance = this;
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
         enemyBuilder = new EnemyBuilder();
         towerBuilder = new TowerBuilder();
         bullectBuilder = new BullectBuilder(); //TODO
-         currentLevel = GameRoot.Instance.pickLevel;
+        currentLevel = GameRoot.Instance.pickLevel;
         info = lvInfoMgr.levelInfoList[currentLevel];
         //初始化地图
         mapMaker.InitAllGrid();
@@ -77,12 +77,14 @@ public class GameController : MonoBehaviour
 
         level = new Level(info);
         level.HandleRound();
-
+        beginPos=level.roundInfoList[0].pathList[0];
+        EventCenter.Broadcast(EventType.SetStartPos, beginPos);
+        isPause = true;
     }
 
     void Update()
     {
-
+        
         if (!isPause)
         {
             //产怪逻辑
@@ -141,10 +143,11 @@ public class GameController : MonoBehaviour
         mapMaker.LoadLevelMap(currentLevel);
         level.currentRound = 0;
         level.HandleRound();
-
+        beginPos = level.roundInfoList[0].pathList[0];
+        EventCenter.Broadcast(EventType.SetStartPos, beginPos);
         //isGameOver = false;
         EventCenter.Broadcast(EventType.RestartGame);
-        isPause = false;
+        isPause = true;
 
 
     }

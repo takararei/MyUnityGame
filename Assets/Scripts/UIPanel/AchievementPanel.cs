@@ -78,19 +78,19 @@ public class AchievementPanel : BasePanel
             SetAcImage();
             EventCenter.AddListener(EventType.AcItemUpdate, SetAcImage);
         }
-
-        public void SetAcImage()
+        //设置成就是否点亮
+        private void SetAcImage()
         {
-            if (PlayerStatics.Instance.achievementList[id].isFinished)
-            {
-                //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.FinshedSprite);TODO
-                Debug.Log(id+" 完成");
-            }
-            else
-            {
-                //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.unFinishSprite);
-                Debug.Log(id+" 未完成");
-            }
+            //if (PlayerStatics.Instance.achievementList[id].isFinished)
+            //{
+            //    //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.FinshedSprite);TODO
+            //    Debug.Log(id+" 完成");
+            //}
+            //else
+            //{
+            //    //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.unFinishSprite);
+            //    Debug.Log(id+" 未完成");
+            //}
         }
 
         public override void Clear()

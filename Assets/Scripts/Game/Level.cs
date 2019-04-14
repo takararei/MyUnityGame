@@ -33,7 +33,6 @@ public class Level
 
     public void HandleRound()
     {
-        Debug.Log(currentRound);
         if (currentRound >= info.totalRound)
         {
             //胜利

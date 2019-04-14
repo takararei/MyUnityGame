@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Assets.Framework.UI;
 using UnityEngine.UI;
 using Assets.Framework.Extension;
-using System;
 using UnityEngine.EventSystems;
 using Assets.Framework.SceneState;
-using Assets.Framework;
 using Assets.Framework.Factory;
 using Assets.Framework.Tools;
 using Assets.Framework.Audio;
@@ -262,7 +259,6 @@ public class MainPanel : BasePanel
             mImg_Map.transform.SetLocalPosX(localPosX);
         }
         dragLastPosX = eventData.position.x;
-        Debug.Log(mImg_Map.transform.localPosition.x);
     }
 
     void SetDONum(int num)

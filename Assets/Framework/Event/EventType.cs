@@ -19,5 +19,5 @@
     HandleEnemy,
     ShowEnemyInfoPanel,
     ShowTowerInfoPanel,
-
+    SetStartPos,
 }

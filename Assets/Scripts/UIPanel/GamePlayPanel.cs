@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class GamePlayPanel:BasePanel
 {
     Button pauseBtn;
+    Button startBtn;
     Text Txt_TotalRound;
     Text Txt_NowRound;
     Text Txt_Life;
@@ -45,6 +46,7 @@ public class GamePlayPanel:BasePanel
         base.Init();
         lvInfoMgr = LevelInfoMgr.Instance;
         pauseBtn = Find<Button>("Btn_Pause");
+        startBtn = Find<Button>("Btn_Start");
         Txt_TotalRound = Find<Text>("Txt_TotalRound");
         Txt_NowRound = Find<Text>("Txt_NowRound");
         Txt_Life = Find<Text>("Txt_Life");
@@ -73,8 +75,13 @@ public class GamePlayPanel:BasePanel
         EventCenter.AddListener(EventType.RestartGame, RestartGame);
         EventCenter.AddListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         EventCenter.AddListener<BaseEnemy>(EventType.HandleEnemy, HandleEnemy);
+        EventCenter.AddListener<Vector3>(EventType.SetStartPos, SetStartBtnPos);
         pauseBtn.onClick.AddListener(OnPauseClick);
+        startBtn.onClick.AddListener(OnStartClick);
+        startBtn.gameObject.SetActive(false);
     }
+
+    
 
     public override void OnShow()
     {
@@ -114,10 +121,13 @@ public class GamePlayPanel:BasePanel
         base.OnDestroy();
         enemyInfoPanel.SetActive(true);
         towerInfoPanel.SetActive(true);
+        startBtn.gameObject.SetActive(true);
         selectGrid = null;
         selectEnemy = null;
 
+        startBtn.onClick.RemoveAllListeners();
         pauseBtn.onClick.RemoveAllListeners();
+        EventCenter.RemoveListener<Vector3>(EventType.SetStartPos, SetStartBtnPos);
         EventCenter.RemoveListener<BaseEnemy>(EventType.HandleEnemy, HandleEnemy);
         EventCenter.RemoveListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         EventCenter.RemoveListener(EventType.RestartGame, RestartGame);
@@ -155,7 +165,19 @@ public class GamePlayPanel:BasePanel
         GameController.Instance.isPause = true;
         UIManager.Instance.Show(UIPanelName.GamePausePanel);
     }
-    
+
+    private void OnStartClick()
+    {
+        GameController.Instance.isPause = false;
+        startBtn.gameObject.SetActive(false);
+    }
+
+    void SetStartBtnPos(Vector3 pos)
+    {
+        startBtn.transform.position = Camera.main.WorldToScreenPoint(pos);
+        startBtn.gameObject.SetActive(true);
+    }
+
     private void SetEnemyInfoPanel(EnemyInfo info)
     {
         Txt_EnemyName.text = info.Name;

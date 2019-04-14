@@ -13,8 +13,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoList:
   - id: 1
+    name: "\u7B2C\u4E00\u6EF4\u8840"
+    introduce: "\u7B2C\u4E00\u6B21\u6740\u6B7B\u654C\u4EBA"
+    Count: 1
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 2
+    name: "\u5EFA\u9020\u8005"
+    introduce: "\u5EFA\u902030\u5EA7\u9632\u5FA1\u5854"
+    Count: 30
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 3
+    name: "\u70B9\u7F00\u661F\u7A7A"
+    introduce: "\u83B7\u5F9715\u9897\u661F\u661F"
+    Count: 15
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 4
     name: "\u7B2C\u4E00\u6876\u91D1"
-    introduce: "\u7D2F\u8BA1\u83B7\u5F97\u94BB\u77F3\u8FBE\u5230100\u4E2A"
+    introduce: "\u83B7\u5F97\u94BB\u77F3\u8FBE\u5230100\u4E2A"
     Count: 100
     unFinishSprite: "\u5730\u5740"
     FinshedSprite: "\u5730\u5740"
