@@ -66,6 +66,27 @@ namespace Assets.Framework.Extension
         }
         #endregion
 
+        public static void SetPosX(this Transform transform, float x)
+        {
+            var Pos = transform.position;
+            Pos.x = x;
+            transform.position = Pos;
+        }
+
+        public static void SetPosY(this Transform transform, float y)
+        {
+            var Pos = transform.position;
+            Pos.y = y;
+            transform.position = Pos;
+        }
+
+        public static void SetPosZ(this Transform transform, float z)
+        {
+            var Pos = transform.position;
+            Pos.z = z;
+            transform.position = Pos;
+        }
+
         public static void ResetLocal(this Transform transform)
         {
             transform.localPosition = Vector3.one;

@@ -19,6 +19,7 @@ namespace Assets.Framework.Factory
         public AudioClipFactory auidoClipFactory;
         public SpriteFactory spriteFactory;
         public RuntimeAnimatorControllerFactory runtimeAnimatorFactory;
+        public ScriptableObjectFactory scriptableObjectFactory;
 
         public override void Init()
         {
@@ -29,6 +30,7 @@ namespace Assets.Framework.Factory
             auidoClipFactory = new AudioClipFactory();
             spriteFactory = new SpriteFactory();
             runtimeAnimatorFactory = new RuntimeAnimatorControllerFactory();
+            scriptableObjectFactory = new ScriptableObjectFactory();
         }
 
         public Sprite GetSprite(string resourcePath)
@@ -44,6 +46,11 @@ namespace Assets.Framework.Factory
         public RuntimeAnimatorController GetRuntimeAnimatorController(string resourcePath)
         {
             return runtimeAnimatorFactory.GetResource(resourcePath);
+        }
+
+        public T GetData<T>(string resourcePath) where T:ScriptableObject
+        {
+            return scriptableObjectFactory.GetResource<T>(resourcePath);
         }
 
         //public GameObject GetGameObjectResource(FactoryType factoryType, string resourcePath)

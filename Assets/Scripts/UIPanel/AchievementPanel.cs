@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Factory;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using Assets.Framework.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ public class AchievementPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        mBtn_Close.onClick.AddListener(()=>OnHide());
+        mBtn_Close.onClick.AddListener(()=> { AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
         SetAcItem();
     }
 

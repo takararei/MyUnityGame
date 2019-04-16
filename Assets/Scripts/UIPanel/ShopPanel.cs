@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Factory;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using Assets.Framework.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ public class ShopPanel : BasePanel
     {
         base.Init();
         pStatics = PlayerStatics.Instance;
-        itemMgr = ItemInfoMgr.instance;
+        //itemMgr = ItemInfoMgr.instance;
+        itemMgr = FactoryManager.Instance.GetData<ItemInfoMgr>("ItemInfo");
         mBtn_Close = Find<Button>("Btn_Close");
         mBtn_Buy = Find<Button>("Btn_Buy");
         mTxt_Count = Find<Text>("Txt_Count");
@@ -45,7 +47,7 @@ public class ShopPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        mBtn_Close.onClick.AddListener(OnHide);
+        mBtn_Close.onClick.AddListener(()=> { AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
         mBtn_Buy.onClick.AddListener(OnBuyButtonClick);
 
         mTxt_Count.text = pStatics.DO.ToString();
@@ -127,7 +129,8 @@ public class ShopPanel : BasePanel
 
     private void OnBuyButtonClick()
     {
-        if(itemMgr.itemInfoList[pickItem].price<=pStatics.DO)
+        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        if (itemMgr.itemInfoList[pickItem].price<=pStatics.DO)
         {
             pStatics.DO-=itemMgr.itemInfoList[pickItem].price;
             pStatics.itemNum[pickItem]++;
@@ -188,6 +191,7 @@ public class ShopPanel : BasePanel
 
         public void OnBtnClick()
         {
+            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
             EventCenter.Broadcast(EventType.ItemIntroduceUpdate, id);
         }
 

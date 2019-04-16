@@ -91,6 +91,7 @@
     <Compile Include="Assets\Framework\Factory\IBaseFactory.cs" />
     <Compile Include="Assets\Framework\Factory\IBaseResourceFactory.cs" />
     <Compile Include="Assets\Framework\Factory\RuntimeAnimatorControllerFactory.cs" />
+    <Compile Include="Assets\Framework\Factory\ScriptableObjectFactory.cs" />
     <Compile Include="Assets\Framework\Factory\SpriteFactory.cs" />
     <Compile Include="Assets\Framework\Factory\UIFactory.cs" />
     <Compile Include="Assets\Framework\GameRoot.cs" />
