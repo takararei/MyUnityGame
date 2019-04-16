@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(AudioSource))]
+//[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Animator))]
 public class BaseEnemy : MonoBehaviour, IBaseEnemy
 {
@@ -15,7 +15,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
     private Animator animator;
     private Slider slider;//血条
-    private AudioSource audioSource;
+    //private AudioSource audioSource;
     public List<Vector3> pathPointList;
 
     public int currentLife;
@@ -46,7 +46,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         slider = UITool.FindChild<Slider>(gameObject, "HPSlider");
     }
 

@@ -225,6 +225,8 @@ public class GamePlayPanel:BasePanel
 
     private void HandleGrid(GridPoint gp)
     {
+
+        enemyInfoPanel.SetActive(false);
         if (selectGrid == null||selectGrid!=gp)
         {
             selectGrid = gp;
@@ -256,12 +258,14 @@ public class GamePlayPanel:BasePanel
 
     private void HandleEnemy(BaseEnemy enemy)
     {
-        if(selectEnemy==null)
+        towerInfoPanel.SetActive(false);
+        if (selectEnemy==null)
         {
             if (enemy.gameObject.activeSelf)
             {
                 selectEnemy = enemy;
                 enemyInfoPanel.SetActive(true);
+                
                 selectEnemy.SetEnemySign(true);
                 SetEnemyInfoPanel(selectEnemy.enemyInfo);
                 //更新信息

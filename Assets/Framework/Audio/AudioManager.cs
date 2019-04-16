@@ -55,12 +55,17 @@ namespace Assets.Framework.Audio
         
         public void PlayBGM(string bgmName, bool loop=true)
         {
-            if(isPlayBGMusic)
+            AudioClip bgm = FactoryManager.Instance.GetAudioClip(bgmName);
+            mBGMSource.clip = bgm;
+            mBGMSource.loop = loop;
+            mBGMSource.Play();
+            if (isPlayBGMusic)
             {
-                AudioClip bgm = FactoryManager.Instance.GetAudioClip(bgmName); 
-                mBGMSource.clip = bgm;
-                mBGMSource.loop = loop;
-                mBGMSource.Play();
+                BGMOn();
+            }
+            else
+            {
+                BGMOff();
             }
            
         }
@@ -97,7 +102,7 @@ namespace Assets.Framework.Audio
         public void BGMOff()
         {
             mBGMSource.Pause();
-            mBGMSource.mute = false;
+            mBGMSource.mute = true;
         }
 
         
