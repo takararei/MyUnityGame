@@ -95,7 +95,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
     {
         towerProperty.Recycle();
         enemyTargetList.Clear();
-        FactoryManager.Instance.PushGame(towerInfo.path, gameObject);
+        FactoryMgr.Instance.PushGame(towerInfo.path, gameObject);
     }
 
 }

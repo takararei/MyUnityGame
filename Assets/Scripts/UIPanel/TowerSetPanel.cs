@@ -54,7 +54,7 @@ public class TowerSetPanel : BasePanel
         //获取头4位并且赋值
         for (int i = 0; i < 4; i++)
         {
-            GameObject go = FactoryManager.Instance.GetUI("TowerSelectBtn");
+            GameObject go = FactoryMgr.Instance.GetUI("TowerSelectBtn");
             go.transform.SetParent(TowerSelect);
             go.transform.localScale = new Vector3(1.3f, 1.3f, 1);
             go.transform.position = pos[i].position;
@@ -212,6 +212,8 @@ public class TowerSetPanel : BasePanel
     /// <param name="gp"></param>
     public void HandleGrid(GridPoint gp)
     {
+        if (gp == null)
+            return;
         if (selectGrid == null)
         {
             selectGrid = gp;
@@ -273,14 +275,14 @@ public class TowerSetPanel : BasePanel
         int upCoin = TowerInfoMgr.Instance.towerInfoList[index - 1].buildCoin;
         if(upCoin<=GameController.Instance.Coin)
         {
-            UpLevelBtn.image.sprite = FactoryManager.Instance.GetSprite("Change/tUp_1");
+            UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite("Change/tUp_1");
             Img_UpPriceBG.gameObject.SetActive(true);
             Txt_UpPrice.text = upCoin.ToString();
             isUpLevel = true;
         }
         else
         {
-            UpLevelBtn.image.sprite = FactoryManager.Instance.GetSprite("Change/tUp_2");
+            UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite("Change/tUp_2");
             Img_UpPriceBG.gameObject.SetActive(false);
         }
     }
@@ -312,14 +314,14 @@ public class TowerSetPanel : BasePanel
             if (id == 0)
             {
                 //更换图片
-                btn.image.sprite = FactoryManager.Instance.GetSprite("Change/t0");
+                btn.image.sprite = FactoryMgr.Instance.GetSprite("Change/t0");
                 img_PriceBG.gameObject.SetActive(false);
                 isActive = false;
             }
             else
             {
                 //设置图片，注册事件
-                btn.image.sprite = FactoryManager.Instance.GetSprite("Change/t" + id + "_1");
+                btn.image.sprite = FactoryMgr.Instance.GetSprite("Change/t" + id + "_1");
                 Txt_Price.text = TowerInfoMgr.Instance.towerInfoList[id - 1].buildCoin.ToString();
                 btn.onClick.AddListener(OnBtnClick);
             }
@@ -335,11 +337,11 @@ public class TowerSetPanel : BasePanel
             }
             if (isActive)
             {
-                btn.image.sprite = FactoryManager.Instance.GetSprite("Change/t" + id + "_1");
+                btn.image.sprite = FactoryMgr.Instance.GetSprite("Change/t" + id + "_1");
             }
             else
             {
-                btn.image.sprite = FactoryManager.Instance.GetSprite("Change/t" + id + "_2");
+                btn.image.sprite = FactoryMgr.Instance.GetSprite("Change/t" + id + "_2");
             }
         }
 

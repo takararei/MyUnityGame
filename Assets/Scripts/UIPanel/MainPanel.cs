@@ -84,18 +84,18 @@ public class MainPanel : BasePanel
         //子面板显示
         mBtn_Shop.onClick.AddListener(() => 
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-            UIManager.Instance.Show(UIPanelName.ShopPanel);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIMgr.Instance.Show(UIPanelName.ShopPanel);
         });
         mBtn_Achievement.onClick.AddListener(() => 
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-            UIManager.Instance.Show(UIPanelName.AchievementPanel);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIMgr.Instance.Show(UIPanelName.AchievementPanel);
         });
         mBtn_Help.onClick.AddListener(() =>
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-            UIManager.Instance.Show(UIPanelName.HelpPanel);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIMgr.Instance.Show(UIPanelName.HelpPanel);
         });
         mBtn_Set.onClick.AddListener(OnButtonSetClick);
         //设置面板的部分
@@ -116,8 +116,8 @@ public class MainPanel : BasePanel
 
         mTxt_Count.text = pStatics.DO.ToString();
 
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayBGMusic);
+        mImg_EffectsOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayBGMusic);
         SetLevelButton();
 
     }
@@ -177,7 +177,7 @@ public class MainPanel : BasePanel
     }
     void GenerateLevelButton(int index)
     {
-        GameObject lvBtn = FactoryManager.Instance.GetUI(StringMgr.Btn_MapLevel);
+        GameObject lvBtn = FactoryMgr.Instance.GetUI(StringMgr.Btn_MapLevel);
         lvBtn.transform.SetParent(mImg_Map.transform);
         lvBtn.transform.localPosition = lvMgr.levelInfoList[index].levelPos;
         lvBtn.transform.localScale = Vector3.one;
@@ -192,7 +192,7 @@ public class MainPanel : BasePanel
         if (lvBtnList.Count == 0) return;
         for (int i = 0; i < lvBtnList.Count; i++)
         {
-            FactoryManager.Instance.PushUI("Btn_MapLevel", mImg_Map.transform.GetChild(0).gameObject);
+            FactoryMgr.Instance.PushUI("Btn_MapLevel", mImg_Map.transform.GetChild(0).gameObject);
             lvBtnList[i].Clear();
         }
         lvBtnList.Clear();
@@ -200,7 +200,7 @@ public class MainPanel : BasePanel
 
     private void OnButtonSetClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         if (isSetActive)
         {
             mSetPanel.gameObject.Hide();
@@ -214,35 +214,35 @@ public class MainPanel : BasePanel
     }
     private void OnButtonHomeClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        SceneStateMgr.Instance.ChangeSceneState(new BeginSceneState());
     }
     private void OnButtonDeleteClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         mDeletePanel.gameObject.Show();
     }
     private void OnButtonCancleClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         mDeletePanel.gameObject.Hide();
     }
     private void OnButtonSureClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         //TODO删除数据 回到begin页面
     }
     void OnSoundEffect()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        AudioManager.Instance.CloseOrOpenEffectMusic();
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.CloseOrOpenEffectMusic();
+        mImg_EffectsOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
     }
     void OnMusic()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        AudioManager.Instance.CloseOrOpenBGMusic();
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayBGMusic);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.CloseOrOpenBGMusic();
+        mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayBGMusic);
     }
     void OnPointerDown(PointerEventData eventData)
     {
@@ -295,15 +295,15 @@ public class MainPanel : BasePanel
 
         public void OnButtonClick()
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-            UIManager.Instance.Show(UIPanelName.LevelIntroducePanel);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            UIMgr.Instance.Show(UIPanelName.LevelIntroducePanel);
             EventCenter.Broadcast(EventType.LevelIntroduceUpdate, id);
         }
         public void ShowStar(int num)
         {
             if (num == 0)
             {
-                levelButton.image.sprite = FactoryManager.Instance.GetSprite(StringMgr.Sprite_UnFinished);
+                levelButton.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.Sprite_UnFinished);
                 return;
             }
             if (num >= 1)
@@ -318,7 +318,7 @@ public class MainPanel : BasePanel
             {
                 star3.gameObject.Show();
             }
-            levelButton.image.sprite = FactoryManager.Instance.GetSprite(StringMgr.Sprite_Finished);
+            levelButton.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.Sprite_Finished);
         }
 
         public override void Clear()

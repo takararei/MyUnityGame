@@ -25,7 +25,7 @@ public class TowerBuilder : IBuilder<BaseTower>
     {
         TowerId = selectGrid.gridState.towerID;
         pos = selectGrid.transform.position;
-        GameObject go = FactoryManager.Instance.GetGame(TowerInfoMgr.Instance.towerInfoList[TowerId - 1].path);
+        GameObject go = FactoryMgr.Instance.GetGame(TowerInfoMgr.Instance.towerInfoList[TowerId - 1].path);
         BaseTower tower = GetProductClass(go);
         GetData(tower);
         go.transform.SetParent(selectGrid.transform);

@@ -15,7 +15,7 @@ namespace Assets.Framework.SceneState
 
         public virtual void ExitScene()
         {
-            UIManager.Instance.uiFacade.ClearPanelDict();
+            UIMgr.Instance.uiFacade.ClearPanelDict();
 
         }
     }

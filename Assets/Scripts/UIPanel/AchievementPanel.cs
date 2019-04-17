@@ -25,7 +25,7 @@ public class AchievementPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        mBtn_Close.onClick.AddListener(()=> { AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
+        mBtn_Close.onClick.AddListener(()=> { AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
         SetAcItem();
     }
 
@@ -40,7 +40,7 @@ public class AchievementPanel : BasePanel
     {
         for(int i=0;i<acMgr.infoList.Count;i++)
         {
-            GameObject acGo = FactoryManager.Instance.GetUI(StringMgr.AchievementItem);
+            GameObject acGo = FactoryMgr.Instance.GetUI(StringMgr.AchievementItem);
             acGo.transform.SetParent(ItemContent);
             acGo.transform.localScale = Vector3.one;
 
@@ -54,7 +54,7 @@ public class AchievementPanel : BasePanel
         if (acItemList.Count == 0) return;
         for (int i = 0; i < acMgr.infoList.Count; i++)
         {
-            FactoryManager.Instance.PushUI(StringMgr.AchievementItem,ItemContent.GetChild(0).gameObject);
+            FactoryMgr.Instance.PushUI(StringMgr.AchievementItem,ItemContent.GetChild(0).gameObject);
             acItemList[i].Clear();
         }
         acItemList.Clear();

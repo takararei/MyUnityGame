@@ -23,7 +23,7 @@ public class BullectBuilder : IBuilder<Bullect>
 
     public GameObject GetProduct()
     {
-        GameObject go = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);
+        GameObject go = FactoryMgr.Instance.GetGame(baseTower.towerInfo.bullectPath);
         Bullect bu = GetProductClass(go);
         go.transform.SetParent(GameController.Instance.gameTrans);
         go.transform.position = baseTower.transform.position - new Vector3(0, 0, 2);

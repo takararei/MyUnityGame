@@ -38,8 +38,8 @@ public class GamePausePanel:BasePanel
         btn_SoundEffect.onClick.AddListener(OnEffectClick);
         btn_Restart.onClick.AddListener(OnRestart);
         btn_ExitGame.onClick.AddListener(OnExitGame);
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayBGMusic);
+        mImg_EffectsOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayBGMusic);
     }
     public override void OnHide()
     {
@@ -55,38 +55,38 @@ public class GamePausePanel:BasePanel
 
     private void OnClosePanel()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        UIManager.Instance.Hide(UIPanelName.GamePausePanel);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        UIMgr.Instance.Hide(UIPanelName.GamePausePanel);
         GameController.Instance.isPause = false;
     }
 
     private void OnExitGame()
     {
         //回到主场景，重置GameController
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        SceneStateMgr.Instance.ChangeSceneState(new MainSceneState());
     }
 
     private void OnRestart()
     {
         //重置GameController
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        UIManager.Instance.Hide(UIPanelName.GamePausePanel);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        UIMgr.Instance.Hide(UIPanelName.GamePausePanel);
         GameController.Instance.RestartGame();
     }
 
     private void OnEffectClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        AudioManager.Instance.CloseOrOpenEffectMusic();
-        mImg_EffectsOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.CloseOrOpenEffectMusic();
+        mImg_EffectsOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
     }
 
     private void OnMusicClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        AudioManager.Instance.CloseOrOpenBGMusic();
-        mImg_MusicOff.gameObject.SetActive(!AudioManager.Instance.isPlayEffectMusic);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.CloseOrOpenBGMusic();
+        mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
     }
 
     

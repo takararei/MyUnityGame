@@ -10,7 +10,7 @@ public class StartLoadSceneState : BaseSceneState {
     public override void EnterScene()
     {
         base.EnterScene();
-        UIManager.Instance.Show(UIPanelName.StartLoadPanel);
+        UIMgr.Instance.Show(UIPanelName.StartLoadPanel);
     }
 
     public override void ExitScene()

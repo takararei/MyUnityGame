@@ -255,13 +255,13 @@ public class GameController : MonoBehaviour
     {
         isGameOver = true;
         isPause = true;
-        UIManager.Instance.Show(UIPanelName.GameOverPanel);
+        UIMgr.Instance.Show(UIPanelName.GameOverPanel);
     }
 
     public void GameWin()
     {
         isPause = true;
-        UIManager.Instance.Show(UIPanelName.GameWinPanel);
+        UIMgr.Instance.Show(UIPanelName.GameWinPanel);
         //更新玩家记录的星级 TODO
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
     }

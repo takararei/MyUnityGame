@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Framework.Extension;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,32 +25,55 @@ namespace Assets.Framework.Factory
         {
             GameObject itemGo = null;
             //字典中是否有这种类型的对象的对象池
-            if (objectPoolDict.ContainsKey(itemName))
+            Stack<GameObject> pool;
+            //有对象池
+            if (objectPoolDict.TryGetValue(itemName,out pool))
             {
-                //池中有就弹出，没有就生成
-                if (objectPoolDict[itemName].Count == 0)
-                {
+                if(pool.Count==0)
+                {//没有就生成
                     GameObject go = GetResource(itemName);
                     itemGo = GameRoot.Instance.CreateItem(go);
-                }
+                }//有就弹出
                 else
                 {
-                    itemGo = objectPoolDict[itemName].Pop();
+                    itemGo = pool.Pop();
                     itemGo.SetActive(true);
                 }
             }
-            else
+            else//没有对象池
             {
-                //没有就创建对象池
                 objectPoolDict.Add(itemName, new Stack<GameObject>());
                 GameObject go = GetResource(itemName);
                 itemGo = GameRoot.Instance.CreateItem(go);
             }
 
-            if (itemGo == null)
-            {
-                Debug.Log(itemName + "实例获取失败");
-            }
+
+            //if (objectPoolDict.ContainsKey(itemName))
+            //{
+            //    //池中有就弹出，没有就生成
+            //    if (objectPoolDict[itemName].Count == 0)
+            //    {
+            //        GameObject go = GetResource(itemName);
+            //        itemGo = GameRoot.Instance.CreateItem(go);
+            //    }
+            //    else
+            //    {
+            //        itemGo = objectPoolDict[itemName].Pop();
+            //        itemGo.SetActive(true);
+            //    }
+            //}
+            //else
+            //{
+            //    //没有就创建对象池
+            //    objectPoolDict.Add(itemName, new Stack<GameObject>());
+            //    GameObject go = GetResource(itemName);
+            //    itemGo = GameRoot.Instance.CreateItem(go);
+            //}
+
+            //if (itemGo == null)
+            //{
+            //    Debug.Log(itemName + "实例获取失败");
+            //}
 
             return itemGo;
         }
@@ -58,21 +82,40 @@ namespace Assets.Framework.Factory
         {
             GameObject itemGo = null;
             string itemLoadPath = loadPath + itemName;
-            if (factoryDict.ContainsKey(itemName))
+            if (!factoryDict.TryGetValue(itemName, out itemGo))
             {
-                itemGo = factoryDict[itemName];
-
-            }
-            else
-            {
+                //没有取到 就加载
                 itemGo = Resources.Load<GameObject>(itemLoadPath);
-                factoryDict.Add(itemName, itemGo);
+                if(itemGo!=null)
+                {
+                    factoryDict.Add(itemName, itemGo);
+                }
+                else//加载不到
+                {
+                    Debug.Log(itemName + "资源获取失败，失败路径" + itemLoadPath);
+                }
             }
+            //if (factoryDict.ContainsKey(itemName))
+            //{
+            //    itemGo = factoryDict[itemName];
 
-            if (itemGo == null)
-            {
-                Debug.Log(itemName + "资源获取失败，失败路径" + itemLoadPath);
-            }
+            //}
+            //else
+            //{
+            //    itemGo = Resources.Load<GameObject>(itemLoadPath);
+            //    if (itemGo != null)
+            //    {
+            //        factoryDict.Add(itemName, itemGo);
+            //    }
+            //    else
+            //    {
+            //        Debug.Log(itemName + "资源获取失败，失败路径" + itemLoadPath);
+            //    }
+            //}
+            //if (itemGo == null)
+            //{
+            //    Debug.Log(itemName + "资源获取失败，失败路径" + itemLoadPath);
+            //}
             return itemGo;
         }
 
@@ -80,14 +123,23 @@ namespace Assets.Framework.Factory
         {
             item.SetActive(false);
             item.transform.SetParent(GameRoot.Instance.transform);
-            if (objectPoolDict.ContainsKey(itemName))
+            Stack<GameObject> pool;
+            if(objectPoolDict.TryGetValue(itemName,out pool))
             {
-                objectPoolDict[itemName].Push(item);
+                pool.Push(item);
             }
             else
             {
                 Debug.Log("字典没有这样的对象池栈" + itemName);
             }
+            //if (objectPoolDict.ContainsKey(itemName))
+            //{
+            //    objectPoolDict[itemName].Push(item);
+            //}
+            //else
+            //{
+            //    Debug.Log("字典没有这样的对象池栈" + itemName);
+            //}
 
         }
     }

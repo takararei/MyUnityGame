@@ -41,7 +41,7 @@ public class MapMaker : MonoBehaviour
     }
     public void LoadLevelMap(int index)
     {
-        roadSR.sprite = FactoryManager.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath); 
+        roadSR.sprite = FactoryMgr.Instance.GetSprite(LevelInfoMgr.Instance.levelInfoList[index].mapPath); 
         //加载地图，加载建塔格子，加载怪物
         int count = lvMapMgr.leveMapDataList[index].gridStateList.Count;
         for (int i = 0; i <count;i++)

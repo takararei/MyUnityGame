@@ -11,8 +11,8 @@ public class GamePlaySceneState:BaseSceneState
     public override void EnterScene()
     {
         base.EnterScene();
-        UIManager.Instance.Show(UIPanelName.GamePlayPanel);
-        UIManager.Instance.Show(UIPanelName.TowerSetPanel);
+        UIMgr.Instance.Show(UIPanelName.GamePlayPanel);
+        UIMgr.Instance.Show(UIPanelName.TowerSetPanel);
     }
 
     public override void ExitScene()

@@ -11,7 +11,7 @@ public class GameLoadSceneState:BaseSceneState
     public override void EnterScene()
     {
         base.EnterScene();
-        UIManager.Instance.Show(UIPanelName.GameLoadPanel);
+        UIMgr.Instance.Show(UIPanelName.GameLoadPanel);
     }
 
     public override void ExitScene()

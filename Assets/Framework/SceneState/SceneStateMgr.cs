@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 namespace Assets.Framework.SceneState
 {
-    public class SceneStateManager:Singleton<SceneStateManager>
+    public class SceneStateMgr:Singleton<SceneStateMgr>
     {
 
         public IBaseSceneState lastSceneState;
@@ -43,7 +43,7 @@ namespace Assets.Framework.SceneState
 
         private void InitMask()
         {
-            mask = UIManager.Instance.uiFacade.CreateUIAndSetUIPosition("Img_Mask");
+            mask = UIMgr.Instance.uiFacade.CreateUIAndSetUIPosition("Img_Mask");
             maskImage = mask.GetComponent<Image>();
         }
 

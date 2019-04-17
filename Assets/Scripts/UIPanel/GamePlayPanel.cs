@@ -161,9 +161,9 @@ public class GamePlayPanel:BasePanel
 
     private void OnPauseClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         GameController.Instance.isPause = true;
-        UIManager.Instance.Show(UIPanelName.GamePausePanel);
+        UIMgr.Instance.Show(UIPanelName.GamePausePanel);
     }
 
     private void OnStartClick()
@@ -225,7 +225,11 @@ public class GamePlayPanel:BasePanel
 
     private void HandleGrid(GridPoint gp)
     {
-
+        if(gp==null)
+        {
+            return;
+        }
+        HandleEnemy(selectEnemy);
         enemyInfoPanel.SetActive(false);
         if (selectGrid == null||selectGrid!=gp)
         {
@@ -258,6 +262,11 @@ public class GamePlayPanel:BasePanel
 
     private void HandleEnemy(BaseEnemy enemy)
     {
+        if(enemy==null)
+        {
+            return;
+        }
+        EventCenter.Broadcast(EventType.HandleGrid, selectGrid);
         towerInfoPanel.SetActive(false);
         if (selectEnemy==null)
         {

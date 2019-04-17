@@ -111,7 +111,7 @@ namespace Assets.Framework.UI
                 item.Value.transform.SetParent(GameRoot.Instance.transform);
                 if(item.Value.activeSelf!=false)
                 {
-                    UIManager.Instance.Hide(item.Value.name);
+                    UIMgr.Instance.Hide(item.Value.name);
                 }
             }
             currentScenePanelDict.Clear();
@@ -301,7 +301,7 @@ namespace Assets.Framework.UI
         //UI部分
         public GameObject CreateUIAndSetUIPosition(string uiName)
         {
-            GameObject itemGo = FactoryManager.Instance.GetUI(uiName);
+            GameObject itemGo = FactoryMgr.Instance.GetUI(uiName);
             itemGo.transform.SetParent(CanvasTransform);
             itemGo.transform.ResetLocal();
             return itemGo;

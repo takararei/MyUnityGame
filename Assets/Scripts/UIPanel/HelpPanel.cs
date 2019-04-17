@@ -113,8 +113,8 @@ public class HelpPanel : BasePanel
 
     private void ClosePanel()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        UIManager.Instance.Hide(UIPanelName.HelpPanel);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        UIMgr.Instance.Hide(UIPanelName.HelpPanel);
     }
 
     private void ShowTowerIntro()
@@ -143,13 +143,13 @@ public class HelpPanel : BasePanel
 
     private void BtnClose_Enemy()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         HideEnemyIntro();
     }
 
     private void BtnClose_Tower()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         HideToweIntro();
     }
 
@@ -208,7 +208,7 @@ public class HelpPanel : BasePanel
     {
         for(int i=0;i<TowerInfoMgr.Instance.towerInfoList.Count;i++)
         {
-            GameObject go = FactoryManager.Instance.GetUI(StringMgr.HelpItemBtn);
+            GameObject go = FactoryMgr.Instance.GetUI(StringMgr.HelpItemBtn);
             go.transform.SetParent(TowerContent);
             go.transform.localScale = Vector3.one;
 
@@ -221,7 +221,7 @@ public class HelpPanel : BasePanel
     {
         for (int i = 0; i < EnemyInfoMgr.Instance.enemyInfoList.Count; i++)
         {
-            GameObject go = FactoryManager.Instance.GetUI(StringMgr.HelpItemBtn);
+            GameObject go = FactoryMgr.Instance.GetUI(StringMgr.HelpItemBtn);
             go.transform.SetParent(EnemyContent);
             go.transform.localScale = Vector3.one;
 
@@ -265,7 +265,7 @@ public class HelpPanel : BasePanel
 
         private void BtnClick()
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
             panel.UpdateTowerIntro(id);
         }
 
@@ -291,7 +291,7 @@ public class HelpPanel : BasePanel
 
         private void BtnClick()
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
             panel.UpdateEnemyIntro(id);
         }
 

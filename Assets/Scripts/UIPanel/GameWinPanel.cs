@@ -46,15 +46,15 @@ public class GameWinPanel:BasePanel
     private void OnExitGame()
     {
         //回到主场景，重置GameController
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        SceneStateMgr.Instance.ChangeSceneState(new MainSceneState());
     }
 
     private void OnRestart()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         GameController.Instance.RestartGame();
-        UIManager.Instance.Hide(UIPanelName.GameWinPanel);
+        UIMgr.Instance.Hide(UIPanelName.GameWinPanel);
     }
 
     public override void OnDestroy()

@@ -60,7 +60,7 @@ public class Bullect:MonoBehaviour
         targetTrans = null;
         if(gameObject.activeSelf==true)//未被回收
         {
-            FactoryManager.Instance.PushGame(bsTower.towerInfo.bullectPath,gameObject);
+            FactoryMgr.Instance.PushGame(bsTower.towerInfo.bullectPath,gameObject);
         }
         isSetData = false;
     }

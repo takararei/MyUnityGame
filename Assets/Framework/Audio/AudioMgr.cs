@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Framework.Audio
 {
-    public class AudioManager : Singleton<AudioManager>
+    public class AudioMgr : Singleton<AudioMgr>
     {
         private AudioListener mAudioListener;
         private AudioSource mBGMSource = null;
@@ -54,7 +54,7 @@ namespace Assets.Framework.Audio
         
         public void PlayBGM(string bgmName, bool loop=true)
         {
-            AudioClip bgm = FactoryManager.Instance.GetAudioClip(bgmName);
+            AudioClip bgm = FactoryMgr.Instance.GetAudioClip(bgmName);
             mBGMSource.clip = bgm;
             mBGMSource.loop = loop;
             mBGMSource.Play();
@@ -72,7 +72,7 @@ namespace Assets.Framework.Audio
         {
             if (isPlayEffectMusic)
             {
-                AudioClip effect = FactoryManager.Instance.GetAudioClip(effectName);
+                AudioClip effect = FactoryMgr.Instance.GetAudioClip(effectName);
                 mEffectSource.PlayOneShot(effect);
             }
         }

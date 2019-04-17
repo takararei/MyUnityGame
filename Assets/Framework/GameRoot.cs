@@ -30,10 +30,10 @@ namespace Assets.Framework
             _instance = this;
             pdOperator = new PlayerDataOperator();
             playerData = pdOperator.LoadPlayerData();
-            FactoryManager.Instance.Init();
-            AudioManager.Instance.Init();
-            UIManager.Instance.Init();
-            SceneStateManager.Instance.Init();
+            FactoryMgr.Instance.Init();
+            AudioMgr.Instance.Init();
+            UIMgr.Instance.Init();
+            SceneStateMgr.Instance.Init();
 
         }
 
@@ -44,7 +44,7 @@ namespace Assets.Framework
 
         private void Update()
         {
-            UIManager.Instance.Update();
+            UIMgr.Instance.Update();
         }
 
         public GameObject CreateItem(GameObject itemGo)

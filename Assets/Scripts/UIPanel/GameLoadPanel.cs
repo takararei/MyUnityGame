@@ -18,7 +18,7 @@ public class GameLoadPanel:BasePanel
 
     void LoadNextScene()
     {
-        SceneStateManager.Instance.ChangeSceneState(new GamePlaySceneState());
+        SceneStateMgr.Instance.ChangeSceneState(new GamePlaySceneState());
     }
 
     public override void Update()

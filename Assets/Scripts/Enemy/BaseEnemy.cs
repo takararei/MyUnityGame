@@ -169,7 +169,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         _Sign.enabled = false;
         //CancelDecreaseDebuff();
 
-        FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
+        FactoryMgr.Instance.PushGame(enemyInfo.path, gameObject);
     }
     //敌人被杀死时的处理
     public void DestroyEnemy()

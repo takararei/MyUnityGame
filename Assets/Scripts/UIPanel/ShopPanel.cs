@@ -29,7 +29,7 @@ public class ShopPanel : BasePanel
         base.Init();
         pStatics = PlayerStatics.Instance;
         //itemMgr = ItemInfoMgr.instance;
-        itemMgr = FactoryManager.Instance.GetData<ItemInfoMgr>("ItemInfo");
+        itemMgr = FactoryMgr.Instance.GetData<ItemInfoMgr>("ItemInfo");
         mBtn_Close = Find<Button>("Btn_Close");
         mBtn_Buy = Find<Button>("Btn_Buy");
         mTxt_Count = Find<Text>("Txt_Count");
@@ -47,7 +47,7 @@ public class ShopPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        mBtn_Close.onClick.AddListener(()=> { AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
+        mBtn_Close.onClick.AddListener(()=> { AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
         mBtn_Buy.onClick.AddListener(OnBuyButtonClick);
 
         mTxt_Count.text = pStatics.DO.ToString();
@@ -86,7 +86,7 @@ public class ShopPanel : BasePanel
     {
         for (int i = 0; i < itemMgr.itemInfoList.Count; i++)
         {
-            GameObject itemHold = FactoryManager.Instance.GetUI(StringMgr.ItemHold);
+            GameObject itemHold = FactoryMgr.Instance.GetUI(StringMgr.ItemHold);
             itemHold.transform.SetParent(PackageContent);
             itemHold.transform.localScale = Vector3.one;
             //道具持有数量等,更换图片资源TODO
@@ -98,7 +98,7 @@ public class ShopPanel : BasePanel
     {
         for (int i = 0; i < itemMgr.itemInfoList.Count; i++)
         {
-            GameObject itemShopButton = FactoryManager.Instance.GetUI(StringMgr.ItemShopButton);
+            GameObject itemShopButton = FactoryMgr.Instance.GetUI(StringMgr.ItemShopButton);
             itemShopButton.transform.SetParent(GoodsContent);
             itemShopButton.transform.localScale = Vector3.one;
             //更换图片TODO
@@ -111,7 +111,7 @@ public class ShopPanel : BasePanel
         if (itemShopBtnList.Count == 0) return;
         for(int i=0;i<itemShopBtnList.Count;i++)
         {
-            FactoryManager.Instance.PushUI(StringMgr.ItemShopButton, GoodsContent.GetChild(0).gameObject);
+            FactoryMgr.Instance.PushUI(StringMgr.ItemShopButton, GoodsContent.GetChild(0).gameObject);
             itemShopBtnList[i].Clear();
         }
         itemShopBtnList.Clear();
@@ -121,7 +121,7 @@ public class ShopPanel : BasePanel
         if (itemHoldList.Count == 0) return;
         for(int i=0;i<itemHoldList.Count;i++)
         {
-            FactoryManager.Instance.PushUI(StringMgr.ItemHold, PackageContent.GetChild(0).gameObject);
+            FactoryMgr.Instance.PushUI(StringMgr.ItemHold, PackageContent.GetChild(0).gameObject);
             itemHoldList[i].Clear();
         }
         itemHoldList.Clear();
@@ -129,7 +129,7 @@ public class ShopPanel : BasePanel
 
     private void OnBuyButtonClick()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         if (itemMgr.itemInfoList[pickItem].price<=pStatics.DO)
         {
             pStatics.DO-=itemMgr.itemInfoList[pickItem].price;
@@ -191,7 +191,7 @@ public class ShopPanel : BasePanel
 
         public void OnBtnClick()
         {
-            AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
             EventCenter.Broadcast(EventType.ItemIntroduceUpdate, id);
         }
 

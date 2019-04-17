@@ -11,8 +11,8 @@ public class BeginSceneState : BaseSceneState
     public override void EnterScene()
     {
         base.EnterScene();
-        AudioManager.Instance.PlayBGM(StringMgr.BeginBGM);
-        UIManager.Instance.Show(UIPanelName.BeginPanel);
+        AudioMgr.Instance.PlayBGM(StringMgr.BeginBGM);
+        UIMgr.Instance.Show(UIPanelName.BeginPanel);
         //添加背景音乐
     }
 

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Framework.UI
 {
-    public class UIManager : Singleton<UIManager>
+    public class UIMgr : Singleton<UIMgr>
     {
         public UIFacade uiFacade;
         

@@ -30,7 +30,7 @@ public class LevelIntroducePanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        closeBtn.onClick.AddListener(()=> { UIManager.Instance.Hide(UIPanelName.LevelIntroducePanel); });
+        closeBtn.onClick.AddListener(()=> { UIMgr.Instance.Hide(UIPanelName.LevelIntroducePanel); });
         Btn_Begin.onClick.AddListener(OnEnterGame);
         EventCenter.AddListener<int>(EventType.LevelIntroduceUpdate, UpdateLevelInfo);
     }
@@ -44,7 +44,7 @@ public class LevelIntroducePanel : BasePanel
     public void OnEnterGame()
     {
         GameRoot.Instance.pickLevel = pickLevel;
-        SceneStateManager.Instance.ChangeSceneState(new GameLoadSceneState());
+        SceneStateMgr.Instance.ChangeSceneState(new GameLoadSceneState());
     }
 
     public void UpdateLevelInfo(int index)

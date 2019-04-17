@@ -30,7 +30,7 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
     public GameObject GetProduct()
     {
         //获取游戏预制体，GetData,getotherResource
-        GameObject go = FactoryManager.Instance.GetGame(EnemyInfoMgr.Instance.enemyInfoList[EnemyId-1].path);
+        GameObject go = FactoryMgr.Instance.GetGame(EnemyInfoMgr.Instance.enemyInfoList[EnemyId-1].path);
         BaseEnemy enemy = GetProductClass(go);
         GetData(enemy);
         go.transform.SetParent(GameController.Instance.gameTrans);

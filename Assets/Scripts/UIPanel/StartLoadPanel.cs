@@ -21,7 +21,7 @@ public class StartLoadPanel : BasePanel {
     
     void LoadNextScene()
     {
-        SceneStateManager.Instance.ChangeSceneState(new BeginSceneState());
+        SceneStateMgr.Instance.ChangeSceneState(new BeginSceneState());
     }
 
     public override void Update()

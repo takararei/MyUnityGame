@@ -35,16 +35,16 @@ public class GameOverPanel:BasePanel
 
     private void OnExitGame()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         //回到主场景，重置GameController
-        SceneStateManager.Instance.ChangeSceneState(new MainSceneState());
+        SceneStateMgr.Instance.ChangeSceneState(new MainSceneState());
     }
 
     private void OnRestart()
     {
-        AudioManager.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         GameController.Instance.RestartGame();
-        UIManager.Instance.Hide(UIPanelName.GameOverPanel);
+        UIMgr.Instance.Hide(UIPanelName.GameOverPanel);
     }
 
 }

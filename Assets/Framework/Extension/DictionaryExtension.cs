@@ -18,6 +18,12 @@ namespace Assets.Framework.Extension
             Tvalue value;
             dict.TryGetValue(key, out value);
             return value;
+        } 
+
+        public static bool Contain<Tkey,Tvalue>(this Dictionary<Tkey,Tvalue>dict,Tkey key)
+        {
+            Tvalue value;
+            return dict.TryGetValue(key, out value);
         }
     }
 }

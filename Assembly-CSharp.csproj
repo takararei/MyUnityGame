@@ -75,7 +75,7 @@
     <Compile Include="Assets\Example\ListItem\ListItemBtn.cs" />
     <Compile Include="Assets\Example\PanelTest\TestUIPanel.cs" />
     <Compile Include="Assets\Example\ScrollView\ScrollViewSet.cs" />
-    <Compile Include="Assets\Framework\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Framework\Audio\AudioMgr.cs" />
     <Compile Include="Assets\Framework\Event\CallBack.cs" />
     <Compile Include="Assets\Framework\Event\EventCenter.cs" />
     <Compile Include="Assets\Framework\Event\EventType.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="Assets\Framework\Factory\AudioClipFactory.cs" />
     <Compile Include="Assets\Framework\Factory\BaseFactory.cs" />
     <Compile Include="Assets\Framework\Factory\BaseResourceFactory.cs" />
-    <Compile Include="Assets\Framework\Factory\FactoryManager.cs" />
+    <Compile Include="Assets\Framework\Factory\FactoryMgr.cs" />
     <Compile Include="Assets\Framework\Factory\GameFactory.cs" />
     <Compile Include="Assets\Framework\Factory\IBaseFactory.cs" />
     <Compile Include="Assets\Framework\Factory\IBaseResourceFactory.cs" />
@@ -98,7 +98,7 @@
     <Compile Include="Assets\Framework\GameRoot.cs" />
     <Compile Include="Assets\Framework\SceneState\BaseSceneState.cs" />
     <Compile Include="Assets\Framework\SceneState\IBaseSceneState.cs" />
-    <Compile Include="Assets\Framework\SceneState\SceneStateManager.cs" />
+    <Compile Include="Assets\Framework\SceneState\SceneStateMgr.cs" />
     <Compile Include="Assets\Framework\Singleton\Singleton.cs" />
     <Compile Include="Assets\Framework\Singleton\SingletonReflection.cs" />
     <Compile Include="Assets\Framework\Tools\DGTool.cs" />
@@ -110,7 +110,7 @@
     <Compile Include="Assets\Framework\UI\IBaseUIListItem.cs" />
     <Compile Include="Assets\Framework\UI\UIBusiness.cs" />
     <Compile Include="Assets\Framework\UI\UIFacade.cs" />
-    <Compile Include="Assets\Framework\UI\UIManager.cs" />
+    <Compile Include="Assets\Framework\UI\UIMgr.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelDataEditor.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelDataMgr.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelInfo.cs" />
