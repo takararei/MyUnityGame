@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 
 public class EnemyBuilder : IBuilder<BaseEnemy>
-{
+{//敌人只需要知道自己的信息 和该回合他的路径点
     public int EnemyId;//敌人编号
     public List<Vector3> enemyPathList;//敌人路径
     //private GameObject enemyGo;

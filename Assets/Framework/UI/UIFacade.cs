@@ -81,11 +81,13 @@ namespace Assets.Framework.UI
         /// <summary>
         /// 保存所有被实例化的BasePanel组件,BasePanel 脚本
         /// </summary>
-        private Dictionary<string, BasePanel> panelDict;
+        //private Dictionary<string, BasePanel> panelDict;
+        private Dictionary<string, IBasePanel> panelDict;
         /// <summary>
         /// 管理所有显示的面板 脚本
         /// </summary>
-        private Dictionary<string, BasePanel> panelShowDict;
+        //private Dictionary<string, BasePanel> panelShowDict;
+        private Dictionary<string, IBasePanel> panelShowDict;
         /// <summary>
         /// 管理实例化的面板游戏物体，预制体
         /// </summary>
@@ -199,14 +201,14 @@ namespace Assets.Framework.UI
         /// <summary>
         /// 根据面板类型得到实例化面板
         /// </summary>
-        public BasePanel GetPanel(string panelName)
+        public IBasePanel GetPanel(string panelName)
         {
             if (panelDict == null)
             {
-                panelDict = new Dictionary<string, BasePanel>();
+                panelDict = new Dictionary<string, IBasePanel>();
             }
 
-            BasePanel panel = panelDict.TryGet(panelName);
+            IBasePanel panel = panelDict.TryGet(panelName);
 
             if (panel == null)
             {
@@ -258,10 +260,10 @@ namespace Assets.Framework.UI
         {
             if (panelShowDict == null)
             {
-                panelShowDict = new Dictionary<string, BasePanel>();
+                panelShowDict = new Dictionary<string, IBasePanel>();
             }
 
-            BasePanel panel = GetPanel(panelName);
+            IBasePanel panel = GetPanel(panelName);
             panel.rootUI.transform.SetAsLastSibling();
             panel.OnShow();
 
@@ -273,12 +275,12 @@ namespace Assets.Framework.UI
         {
             if (panelShowDict == null)
             {
-                panelShowDict = new Dictionary<string, BasePanel>();
+                panelShowDict = new Dictionary<string, IBasePanel>();
             }
 
             if (panelShowDict.Count <= 0) return;
 
-            BasePanel panel = panelShowDict.TryGet(panelName);
+            IBasePanel panel = panelShowDict.TryGet(panelName);
 
             if (panel == null) return;
 
@@ -290,7 +292,7 @@ namespace Assets.Framework.UI
         public void Update()
         {
             if (panelShowDict.Count == 0) return;
-            foreach (KeyValuePair<string, BasePanel> panel in panelShowDict)
+            foreach (KeyValuePair<string, IBasePanel> panel in panelShowDict)
             {
                 panel.Value.Update();
             }

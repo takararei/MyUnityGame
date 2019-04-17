@@ -6,37 +6,54 @@ using UnityEngine;
 
 namespace Assets.Framework.Factory
 {
-    public class ScriptableObjectFactory
-    {
-        protected Dictionary<string, ScriptableObject> factoryDict = new Dictionary<string, ScriptableObject>();
-        protected string LoadPath;
+    //public class ScriptableObjectFactory
+    //{
+    //    protected Dictionary<string, ScriptableObject> factoryDict = new Dictionary<string, ScriptableObject>();
+    //    protected string LoadPath;
 
+    //    public ScriptableObjectFactory()
+    //    {
+    //        LoadPath = "AssetData/";
+    //    }
+    //    public T GetResource<T>(string resourcePath) where T:ScriptableObject
+    //    {
+    //        T itemGo = null;
+    //        string itemLoadPath = LoadPath + resourcePath;
+    //        if (factoryDict.ContainsKey(resourcePath))
+    //        {
+    //            itemGo = (T)factoryDict[resourcePath];
+    //        }
+    //        else
+    //        {
+    //            itemGo = Resources.Load<T>(itemLoadPath);
+    //            factoryDict.Add(resourcePath, itemGo);
+
+    //        }
+
+    //        if (itemGo == null)
+    //        {
+    //            Debug.Log(resourcePath + "获取失败，路径有误" + itemLoadPath);
+    //        }
+
+    //        return itemGo;
+    //    }
+        
+    //}
+
+    public class ScriptableObjectFactory : BaseResourceFactory<ScriptableObject>
+    {
         public ScriptableObjectFactory()
         {
             LoadPath = "AssetData/";
         }
-        public T GetResource<T>(string resourcePath) where T:ScriptableObject
+
+        public T GetDataResource<T>(string resourcePath) where T:ScriptableObject
         {
-            T itemGo = null;
-            string itemLoadPath = LoadPath + resourcePath;
-            if (factoryDict.ContainsKey(resourcePath))
-            {
-                itemGo = (T)factoryDict[resourcePath];
-            }
-            else
-            {
-                itemGo = Resources.Load<T>(itemLoadPath);
-                factoryDict.Add(resourcePath, itemGo);
-
-            }
-
-            if (itemGo == null)
-            {
-                Debug.Log(resourcePath + "获取失败，路径有误" + itemLoadPath);
-            }
-
-            return itemGo;
+            T item = null;
+            item = (T)GetResource(resourcePath);
+            return item;
         }
-        
+
     }
+
 }

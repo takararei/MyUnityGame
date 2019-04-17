@@ -50,7 +50,7 @@ namespace Assets.Framework.Factory
 
         public T GetData<T>(string resourcePath) where T:ScriptableObject
         {
-            return scriptableObjectFactory.GetResource<T>(resourcePath);
+            return scriptableObjectFactory.GetDataResource<T>(resourcePath);
         }
 
         //public GameObject GetGameObjectResource(FactoryType factoryType, string resourcePath)

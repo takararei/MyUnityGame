@@ -94,5 +94,18 @@ namespace Assets.Framework.Extension
             transform.localRotation = Quaternion.identity;
         }
 
+        public static void ResetPivot2D(this Transform transform)
+        {
+            transform.up = Vector3.up;
+            transform.right = Vector3.right;
+        }
+
+        public static void ResetPivot3D(this Transform transform)
+        {
+            transform.up = Vector3.up;
+            transform.right = Vector3.right;
+            transform.forward = Vector3.forward;
+        }
+
     }
 }

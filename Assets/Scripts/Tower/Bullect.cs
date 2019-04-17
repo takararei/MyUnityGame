@@ -8,12 +8,8 @@ public class Bullect:MonoBehaviour
 {
     [HideInInspector]
     public Transform targetTrans;
-    //public TowerInfo towerInfo;
-    [HideInInspector]
-    //public Transform towerTrans;
     protected Animator animator;
-    [HideInInspector]
-    public float moveSpeed=1;
+    protected float moveSpeed=1;
     [HideInInspector]
     public bool isSetData;
     public BaseTower bsTower;
@@ -21,6 +17,12 @@ public class Bullect:MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    public void SetData(BaseTower baseTower)
+    {
+        this.bsTower = baseTower;
+        targetTrans = bsTower.towerProperty.target;
     }
     private void Update()
     {

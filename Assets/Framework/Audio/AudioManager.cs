@@ -36,18 +36,17 @@ namespace Assets.Framework.Audio
             }
         }
 
-        public void CheckEffectSource()
+        private void CheckEffectSource()
         {
             if (mEffectSource == null)
                 mEffectSource = Root.AddComponent<AudioSource>();
         }
-        public void CheckBGMSource()
+        private void CheckBGMSource()
         {
             if (mBGMSource == null)
                 mBGMSource = Root.AddComponent<AudioSource>();
         }
-
-        public void CheckAudioListener()
+        private void CheckAudioListener()
         {
             if (mAudioListener == null)
                 mAudioListener = Root.AddComponent<AudioListener>();
@@ -78,6 +77,7 @@ namespace Assets.Framework.Audio
             }
         }
 
+        #region BGM operator
         private void BGMPause()
         {
             mBGMSource.Pause();
@@ -93,19 +93,19 @@ namespace Assets.Framework.Audio
             mBGMSource.UnPause();
         }
 
-        public void BGMOn()
+        private void BGMOn()
         {
             mBGMSource.UnPause();
             mBGMSource.mute = false;
         }
 
-        public void BGMOff()
+        private void BGMOff()
         {
             mBGMSource.Pause();
             mBGMSource.mute = true;
         }
+        #endregion
 
-        
         public void CloseOrOpenBGMusic()
         {
             isPlayBGMusic = !isPlayBGMusic;
@@ -119,7 +119,6 @@ namespace Assets.Framework.Audio
                 BGMOff();
             }
         }
-
         public void CloseOrOpenEffectMusic()
         {
             isPlayEffectMusic = !isPlayEffectMusic;
@@ -137,7 +136,6 @@ namespace Assets.Framework.Audio
                 PlayerPrefs.SetInt(StringMgr.isMusicOff, 1);
             }
         }
-
         private void SetEffectPrefs(bool isEffectPlay)
         {
             if (isEffectPlay)

@@ -153,7 +153,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
         slider.gameObject.transform.eulerAngles = Vector3.zero;
     }
-
+    //重置资源
     public virtual void ResetEnemy()
     {
         reachEnd = false;
@@ -171,7 +171,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
         FactoryManager.Instance.PushGame(enemyInfo.path, gameObject);
     }
-
+    //敌人被杀死时的处理
     public void DestroyEnemy()
     {
         if (!reachEnd)
@@ -216,7 +216,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         _Sign.enabled = isEnabled;
     }
-
+    //外部的，重新开始游戏时调用的
     void Recycle()
     {
         ResetEnemy();
