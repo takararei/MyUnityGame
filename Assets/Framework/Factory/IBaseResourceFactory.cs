@@ -10,3 +10,4 @@ namespace Assets.Framework.Factory
         T GetResource(string resourcePath);
     }
 }
+ 

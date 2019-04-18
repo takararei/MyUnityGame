@@ -111,7 +111,6 @@
     <Compile Include="Assets\Framework\UI\UIBusiness.cs" />
     <Compile Include="Assets\Framework\UI\UIFacade.cs" />
     <Compile Include="Assets\Framework\UI\UIMgr.cs" />
-    <Compile Include="Assets\Framework\UI\UIPanelDataEditor.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelDataMgr.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelInfo.cs" />
     <Compile Include="Assets\Framework\UI\UIPanelName.cs" />
@@ -119,6 +118,7 @@
     <Compile Include="Assets\Framework\Util\EditorUtil.cs" />
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
+    <Compile Include="Assets\Framework\Util\SimpleRC.cs" />
     <Compile Include="Assets\Scripts\Builder\BullectBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\EnemyBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\IBuilder.cs" />

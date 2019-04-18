@@ -70,6 +70,8 @@
     <Compile Include="Assets\Editor\PlayerStaticsEditor.cs" />
     <Compile Include="Assets\Editor\RoundDataEditor.cs" />
     <Compile Include="Assets\Editor\TowerInfoEditor.cs" />
+    <Compile Include="Assets\Framework\Editor\UIPanelDataEditor.cs" />
+    <Compile Include="Assets\Framework\Editor\UIScriptsGenerator.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/MyGraduation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
