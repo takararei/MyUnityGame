@@ -38,13 +38,15 @@ public class MainPanel : BasePanel
     EventTrigger.Entry onDragEntry;
     EventTrigger.Entry onPointerDownEntry;
 
-    PlayerStatics pStatics;
+    //PlayerStatics pStatics;
+    PlayerData playerData;
     LevelInfoMgr lvMgr;
 
     public override void Init()
     {
         base.Init();
-        pStatics = PlayerStatics.Instance;
+        //pStatics = PlayerStatics.Instance;
+        playerData = PlayerDataOperator.Instance.playerData;
         lvMgr = LevelInfoMgr.Instance;
         mBtn_Shop = Find<Button>("Btn_Shop");
         mBtn_Achievement = Find<Button>("Btn_Achievement");
@@ -114,7 +116,7 @@ public class MainPanel : BasePanel
         //其他
         EventCenter.AddListener<int>(EventType.DoNumChange, SetDONum);
 
-        mTxt_Count.text = pStatics.DO.ToString();
+        mTxt_Count.text = playerData.DO.ToString();
 
         mImg_EffectsOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
         mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayBGMusic);
@@ -161,15 +163,15 @@ public class MainPanel : BasePanel
         //如果没生成过
         if (lvBtnList.Count == 0)
         {
-            for (int i = 0; i < pStatics.finishedLevelCount + 1; i++)
+            for (int i = 0; i < playerData.finishedLevelCount + 1; i++)
             {
                 GenerateLevelButton(i);
             }
         }
         //如果生成过了，需要更新
-        else if (lvBtnList.Count < pStatics.finishedLevelCount + 1)
+        else if (lvBtnList.Count < playerData.finishedLevelCount + 1)
         {
-            for (int i = lvBtnList.Count - 1; i < pStatics.finishedLevelCount + 1; i++)
+            for (int i = lvBtnList.Count - 1; i < playerData.finishedLevelCount + 1; i++)
             {
                 GenerateLevelButton(i);
             }
@@ -182,7 +184,7 @@ public class MainPanel : BasePanel
         lvBtn.transform.localPosition = lvMgr.levelInfoList[index].levelPos;
         lvBtn.transform.localScale = Vector3.one;
         LevelButton lb = new LevelButton(index, lvBtn);
-        lb.ShowStar(pStatics.levelStar[index]);
+        lb.ShowStar(playerData.levelStar[index]);
         lvBtnList.Add(lb);
         //星星的更新 
 

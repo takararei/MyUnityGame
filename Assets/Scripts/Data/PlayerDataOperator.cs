@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Framework;
+using Assets.Framework.Singleton;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,11 +8,22 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEngine;
 
-public class PlayerDataOperator
+public class PlayerDataOperator:Singleton<PlayerDataOperator>
 {
     public PlayerData playerData;///<玩家对象
 
     private string path;///<文件的路径
+
+    public override void Init()
+    {
+        //base.Init();
+        playerData = LoadPlayerData();
+        GameRoot.Instance.data = playerData;
+    }
+    public PlayerDataOperator()
+    {
+        SetPath();
+    }
     public PlayerData LoadPlayerData()
     {
         //如果路径上有文件，就读取文件

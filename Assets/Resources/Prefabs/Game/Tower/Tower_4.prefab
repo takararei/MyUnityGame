@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114894145047399204}
   - component: {fileID: 114965381934451956}
   m_Layer: 0
-  m_Name: 4
+  m_Name: Tower_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,6 +242,7 @@ MonoBehaviour:
     Name: 
     path: 
   towerProperty: {fileID: 0}
+  enemyTargetList: []
 --- !u!114 &114965381934451956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,7 +255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  bullectBornTrans: {fileID: 0}
 --- !u!212 &212014856270481652
 SpriteRenderer:
   m_ObjectHideFlags: 1

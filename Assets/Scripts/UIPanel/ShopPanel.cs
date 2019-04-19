@@ -22,12 +22,14 @@ public class ShopPanel : BasePanel
 
     int pickItem;
 
-    PlayerStatics pStatics;
+    //PlayerStatics pStatics;
     ItemInfoMgr itemMgr;
+    PlayerData playerData;
     public override void Init()
     {
         base.Init();
-        pStatics = PlayerStatics.Instance;
+        //pStatics = PlayerStatics.Instance;
+        playerData = PlayerDataOperator.Instance.playerData;
         //itemMgr = ItemInfoMgr.instance;
         itemMgr = FactoryMgr.Instance.GetData<ItemInfoMgr>("ItemInfo");
         mBtn_Close = Find<Button>("Btn_Close");
@@ -42,6 +44,9 @@ public class ShopPanel : BasePanel
         PackageContent = Find<Transform>("PackageContent");
         itemHoldList = new List<ItemHold>();
         itemShopBtnList = new List<ItemShop>();
+        SetItemHold();
+        SetItemGoods();
+        ItemIntroduceUpdate(0);
     }
 
     public override void OnShow()
@@ -50,11 +55,8 @@ public class ShopPanel : BasePanel
         mBtn_Close.onClick.AddListener(()=> { AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
         mBtn_Buy.onClick.AddListener(OnBuyButtonClick);
 
-        mTxt_Count.text = pStatics.DO.ToString();
-
-        SetItemHold();
-        SetItemGoods();
-        ItemIntroduceUpdate(0);
+        mTxt_Count.text = playerData.DO.ToString();
+        
         EventCenter.AddListener<int>(EventType.ItemIntroduceUpdate, ItemIntroduceUpdate);
         EventCenter.AddListener<int>(EventType.DoNumChange, SetDONum);
     }
@@ -64,10 +66,16 @@ public class ShopPanel : BasePanel
         base.OnHide();
         EventCenter.RemoveListener<int>(EventType.DoNumChange, SetDONum);
         EventCenter.RemoveListener<int>(EventType.ItemIntroduceUpdate, ItemIntroduceUpdate);
-        RemoveItemGoods();
-        RemoveItemHold();
+        
         mBtn_Close.onClick.RemoveAllListeners();
         mBtn_Buy.onClick.RemoveAllListeners();
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        RemoveItemGoods();
+        RemoveItemHold();
     }
 
     public void ItemIntroduceUpdate(int index)
@@ -130,12 +138,12 @@ public class ShopPanel : BasePanel
     private void OnBuyButtonClick()
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        if (itemMgr.itemInfoList[pickItem].price<=pStatics.DO)
+        if (itemMgr.itemInfoList[pickItem].price<= playerData.DO)
         {
-            pStatics.DO-=itemMgr.itemInfoList[pickItem].price;
-            pStatics.itemNum[pickItem]++;
+            playerData.DO-=itemMgr.itemInfoList[pickItem].price;
+            playerData.itemNum[pickItem]++;
             EventCenter.Broadcast(EventType.ItemCountUpdate);
-            EventCenter.Broadcast(EventType.DoNumChange,pStatics.DO);
+            EventCenter.Broadcast(EventType.DoNumChange, playerData.DO);
         }
         
     }
@@ -147,21 +155,22 @@ public class ShopPanel : BasePanel
     {
         Image itemImage;
         Text txt_ItemCount;
-
+        PlayerData playerData;
         public ItemHold(int index,GameObject root)
         {
             this.id = index;
             this.root = root;
+            playerData = PlayerDataOperator.Instance.playerData;
             itemImage = root.GetComponent<Image>();
             txt_ItemCount = Find<Text>("Txt_ItemCount");
-            txt_ItemCount.text = PlayerStatics.Instance.itemNum[id].ToString();
+            txt_ItemCount.text = playerData.itemNum[id].ToString();
             //itemImage.sprite = FactoryManager.Instance.GetSprite("");
             EventCenter.AddListener(EventType.ItemCountUpdate, ItemCountUpdate);
         }
 
         public void ItemCountUpdate()
         {
-            txt_ItemCount.text = PlayerStatics.Instance.itemNum[id].ToString();
+            txt_ItemCount.text = playerData.itemNum[id].ToString();
         }
 
         public override void Clear()

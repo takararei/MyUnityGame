@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114282548417346624}
   - component: {fileID: 61237487362812538}
   m_Layer: 0
-  m_Name: 2
+  m_Name: Bullect_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTrans: {fileID: 0}
-  moveSpeed: 0
   isSetData: 0
   bsTower: {fileID: 0}
 --- !u!212 &212466490120812490

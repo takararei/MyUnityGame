@@ -43,10 +43,5 @@ public class PlayerStatics:ScriptableObject
     //}
 
 }
-[Serializable]
-public class AchievementRecord
-{
-    public int record;
-    public bool isFinished;
-}
+
 

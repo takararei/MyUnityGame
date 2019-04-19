@@ -36,6 +36,7 @@ public class EnemyBuilder : IBuilder<BaseEnemy>
         go.transform.SetParent(GameController.Instance.gameTrans);
         go.transform.position = enemyPathList[0];
         enemy.isSetData = true;
+        GameController.Instance.enemyAliveList.Add(go);
         return go;
     }
 

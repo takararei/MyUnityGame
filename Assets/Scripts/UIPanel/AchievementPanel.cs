@@ -11,31 +11,32 @@ public class AchievementPanel : BasePanel
     private Button mBtn_Close;
     Transform ItemContent;
     AchievementInfoMgr acMgr;
-    PlayerStatics pStatics;
+    //PlayerStatics pStatics;
     public override void Init()
     {
         base.Init();
         acMgr = AchievementInfoMgr.Instance;
-        pStatics = PlayerStatics.Instance;
+        //pStatics = PlayerStatics.Instance;
         mBtn_Close = Find<Button>("Btn_Close");
         ItemContent = Find<Transform>("ItemContent");
         acItemList = new List<AchievementItem>();
+        SetAcItem();
     }
 
     public override void OnShow()
     {
         base.OnShow();
         mBtn_Close.onClick.AddListener(()=> { AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
-        SetAcItem();
+        
     }
 
     public override void OnHide()
     {
         base.OnHide();
-        RemoveAcItem();
+        
         mBtn_Close.onClick.RemoveAllListeners();
     }
-
+    
     public void SetAcItem()
     {
         for(int i=0;i<acMgr.infoList.Count;i++)
@@ -58,6 +59,12 @@ public class AchievementPanel : BasePanel
             acItemList[i].Clear();
         }
         acItemList.Clear();
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        RemoveAcItem();
     }
     List<AchievementItem> acItemList;
     class AchievementItem:BaseUIListItem

@@ -42,15 +42,19 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         }
     }
     //资源
-    public AudioClip dieAudioClip;
+    protected AudioClip dieAudioClip;
+    protected int pathRangeX;
+    protected int pathRangeY;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         //audioSource = GetComponent<AudioSource>();
         slider = UITool.FindChild<Slider>(gameObject, "HPSlider");
+        pathRangeX = Random.Range(-20, 20);
+        pathRangeY = Random.Range(-20, 20);
     }
-
-
+    
     private void Update()
     {
         if (GameController.Instance.isPause)
@@ -85,12 +89,19 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         if (!reachEnd)
         {
+            Vector3 pathPoint = pathPointList[roadPointIndex] + new Vector3(pathRangeX, pathRangeY)*0.01f;
+            //transform.position = Vector3.Lerp(
+            //        transform.position, //起点
+            //    pathPointList[roadPointIndex],//终点
+            //    1 / Vector3.Distance(transform.position, pathPointList[roadPointIndex]) * Time.deltaTime * enemyInfo.speed * slowSpeed);
+
             transform.position = Vector3.Lerp(
                     transform.position, //起点
-                pathPointList[roadPointIndex],//终点
-                1 / Vector3.Distance(transform.position, pathPointList[roadPointIndex]) * Time.deltaTime * enemyInfo.speed * slowSpeed);
+                pathPoint,//终点
+                1 / Vector3.Distance(transform.position, pathPoint) * Time.deltaTime * enemyInfo.speed * slowSpeed);
 
-            if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
+            if(Vector3.Distance(transform.position,pathPoint)<=0.01f)
+            //if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
             {
 
                 //确定下一点存在
@@ -170,9 +181,10 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         //CancelDecreaseDebuff();
 
         FactoryMgr.Instance.PushGame(enemyInfo.path, gameObject);
+        GameController.Instance.enemyAliveList.Remove(gameObject);
     }
     //敌人被杀死时的处理
-    public void DestroyEnemy()
+    protected void DestroyEnemy()
     {
         if (!reachEnd)
         {
@@ -220,6 +232,15 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     void Recycle()
     {
         ResetEnemy();
+    }
+
+    //使用道具
+    void OnItemEffect(int itemType)
+    {
+        //switch(itemType)
+        //{
+
+        //}
     }
 }
 

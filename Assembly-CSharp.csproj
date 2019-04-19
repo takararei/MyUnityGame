@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BuildPlayerData.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\Framework\UI\UIPanelName.cs" />
     <Compile Include="Assets\Framework\Util\CommonUtil.cs" />
     <Compile Include="Assets\Framework\Util\EditorUtil.cs" />
+    <Compile Include="Assets\Framework\Util\GameTimer.cs" />
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Framework\Util\SimpleRC.cs" />

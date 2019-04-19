@@ -22,4 +22,213 @@ MonoBehaviour:
     Name: "\u654C\u4EBA1"
     Introduce: "\u654C\u4EBA\u654C\u4EBA1"
     heart: 1
-    path: Enemy/1
+    path: Enemy/Enemy_1
+  - enemyId: 2
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA2"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA2"
+    heart: 1
+    path: Enemy/Enemy_2
+  - enemyId: 3
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA3"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA3"
+    heart: 1
+    path: Enemy/Enemy_3
+  - enemyId: 4
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA4"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA4"
+    heart: 1
+    path: Enemy/Enemy_4
+  - enemyId: 5
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA5"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA5"
+    heart: 1
+    path: Enemy/Enemy_5
+  - enemyId: 6
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA6"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA6"
+    heart: 1
+    path: Enemy/Enemy_6
+  - enemyId: 7
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA7"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA7"
+    heart: 1
+    path: Enemy/Enemy_7
+  - enemyId: 8
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA8"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA8"
+    heart: 1
+    path: Enemy/Enemy_8
+  - enemyId: 9
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA9"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA9"
+    heart: 1
+    path: Enemy/Enemy_9
+  - enemyId: 10
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA10"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA10"
+    heart: 1
+    path: Enemy/Enemy_10
+  - enemyId: 11
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA11"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA11"
+    heart: 1
+    path: Enemy/Enemy_11
+  - enemyId: 12
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA12"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA12"
+    heart: 1
+    path: Enemy/Enemy_12
+  - enemyId: 13
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA13"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA13"
+    heart: 1
+    path: Enemy/Enemy_13
+  - enemyId: 14
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA14"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA14"
+    heart: 1
+    path: Enemy/Enemy_14
+  - enemyId: 15
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA15"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA15"
+    heart: 1
+    path: Enemy/Enemy_15
+  - enemyId: 16
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA16"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA16"
+    heart: 1
+    path: Enemy/Enemy_16
+  - enemyId: 17
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA17"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA17"
+    heart: 1
+    path: Enemy/Enemy_17
+  - enemyId: 18
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA18"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA18"
+    heart: 1
+    path: Enemy/Enemy_18
+  - enemyId: 19
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA19"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA19"
+    heart: 1
+    path: Enemy/Enemy_19
+  - enemyId: 20
+    killCoin: 20
+    killDO: 0
+    life: 100
+    speed: 1
+    Def: 0
+    Mdef: 0
+    Name: "\u654C\u4EBA20"
+    Introduce: "\u654C\u4EBA\u654C\u4EBA20"
+    heart: 1
+    path: Enemy/Enemy_20

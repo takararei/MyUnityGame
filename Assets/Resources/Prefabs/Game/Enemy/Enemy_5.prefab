@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 61815319363464282}
   - component: {fileID: 50620870136270408}
   m_Layer: 0
-  m_Name: 9
+  m_Name: Enemy_5
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,9 +168,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608157758620710}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.014615385, y: -0.32615384, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.004, y: -0.2, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4833240314766444}
   m_RootOrder: 1
@@ -183,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 1383962278804728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 224939591821735490}
   - {fileID: 4814557549201300}
@@ -226,7 +226,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.69}
+    oldSize: {x: 0.28, y: 0.37}
     newSize: {x: 0.32, y: 0.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -244,7 +244,7 @@ Animator:
   m_GameObject: {fileID: 1383962278804728}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69f01ffc9cce0ad45b23d781c3e95a05, type: 2}
+  m_Controller: {fileID: 9100000, guid: 95799641ea2f6eb4d8bfad88b596f379, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -481,7 +481,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 6ccdc2b169b15bc459f57b595858ddd9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23bc0ae10d5d2304f852e13ad769a6bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -700,7 +700,7 @@ RectTransform:
   m_GameObject: {fileID: 1524319202613060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0076923077, y: 0.0076923077, z: 0.01}
+  m_LocalScale: {x: 0.006666667, y: 0.006666667, z: 0.01}
   m_Children:
   - {fileID: 224795602902325472}
   m_Father: {fileID: 4833240314766444}
@@ -708,6 +708,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.019230768, y: 0.42846152}
+  m_AnchoredPosition: {x: 0.016666666, y: 0.289}
   m_SizeDelta: {x: 66.3386, y: 16.2845}
   m_Pivot: {x: 0.5, y: 0.5}

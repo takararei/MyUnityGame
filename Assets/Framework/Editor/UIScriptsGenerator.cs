@@ -13,6 +13,8 @@ public class UIScriptsGenerator : Editor
         Txt,
         Img,
         Btn,
+        Raw,
+        Trans,
         //添加新项时需要修改GetTypeName GetUIItem方法
 
     }
@@ -160,6 +162,10 @@ public class UIScriptsGenerator : Editor
                 return "Image";
             case UIItemType.Btn:
                 return "Button";
+            case UIItemType.Raw:
+                return "RawImage";
+            case UIItemType.Trans:
+                return "Transform";
         }
 
         return null;

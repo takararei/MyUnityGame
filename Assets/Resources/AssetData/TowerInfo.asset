@@ -20,11 +20,11 @@ MonoBehaviour:
     CD: 5
     damage: 5
     Range: 1
-    nextTowerId: 2
-    bullectPath: Bullect/1
+    nextTowerId: 5
+    bullectPath: Bullect/Bullect_1
     Introduce: "\u58541\u58541"
     Name: "\u58541"
-    path: Tower/1
+    path: Tower/Tower_1
   - towerId: 2
     buildCoin: 70
     sellCoin: 60
@@ -33,11 +33,11 @@ MonoBehaviour:
     CD: 1
     damage: 20
     Range: 1
-    nextTowerId: 2
-    bullectPath: Bullect/2
+    nextTowerId: 6
+    bullectPath: Bullect/Bullect_2
     Introduce: "\u58541\u58542"
     Name: "\u58542"
-    path: Tower/2
+    path: Tower/Tower_2
   - towerId: 3
     buildCoin: 70
     sellCoin: 60
@@ -46,11 +46,11 @@ MonoBehaviour:
     CD: 5
     damage: 5
     Range: 1
-    nextTowerId: 2
-    bullectPath: Bullect/3
+    nextTowerId: 7
+    bullectPath: Bullect/Bullect_3
     Introduce: "\u58541\u58543"
     Name: "\u58543"
-    path: Tower/3
+    path: Tower/Tower_3
   - towerId: 4
     buildCoin: 70
     sellCoin: 60
@@ -59,8 +59,164 @@ MonoBehaviour:
     CD: 1
     damage: 20
     Range: 1
-    nextTowerId: 2
-    bullectPath: Bullect/4
+    nextTowerId: 8
+    bullectPath: Bullect/Bullect_4
     Introduce: "\u58541\u58544"
     Name: "\u58544"
-    path: Tower/4
+    path: Tower/Tower_4
+  - towerId: 5
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 9
+    bullectPath: Bullect/Bullect_5
+    Introduce: "\u58545"
+    Name: "\u58545"
+    path: Tower/Tower_5
+  - towerId: 6
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 10
+    bullectPath: Bullect/Bullect_6
+    Introduce: "\u58546"
+    Name: "\u58546"
+    path: Tower/Tower_6
+  - towerId: 7
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 11
+    bullectPath: Bullect/Bullect_7
+    Introduce: "\u58547"
+    Name: "\u58547"
+    path: Tower/Tower_7
+  - towerId: 8
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 12
+    bullectPath: Bullect/Bullect_8
+    Introduce: "\u58548"
+    Name: "\u58548"
+    path: Tower/Tower_8
+  - towerId: 9
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 13
+    bullectPath: Bullect/Bullect_9
+    Introduce: "\u58549"
+    Name: "\u58549"
+    path: Tower/Tower_9
+  - towerId: 10
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 14
+    bullectPath: Bullect/Bullect_10
+    Introduce: "\u585410"
+    Name: "\u585410"
+    path: Tower/Tower_10
+  - towerId: 11
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 15
+    bullectPath: Bullect/Bullect_11
+    Introduce: "\u585411"
+    Name: "\u585411"
+    path: Tower/Tower_11
+  - towerId: 12
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 16
+    bullectPath: Bullect/Bullect_12
+    Introduce: "\u585412"
+    Name: "\u585412"
+    path: Tower/Tower_12
+  - towerId: 13
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 17
+    bullectPath: Bullect/Bullect_13
+    Introduce: "\u585413"
+    Name: "\u585413"
+    path: Tower/Tower_13
+  - towerId: 14
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 18
+    bullectPath: Bullect/Bullect_14
+    Introduce: "\u585414"
+    Name: "\u585414"
+    path: Tower/Tower_14
+  - towerId: 15
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 19
+    bullectPath: Bullect/Bullect_15
+    Introduce: "\u585415"
+    Name: "\u585415"
+    path: Tower/Tower_15
+  - towerId: 16
+    buildCoin: 70
+    sellCoin: 60
+    damageType: 1
+    damageRange: 1.6
+    CD: 1
+    damage: 20
+    Range: 1
+    nextTowerId: 20
+    bullectPath: Bullect/Bullect_16
+    Introduce: "\u585416"
+    Name: "\u585416"
+    path: Tower/Tower_16

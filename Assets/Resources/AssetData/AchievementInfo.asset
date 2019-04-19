@@ -36,3 +36,99 @@ MonoBehaviour:
     Count: 100
     unFinishSprite: "\u5730\u5740"
     FinshedSprite: "\u5730\u5740"
+  - id: 5
+    name: "\u6B65\u5165\u5C0F\u5EB7"
+    introduce: "\u83B7\u5F97\u94BB\u77F3\u8FBE\u52301000\u4E2A"
+    Count: 1000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 6
+    name: "\u4E2D\u4EA7\u9636\u7EA7"
+    introduce: "\u83B7\u5F97\u94BB\u77F3\u8FBE\u523010000\u4E2A"
+    Count: 10000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 7
+    name: "\u571F\u8C6A\u4EA4\u670B\u53CB"
+    introduce: "\u83B7\u5F97\u94BB\u77F3\u8FBE\u5230100000\u4E2A"
+    Count: 100000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 8
+    name: "\u661F\u661F\u70B9\u706F"
+    introduce: "\u83B7\u5F9745\u9897\u661F\u661F"
+    Count: 45
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 9
+    name: "\u6D69\u701A\u661F\u7A7A"
+    introduce: "\u96C6\u9F50\u6240\u6709\u661F\u661F"
+    Count: 90
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 10
+    name: "\u5EFA\u9020\u5927\u5E08"
+    introduce: "\u5EFA\u9020100\u5EA7\u9632\u5FA1\u5854"
+    Count: 100
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 11
+    name: "\u5EFA\u5854\u72C2\u9B54"
+    introduce: "\u5EFA\u90201000\u5EA7\u9632\u5FA1\u5854"
+    Count: 1000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 12
+    name: "\u52C7\u6562\u7684\u5FC3"
+    introduce: "\u6740\u6B7B\u654C\u4EBA100"
+    Count: 100
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 13
+    name: "\u5927\u72EC\u88C1\u8005"
+    introduce: "\u6740\u6B7B\u654C\u4EBA1000"
+    Count: 1000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 14
+    name: "\u8BA9\u5B50\u5F39\u98DE"
+    introduce: "\u7D2F\u8BA1\u53D1\u51FA\u70AE\u5F391000\u679A"
+    Count: 1000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 15
+    name: "\u540E\u6094\u836F"
+    introduce: "\u552E\u535610\u5EA7\u9632\u5FA1\u5854"
+    Count: 10
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 16
+    name: "\u518D\u96BE\u56DE\u5934"
+    introduce: "\u552E\u5356100\u5EA7\u9632\u5FA1\u5854"
+    Count: 100
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 17
+    name: "\u7B2C\u4E00\u6B21\u82B1\u94B1"
+    introduce: "\u5728\u5546\u5E97\u7B2C\u4E00\u6B21\u8D2D\u4E70"
+    Count: 1
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 18
+    name: "\u8840\u62FC"
+    introduce: "\u5728\u5546\u5E97\u82B1\u8D391000\u94BB\u77F3"
+    Count: 1000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 19
+    name: "\u5241\u624B"
+    introduce: "\u5728\u5546\u5E97\u82B1\u8D395000\u94BB\u77F3"
+    Count: 5000
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"
+  - id: 20
+    name: "\u8BA9\u6211\u518D\u60F3\u60F3"
+    introduce: "\u8FBE\u6210\u5168\u90E8\u6210\u5C31"
+    Count: 19
+    unFinishSprite: "\u5730\u5740"
+    FinshedSprite: "\u5730\u5740"

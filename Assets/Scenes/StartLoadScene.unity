@@ -579,7 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toMainScene: 1
   pickLevel: 0
-  playerData:
+  data:
     finishedLevelCount: 0
     DO: 0
     levelStar: 

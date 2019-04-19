@@ -2,6 +2,7 @@
 using Assets.Framework.Factory;
 using Assets.Framework.Tools;
 using Assets.Framework.UI;
+using Assets.Framework.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -57,6 +58,8 @@ public class GameController : MonoBehaviour
     float timeCD = 1;
     bool isNeedCreateEnemy;
     public Vector3 beginPos;
+
+    public List<GameObject> enemyAliveList = new List<GameObject>();
     private void Awake()
     {
         _instance = this;
@@ -88,6 +91,7 @@ public class GameController : MonoBehaviour
         if (!isPause)
         {
             //产怪逻辑
+            GameTimer.Instance.Update();
             if (currRoundkillNum >= enemyIdList.Count)
             {
                 //添加当前回合数的索引
@@ -148,8 +152,7 @@ public class GameController : MonoBehaviour
         //isGameOver = false;
         EventCenter.Broadcast(EventType.RestartGame);
         isPause = true;
-
-
+        
     }
 
     
@@ -264,5 +267,13 @@ public class GameController : MonoBehaviour
         UIMgr.Instance.Show(UIPanelName.GameWinPanel);
         //更新玩家记录的星级 TODO
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
+    }
+    
+    void UseItem(int itemType)
+    {
+        foreach (var item in enemyAliveList)
+        {
+            item.SendMessage("",itemType);//TODO
+        }
     }
 }

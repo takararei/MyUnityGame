@@ -1,8 +1,10 @@
 ﻿using Assets.Framework;
 using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using Assets.Framework.SceneState;
 using Assets.Framework.Tools;
 using Assets.Framework.UI;
+using Assets.Framework.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,9 +43,18 @@ public class GamePlayPanel:BasePanel
     GridPoint selectGrid;
     BaseEnemy selectEnemy;
 
+    //---
+    Button Btn_Bag;
+    GameObject Bag_BG;
+    Transform ItemContent;
+
+    List<ItemHoldBtn> itemBtnList;
+
+    PlayerData playerData;
     public override void Init()
     {
         base.Init();
+        playerData = PlayerDataOperator.Instance.playerData;
         lvInfoMgr = LevelInfoMgr.Instance;
         pauseBtn = Find<Button>("Btn_Pause");
         startBtn = Find<Button>("Btn_Start");
@@ -67,6 +78,11 @@ public class GamePlayPanel:BasePanel
         Txt_CD= UITool.FindChild<Text>(towerInfoPanel, "Txt_CD");
         Txt_Range= UITool.FindChild<Text>(towerInfoPanel, "Txt_Range");
 
+        Btn_Bag = Find<Button>("Btn_Bag");
+        Bag_BG = Find<Transform>("Bag_BG").gameObject;
+        ItemContent = UITool.FindChild<Transform>(Bag_BG, "ItemContent");
+
+        Bag_BG.SetActive(false);
         enemyInfoPanel.SetActive(false);
         towerInfoPanel.SetActive(false);
         EventCenter.AddListener<int>(EventType.Play_CoinUpdate, SetCoinNum);
@@ -79,10 +95,13 @@ public class GamePlayPanel:BasePanel
         pauseBtn.onClick.AddListener(OnPauseClick);
         startBtn.onClick.AddListener(OnStartClick);
         startBtn.gameObject.SetActive(false);
+
+        Btn_Bag.onClick.AddListener(OnBtnBGClick);
+
+        itemBtnList = new List<ItemHoldBtn>();
+        SetItemHoldBtn();
     }
-
     
-
     public override void OnShow()
     {
         base.OnShow();
@@ -93,8 +112,6 @@ public class GamePlayPanel:BasePanel
         Txt_TotalRound.text = info.totalRound.ToString();
         
     }
-
-    
 
     public override void OnHide()
     {
@@ -125,6 +142,9 @@ public class GamePlayPanel:BasePanel
         selectGrid = null;
         selectEnemy = null;
 
+        Bag_BG.SetActive(true);
+        RemoveItemHoldBtn();
+        Btn_Bag.onClick.RemoveAllListeners();
         startBtn.onClick.RemoveAllListeners();
         pauseBtn.onClick.RemoveAllListeners();
         EventCenter.RemoveListener<Vector3>(EventType.SetStartPos, SetStartBtnPos);
@@ -134,6 +154,12 @@ public class GamePlayPanel:BasePanel
         EventCenter.RemoveListener<int>(EventType.Play_NowRoundUpdate, SetNowRound);
         EventCenter.RemoveListener<int>(EventType.Play_LifeUpdate, SetLifeNum);
         EventCenter.RemoveListener<int>(EventType.Play_CoinUpdate, SetCoinNum);
+        
+    }
+
+    void OnBtnBGClick()
+    {
+        Bag_BG.SetActive(!Bag_BG.activeSelf);
     }
 
     void RestartGame()
@@ -142,6 +168,12 @@ public class GamePlayPanel:BasePanel
         selectGrid = null;
         enemyInfoPanel.SetActive(false);
         towerInfoPanel.SetActive(false);
+        Bag_BG.SetActive(false);
+        //道具的btn也要重置，取消计时
+        for(int i=0;i<itemBtnList.Count;i++)
+        {
+            itemBtnList[i].ResetBtn();
+        }
     }
 
     void SetCoinNum(int num)
@@ -302,5 +334,109 @@ public class GamePlayPanel:BasePanel
         }
         
     }
+
+    void SetItemHoldBtn()
+    {
+        for (int i = 0; i < ItemInfoMgr.instance.itemInfoList.Count; i++)
+        {
+            GameObject go = FactoryMgr.Instance.GetUI(StringMgr.ItemHold);
+            go.transform.SetParent(ItemContent);
+            go.transform.localScale = Vector3.one;
+            ItemHoldBtn item = new ItemHoldBtn(i, go);
+            itemBtnList.Add(item);
+        }
+    }
+
+    void RemoveItemHoldBtn()
+    {
+        for (int i = 0; i < itemBtnList.Count; i++)
+        {
+            FactoryMgr.Instance.PushUI(StringMgr.ItemHold, ItemContent.GetChild(0).gameObject);
+            itemBtnList[i].Clear();
+        }
+        itemBtnList.Clear();
+    }
+
+    class ItemHoldBtn:BaseUIListItem
+    {
+        Button btn;
+        Text txt_Count;
+        PlayerData playerData;
+        ItemInfo info;
+        bool isCD;
+        int tid;
+        public ItemHoldBtn(int id,GameObject go)
+        {
+            this.id = id;
+            this.root = go;
+            info= ItemInfoMgr.instance.itemInfoList[id];
+            playerData = PlayerDataOperator.Instance.playerData;
+            btn = root.GetComponent<Button>();
+            btn.onClick.AddListener(OnBtnClick);
+            txt_Count = Find<Text>("Txt_ItemCount");
+            UpdateState();
+
+        }
+        void UpdateState()
+        {
+            if (playerData.itemNum[id] > 0)
+            {
+                btn.interactable = true;
+            }
+            else
+            {
+                btn.interactable = false;
+            }
+            txt_Count.text = playerData.itemNum[id].ToString();
+        }
+
+        void OnBtnClick()
+        {
+            //发送事件到所有在场的敌人TODO
+
+            //处理冷却
+            playerData.itemNum[id]--;
+            if (playerData.itemNum[id]==0)
+            {
+                //没有了 不用冷却 
+            }
+            else
+            {
+                //进行冷却操作
+                float CD = info.CD;
+                if (CD>0)
+                {
+                    //添加计时
+                    isCD = true;
+                    tid=GameTimer.Instance.AddTimeTask(info.CD, () =>
+                    {
+                        isCD = false;
+                        btn.interactable = true;
+                    });
+                }
+            }
+            btn.interactable = false;
+            txt_Count.text = playerData.itemNum[id].ToString();
+        }
+
+        public void ResetBtn()
+        {
+            //查一下数量 设置interactable
+            if (isCD)
+            {
+                //去除计时
+                GameTimer.Instance.DeleteTimeTask(tid);
+                isCD = false;
+            }
+            UpdateState();
+        }
+
+        public override void Clear()
+        {
+            base.Clear();
+            btn.onClick.RemoveAllListeners();
+        }
+    }
+
   
 }

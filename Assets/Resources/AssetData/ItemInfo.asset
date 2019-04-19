@@ -26,7 +26,7 @@ MonoBehaviour:
     price: 50
   - id: 3
     name: "\u9B54\u6CD5\u52A0\u6210"
-    introduce: "\u9B54\u6CD5\u4F24\u5BB3150"
+    introduce: "\u9B54\u6CD5\u4F24\u5BB3150%"
     CD: 20
     time: 5
     price: 50
@@ -39,6 +39,6 @@ MonoBehaviour:
   - id: 5
     name: "\u51CF\u901F"
     introduce: "\u51CF\u901F\u5168\u573A\u654C\u4EBA"
-    CD: 20
+    CD: 5
     time: 5
     price: 50
