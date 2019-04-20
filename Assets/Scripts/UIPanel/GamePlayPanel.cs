@@ -92,6 +92,7 @@ public class GamePlayPanel:BasePanel
         EventCenter.AddListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         EventCenter.AddListener<BaseEnemy>(EventType.HandleEnemy, HandleEnemy);
         EventCenter.AddListener<Vector3>(EventType.SetStartPos, SetStartBtnPos);
+        EventCenter.AddListener(EventType.LeaveGameScene, RestartGame);
         pauseBtn.onClick.AddListener(OnPauseClick);
         startBtn.onClick.AddListener(OnStartClick);
         startBtn.gameObject.SetActive(false);
@@ -147,6 +148,7 @@ public class GamePlayPanel:BasePanel
         Btn_Bag.onClick.RemoveAllListeners();
         startBtn.onClick.RemoveAllListeners();
         pauseBtn.onClick.RemoveAllListeners();
+        EventCenter.RemoveListener(EventType.LeaveGameScene, RestartGame);
         EventCenter.RemoveListener<Vector3>(EventType.SetStartPos, SetStartBtnPos);
         EventCenter.RemoveListener<BaseEnemy>(EventType.HandleEnemy, HandleEnemy);
         EventCenter.RemoveListener<GridPoint>(EventType.HandleGrid, HandleGrid);
@@ -393,7 +395,7 @@ public class GamePlayPanel:BasePanel
         void OnBtnClick()
         {
             //发送事件到所有在场的敌人TODO
-
+            EventCenter.Broadcast(EventType.UseItemInGame, id);
             //处理冷却
             playerData.itemNum[id]--;
             if (playerData.itemNum[id]==0)

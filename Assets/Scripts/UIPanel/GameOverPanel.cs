@@ -37,6 +37,8 @@ public class GameOverPanel:BasePanel
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         //回到主场景，重置GameController
+        GameController.Instance.RecycleAll();
+        EventCenter.Broadcast(EventType.LeaveGameScene);
         SceneStateMgr.Instance.ChangeSceneState(new MainSceneState());
     }
 

@@ -1,5 +1,6 @@
 ﻿using Assets.Framework.Factory;
 using Assets.Framework.Tools;
+using Assets.Framework.Util;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,10 +25,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     //用于计数的属性或开关
     private int roadPointIndex = 1;
     private bool reachEnd;//到达终点
-    private bool hasSlowSpeed;//是否减速
 
+    private bool hasSlowSpeed;//是否减速
     private float slowSpeedTimeVal;//减速计时器
     private float slowTime;//减速持续的具体时间
+    private bool hasFreeze;
+    private float freezeTimeVal;
+    private float freezeTime;
+
     private float slowSpeed = 1;
     private SpriteRenderer _Sign;
     public SpriteRenderer Sign
@@ -46,6 +51,9 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     protected int pathRangeX;
     protected int pathRangeY;
 
+    float itemPhy = 1;
+    float itemMagic = 1;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -54,7 +62,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         pathRangeX = Random.Range(-20, 20);
         pathRangeY = Random.Range(-20, 20);
     }
-    
+
     private void Update()
     {
         if (GameController.Instance.isPause)
@@ -77,10 +85,29 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         }
         else
         {
-            slowSpeed = 1;
+            if (!hasFreeze)
+            {
+                slowSpeed = 1;
+            }
             slowTime = 0;
             slowSpeedTimeVal = 0;
             hasSlowSpeed = false;
+        }
+
+        if (hasFreeze && freezeTimeVal < freezeTime)
+        {
+            slowSpeed = 0;
+            freezeTimeVal += Time.deltaTime;
+        }
+        else
+        {
+            if (!hasSlowSpeed)
+            {
+                slowSpeed = 1;
+            }
+            freezeTime = 0;
+            freezeTimeVal = 0;
+            hasFreeze = false;
         }
 
     }
@@ -89,7 +116,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         if (!reachEnd)
         {
-            Vector3 pathPoint = pathPointList[roadPointIndex] + new Vector3(pathRangeX, pathRangeY)*0.01f;
+            Vector3 pathPoint = pathPointList[roadPointIndex] + new Vector3(pathRangeX, pathRangeY) * 0.01f;
             //transform.position = Vector3.Lerp(
             //        transform.position, //起点
             //    pathPointList[roadPointIndex],//终点
@@ -100,7 +127,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
                 pathPoint,//终点
                 1 / Vector3.Distance(transform.position, pathPoint) * Time.deltaTime * enemyInfo.speed * slowSpeed);
 
-            if(Vector3.Distance(transform.position,pathPoint)<=0.01f)
+            if (Vector3.Distance(transform.position, pathPoint) <= 0.01f)
             //if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
             {
 
@@ -177,6 +204,9 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         slowSpeedTimeVal = 0;
         slowTime = 0;
         slowSpeed = 1;
+        hasFreeze = false;
+        freezeTimeVal = 0;
+        freezeTime = 0;
         _Sign.enabled = false;
         //CancelDecreaseDebuff();
 
@@ -199,22 +229,32 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     void SlowDebuf(float time)
     {
         slowTime += time;
+        slowSpeed = 0.5f;
         hasSlowSpeed = true;
-        
+    }
+
+    void FreezeDebuf(float time)
+    {
+        freezeTime += time;
+        slowSpeed = 0f;
+        hasFreeze = true;
     }
 
     public virtual void TakeDamage(Bullect bullect)
     {
-        if (bullect.bsTower.towerInfo.damageType == 1)
+        int damageType = bullect.bsTower.towerInfo.damageType;
+        int damage = bullect.bsTower.towerInfo.damage;
+        if (damageType == 1)
         {
-            currentLife -= bullect.bsTower.towerInfo.damage;//加上一些加成护甲之类的
+            damage -= (int)(damage * enemyInfo.Def * 0.3f);//加上一些加成护甲之类的
+            damage = (int)(damage * itemPhy);
         }
-        else
+        else if (damageType == 2)
         {
-            //魔法攻击
-            currentLife -= bullect.bsTower.towerInfo.damage;
+            damage -= (int)(damage * enemyInfo.Mdef * 0.3f);
+            damage = (int)(damage * itemMagic);
         }
-
+        currentLife -= damage;
         if (currentLife <= 0)
         {
             //死亡的一些效果
@@ -237,10 +277,32 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     //使用道具
     void OnItemEffect(int itemType)
     {
-        //switch(itemType)
-        //{
-
-        //}
+        float time = ItemInfoMgr.instance.itemInfoList[itemType].time;
+        switch (itemType)
+        {
+            case 1:
+                itemPhy = 1.5f;
+                //计时
+                GameTimer.Instance.AddTimeTask(time, () =>
+                 {
+                     itemPhy = 1;
+                 });
+                break;
+            case 2:
+                itemMagic = 1.5f;
+                GameTimer.Instance.AddTimeTask(time, () =>
+                {
+                    itemMagic = 1;
+                });
+                //计时
+                break;
+            case 3:
+                FreezeDebuf(time);
+                break;
+            case 4:
+                SlowDebuf(time);
+                break;
+        }
     }
 }
 

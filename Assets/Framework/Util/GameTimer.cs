@@ -25,15 +25,17 @@ namespace Assets.Framework.Util
         Stack<TimeTask> timeTaskStack = new Stack<TimeTask>();
 
         private List<int> tmpDelTimeLst = new List<int>();
-        //bool isClear = false;
+        bool isClear = false;
 
         public override void Init()
         {
             //base.Init();
+            
 
         }
         public void Update()
         {
+            if (isClear) return;
             CheckTimeTask();
             DelTimeTask();
             if (recTidLst.Count > 0)
@@ -147,21 +149,25 @@ namespace Assets.Framework.Util
             }
         }
 
-        //public void ClearAllTask()
-        //{
-        //    isClear = true;
-        //    for (int i = 0; i < tempTaskList.Count; i++)
-        //    {
-        //        timeTaskStack.Push(tempTaskList[i]);
-        //    }
-        //    tempTaskList.Clear();
-        //    for (int i = 0; i < taskList.Count; i++)
-        //    {
-        //        timeTaskStack.Push(taskList[i]);
-        //    }
-        //    taskList.Clear();
-        //    isClear = false;
-        //}
+        public void ClearAllTask()
+        {
+            isClear = true;
+            for (int i = 0; i < tempTaskList.Count; i++)
+            {
+                timeTaskStack.Push(tempTaskList[i]);
+            }
+            tempTaskList.Clear();
+            for (int i = 0; i < taskList.Count; i++)
+            {
+                timeTaskStack.Push(taskList[i]);
+            }
+            taskList.Clear();
+
+            tidLst.Clear();
+            tmpDelTimeLst.Clear();
+
+            isClear = false;
+        }
 
         private int GetTid()
         {

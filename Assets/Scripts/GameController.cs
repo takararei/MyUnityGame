@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
     float timeCreatEnemy = 1;
     float timeCD = 1;
     bool isNeedCreateEnemy;
-    public Vector3 beginPos;
+    public Vector3 beginPos;//设置开始按钮
 
     public List<GameObject> enemyAliveList = new List<GameObject>();
     private void Awake()
@@ -83,6 +83,7 @@ public class GameController : MonoBehaviour
         beginPos=level.roundInfoList[0].pathList[0];
         EventCenter.Broadcast(EventType.SetStartPos, beginPos);
         isPause = true;
+        EventCenter.AddListener<int>(EventType.UseItemInGame, UseItem);
     }
 
     void Update()
@@ -123,19 +124,37 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        EventCenter.RemoveListener<int>(EventType.UseItemInGame, UseItem);
+    }
+
     public void RestartGame()
     {
         //清空场上所有的敌人和子弹或者特效
         //一般都生成在GameController下
+        RecycleAll();
+
+        SetLevelData(info);
+        mapMaker.LoadLevelMap(currentLevel);
+        level.currentRound = 0;
+        level.HandleRound();
+        beginPos = level.roundInfoList[0].pathList[0];
+
+        EventCenter.Broadcast(EventType.SetStartPos, beginPos);
+        EventCenter.Broadcast(EventType.RestartGame);
+        //isGameOver = false;
+        isPause = true;
+        
+    }
+
+    public void RecycleAll()
+    {
         int count = gameTrans.childCount;
-        for(int i=0;i<count;i++)
+        for (int i = 0; i < count; i++)
         {
             gameTrans.GetChild(0).SendMessage("Recycle");
         }
-
-        SetLevelData(info);
-        
-
         timeCreatEnemy = 1;
         timeCD = 1;
         isNeedCreateEnemy = false;
@@ -143,16 +162,6 @@ public class GameController : MonoBehaviour
         currRoundkillNum = 0;
         enemyIdList = null;
         currRoundPathList = null;
-
-        mapMaker.LoadLevelMap(currentLevel);
-        level.currentRound = 0;
-        level.HandleRound();
-        beginPos = level.roundInfoList[0].pathList[0];
-        EventCenter.Broadcast(EventType.SetStartPos, beginPos);
-        //isGameOver = false;
-        EventCenter.Broadcast(EventType.RestartGame);
-        isPause = true;
-        
     }
 
     
@@ -200,15 +209,9 @@ public class GameController : MonoBehaviour
     public void CreateTower(GridPoint selectGrid)
     {
         towerBuilder.selectGrid = selectGrid;
-        //towerBuilder.TowerId = towerBuilder.selectGrid.gridState.towerID;
-        //towerBuilder.pos = towerBuilder.selectGrid.transform.position;
-
         towerBuilder.GetProduct();
         ChangeCoin(-selectGrid.baseTower.towerInfo.buildCoin);
         EventCenter.Broadcast<GridPoint>(EventType.HandleGrid, selectGrid);
-
-        //selectGrid = null;
-        //UIManager.Instance.Hide(UIPanelName.TowerSetPanel);
     }
 
     public void CreateBullect(BaseTower tower)
@@ -216,7 +219,7 @@ public class GameController : MonoBehaviour
         bullectBuilder.baseTower = tower;
         bullectBuilder.GetProduct();
     }
-
+    //更新一下关卡数据到面板
     void SetLevelData(LevelInfo info)
     {
         _Coin = info.beginCoin;
@@ -273,7 +276,7 @@ public class GameController : MonoBehaviour
     {
         foreach (var item in enemyAliveList)
         {
-            item.SendMessage("",itemType);//TODO
+            item.SendMessage("OnItemEffect", itemType);//TODO
         }
     }
 }

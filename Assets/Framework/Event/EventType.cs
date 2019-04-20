@@ -14,10 +14,13 @@
     GameWin,
     GamePause,
     RestartGame,
+    LeaveGameScene,
 
     HandleGrid,
     HandleEnemy,
     ShowEnemyInfoPanel,
     ShowTowerInfoPanel,
     SetStartPos,
+
+    UseItemInGame,
 }

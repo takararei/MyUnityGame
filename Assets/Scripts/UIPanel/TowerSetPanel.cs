@@ -47,6 +47,7 @@ public class TowerSetPanel : BasePanel
         TowerSet.gameObject.SetActive(false);
         EventCenter.AddListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         EventCenter.AddListener(EventType.RestartGame,RestartGame);
+        EventCenter.AddListener(EventType.LeaveGameScene, RestartGame);
     }
 
     public void SetTowerBtn()
@@ -94,6 +95,7 @@ public class TowerSetPanel : BasePanel
     public override void OnDestroy()
     {
         base.OnDestroy();
+        EventCenter.RemoveListener(EventType.LeaveGameScene, RestartGame);
         EventCenter.RemoveListener(EventType.RestartGame, RestartGame);
         EventCenter.RemoveListener<GridPoint>(EventType.HandleGrid, HandleGrid);
         RemoveListenerTowerBtn();
