@@ -164,7 +164,7 @@ public class ShopPanel : BasePanel
             itemImage = root.GetComponent<Image>();
             txt_ItemCount = Find<Text>("Txt_ItemCount");
             txt_ItemCount.text = playerData.itemNum[id].ToString();
-            //itemImage.sprite = FactoryManager.Instance.GetSprite("");
+            itemImage.sprite = FactoryMgr.Instance.GetSprite(StringMgr.ItemSprite+(id+1));
             EventCenter.AddListener(EventType.ItemCountUpdate, ItemCountUpdate);
         }
 
@@ -182,7 +182,6 @@ public class ShopPanel : BasePanel
 
     class ItemShop:BaseUIListItem
     {
-        Image bg;
         Button btn_ItemShop;
         Text txt_Price;
 
@@ -190,12 +189,11 @@ public class ShopPanel : BasePanel
         {
             this.id = index;
             this.root = root;
-            bg = root.GetComponent<Image>();
             btn_ItemShop = Find<Button>("Btn_Item");
             txt_Price = Find<Text>("Txt_Price");
             btn_ItemShop.onClick.AddListener(OnBtnClick);
             txt_Price.text = ItemInfoMgr.instance.itemInfoList[id].price.ToString();
-            //bg.sprite = FactoryManager.Instance.GetSprite("");
+            btn_ItemShop.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.ItemSprite+(id+1));
         }
 
         public void OnBtnClick()

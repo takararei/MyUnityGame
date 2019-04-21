@@ -7,6 +7,7 @@ public static class StringMgr
 {
     //ui Item
     public const string ItemHold= "ItemHold";
+    public const string ItemGame = "ItemGame";
     public const string ItemShopButton = "ItemShopButton";
     public const string Btn_MapLevel = "Btn_MapLevel";
     public const string Img_Mask = "Img_Mask";
@@ -14,6 +15,9 @@ public static class StringMgr
     public const string HelpItemBtn = "HelpItemBtn";
     public const string Sprite_UnFinished = "Change/unFinishedLevel";
     public const string Sprite_Finished = "Change/FinishedLevel";
+
+    //sprite
+    public const string ItemSprite = "Main/Shop/";
 
     //pref
     public const string isMusicOff = "isMusicOff";

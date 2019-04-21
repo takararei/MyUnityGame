@@ -280,7 +280,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         float time = ItemInfoMgr.instance.itemInfoList[itemType].time;
         switch (itemType)
         {
-            case 1:
+            case 2:
                 itemPhy = 1.5f;
                 //计时
                 GameTimer.Instance.AddTimeTask(time, () =>
@@ -288,20 +288,17 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
                      itemPhy = 1;
                  });
                 break;
-            case 2:
+            case 3:
                 itemMagic = 1.5f;
                 GameTimer.Instance.AddTimeTask(time, () =>
                 {
                     itemMagic = 1;
                 });
                 //计时
-                break;
-            case 3:
-                FreezeDebuf(time);
-                break;
+                break; 
             case 4:
-                SlowDebuf(time);
-                break;
+                FreezeDebuf(time);
+                break; 
         }
     }
 }

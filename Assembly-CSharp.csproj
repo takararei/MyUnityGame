@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BuildPlayerData.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -128,6 +127,7 @@
     <Compile Include="Assets\Scripts\Data\AchievementInfo.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\AchievementSystem.cs" />
+    <Compile Include="Assets\Scripts\Data\BuildPlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyInfoMgr.cs" />
     <Compile Include="Assets\Scripts\Data\ItemInfo.cs" />

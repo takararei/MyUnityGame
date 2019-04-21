@@ -341,7 +341,7 @@ public class GamePlayPanel:BasePanel
     {
         for (int i = 0; i < ItemInfoMgr.instance.itemInfoList.Count; i++)
         {
-            GameObject go = FactoryMgr.Instance.GetUI(StringMgr.ItemHold);
+            GameObject go = FactoryMgr.Instance.GetUI(StringMgr.ItemGame);
             go.transform.SetParent(ItemContent);
             go.transform.localScale = Vector3.one;
             ItemHoldBtn item = new ItemHoldBtn(i, go);
@@ -376,6 +376,7 @@ public class GamePlayPanel:BasePanel
             btn = root.GetComponent<Button>();
             btn.onClick.AddListener(OnBtnClick);
             txt_Count = Find<Text>("Txt_ItemCount");
+            btn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.ItemSprite + (id + 1));
             UpdateState();
 
         }

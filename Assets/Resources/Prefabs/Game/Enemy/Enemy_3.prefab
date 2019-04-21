@@ -295,7 +295,6 @@ MonoBehaviour:
   pathPointList: []
   currentLife: 0
   isSetData: 0
-  dieAudioClip: {fileID: 0}
 --- !u!114 &114205603960296974
 MonoBehaviour:
   m_ObjectHideFlags: 1
