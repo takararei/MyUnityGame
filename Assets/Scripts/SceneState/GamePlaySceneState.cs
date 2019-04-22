@@ -19,5 +19,6 @@ public class GamePlaySceneState:BaseSceneState
     {
         base.ExitScene();
         SceneManager.LoadScene(2);
+        //卸载游戏中的资源 TODO
     }
 }

@@ -15,7 +15,7 @@ public static class StringMgr
     public const string HelpItemBtn = "HelpItemBtn";
     public const string Sprite_UnFinished = "Change/unFinishedLevel";
     public const string Sprite_Finished = "Change/FinishedLevel";
-
+    public const string AchievementTip = "AchievementTip";
     //sprite
     public const string ItemSprite = "Main/Shop/";
 

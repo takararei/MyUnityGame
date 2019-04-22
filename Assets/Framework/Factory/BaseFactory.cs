@@ -130,7 +130,7 @@ namespace Assets.Framework.Factory
             }
             else
             {
-                Debug.Log("字典没有这样的对象池栈" + itemName);
+                Debug.LogError("字典没有这样的对象池栈" + itemName);
             }
             //if (objectPoolDict.ContainsKey(itemName))
             //{

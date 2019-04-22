@@ -49,12 +49,10 @@ public class GamePlayPanel:BasePanel
     Transform ItemContent;
 
     List<ItemHoldBtn> itemBtnList;
-
-    PlayerData playerData;
+    
     public override void Init()
     {
         base.Init();
-        playerData = PlayerDataOperator.Instance.playerData;
         lvInfoMgr = LevelInfoMgr.Instance;
         pauseBtn = Find<Button>("Btn_Pause");
         startBtn = Find<Button>("Btn_Start");
@@ -353,7 +351,7 @@ public class GamePlayPanel:BasePanel
     {
         for (int i = 0; i < itemBtnList.Count; i++)
         {
-            FactoryMgr.Instance.PushUI(StringMgr.ItemHold, ItemContent.GetChild(0).gameObject);
+            FactoryMgr.Instance.PushUI(StringMgr.ItemGame, ItemContent.GetChild(0).gameObject);
             itemBtnList[i].Clear();
         }
         itemBtnList.Clear();

@@ -52,7 +52,7 @@ public class ShopPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        mBtn_Close.onClick.AddListener(()=> { AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
+        mBtn_Close.onClick.AddListener(OnCloseClick);
         mBtn_Buy.onClick.AddListener(OnBuyButtonClick);
 
         mTxt_Count.text = playerData.DO.ToString();
@@ -78,6 +78,12 @@ public class ShopPanel : BasePanel
         RemoveItemHold();
     }
 
+    public void OnCloseClick()
+    {
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        UIMgr.Instance.Hide(UIPanelName.ShopPanel);
+    }
+
     public void ItemIntroduceUpdate(int index)
     {
         pickItem = index;
@@ -96,7 +102,7 @@ public class ShopPanel : BasePanel
         {
             GameObject itemHold = FactoryMgr.Instance.GetUI(StringMgr.ItemHold);
             itemHold.transform.SetParent(PackageContent);
-            itemHold.transform.localScale = Vector3.one;
+            //itemHold.transform.localScale = Vector3.one;
             //道具持有数量等,更换图片资源TODO
             ItemHold ih = new ItemHold(i, itemHold);
             itemHoldList.Add(ih);
@@ -138,14 +144,17 @@ public class ShopPanel : BasePanel
     private void OnBuyButtonClick()
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        if (itemMgr.itemInfoList[pickItem].price<= playerData.DO)
+        ItemInfo info = itemMgr.itemInfoList[pickItem];
+        if (info.price<= playerData.DO)
         {
-            playerData.DO-=itemMgr.itemInfoList[pickItem].price;
+            playerData.DO-=info.price;
             playerData.itemNum[pickItem]++;
             EventCenter.Broadcast(EventType.ItemCountUpdate);
             EventCenter.Broadcast(EventType.DoNumChange, playerData.DO);
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Buy_1000, info.price);
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Buy_5000, info.price);
         }
-        
+
     }
 
 
@@ -165,6 +174,8 @@ public class ShopPanel : BasePanel
             txt_ItemCount = Find<Text>("Txt_ItemCount");
             txt_ItemCount.text = playerData.itemNum[id].ToString();
             itemImage.sprite = FactoryMgr.Instance.GetSprite(StringMgr.ItemSprite+(id+1));
+            itemImage.SetNativeSize();
+            root.transform.localScale = Vector3.one;
             EventCenter.AddListener(EventType.ItemCountUpdate, ItemCountUpdate);
         }
 
@@ -194,6 +205,7 @@ public class ShopPanel : BasePanel
             btn_ItemShop.onClick.AddListener(OnBtnClick);
             txt_Price.text = ItemInfoMgr.instance.itemInfoList[id].price.ToString();
             btn_ItemShop.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.ItemSprite+(id+1));
+            btn_ItemShop.image.SetNativeSize();
         }
 
         public void OnBtnClick()

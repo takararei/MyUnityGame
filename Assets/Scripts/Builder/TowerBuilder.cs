@@ -33,6 +33,10 @@ public class TowerBuilder : IBuilder<BaseTower>
         go.transform.up = Vector3.up;
         selectGrid.currentTower = go;//格子要持有这个塔
         selectGrid.baseTower = go.GetComponent<BaseTower>();
+
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.BuildTower_100);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.BuildTower_1000);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.BuildTower_30);
         return go;
     }
 

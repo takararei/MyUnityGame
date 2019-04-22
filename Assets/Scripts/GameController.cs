@@ -252,6 +252,11 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void ChangeDO(int num)
+    {
+        _DO += DO;
+    }
+
     public void ChangeRound()
     {
         EventCenter.Broadcast(EventType.Play_NowRoundUpdate, nowRound);
@@ -261,15 +266,50 @@ public class GameController : MonoBehaviour
     {
         isGameOver = true;
         isPause = true;
+        
+        //保存数据 TODO 保存钻石
+        PlayerDataOperator.Instance.playerData.DO += _DO;
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_100, _DO);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_1000, _DO);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_10000, _DO);
+        //PlayerDataOperator.Instance.SavePlayerData();
         UIMgr.Instance.Show(UIPanelName.GameOverPanel);
     }
 
     public void GameWin()
     {
         isPause = true;
-        UIMgr.Instance.Show(UIPanelName.GameWinPanel);
+        
         //更新玩家记录的星级 TODO
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
+        int star = 1;
+        if(life>=5)
+        {
+            star++;
+        }
+        if(life>=9)
+        {
+            star++;
+        }
+        PlayerData playerData = PlayerDataOperator.Instance.playerData;
+        if (star>playerData.levelStar[currentLevel])
+        {
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Star_15, star - playerData.levelStar[currentLevel]);
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Star_45, star - playerData.levelStar[currentLevel]);
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Star_all, star - playerData.levelStar[currentLevel]);
+            PlayerDataOperator.Instance.playerData.levelStar[currentLevel] = star;
+        }
+        if(currentLevel+1>playerData.finishedLevelCount)
+        {
+            playerData.finishedLevelCount++;
+        }
+
+        PlayerDataOperator.Instance.playerData.DO += _DO;
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_100, _DO);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_1000, _DO);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_10000, _DO);
+        //PlayerDataOperator.Instance.SavePlayerData();
+        UIMgr.Instance.Show(UIPanelName.GameWinPanel);
     }
     
     void UseItem(int itemType)

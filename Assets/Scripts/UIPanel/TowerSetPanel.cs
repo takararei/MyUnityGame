@@ -246,6 +246,8 @@ public class TowerSetPanel : BasePanel
         selectGrid.SetTowerID(-1);//重新置为建塔点
         GameController.Instance.ChangeCoin(sellCoin);
         EventCenter.Broadcast(EventType.HandleGrid, selectGrid);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Sell_10);
+        AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.sell_50);
     }
 
     void UpClick()

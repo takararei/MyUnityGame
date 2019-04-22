@@ -67,6 +67,7 @@ public class GamePausePanel:BasePanel
         GameController.Instance.RecycleAll();
         EventCenter.Broadcast(EventType.LeaveGameScene);
         SceneStateMgr.Instance.ChangeSceneState(new MainSceneState());
+        //PlayerDataOperator.Instance.SavePlayerData();
     }
 
     private void OnRestart()

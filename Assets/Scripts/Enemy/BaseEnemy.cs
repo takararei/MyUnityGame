@@ -221,6 +221,13 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             //被玩家杀死 处理一些金币等
             GameController.Instance.ChangeCoin(enemyInfo.killCoin);
             //钻石
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.FirstKill, 1);
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Kill_100, 1);
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Kill_1000, 1);
+        }
+        else//到达终点
+        {
+            AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Enemy_ReachEnd, 1);
         }
         GameController.Instance.currRoundkillNum++;
         ResetEnemy();

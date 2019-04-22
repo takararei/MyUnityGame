@@ -73,7 +73,6 @@
     <Compile Include="Assets\Example\ExcelToAsset\TestDataEditor.cs" />
     <Compile Include="Assets\Example\ListItem\ListControl.cs" />
     <Compile Include="Assets\Example\ListItem\ListItemBtn.cs" />
-    <Compile Include="Assets\Example\PanelTest\TestUIPanel.cs" />
     <Compile Include="Assets\Example\ScrollView\ScrollViewSet.cs" />
     <Compile Include="Assets\Framework\Audio\AudioMgr.cs" />
     <Compile Include="Assets\Framework\Event\CallBack.cs" />

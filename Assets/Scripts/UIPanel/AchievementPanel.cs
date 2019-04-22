@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Audio;
+﻿using Assets.Framework;
+using Assets.Framework.Audio;
 using Assets.Framework.Factory;
 using Assets.Framework.UI;
 using System.Collections;
@@ -11,12 +12,10 @@ public class AchievementPanel : BasePanel
     private Button mBtn_Close;
     Transform ItemContent;
     AchievementInfoMgr acMgr;
-    //PlayerStatics pStatics;
     public override void Init()
     {
         base.Init();
         acMgr = AchievementInfoMgr.Instance;
-        //pStatics = PlayerStatics.Instance;
         mBtn_Close = Find<Button>("Btn_Close");
         ItemContent = Find<Transform>("ItemContent");
         acItemList = new List<AchievementItem>();
@@ -26,7 +25,7 @@ public class AchievementPanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        mBtn_Close.onClick.AddListener(()=> { AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip); OnHide(); });
+        mBtn_Close.onClick.AddListener(OnCloseClick);
         
     }
 
@@ -36,7 +35,19 @@ public class AchievementPanel : BasePanel
         
         mBtn_Close.onClick.RemoveAllListeners();
     }
-    
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        RemoveAcItem();
+    }
+
+    public void OnCloseClick()
+    {
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        UIMgr.Instance.Hide(UIPanelName.AchievementPanel);
+    }
+
     public void SetAcItem()
     {
         for(int i=0;i<acMgr.infoList.Count;i++)
@@ -61,11 +72,7 @@ public class AchievementPanel : BasePanel
         acItemList.Clear();
     }
 
-    public override void OnDestroy()
-    {
-        base.OnDestroy();
-        RemoveAcItem();
-    }
+    
     List<AchievementItem> acItemList;
     class AchievementItem:BaseUIListItem
     {
@@ -73,10 +80,12 @@ public class AchievementPanel : BasePanel
         public Text txt_Name;
         public Text txt_Introduce;
         AchievementInfo acInfo;
+        PlayerData playerData;
         public AchievementItem(int index,GameObject root)
         {
             id = index;
             this.root = root;
+            playerData = PlayerDataOperator.Instance.playerData;
             acInfo = AchievementInfoMgr.Instance.infoList[id];
             acImage = Find<Image>("Img_Light");
             txt_Name = Find<Text>("Txt_Name");
@@ -89,16 +98,15 @@ public class AchievementPanel : BasePanel
         //设置成就是否点亮
         private void SetAcImage()
         {
-            //if (PlayerStatics.Instance.achievementList[id].isFinished)
-            //{
-            //    //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.FinshedSprite);TODO
-            //    Debug.Log(id+" 完成");
-            //}
-            //else
-            //{
-            //    //acImage.sprite = FactoryManager.Instance.GetSprite(acInfo.unFinishSprite);
-            //    Debug.Log(id+" 未完成");
-            //}
+            if (playerData.achievementList[id].isFinished)
+            {
+                acImage.sprite = FactoryMgr.Instance.GetSprite(acInfo.FinshedSprite);
+            }
+            else
+            {
+                acImage.sprite = FactoryMgr.Instance.GetSprite(acInfo.unFinishSprite);
+            }
+            acImage.SetNativeSize();
         }
 
         public override void Clear()

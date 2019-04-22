@@ -50,9 +50,10 @@ public class LevelIntroducePanel : BasePanel
     public void UpdateLevelInfo(int index)
     {
         pickLevel = index;
-        //smallMap.sprite = FactoryManager.Instance.GetSprite(lvMgr.levelInfoList[index].mapPath);
-        levelName.text = lvMgr.levelInfoList[index].levelName;
-        levelIntroduce.text = lvMgr.levelInfoList[index].levelIntroduce;
+        LevelInfo info = lvMgr.levelInfoList[index];
+        smallMap.sprite = FactoryMgr.Instance.GetSprite(info.mapPath);
+        levelName.text = info.levelName;
+        levelIntroduce.text = info.levelIntroduce;
     }
 
     
