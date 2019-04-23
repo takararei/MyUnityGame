@@ -119,6 +119,7 @@
     <Compile Include="Assets\Framework\Util\MathUtil.cs" />
     <Compile Include="Assets\Framework\Util\ResolutionCheck.cs" />
     <Compile Include="Assets\Framework\Util\SimpleRC.cs" />
+    <Compile Include="Assets\Framework\Util\TestConsole.cs" />
     <Compile Include="Assets\Scripts\Builder\BullectBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\EnemyBuilder.cs" />
     <Compile Include="Assets\Scripts\Builder\IBuilder.cs" />
