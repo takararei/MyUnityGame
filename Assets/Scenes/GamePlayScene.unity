@@ -448,6 +448,7 @@ MonoBehaviour:
   gridGo: {fileID: 1226033913211972, guid: abfc8cc65a418e840b9633b4a5b09038, type: 2}
   levelID: 1
   allGrid: []
+  roadSR: {fileID: 0}
 --- !u!114 &2144740252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,11 +461,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
+  isGameOver: 0
   currRoundkillNum: 0
   currEnemyIDIndex: 0
   enemyIdList: 
   currRoundPathList: []
   gameTrans: {fileID: 0}
+  beginPos: {x: 0, y: 0, z: 0}
+  enemyAliveList: []
 --- !u!4 &2144740253
 Transform:
   m_ObjectHideFlags: 0

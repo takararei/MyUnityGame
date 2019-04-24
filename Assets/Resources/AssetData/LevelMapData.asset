@@ -54,3 +54,41 @@ MonoBehaviour:
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
+  - levelID: 2
+    gridStateList:
+    - id: 14
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 42
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 60
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 64
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1

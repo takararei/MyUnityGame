@@ -233,6 +233,8 @@ public class MainPanel : BasePanel
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         //TODO删除数据 回到begin页面
+        PlayerDataOperator.Instance.ResetPlayerData();
+        SceneStateMgr.Instance.ChangeSceneState(new BeginSceneState());
     }
     void OnSoundEffect()
     {

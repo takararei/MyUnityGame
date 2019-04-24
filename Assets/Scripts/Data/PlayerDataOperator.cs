@@ -13,7 +13,7 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
     public PlayerData playerData;///<玩家对象
 
     private string path;///<文件的路径
-
+    private string emptyPath;
     public override void Init()
     {
         //base.Init();
@@ -23,6 +23,7 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
     public PlayerDataOperator()
     {
         SetPath();
+        SetEmptyPath();
     }
     public PlayerData LoadPlayerData()
     {
@@ -43,6 +44,34 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
 
         return playerData;
     }
+
+    private PlayerData LoadPlayerEmptyData()
+    {
+        //如果路径上有文件，就读取文件
+        if (File.Exists(emptyPath))
+        {
+            //读取数据
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(emptyPath, FileMode.Open);
+            playerData = (PlayerData)bf.Deserialize(file);
+            file.Close();
+        }
+        //如果没有文件，就new出一个PlayerData
+        else
+        {
+            playerData = new PlayerData();
+        }
+
+        return playerData;
+    }
+
+    public void ResetPlayerData()
+    {
+        playerData = LoadPlayerEmptyData();
+        SavePlayerData();
+    }
+
+    
 
     //保存玩家的数据
     public void SavePlayerData()
@@ -73,4 +102,18 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
             path = Application.streamingAssetsPath + "/playerData.gd";
         }
     }
+
+    void SetEmptyPath()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            emptyPath = Application.persistentDataPath + "/playerDataEmpty.gd";
+        }
+        //windows编辑器
+        else if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            emptyPath = Application.streamingAssetsPath + "/playerDataEmpty.gd";
+        }
+    }
+ 
 }

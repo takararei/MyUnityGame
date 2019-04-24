@@ -25,7 +25,7 @@ public class MapMaker : MonoBehaviour
     //路径点
     public GridPoint[] allGrid;
     
-    private SpriteRenderer roadSR;//获取地图
+    public SpriteRenderer roadSR;//获取地图
 
 
     LevelMapDataMgr lvMapMgr;

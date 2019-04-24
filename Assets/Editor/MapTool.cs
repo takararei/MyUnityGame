@@ -83,6 +83,8 @@ public class MapTool : Editor {
                     allGrid[gs.id].gridState = gs;
                     allGrid[gs.id].UpdateGrid();
                 }
+
+                mapMaker.roadSR.sprite = Resources.Load<Sprite>("Pictures/Game/Map/Map_" + mapMaker.levelID);
             }
             if(GUILayout.Button("重置操作"))
             {

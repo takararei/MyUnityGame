@@ -107,6 +107,13 @@ public class GridPoint : MonoBehaviour
     }
 #endif
 #if Tool
+
+    public void TowerRange(bool isTrue)
+    {
+
+    }
+
+    public void SetTowerID(int i) { }
     public void UpdateGrid()
     {
         if (gridState.isTowerPoint)
