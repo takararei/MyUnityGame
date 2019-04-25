@@ -14,23 +14,11 @@ MonoBehaviour:
   leveMapDataList:
   - levelID: 1
     gridStateList:
-    - id: 2
+    - id: 11
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-    - id: 5
-      isTowerPoint: 1
-      hasTower: 0
-      towerID: -1
-    - id: 15
-      isTowerPoint: 1
-      hasTower: 0
-      towerID: -1
-    - id: 21
-      isTowerPoint: 1
-      hasTower: 0
-      towerID: -1
-    - id: 22
+    - id: 13
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
@@ -38,19 +26,31 @@ MonoBehaviour:
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-    - id: 37
+    - id: 30
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-    - id: 57
+    - id: 31
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-    - id: 67
+    - id: 33
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
-    - id: 74
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
@@ -89,6 +89,1630 @@ MonoBehaviour:
       hasTower: 0
       towerID: -1
     - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 3
+    gridStateList:
+    - id: 28
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 45
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 52
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 4
+    gridStateList:
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 24
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 70
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 82
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 84
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 95
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 103
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 5
+    gridStateList:
+    - id: 12
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 23
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 34
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 43
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 48
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 70
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 84
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 6
+    gridStateList:
+    - id: 20
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 48
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 72
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 86
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 92
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 7
+    gridStateList:
+    - id: 33
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 49
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 51
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 60
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 73
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 8
+    gridStateList:
+    - id: 15
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 92
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 9
+    gridStateList:
+    - id: 33
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 52
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 70
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 86
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 10
+    gridStateList:
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 32
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 33
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 49
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 93
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 11
+    gridStateList:
+    - id: 11
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 20
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 24
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 27
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 34
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 52
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 73
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 84
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 12
+    gridStateList:
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 49
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 51
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 78
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 86
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 92
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 93
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 96
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 13
+    gridStateList:
+    - id: 12
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 49
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 84
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 87
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 103
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 14
+    gridStateList:
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 43
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 52
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 64
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 69
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 82
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 92
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 94
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 95
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 15
+    gridStateList:
+    - id: 2
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 23
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 24
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 51
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 60
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 69
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 81
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 87
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 92
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 16
+    gridStateList:
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 28
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 32
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 43
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 70
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 73
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 17
+    gridStateList:
+    - id: 13
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 14
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 44
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 84
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 87
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 18
+    gridStateList:
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 44
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 51
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 60
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 62
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 96
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 103
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 19
+    gridStateList:
+    - id: 11
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 12
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 14
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 25
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 32
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 34
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 20
+    gridStateList:
+    - id: 14
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 42
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 48
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 63
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 86
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 21
+    gridStateList:
+    - id: 3
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 12
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 14
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 23
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 86
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 93
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 95
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 22
+    gridStateList:
+    - id: 14
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 20
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 23
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 32
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 86
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 92
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 23
+    gridStateList:
+    - id: 12
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 23
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 28
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 34
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 46
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 64
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 78
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 82
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 94
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 24
+    gridStateList:
+    - id: 24
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 49
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 82
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 87
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 25
+    gridStateList:
+    - id: 13
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 21
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 37
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 42
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 57
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 62
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 78
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 93
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 95
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 26
+    gridStateList:
+    - id: 4
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 13
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 45
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 48
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 59
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 68
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 69
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 27
+    gridStateList:
+    - id: 23
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 32
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 34
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 39
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 48
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 60
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 74
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 85
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 28
+    gridStateList:
+    - id: 22
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 33
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 40
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 42
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 49
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 51
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 61
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 66
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 78
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 29
+    gridStateList:
+    - id: 20
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 29
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 30
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 31
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 47
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 48
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 50
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 55
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 56
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 58
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 73
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 75
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 77
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 78
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 82
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 93
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+  - levelID: 30
+    gridStateList:
+    - id: 5
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 12
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 28
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 33
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 38
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 41
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 64
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 65
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 67
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 76
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 83
+      isTowerPoint: 1
+      hasTower: 0
+      towerID: -1
+    - id: 94
       isTowerPoint: 1
       hasTower: 0
       towerID: -1
