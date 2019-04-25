@@ -20,7 +20,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F\u7B2C\u4E00\u5173"
     mapPath: Game/Map/Map_1
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 218.11658, y: 391, z: 0}
+    levelPos: {x: 107.650024, y: -235, z: 0}
   - levelID: 2
     levelName: "\u7B2C\u4E8C\u5173"
     totalRound: 5
@@ -29,7 +29,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F2"
     mapPath: Game/Map/Map_2
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 174.65002, y: 230, z: 0}
+    levelPos: {x: 339.65002, y: -192, z: 0}
   - levelID: 3
     levelName: "\u7B2C\u4E09\u5173"
     totalRound: 8
@@ -38,7 +38,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F3"
     mapPath: Game/Map/Map_3
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 116.650024, y: -327, z: 0}
+    levelPos: {x: 677.65, y: -121, z: 0}
   - levelID: 4
     levelName: "\u7B2C4\u5173"
     totalRound: 8
@@ -56,7 +56,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F5"
     mapPath: Game/Map/Map_5
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 591.2108, y: -74.61878, z: 0}
+    levelPos: {x: 181.65002, y: 184, z: 0}
   - levelID: 6
     levelName: "\u7B2C6\u5173"
     totalRound: 10
@@ -65,7 +65,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F6"
     mapPath: Game/Map/Map_6
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 812.1974, y: 123.408104, z: 0}
+    levelPos: {x: 452.65002, y: 383, z: 0}
   - levelID: 7
     levelName: "\u7B2C7\u5173"
     totalRound: 10
@@ -74,7 +74,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F7"
     mapPath: Game/Map/Map_7
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 769.14795, y: 358.74432, z: 0}
+    levelPos: {x: 600.65, y: 228, z: 0}
   - levelID: 8
     levelName: "\u7B2C8\u5173"
     totalRound: 10
@@ -83,7 +83,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F8"
     mapPath: Game/Map/Map_8
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 1018.83405, y: -419.01334, z: 0}
+    levelPos: {x: 810.65, y: 331, z: 0}
   - levelID: 9
     levelName: "\u7B2C9\u5173"
     totalRound: 10
@@ -92,7 +92,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F9"
     mapPath: Game/Map/Map_9
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 1018.83405, y: -206.63672, z: 0}
+    levelPos: {x: 880.65, y: 67, z: 0}
   - levelID: 10
     levelName: "\u7B2C10\u5173"
     totalRound: 10
@@ -101,7 +101,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F10"
     mapPath: Game/Map/Map_10
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 1199.6412, y: 117.66821, z: 0}
+    levelPos: {x: 1020.65, y: -211, z: 0}
   - levelID: 11
     levelName: "\u7B2C11\u5173"
     totalRound: 12
@@ -110,7 +110,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F11"
     mapPath: Game/Map/Map_11
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 1434.9775, y: 43.04936, z: 0}
+    levelPos: {x: 1032.65, y: -472, z: 0}
   - levelID: 12
     levelName: "\u7B2C12\u5173"
     totalRound: 12
@@ -119,7 +119,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F12"
     mapPath: Game/Map/Map_12
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 1750.6726, y: -152.10757, z: 0}
+    levelPos: {x: 1244.65, y: 109, z: 0}
   - levelID: 13
     levelName: "\u7B2C13\u5173"
     totalRound: 12
@@ -128,7 +128,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F13"
     mapPath: Game/Map/Map_13
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 1673.1838, y: 315.6951, z: 0}
+    levelPos: {x: 1135.65, y: 409, z: 0}
   - levelID: 14
     levelName: "\u7B2C14\u5173"
     totalRound: 12
@@ -137,7 +137,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F14"
     mapPath: Game/Map/Map_14
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2093.1704, y: 68.87896, z: 0}
+    levelPos: {x: 1644.65, y: 317, z: 0}
   - levelID: 15
     levelName: "\u7B2C15\u5173"
     totalRound: 12
@@ -146,7 +146,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F15"
     mapPath: Game/Map/Map_15
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2101.7803, y: -134.88782, z: 0}
+    levelPos: {x: 1620.65, y: 111, z: 0}
   - levelID: 16
     levelName: "\u7B2C16\u5173"
     totalRound: 12
@@ -155,7 +155,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F16"
     mapPath: Game/Map/Map_16
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2265.3677, y: -421.88333, z: 0}
+    levelPos: {x: 1829.65, y: -139, z: 0}
   - levelID: 17
     levelName: "\u7B2C17\u5173"
     totalRound: 12
@@ -164,7 +164,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F17"
     mapPath: Game/Map/Map_17
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2385.9058, y: -295.60532, z: 0}
+    levelPos: {x: 2137.65, y: 43, z: 0}
   - levelID: 18
     levelName: "\u7B2C18\u5173"
     totalRound: 12
@@ -173,7 +173,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F18"
     mapPath: Game/Map/Map_18
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2523.6636, y: -123.408035, z: 0}
+    levelPos: {x: 2101.65, y: -144, z: 0}
   - levelID: 19
     levelName: "\u7B2C19\u5173"
     totalRound: 12
@@ -182,7 +182,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F19"
     mapPath: Game/Map/Map_19
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2899.6277, y: -387.44385, z: 0}
+    levelPos: {x: 2371.65, y: -279, z: 0}
   - levelID: 20
     levelName: "\u7B2C20\u5173"
     totalRound: 12
@@ -191,7 +191,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F20"
     mapPath: Game/Map/Map_20
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2957.0269, y: -172.19724, z: 0}
+    levelPos: {x: 2511.65, y: -115, z: 0}
   - levelID: 21
     levelName: "\u7B2C21\u5173"
     totalRound: 15
@@ -227,7 +227,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F24"
     mapPath: Game/Map/Map_24
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 2891.0178, y: 364.48422, z: 0}
+    levelPos: {x: 2697.65, y: 381, z: 0}
   - levelID: 25
     levelName: "\u7B2C25\u5173"
     totalRound: 15
@@ -236,7 +236,7 @@ MonoBehaviour:
     levelIntroduce: "\u8FD9\u662F25"
     mapPath: Game/Map/Map_25
     towerList: 01000000020000000300000004000000
-    levelPos: {x: 3412.7266, y: 344.3946, z: 0}
+    levelPos: {x: 2987.65, y: 314, z: 0}
   - levelID: 26
     levelName: "\u7B2C26\u5173"
     totalRound: 15
