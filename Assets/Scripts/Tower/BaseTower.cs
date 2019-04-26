@@ -46,6 +46,14 @@ public class BaseTower : MonoBehaviour, IBaseTower
     }
     protected void Update()
     {
+        for (int i=0;i<enemyTargetList.Count;i++)
+        {
+           if(enemyTargetList[i].gameObject.activeSelf==false)
+            {
+                enemyTargetList.Remove(enemyTargetList[i]);
+                i--;
+            }
+        }
         if (towerProperty.target == null && enemyTargetList.Count != 0)
         {
             towerProperty.target = enemyTargetList[0];

@@ -10,15 +10,15 @@ public class SlowProperty:TowerProperty
         //base.TransformRotate();
     }
 
-    protected override void Attack()
-    {
-        //base.Attack();
-        if (target == null)
-        {
-            return;
-        }
-        //animator.Play("Attack");
-        isBeginCD = true;
-        GameController.Instance.CreateBullect(baseTower);
-    }
+    //protected override void Attack()
+    //{
+    //    //base.Attack();
+    //    if (target == null)
+    //    {
+    //        return;
+    //    }
+    //    //animator.Play("Attack");
+    //    isBeginCD = true;
+    //    GameController.Instance.CreateBullect(baseTower);
+    //}
 }
