@@ -18,6 +18,9 @@ public static class StringMgr
     public const string AchievementTip = "AchievementTip";
     //sprite
     public const string ItemSprite = "Main/Shop/";
+    public const string towerCanUp = "Change/tUp_1";
+    public const string towerCantUp = "Change/tUp_2";
+    public const string towerLock = "Change/t0";
 
     //pref
     public const string isMusicOff = "isMusicOff";

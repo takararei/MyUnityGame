@@ -255,6 +255,7 @@ public class TowerSetPanel : BasePanel
         if (!isUpLevel) return;
         //删除当前格子下的塔，回收，更新格子塔的信息
         int nextId = selectGrid.baseTower.towerInfo.nextTowerId;
+        if(nextId==0)
         selectGrid.baseTower.Recycle();
         selectGrid.InitGrid();
         //生成新的塔
@@ -276,19 +277,31 @@ public class TowerSetPanel : BasePanel
         //获得当前的
         isUpLevel = false;
         int index = selectGrid.baseTower.towerInfo.nextTowerId;
-        int upCoin = TowerInfoMgr.Instance.towerInfoList[index - 1].buildCoin;
-        if(upCoin<=GameController.Instance.Coin)
+        int upCoin;
+        if(index==0)
         {
-            UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite("Change/tUp_1");
-            Img_UpPriceBG.gameObject.SetActive(true);
-            Txt_UpPrice.text = upCoin.ToString();
-            isUpLevel = true;
+            upCoin = 0;
+            UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerLock);
+            Img_UpPriceBG.gameObject.SetActive(false);
         }
         else
         {
-            UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite("Change/tUp_2");
-            Img_UpPriceBG.gameObject.SetActive(false);
+            upCoin = TowerInfoMgr.Instance.towerInfoList[index - 1].buildCoin;
+            if (upCoin <= GameController.Instance.Coin)
+            {
+                UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerCanUp);
+                Img_UpPriceBG.gameObject.SetActive(true);
+                Txt_UpPrice.text = upCoin.ToString();
+                isUpLevel = true;
+            }
+            else
+            {
+                UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerCantUp);
+                Img_UpPriceBG.gameObject.SetActive(false);
+            }
         }
+        
+        
     }
 
     void RestartGame()
@@ -318,7 +331,7 @@ public class TowerSetPanel : BasePanel
             if (id == 0)
             {
                 //更换图片
-                btn.image.sprite = FactoryMgr.Instance.GetSprite("Change/t0");
+                btn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerLock);
                 img_PriceBG.gameObject.SetActive(false);
                 isActive = false;
             }
