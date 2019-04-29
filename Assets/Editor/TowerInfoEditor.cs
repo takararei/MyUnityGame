@@ -38,7 +38,7 @@ public class TowerInfoEditor:BaseExcelEditor
                     info.sellCoin = GetInt(4);
                     info.damageType = GetInt(5);
                     info.damageRange = GetFloat(6);
-                    info.CD = GetInt(7);
+                    info.CD = GetFloat(7);
                     info.damage = GetInt(8);
                     info.Range = GetInt(9);
                     info.bullectPath = GetString(10);
