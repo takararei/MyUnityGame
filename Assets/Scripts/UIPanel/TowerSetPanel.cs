@@ -22,7 +22,7 @@ public class TowerSetPanel : BasePanel
     bool isUpLevel;
 
     public GridPoint selectGrid;
-
+    LevelInfo levelInfo;
     public override void Init()
     {
         base.Init();
@@ -40,6 +40,7 @@ public class TowerSetPanel : BasePanel
         SellBtn = Find<Button>("Sell");
         Txt_UpPrice = Find<Text>("Up_Price");
         Img_UpPriceBG = Find<Image>("Img_UpPriceBG");
+        levelInfo = LevelInfoMgr.Instance.levelInfoList[GameRoot.Instance.pickLevel];
         SetTowerBtn();
         SellBtn.onClick.AddListener(SellClick);
         UpLevelBtn.onClick.AddListener(UpClick);
@@ -52,7 +53,7 @@ public class TowerSetPanel : BasePanel
 
     public void SetTowerBtn()
     {
-        //获取头4位并且赋值
+        //获取头4位并且赋值 
         for (int i = 0; i < 4; i++)
         {
             GameObject go = FactoryMgr.Instance.GetUI("TowerSelectBtn");
@@ -278,7 +279,7 @@ public class TowerSetPanel : BasePanel
         isUpLevel = false;
         int index = selectGrid.baseTower.towerInfo.nextTowerId;
         int upCoin;
-        if(index==0)
+        if(index==0||!levelInfo.towerList.Contains(index))
         {
             upCoin = 0;
             UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerLock);

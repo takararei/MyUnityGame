@@ -346,13 +346,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8BF7\u52AA\u529B\u63D0\u5347\u5B9E\u529B\u5427\u6218\u58EB\uFF01"
+  m_Text: "\u8BF7\u52AA\u529B\u63D0\u5347\u5B9E\u529B\u5427\uFF01\u5C06\u519B\uFF01"
 --- !u!114 &114783895518549862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,5 +600,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000057220455, y: 77.00002}
-  m_SizeDelta: {x: 685.4, y: 90}
+  m_SizeDelta: {x: 729.3, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}

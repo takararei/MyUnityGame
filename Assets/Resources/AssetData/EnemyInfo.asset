@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyInfoList:
   - enemyId: 1
-    killCoin: 20
+    killCoin: 3
     killDO: 0
-    life: 100
+    life: 20
     speed: 3
     Def: 0
     Mdef: 0
@@ -24,9 +24,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_1
   - enemyId: 2
-    killCoin: 20
-    killDO: 0
-    life: 100
+    killCoin: 9
+    killDO: 1
+    life: 80
     speed: 2
     Def: 1
     Mdef: 0
@@ -35,9 +35,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_2
   - enemyId: 3
-    killCoin: 20
-    killDO: 0
-    life: 100
+    killCoin: 90
+    killDO: 3
+    life: 800
     speed: 2
     Def: 0
     Mdef: 0
@@ -46,9 +46,9 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_3
   - enemyId: 4
-    killCoin: 20
-    killDO: 0
-    life: 100
+    killCoin: 18
+    killDO: 1
+    life: 160
     speed: 2
     Def: 2
     Mdef: 0
@@ -57,9 +57,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_4
   - enemyId: 5
-    killCoin: 20
-    killDO: 0
-    life: 100
+    killCoin: 75
+    killDO: 2
+    life: 600
     speed: 2
     Def: 2
     Mdef: 0
@@ -68,9 +68,9 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_5
   - enemyId: 6
-    killCoin: 20
-    killDO: 0
-    life: 100
+    killCoin: 270
+    killDO: 3
+    life: 2800
     speed: 2
     Def: 0
     Mdef: 3
@@ -79,9 +79,9 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_6
   - enemyId: 7
-    killCoin: 21
-    killDO: 0
-    life: 101
+    killCoin: 20
+    killDO: 1
+    life: 180
     speed: 3
     Def: 0
     Mdef: 1
@@ -90,9 +90,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_7
   - enemyId: 8
-    killCoin: 22
-    killDO: 0
-    life: 102
+    killCoin: 45
+    killDO: 2
+    life: 300
     speed: 2
     Def: 3
     Mdef: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_8
   - enemyId: 9
-    killCoin: 23
-    killDO: 0
-    life: 103
+    killCoin: 140
+    killDO: 3
+    life: 1200
     speed: 2
     Def: 3
     Mdef: 0
@@ -113,8 +113,8 @@ MonoBehaviour:
     path: Enemy/Enemy_9
   - enemyId: 10
     killCoin: 24
-    killDO: 0
-    life: 104
+    killDO: 1
+    life: 280
     speed: 2
     Def: 0
     Mdef: 0
@@ -123,9 +123,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_10
   - enemyId: 11
-    killCoin: 25
-    killDO: 0
-    life: 105
+    killCoin: 75
+    killDO: 2
+    life: 600
     speed: 2
     Def: 0
     Mdef: 0
@@ -134,9 +134,9 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_11
   - enemyId: 12
-    killCoin: 26
-    killDO: 0
-    life: 106
+    killCoin: 40
+    killDO: 2
+    life: 350
     speed: 3
     Def: 0
     Mdef: 0
@@ -145,9 +145,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_12
   - enemyId: 13
-    killCoin: 27
-    killDO: 0
-    life: 107
+    killCoin: 140
+    killDO: 5
+    life: 1200
     speed: 2
     Def: 0
     Mdef: 0
@@ -156,9 +156,9 @@ MonoBehaviour:
     heart: 6
     path: Enemy/Enemy_13
   - enemyId: 14
-    killCoin: 28
-    killDO: 0
-    life: 100
+    killCoin: 200
+    killDO: 5
+    life: 2000
     speed: 2
     Def: 0
     Mdef: 0
@@ -167,9 +167,9 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_14
   - enemyId: 15
-    killCoin: 29
-    killDO: 0
-    life: 100
+    killCoin: 22
+    killDO: 1
+    life: 250
     speed: 2
     Def: 0
     Mdef: 2
@@ -178,9 +178,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_15
   - enemyId: 16
-    killCoin: 30
-    killDO: 0
-    life: 100
+    killCoin: 125
+    killDO: 3
+    life: 1000
     speed: 2
     Def: 0
     Mdef: 2
@@ -189,9 +189,9 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_16
   - enemyId: 17
-    killCoin: 31
-    killDO: 0
-    life: 100
+    killCoin: 15
+    killDO: 1
+    life: 120
     speed: 2
     Def: 0
     Mdef: 0
@@ -200,9 +200,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_17
   - enemyId: 18
-    killCoin: 32
-    killDO: 0
-    life: 101
+    killCoin: 55
+    killDO: 2
+    life: 400
     speed: 2
     Def: 1
     Mdef: 0
@@ -211,9 +211,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_18
   - enemyId: 19
-    killCoin: 33
+    killCoin: 10
     killDO: 0
-    life: 102
+    life: 90
     speed: 3
     Def: 0
     Mdef: 0
@@ -222,9 +222,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_19
   - enemyId: 20
-    killCoin: 34
-    killDO: 0
-    life: 103
+    killCoin: 48
+    killDO: 1
+    life: 350
     speed: 2
     Def: 0
     Mdef: 0
@@ -233,9 +233,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_20
   - enemyId: 21
-    killCoin: 35
+    killCoin: 1
     killDO: 0
-    life: 104
+    life: 35
     speed: 3
     Def: 0
     Mdef: 0
@@ -244,9 +244,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_21
   - enemyId: 22
-    killCoin: 36
-    killDO: 0
-    life: 105
+    killCoin: 40
+    killDO: 1
+    life: 350
     speed: 3
     Def: 0
     Mdef: 2
@@ -255,9 +255,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_22
   - enemyId: 23
-    killCoin: 37
-    killDO: 0
-    life: 100
+    killCoin: 41
+    killDO: 1
+    life: 350
     speed: 3
     Def: 0
     Mdef: 2
@@ -266,9 +266,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_23
   - enemyId: 24
-    killCoin: 38
-    killDO: 0
-    life: 100
+    killCoin: 45
+    killDO: 1
+    life: 300
     speed: 1
     Def: 0
     Mdef: 0
@@ -277,9 +277,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_24
   - enemyId: 25
-    killCoin: 39
-    killDO: 0
-    life: 100
+    killCoin: 33
+    killDO: 1
+    life: 250
     speed: 1
     Def: 2
     Mdef: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     path: Enemy/Enemy_25
   - enemyId: 26
     killCoin: 40
-    killDO: 0
-    life: 100
+    killDO: 1
+    life: 350
     speed: 2
     Def: 0
     Mdef: 3
@@ -299,9 +299,9 @@ MonoBehaviour:
     heart: 2
     path: Enemy/Enemy_26
   - enemyId: 27
-    killCoin: 41
-    killDO: 0
-    life: 100
+    killCoin: 130
+    killDO: 2
+    life: 1000
     speed: 2
     Def: 3
     Mdef: 0
@@ -310,9 +310,9 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_27
   - enemyId: 28
-    killCoin: 42
-    killDO: 0
-    life: 100
+    killCoin: 400
+    killDO: 4
+    life: 3000
     speed: 2
     Def: 0
     Mdef: 0
@@ -321,9 +321,9 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_28
   - enemyId: 29
-    killCoin: 43
-    killDO: 0
-    life: 100
+    killCoin: 480
+    killDO: 5
+    life: 4000
     speed: 2
     Def: 0
     Mdef: 0
@@ -332,9 +332,9 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_29
   - enemyId: 30
-    killCoin: 44
-    killDO: 0
-    life: 100
+    killCoin: 220
+    killDO: 3
+    life: 2500
     speed: 1
     Def: 0
     Mdef: 0
@@ -342,3 +342,58 @@ MonoBehaviour:
     Introduce: "\u5CA9\u6D46\u5143\u7D20\u7531\u5CA9\u77F3\u4E0E\u706B\u7130\u7EC4\u6210\uFF0C\u662F\u6B7B\u4EA1\u4E0E\u6BC1\u706D\u7684\u5B58\u5728"
     heart: 5
     path: Enemy/Enemy_30
+  - enemyId: 31
+    killCoin: 22
+    killDO: 1
+    life: 200
+    speed: 2
+    Def: 0
+    Mdef: 0
+    Name: "\u91CE\u86EE\u4EBA"
+    Introduce: "\u65E0\u754F\u7684\u90E8\u843D\u52C7\u58EB\uFF0C\u8EAB\u4E0A\u7684\u4F24\u75A4\u8BC1\u660E\u5DF2\u7ECF\u901A\u8FC7\u4E86\u52C7\u8005\u4EEA\u5F0F\u3002"
+    heart: 1
+    path: Enemy/Enemy_31
+  - enemyId: 32
+    killCoin: 12
+    killDO: 0
+    life: 120
+    speed: 3
+    Def: 0
+    Mdef: 0
+    Name: "\u91CE\u86EE\u4EBA\u730E\u4EBA"
+    Introduce: "\u91CE\u86EE\u4EBA\u730E\u4EBA\u662F\u8FC5\u6377\u7684\u52C7\u58EB\u3002"
+    heart: 1
+    path: Enemy/Enemy_32
+  - enemyId: 33
+    killCoin: 60
+    killDO: 2
+    life: 480
+    speed: 2
+    Def: 3
+    Mdef: 0
+    Name: "\u5927\u5730\u8428\u6EE1"
+    Introduce: "\u8FD9\u4E9B\u777F\u667A\u7684\u4EBA\u80FD\u64CD\u7EB5\u5927\u5730\u4E4B\u529B\u3002"
+    heart: 1
+    path: Enemy/Enemy_33
+  - enemyId: 34
+    killCoin: 60
+    killDO: 2
+    life: 480
+    speed: 2
+    Def: 0
+    Mdef: 3
+    Name: "\u7CBE\u795E\u8428\u6EE1"
+    Introduce: "\u4E13\u6CE8\u4E8E\u7CBE\u795E\u529B\u91CF\u7684\u52C7\u58EB\u3002"
+    heart: 1
+    path: Enemy/Enemy_34
+  - enemyId: 35
+    killCoin: 85
+    killDO: 3
+    life: 640
+    speed: 2
+    Def: 0
+    Mdef: 0
+    Name: "\u9ED1\u5DEB"
+    Introduce: "\u638C\u63E1\u72EC\u7279\u7684\u9ED1\u9B54\u6CD5\u3002"
+    heart: 1
+    path: Enemy/Enemy_35
