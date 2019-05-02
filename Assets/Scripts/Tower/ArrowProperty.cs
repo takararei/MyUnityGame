@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Framework.Audio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,7 @@ public class ArrowProperty : TowerProperty
         }
         isBeginCD = true;
         GameController.Instance.CreateBullect(baseTower);
+        AudioMgr.Instance.PlayEffectMusic(baseTower.towerInfo.audio);
         
     }
 

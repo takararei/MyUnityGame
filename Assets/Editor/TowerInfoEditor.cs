@@ -44,6 +44,7 @@ public class TowerInfoEditor:BaseExcelEditor
                     info.bullectPath = GetString(10);
                     info.nextTowerId = GetInt(11);
                     info.path = GetString(12);
+                    info.audio = GetString(13);
                     list.Add(info);
                 }
             }

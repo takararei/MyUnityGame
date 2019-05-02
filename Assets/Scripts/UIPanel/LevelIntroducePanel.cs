@@ -1,4 +1,5 @@
 ﻿using Assets.Framework;
+using Assets.Framework.Audio;
 using Assets.Framework.Factory;
 using Assets.Framework.SceneState;
 using Assets.Framework.UI;
@@ -30,9 +31,15 @@ public class LevelIntroducePanel : BasePanel
     public override void OnShow()
     {
         base.OnShow();
-        closeBtn.onClick.AddListener(()=> { UIMgr.Instance.Hide(UIPanelName.LevelIntroducePanel); });
+        closeBtn.onClick.AddListener(OnCloseClick);
         Btn_Begin.onClick.AddListener(OnEnterGame);
         EventCenter.AddListener<int>(EventType.LevelIntroduceUpdate, UpdateLevelInfo);
+    }
+    void OnCloseClick()
+    {
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        UIMgr.Instance.Hide(UIPanelName.LevelIntroducePanel);
+
     }
     public override void OnHide()
     {
@@ -43,6 +50,7 @@ public class LevelIntroducePanel : BasePanel
 
     public void OnEnterGame()
     {
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         GameRoot.Instance.pickLevel = pickLevel;
         SceneStateMgr.Instance.ChangeSceneState(new GameLoadSceneState());
     }

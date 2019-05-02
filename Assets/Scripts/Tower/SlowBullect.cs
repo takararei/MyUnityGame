@@ -18,10 +18,7 @@ public class SlowBullect:Bullect
         else
         {
             Attack();
-            animator.speed = 0;
-            animator.Update(0);
             DestoryBullect();
-            showTimer = 0;
         }
     }
 
@@ -36,6 +33,13 @@ public class SlowBullect:Bullect
             item.SendMessage("SlowDebuf", slowTime);
             item.SendMessage("TakeDamage", this);
         }
+    }
+
+    protected override void DestoryBullect()
+    {
+        showTimer = 0;
+        animator.Update(0);
+        base.DestoryBullect();
     }
 
 }

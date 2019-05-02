@@ -256,7 +256,6 @@ public class TowerSetPanel : BasePanel
         if (!isUpLevel) return;
         //删除当前格子下的塔，回收，更新格子塔的信息
         int nextId = selectGrid.baseTower.towerInfo.nextTowerId;
-        if(nextId==0)
         selectGrid.baseTower.Recycle();
         selectGrid.InitGrid();
         //生成新的塔

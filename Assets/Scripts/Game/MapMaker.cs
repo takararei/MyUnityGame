@@ -70,6 +70,7 @@ public class MapMaker : MonoBehaviour
                 gridPoint.gridState.id = num;
                 allGrid[num] = gridPoint;
                 num++;
+                //Debug.Log(num + "," + grid.transform.position);
 #if Game
                 grid.Hide();
 #endif

@@ -159,6 +159,7 @@ public class GamePlayPanel:BasePanel
 
     void OnBtnBGClick()
     {
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         Bag_BG.SetActive(!Bag_BG.activeSelf);
     }
 
@@ -201,7 +202,9 @@ public class GamePlayPanel:BasePanel
     private void OnStartClick()
     {
         GameController.Instance.isPause = false;
+        GameController.Instance.isStart = true;
         startBtn.gameObject.SetActive(false);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.EnemyComing);
     }
 
     void SetStartBtnPos(Vector3 pos)
@@ -394,6 +397,7 @@ public class GamePlayPanel:BasePanel
         void OnBtnClick()
         {
             //发送事件到所有在场的敌人TODO
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
             EventCenter.Broadcast(EventType.UseItemInGame, id);
             //处理冷却
             playerData.itemNum[id]--;

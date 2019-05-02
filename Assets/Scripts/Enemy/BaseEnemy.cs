@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Factory;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using Assets.Framework.Tools;
 using Assets.Framework.Util;
 using System.Collections;
@@ -200,13 +201,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         roadPointIndex = 1;
         slider.value = 1;
         transform.eulerAngles = Vector3.zero;
-        dieAudioClip = null;
+
         slowSpeedTimeVal = 0;
         slowTime = 0;
         slowSpeed = 1;
         hasFreeze = false;
         freezeTimeVal = 0;
         freezeTime = 0;
+
         _Sign.enabled = false;
         //CancelDecreaseDebuff();
 
@@ -224,41 +226,43 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.FirstKill, 1);
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Kill_100, 1);
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Kill_1000, 1);
+            AudioMgr.Instance.PlayEffectMusic(enemyInfo.audio);
         }
         else//到达终点
         {
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Enemy_ReachEnd, 1);
+            AudioMgr.Instance.PlayEffectMusic(StringMgr.ReachEnd);
         }
         GameController.Instance.currRoundkillNum++;
         ResetEnemy();
     }
-
+    //减速处理
     void SlowDebuf(float time)
     {
         slowTime += time;
         slowSpeed = 0.5f;
         hasSlowSpeed = true;
     }
-
+    //冻结处理
     void FreezeDebuf(float time)
     {
         freezeTime += time;
         slowSpeed = 0f;
         hasFreeze = true;
     }
-
+    //处理伤害
     public virtual void TakeDamage(Bullect bullect)
     {
         int damageType = bullect.bsTower.towerInfo.damageType;
         int damage = bullect.bsTower.towerInfo.damage;
         if (damageType == 1)
         {
-            damage -= (int)(damage * enemyInfo.Def * 0.3f);//加上一些加成护甲之类的
+            damage -= (int)(damage * enemyInfo.Def * 0.1f);//加上一些加成护甲之类的
             damage = (int)(damage * itemPhy);
         }
         else if (damageType == 2)
         {
-            damage -= (int)(damage * enemyInfo.Mdef * 0.3f);
+            damage -= (int)(damage * enemyInfo.Mdef * 0.1f);
             damage = (int)(damage * itemMagic);
         }
         currentLife -= damage;

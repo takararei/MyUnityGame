@@ -1,4 +1,5 @@
-﻿using Assets.Framework.Factory;
+﻿using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,7 @@ public class TowerProperty : MonoBehaviour
         animator.Play("Attack");
         isBeginCD = true;
         GameController.Instance.CreateBullect(baseTower);
+        AudioMgr.Instance.PlayEffectMusic(baseTower.towerInfo.audio);
         //bullectGO = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);//可以考虑做成BullectBuilderTODO
         //bullectGO.transform.SetParent(GameController.Instance.gameTrans);
         //bullectGO.transform.position = transform.position - new Vector3(0, 0, 2);

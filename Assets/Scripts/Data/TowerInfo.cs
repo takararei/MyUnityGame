@@ -19,4 +19,5 @@ public class TowerInfo
     public string Introduce;
     public string Name;
     public string path;
+    public string audio;
 }

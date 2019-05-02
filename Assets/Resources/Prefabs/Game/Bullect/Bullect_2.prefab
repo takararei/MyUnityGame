@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4332888376332864}
   - component: {fileID: 212065446123814822}
   - component: {fileID: 95182154141935056}
-  - component: {fileID: 58070229336425228}
   - component: {fileID: 114452761941074008}
   m_Layer: 0
   m_Name: Bullect_2
@@ -43,21 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58070229336425228
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1301437546220216}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.4234595
 --- !u!95 &95182154141935056
 Animator:
   serializedVersion: 3

@@ -10,6 +10,8 @@ public class BuildPlayerData : MonoBehaviour
     private void Awake()
     {
         po = PlayerDataOperator.Instance;
+        //po.Init();
+        po.playerData = po.LoadPlayerData();
         data = PlayerDataOperator.Instance.playerData;
     }
     void Start()

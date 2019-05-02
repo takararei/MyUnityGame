@@ -57,7 +57,11 @@ public class GamePausePanel:BasePanel
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         UIMgr.Instance.Hide(UIPanelName.GamePausePanel);
-        GameController.Instance.isPause = false;
+        if(GameController.Instance.isStart)
+        {
+            GameController.Instance.isPause = false;
+        }
+        
     }
 
     private void OnExitGame()
@@ -89,7 +93,7 @@ public class GamePausePanel:BasePanel
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
         AudioMgr.Instance.CloseOrOpenBGMusic();
-        mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayEffectMusic);
+        mImg_MusicOff.gameObject.SetActive(!AudioMgr.Instance.isPlayBGMusic);
     }
 
     

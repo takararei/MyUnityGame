@@ -1,4 +1,5 @@
 ﻿using Assets.Framework;
+using Assets.Framework.Audio;
 using Assets.Framework.Factory;
 using Assets.Framework.Tools;
 using Assets.Framework.UI;
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour
 
     public bool isPause;
     public bool isGameOver;
+    public bool isStart;
 
 
     public int currRoundkillNum;//被杀的怪物数量 判断是否进入下一回合
@@ -89,7 +91,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
-        if (!isPause)
+        if (!isPause&&isStart)
         {
             //产怪逻辑
             GameTimer.Instance.Update();
@@ -100,6 +102,7 @@ public class GameController : MonoBehaviour
                 {
                     return;
                 }
+                AudioMgr.Instance.PlayEffectMusic(StringMgr.EnemyComing);
                 AddRoundNum();
             }
             else
@@ -143,9 +146,9 @@ public class GameController : MonoBehaviour
 
         EventCenter.Broadcast(EventType.SetStartPos, beginPos);
         EventCenter.Broadcast(EventType.RestartGame);
-        //isGameOver = false;
+        isGameOver = false;
         isPause = true;
-        
+        isStart = false;
     }
 
     public void RecycleAll()
@@ -211,6 +214,7 @@ public class GameController : MonoBehaviour
         towerBuilder.selectGrid = selectGrid;
         towerBuilder.GetProduct();
         ChangeCoin(-selectGrid.baseTower.towerInfo.buildCoin);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.BuildTower);
         EventCenter.Broadcast<GridPoint>(EventType.HandleGrid, selectGrid);
     }
 
@@ -283,11 +287,11 @@ public class GameController : MonoBehaviour
         //更新玩家记录的星级 TODO
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
         int star = 1;
-        if(life>=5)
+        if(life>=10)
         {
             star++;
         }
-        if(life>=9)
+        if(life>=18)
         {
             star++;
         }

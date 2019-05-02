@@ -15,7 +15,7 @@ MonoBehaviour:
   - enemyId: 1
     killCoin: 3
     killDO: 0
-    life: 20
+    life: 16
     speed: 3
     Def: 0
     Mdef: 0
@@ -23,10 +23,11 @@ MonoBehaviour:
     Introduce: "\u77EE\u5C0F\u800C\u90AA\u6076\u7684\u7C7B\u4EBA\u751F\u7269\uFF0C\u4E0D\u5177\u5907\u4EFB\u4F55\u7279\u522B\u80FD\u529B\u3002"
     heart: 1
     path: Enemy/Enemy_1
+    audio: DieMan4
   - enemyId: 2
     killCoin: 9
     killDO: 1
-    life: 80
+    life: 64
     speed: 2
     Def: 1
     Mdef: 0
@@ -34,10 +35,11 @@ MonoBehaviour:
     Introduce: "\u5177\u6709\u8F7B\u578B\u62A4\u7532\u7684\u5F3A\u608D\u91CE\u86EE\u4EBA\u3002"
     heart: 1
     path: Enemy/Enemy_2
+    audio: DieMan1
   - enemyId: 3
     killCoin: 90
     killDO: 3
-    life: 800
+    life: 640
     speed: 2
     Def: 0
     Mdef: 0
@@ -45,10 +47,11 @@ MonoBehaviour:
     Introduce: "\u9AD8\u8FBE\u3001\u5F3A\u608D\u7684\u7C7B\u4EBA\u751F\u7269\uFF0C\u4ED6\u4EEC\u4F1A\u62B9\u6740\u6240\u5230\u4E4B\u5904\u7684\u4E00\u5207\u751F\u7075\u3002"
     heart: 3
     path: Enemy/Enemy_3
+    audio: DieMan2
   - enemyId: 4
     killCoin: 18
     killDO: 1
-    life: 160
+    life: 128
     speed: 2
     Def: 2
     Mdef: 0
@@ -56,10 +59,11 @@ MonoBehaviour:
     Introduce: "\u8EAB\u7A7F\u62A4\u7532\uFF0C\u80FD\u627F\u53D7\u5927\u91CF\u4F24\u5BB3\u7684\u6B79\u5F92\u3002"
     heart: 1
     path: Enemy/Enemy_4
+    audio: DieMan4
   - enemyId: 5
     killCoin: 75
     killDO: 2
-    life: 600
+    life: 480
     speed: 2
     Def: 2
     Mdef: 0
@@ -67,10 +71,11 @@ MonoBehaviour:
     Introduce: "\u8BAD\u7EC3\u6709\u7D20\u3001\u5168\u526F\u6B66\u88C5\u7684\u7B28\u62D9\u6B79\u5F92\uFF0C\u5E26\u9886\u6B79\u5F92\u4E00\u540C\u51FA\u6CA1\u3002"
     heart: 3
     path: Enemy/Enemy_5
+    audio: DieMan1
   - enemyId: 6
     killCoin: 270
     killDO: 3
-    life: 2800
+    life: 2000
     speed: 2
     Def: 0
     Mdef: 3
@@ -78,10 +83,11 @@ MonoBehaviour:
     Introduce: "\u5177\u6709\u9B54\u6CD5\u6297\u6027\u7684\u7F6A\u6076\u519B\u9600\uFF0C\u5177\u6709\u5730\u72F1\u7684\u529B\u91CF\u3002"
     heart: 5
     path: Enemy/Enemy_6
+    audio: DieMan2
   - enemyId: 7
     killCoin: 20
     killDO: 1
-    life: 180
+    life: 144
     speed: 3
     Def: 0
     Mdef: 1
@@ -89,10 +95,11 @@ MonoBehaviour:
     Introduce: "\u7CBE\u51C6\u800C\u81F4\u547D\u7684\u5F13\u7BAD\u624B\u3002"
     heart: 1
     path: Enemy/Enemy_7
+    audio: DieMan3
   - enemyId: 8
     killCoin: 45
     killDO: 2
-    life: 300
+    life: 240
     speed: 2
     Def: 3
     Mdef: 0
@@ -100,10 +107,11 @@ MonoBehaviour:
     Introduce: "\u5168\u526F\u6B66\u88C5\u7684\u5815\u843D\u9A91\u58EB\uFF0C\u51E0\u8FD1\u5200\u67AA\u4E0D\u5165\u3002"
     heart: 1
     path: Enemy/Enemy_8
+    audio: DieMan4
   - enemyId: 9
     killCoin: 140
     killDO: 3
-    life: 1200
+    life: 960
     speed: 2
     Def: 3
     Mdef: 0
@@ -111,10 +119,11 @@ MonoBehaviour:
     Introduce: "\u5C60\u6740\u8005\u88AB\u9ED1\u6697\u541E\u6CA1\uFF0C\u80FD\u5E26\u6765\u6781\u5927\u7684\u7834\u574F\u3002"
     heart: 3
     path: Enemy/Enemy_9
+    audio: DieMan5
   - enemyId: 10
     killCoin: 24
     killDO: 1
-    life: 280
+    life: 224
     speed: 2
     Def: 0
     Mdef: 0
@@ -122,10 +131,11 @@ MonoBehaviour:
     Introduce: "\u53CA\u5176\u5F3A\u608D\u7684\u6218\u58EB\u3002"
     heart: 1
     path: Enemy/Enemy_10
+    audio: DieMan4
   - enemyId: 11
     killCoin: 75
     killDO: 2
-    life: 600
+    life: 480
     speed: 2
     Def: 0
     Mdef: 0
@@ -133,10 +143,11 @@ MonoBehaviour:
     Introduce: "\u7CBE\u9510\u90E8\u65CF\u6218\u58EB\uFF0C\u914D\u5907\u6076\u6BD2\u98DE\u65A7\u3002"
     heart: 3
     path: Enemy/Enemy_11
+    audio: DieMan6
   - enemyId: 12
     killCoin: 40
     killDO: 2
-    life: 350
+    life: 280
     speed: 3
     Def: 0
     Mdef: 0
@@ -144,10 +155,11 @@ MonoBehaviour:
     Introduce: "\u7CBE\u9510\u5DE8\u9B54\u6218\u58EB\uFF0C\u914D\u5907\u51B0\u4E0A\u6ED1\u884C\u7684\u88C5\u5907\u3002"
     heart: 1
     path: Enemy/Enemy_12
+    audio: DieMan1
   - enemyId: 13
     killCoin: 140
     killDO: 5
-    life: 1200
+    life: 960
     speed: 2
     Def: 0
     Mdef: 0
@@ -155,10 +167,11 @@ MonoBehaviour:
     Introduce: "\u5E26\u9886\u5DE8\u9B54\u8FDB\u884C\u6218\u6597\u3002"
     heart: 6
     path: Enemy/Enemy_13
+    audio: DieMan2
   - enemyId: 14
     killCoin: 200
     killDO: 5
-    life: 2000
+    life: 1600
     speed: 2
     Def: 0
     Mdef: 0
@@ -166,10 +179,11 @@ MonoBehaviour:
     Introduce: "\u5DE8\u578B\u4EBA\u733F\u7C7B\u751F\u7269\uFF0C\u975E\u5E38\u6297\u6253\u3002"
     heart: 5
     path: Enemy/Enemy_14
+    audio: DieMan3
   - enemyId: 15
     killCoin: 22
     killDO: 1
-    life: 250
+    life: 200
     speed: 2
     Def: 0
     Mdef: 2
@@ -177,10 +191,11 @@ MonoBehaviour:
     Introduce: "\u6050\u6016\u7684\u5730\u72F1\u751F\u7269\u3002"
     heart: 1
     path: Enemy/Enemy_15
+    audio: DieMan4
   - enemyId: 16
     killCoin: 125
     killDO: 3
-    life: 1000
+    life: 800
     speed: 2
     Def: 0
     Mdef: 2
@@ -188,10 +203,11 @@ MonoBehaviour:
     Introduce: "\u4ED6\u4EEC\u5E26\u9886\u7A77\u51F6\u6781\u6076\u7684\u519B\u961F\u8E0F\u5165\u6218\u573A\u3002"
     heart: 5
     path: Enemy/Enemy_16
+    audio: DieMan5
   - enemyId: 17
     killCoin: 15
     killDO: 1
-    life: 120
+    life: 96
     speed: 2
     Def: 0
     Mdef: 0
@@ -199,10 +215,11 @@ MonoBehaviour:
     Introduce: "\u6BEB\u65E0\u601D\u60F3\u7684\u9AA8\u9AB8\uFF0C\u9075\u4ECE\u90AA\u6076\u4E3B\u4EBA\u7684\u547D\u4EE4\u884C\u4E8B\u3002"
     heart: 1
     path: Enemy/Enemy_17
+    audio: DieAnimal
   - enemyId: 18
     killCoin: 55
     killDO: 2
-    life: 400
+    life: 320
     speed: 2
     Def: 1
     Mdef: 0
@@ -210,10 +227,11 @@ MonoBehaviour:
     Introduce: "\u9AB7\u9AC5\u9A91\u58EB\u751F\u524D\u662F\u4F1F\u5927\u7684\u6218\u58EB\uFF0C\u7531\u5176\u9057\u9AB8\u590D\u82CF\u800C\u50AC\u751F\u3002"
     heart: 1
     path: Enemy/Enemy_18
+    audio: DieAnimal
   - enemyId: 19
     killCoin: 10
     killDO: 0
-    life: 90
+    life: 72
     speed: 3
     Def: 0
     Mdef: 0
@@ -221,10 +239,11 @@ MonoBehaviour:
     Introduce: "\u957F\u6709\u53CC\u7FC5\u7684\u5351\u9119\u751F\u7269\uFF0C\u80FD\u98DE\u8D8A\u4EFB\u4F55\u5730\u65B9\u3002"
     heart: 1
     path: Enemy/Enemy_19
+    audio: DieAnimal
   - enemyId: 20
     killCoin: 48
     killDO: 1
-    life: 350
+    life: 280
     speed: 2
     Def: 0
     Mdef: 0
@@ -232,6 +251,7 @@ MonoBehaviour:
     Introduce: "\u559C\u597D\u4F5C\u6076\u7684\u5730\u72F1\u98DE\u884C\u751F\u7269\uFF0C\u5E38\u4E0E\u77F3\u50CF\u9B3C\u4E00\u540C\u73B0\u8EAB\u3002"
     heart: 1
     path: Enemy/Enemy_20
+    audio: DieAnimal
   - enemyId: 21
     killCoin: 1
     killDO: 0
@@ -243,10 +263,11 @@ MonoBehaviour:
     Introduce: "\u901F\u5EA6\u975E\u5E38\u5FEB\u7684\u51F6\u6B8B\u751F\u7269\uFF0C\u7ECF\u5E38\u53EF\u4EE5\u8EB2\u907F\u653B\u51FB\u3002"
     heart: 1
     path: Enemy/Enemy_21
+    audio: DieAnimal
   - enemyId: 22
     killCoin: 40
     killDO: 1
-    life: 350
+    life: 280
     speed: 3
     Def: 0
     Mdef: 2
@@ -254,10 +275,11 @@ MonoBehaviour:
     Introduce: "\u8FD9\u79CD\u91CE\u517D\u65E2\u72E1\u733E\u53C8\u81F4\u547D\u3002"
     heart: 1
     path: Enemy/Enemy_22
+    audio: DieAnimal
   - enemyId: 23
     killCoin: 41
     killDO: 1
-    life: 350
+    life: 280
     speed: 3
     Def: 0
     Mdef: 2
@@ -265,10 +287,11 @@ MonoBehaviour:
     Introduce: "\u4EE4\u4EBA\u754F\u60E7\u7684\u90AA\u6076\u751F\u7269\uFF0C\u662F\u6076\u9B54\u5934\u9886\u5EA7\u4E0B\u7684\u730E\u72AC\u3002"
     heart: 1
     path: Enemy/Enemy_23
+    audio: DieAnimal
   - enemyId: 24
     killCoin: 45
     killDO: 1
-    life: 300
+    life: 240
     speed: 1
     Def: 0
     Mdef: 0
@@ -276,10 +299,11 @@ MonoBehaviour:
     Introduce: "\u65E0\u8F9C\u6B7B\u8005\u590D\u6D3B\u7684\u5C38\u4F53\uFF0C\u6CA1\u6709\u601D\u7EF4\u3002"
     heart: 1
     path: Enemy/Enemy_24
+    audio: DieMan5
   - enemyId: 25
     killCoin: 33
     killDO: 1
-    life: 250
+    life: 200
     speed: 1
     Def: 2
     Mdef: 0
@@ -287,10 +311,11 @@ MonoBehaviour:
     Introduce: "\u9635\u4EA1\u7684\u6218\u58EB\uFF0C\u8EAB\u4F53\u88AB\u68EE\u6797\u6D88\u878D\uFF0C\u53EA\u5269\u7A7A\u58F3\u3002"
     heart: 1
     path: Enemy/Enemy_25
+    audio: DieMan6
   - enemyId: 26
     killCoin: 40
     killDO: 1
-    life: 350
+    life: 280
     speed: 2
     Def: 0
     Mdef: 3
@@ -298,10 +323,11 @@ MonoBehaviour:
     Introduce: "\u51F6\u731B\u597D\u6597\u7684\u63A0\u98DF\u8005\u3002"
     heart: 2
     path: Enemy/Enemy_26
+    audio: DieAnimal
   - enemyId: 27
     killCoin: 130
     killDO: 2
-    life: 1000
+    life: 800
     speed: 2
     Def: 3
     Mdef: 0
@@ -309,10 +335,11 @@ MonoBehaviour:
     Introduce: "\u8FD9\u79CD\u5815\u843D\u7684\u751F\u7269\u66FE\u7ECF\u662F\u68EE\u6797\u7684\u4FDD\u62A4\u8005\uFF0C\u62E5\u6709\u94A2\u94C1\u822C\u7684\u6811\u76AE\u3002"
     heart: 1
     path: Enemy/Enemy_27
+    audio: DieMan1
   - enemyId: 28
     killCoin: 400
     killDO: 4
-    life: 3000
+    life: 2400
     speed: 2
     Def: 0
     Mdef: 0
@@ -320,10 +347,11 @@ MonoBehaviour:
     Introduce: "\u5927\u5806\u690D\u7269\u6027\u7269\u8D28\u5728\u6700\u6076\u52A3\u3001\u6700\u8150\u8D25\u4E4B\u5904\u62FC\u51D1\u800C\u6210\u3002"
     heart: 5
     path: Enemy/Enemy_28
+    audio: DieMan2
   - enemyId: 29
     killCoin: 480
     killDO: 5
-    life: 4000
+    life: 3200
     speed: 2
     Def: 0
     Mdef: 0
@@ -331,10 +359,11 @@ MonoBehaviour:
     Introduce: "\u8FD9\u79CD\u5DE8\u517D\u6781\u96BE\u6740\u6B7B\u3002"
     heart: 5
     path: Enemy/Enemy_29
+    audio: DieMan3
   - enemyId: 30
     killCoin: 220
     killDO: 3
-    life: 2500
+    life: 2000
     speed: 1
     Def: 0
     Mdef: 0
@@ -342,10 +371,11 @@ MonoBehaviour:
     Introduce: "\u5CA9\u6D46\u5143\u7D20\u7531\u5CA9\u77F3\u4E0E\u706B\u7130\u7EC4\u6210\uFF0C\u662F\u6B7B\u4EA1\u4E0E\u6BC1\u706D\u7684\u5B58\u5728"
     heart: 5
     path: Enemy/Enemy_30
+    audio: DieMan4
   - enemyId: 31
     killCoin: 22
     killDO: 1
-    life: 200
+    life: 160
     speed: 2
     Def: 0
     Mdef: 0
@@ -353,10 +383,11 @@ MonoBehaviour:
     Introduce: "\u65E0\u754F\u7684\u90E8\u843D\u52C7\u58EB\uFF0C\u8EAB\u4E0A\u7684\u4F24\u75A4\u8BC1\u660E\u5DF2\u7ECF\u901A\u8FC7\u4E86\u52C7\u8005\u4EEA\u5F0F\u3002"
     heart: 1
     path: Enemy/Enemy_31
+    audio: DieMan5
   - enemyId: 32
     killCoin: 12
     killDO: 0
-    life: 120
+    life: 96
     speed: 3
     Def: 0
     Mdef: 0
@@ -364,10 +395,11 @@ MonoBehaviour:
     Introduce: "\u91CE\u86EE\u4EBA\u730E\u4EBA\u662F\u8FC5\u6377\u7684\u52C7\u58EB\u3002"
     heart: 1
     path: Enemy/Enemy_32
+    audio: DieMan6
   - enemyId: 33
     killCoin: 60
     killDO: 2
-    life: 480
+    life: 384
     speed: 2
     Def: 3
     Mdef: 0
@@ -375,10 +407,11 @@ MonoBehaviour:
     Introduce: "\u8FD9\u4E9B\u777F\u667A\u7684\u4EBA\u80FD\u64CD\u7EB5\u5927\u5730\u4E4B\u529B\u3002"
     heart: 1
     path: Enemy/Enemy_33
+    audio: DieMan1
   - enemyId: 34
     killCoin: 60
     killDO: 2
-    life: 480
+    life: 384
     speed: 2
     Def: 0
     Mdef: 3
@@ -386,10 +419,11 @@ MonoBehaviour:
     Introduce: "\u4E13\u6CE8\u4E8E\u7CBE\u795E\u529B\u91CF\u7684\u52C7\u58EB\u3002"
     heart: 1
     path: Enemy/Enemy_34
+    audio: DieMan2
   - enemyId: 35
     killCoin: 85
     killDO: 3
-    life: 640
+    life: 512
     speed: 2
     Def: 0
     Mdef: 0
@@ -397,3 +431,4 @@ MonoBehaviour:
     Introduce: "\u638C\u63E1\u72EC\u7279\u7684\u9ED1\u9B54\u6CD5\u3002"
     heart: 1
     path: Enemy/Enemy_35
+    audio: DieMan3

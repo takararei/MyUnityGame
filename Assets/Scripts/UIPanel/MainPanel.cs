@@ -160,18 +160,27 @@ public class MainPanel : BasePanel
 
     void SetLevelButton()
     {
+        int btnCount;//需要生成的btn数
+        if (playerData.finishedLevelCount >= playerData.levelStar.Length)
+        {
+            btnCount = playerData.finishedLevelCount;
+        }
+        else
+        {
+            btnCount = playerData.finishedLevelCount + 1;
+        }
         //如果没生成过
         if (lvBtnList.Count == 0)
         {
-            for (int i = 0; i < playerData.finishedLevelCount + 1; i++)
+            for (int i = 0; i < btnCount; i++)
             {
                 GenerateLevelButton(i);
             }
         }
         //如果生成过了，需要更新
-        else if (lvBtnList.Count < playerData.finishedLevelCount + 1)
+        else if (lvBtnList.Count < btnCount)
         {
-            for (int i = lvBtnList.Count - 1; i < playerData.finishedLevelCount + 1; i++)
+            for (int i = lvBtnList.Count - 1; i < btnCount; i++)
             {
                 GenerateLevelButton(i);
             }

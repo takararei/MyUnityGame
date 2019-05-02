@@ -69,14 +69,14 @@ public class GameWinPanel:BasePanel
 
     public void ShowStar(int num)
     {
-        if (num >= 9)
+        if (num >= 18)
         {
             //三星处理
             star1.gameObject.SetActive(true);
             star2.gameObject.SetActive(true);
             star3.gameObject.SetActive(true);
         }
-        else if (num >= 5)
+        else if (num >= 10)
         {
             //两星处理
             star1.gameObject.SetActive(true);

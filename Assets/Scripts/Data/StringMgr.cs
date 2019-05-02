@@ -29,5 +29,9 @@ public static class StringMgr
     //音乐
     public const string Button_Clip = "ButtonClick";
     public const string BeginBGM = "Man At Arms";
-    public const string MainBGM = "Best Picture";
+    public const string MainBGM = "Main";
+    public const string GameBGM = "Game";
+    public const string BuildTower = "BuildTower";
+    public const string ReachEnd = "ReachEnd";
+    public const string EnemyComing = "EnemyComing";
 }
