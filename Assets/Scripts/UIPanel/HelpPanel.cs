@@ -159,6 +159,7 @@ public class HelpPanel : BasePanel
         TowerInfo info = TowerInfoMgr.Instance.towerInfoList[toweID];
         Txt_TowerName.text = info.Name;
         Txt_TowerIntroduce.text = info.Introduce;
+        Img_TowerPicture.sprite = FactoryMgr.Instance.GetSprite(info.helpSprite);
         if (info.damageType == 1)
         {
             Txt_Phy.text = info.damage.ToString();
@@ -194,6 +195,7 @@ public class HelpPanel : BasePanel
         Txt_Magic.text = info.Mdef.ToString();
         Txt_Heart.text = info.heart.ToString();
         Txt_Speed.text = info.speed.ToString();
+        Img_EnemyPicture.sprite = FactoryMgr.Instance.GetSprite(info.helpSprite);
         if (!mBtn_EnemyClose.interactable)
         {
             ShowEnemyIntro();
@@ -259,7 +261,7 @@ public class HelpPanel : BasePanel
             this.root = root;
             this.panel = panel;
             towerBtn = root.GetComponent<Button>();
-            //towerBtn.image.sprite= TODO
+            towerBtn.image.sprite = FactoryMgr.Instance.GetSprite(TowerInfoMgr.Instance.towerInfoList[id].helpSprite);
             towerBtn.onClick.AddListener(BtnClick);
         }
 
@@ -286,6 +288,7 @@ public class HelpPanel : BasePanel
             this.root = root;
             this.panel = panel;
             enemyBtn = root.GetComponent<Button>();
+            enemyBtn.image.sprite = FactoryMgr.Instance.GetSprite(EnemyInfoMgr.Instance.enemyInfoList[id].helpSprite);
             enemyBtn.onClick.AddListener(BtnClick);
         }
 

@@ -26,6 +26,7 @@ MonoBehaviour:
     Name: "\u5F13\u7BAD\u5854"
     path: Tower/Tower_1
     audio: Arrow
+    helpSprite: Main/Help/Tower/1
   - towerId: 2
     buildCoin: 70
     sellCoin: 50
@@ -40,6 +41,7 @@ MonoBehaviour:
     Name: "\u51CF\u901F\u5854"
     path: Tower/Tower_2
     audio: Slow
+    helpSprite: Main/Help/Tower/2
   - towerId: 3
     buildCoin: 120
     sellCoin: 110
@@ -54,6 +56,7 @@ MonoBehaviour:
     Name: "\u706B\u70AE\u5854"
     path: Tower/Tower_3
     audio: Bomb
+    helpSprite: Main/Help/Tower/3
   - towerId: 4
     buildCoin: 100
     sellCoin: 85
@@ -68,6 +71,7 @@ MonoBehaviour:
     Name: "\u6CD5\u5E08\u5854"
     path: Tower/Tower_4
     audio: Magic
+    helpSprite: Main/Help/Tower/4
   - towerId: 5
     buildCoin: 110
     sellCoin: 90
@@ -82,6 +86,7 @@ MonoBehaviour:
     Name: "\u5BBD\u5934\u7BAD\u5854"
     path: Tower/Tower_5
     audio: Arrow
+    helpSprite: Main/Help/Tower/5
   - towerId: 6
     buildCoin: 110
     sellCoin: 90
@@ -96,6 +101,7 @@ MonoBehaviour:
     Name: "\u6162\u901F\u5854"
     path: Tower/Tower_6
     audio: Slow
+    helpSprite: Main/Help/Tower/6
   - towerId: 7
     buildCoin: 200
     sellCoin: 180
@@ -110,6 +116,7 @@ MonoBehaviour:
     Name: "\u8FDB\u9636\u706B\u70AE"
     path: Tower/Tower_7
     audio: Bomb
+    helpSprite: Main/Help/Tower/7
   - towerId: 8
     buildCoin: 160
     sellCoin: 140
@@ -124,6 +131,7 @@ MonoBehaviour:
     Name: "\u672F\u58EB\u5854"
     path: Tower/Tower_8
     audio: Magic
+    helpSprite: Main/Help/Tower/8
   - towerId: 9
     buildCoin: 160
     sellCoin: 140
@@ -138,6 +146,7 @@ MonoBehaviour:
     Name: "\u795E\u5C04\u5854"
     path: Tower/Tower_9
     audio: Arrow
+    helpSprite: Main/Help/Tower/9
   - towerId: 10
     buildCoin: 160
     sellCoin: 140
@@ -152,6 +161,7 @@ MonoBehaviour:
     Name: "\u51B0\u51BB\u5854"
     path: Tower/Tower_10
     audio: Slow
+    helpSprite: Main/Help/Tower/10
   - towerId: 11
     buildCoin: 290
     sellCoin: 250
@@ -166,6 +176,7 @@ MonoBehaviour:
     Name: "\u69B4\u5F39\u70AE"
     path: Tower/Tower_11
     audio: Bomb
+    helpSprite: Main/Help/Tower/11
   - towerId: 12
     buildCoin: 220
     sellCoin: 190
@@ -180,6 +191,7 @@ MonoBehaviour:
     Name: "\u5DEB\u5E08\u5854"
     path: Tower/Tower_12
     audio: Magic
+    helpSprite: Main/Help/Tower/12
   - towerId: 13
     buildCoin: 230
     sellCoin: 195
@@ -194,6 +206,7 @@ MonoBehaviour:
     Name: "\u6E38\u5C04\u5854"
     path: Tower/Tower_13
     audio: Arrow
+    helpSprite: Main/Help/Tower/13
   - towerId: 14
     buildCoin: 230
     sellCoin: 195
@@ -208,6 +221,7 @@ MonoBehaviour:
     Name: "\u51B0\u971C\u5854"
     path: Tower/Tower_14
     audio: Slow
+    helpSprite: Main/Help/Tower/14
   - towerId: 15
     buildCoin: 350
     sellCoin: 300
@@ -222,6 +236,7 @@ MonoBehaviour:
     Name: "\u5927\u8D1D\u838E"
     path: Tower/Tower_15
     audio: Bomb
+    helpSprite: Main/Help/Tower/15
   - towerId: 16
     buildCoin: 270
     sellCoin: 230
@@ -236,3 +251,4 @@ MonoBehaviour:
     Name: "\u5965\u672F\u5854"
     path: Tower/Tower_16
     audio: Magic
+    helpSprite: Main/Help/Tower/16

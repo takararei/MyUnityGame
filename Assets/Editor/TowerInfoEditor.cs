@@ -45,6 +45,7 @@ public class TowerInfoEditor:BaseExcelEditor
                     info.nextTowerId = GetInt(11);
                     info.path = GetString(12);
                     info.audio = GetString(13);
+                    info.helpSprite = GetString(14);
                     list.Add(info);
                 }
             }

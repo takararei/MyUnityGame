@@ -44,16 +44,19 @@ public class BaseTower : MonoBehaviour, IBaseTower
     {
 
     }
+
+    public void OnInit()
+    {
+        EventCenter.AddListener<Transform>(EventType.RemoveEnemy, OnRemoveEnemy);
+    }
+
+    public void OnRemoveEnemy(Transform enemyTrans)
+    {
+        enemyTargetList.Remove(enemyTrans);
+    }
+
     protected void Update()
     {
-        for (int i=0;i<enemyTargetList.Count;i++)
-        {
-           if(enemyTargetList[i].gameObject.activeSelf==false)
-            {
-                enemyTargetList.Remove(enemyTargetList[i]);
-                i--;
-            }
-        }
         if (towerProperty.target == null && enemyTargetList.Count != 0)
         {
             towerProperty.target = enemyTargetList[0];
@@ -104,6 +107,7 @@ public class BaseTower : MonoBehaviour, IBaseTower
         towerProperty.Recycle();
         enemyTargetList.Clear();
         FactoryMgr.Instance.PushGame(towerInfo.path, gameObject);
+        EventCenter.RemoveListener<Transform>(EventType.RemoveEnemy, OnRemoveEnemy);
     }
 
 }

@@ -18,6 +18,7 @@ public class EnemyInfo
     public int heart;
     public string path;
     public string audio;
+    public string helpSprite;
 
     public void Init()
     {

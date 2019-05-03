@@ -42,6 +42,7 @@ public class EnemyInfoEditor:BaseExcelEditor
                     info.heart = GetInt(9);
                     info.path = GetString(10);
                     info.audio = GetString(11);
+                    info.helpSprite = GetString(12);
                     list.Add(info);
                 }
             }

@@ -20,4 +20,5 @@ public class TowerInfo
     public string Name;
     public string path;
     public string audio;
+    public string helpSprite;
 }

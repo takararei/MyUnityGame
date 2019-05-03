@@ -126,7 +126,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             transform.position = Vector3.Lerp(
                     transform.position, //起点
                 pathPoint,//终点
-                1 / Vector3.Distance(transform.position, pathPoint) * Time.deltaTime * enemyInfo.speed * slowSpeed*0.5f);
+                1 / Vector3.Distance(transform.position, pathPoint) * Time.deltaTime * enemyInfo.speed * slowSpeed*0.4f);
 
             if (Vector3.Distance(transform.position, pathPoint) <= 0.01f)
             //if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
@@ -233,6 +233,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Enemy_ReachEnd, 1);
             AudioMgr.Instance.PlayEffectMusic(StringMgr.ReachEnd);
         }
+        EventCenter.Broadcast(EventType.RemoveEnemy, transform);
         GameController.Instance.currRoundkillNum++;
         ResetEnemy();
     }

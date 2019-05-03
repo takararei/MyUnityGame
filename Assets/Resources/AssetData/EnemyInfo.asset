@@ -24,6 +24,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_1
     audio: DieMan4
+    helpSprite: Main/Help/Enemy/1
   - enemyId: 2
     killCoin: 9
     killDO: 1
@@ -36,6 +37,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_2
     audio: DieMan1
+    helpSprite: Main/Help/Enemy/2
   - enemyId: 3
     killCoin: 90
     killDO: 3
@@ -48,6 +50,7 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_3
     audio: DieMan2
+    helpSprite: Main/Help/Enemy/3
   - enemyId: 4
     killCoin: 18
     killDO: 1
@@ -60,6 +63,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_4
     audio: DieMan4
+    helpSprite: Main/Help/Enemy/4
   - enemyId: 5
     killCoin: 75
     killDO: 2
@@ -72,6 +76,7 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_5
     audio: DieMan1
+    helpSprite: Main/Help/Enemy/5
   - enemyId: 6
     killCoin: 270
     killDO: 3
@@ -84,6 +89,7 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_6
     audio: DieMan2
+    helpSprite: Main/Help/Enemy/6
   - enemyId: 7
     killCoin: 20
     killDO: 1
@@ -96,6 +102,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_7
     audio: DieMan3
+    helpSprite: Main/Help/Enemy/7
   - enemyId: 8
     killCoin: 45
     killDO: 2
@@ -108,6 +115,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_8
     audio: DieMan4
+    helpSprite: Main/Help/Enemy/8
   - enemyId: 9
     killCoin: 140
     killDO: 3
@@ -120,6 +128,7 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_9
     audio: DieMan5
+    helpSprite: Main/Help/Enemy/9
   - enemyId: 10
     killCoin: 24
     killDO: 1
@@ -132,6 +141,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_10
     audio: DieMan4
+    helpSprite: Main/Help/Enemy/10
   - enemyId: 11
     killCoin: 75
     killDO: 2
@@ -144,6 +154,7 @@ MonoBehaviour:
     heart: 3
     path: Enemy/Enemy_11
     audio: DieMan6
+    helpSprite: Main/Help/Enemy/11
   - enemyId: 12
     killCoin: 40
     killDO: 2
@@ -156,6 +167,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_12
     audio: DieMan1
+    helpSprite: Main/Help/Enemy/12
   - enemyId: 13
     killCoin: 140
     killDO: 5
@@ -168,6 +180,7 @@ MonoBehaviour:
     heart: 6
     path: Enemy/Enemy_13
     audio: DieMan2
+    helpSprite: Main/Help/Enemy/13
   - enemyId: 14
     killCoin: 200
     killDO: 5
@@ -180,6 +193,7 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_14
     audio: DieMan3
+    helpSprite: Main/Help/Enemy/14
   - enemyId: 15
     killCoin: 22
     killDO: 1
@@ -192,6 +206,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_15
     audio: DieMan4
+    helpSprite: Main/Help/Enemy/15
   - enemyId: 16
     killCoin: 125
     killDO: 3
@@ -204,6 +219,7 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_16
     audio: DieMan5
+    helpSprite: Main/Help/Enemy/16
   - enemyId: 17
     killCoin: 15
     killDO: 1
@@ -216,6 +232,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_17
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/17
   - enemyId: 18
     killCoin: 55
     killDO: 2
@@ -228,6 +245,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_18
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/18
   - enemyId: 19
     killCoin: 10
     killDO: 0
@@ -240,6 +258,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_19
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/19
   - enemyId: 20
     killCoin: 48
     killDO: 1
@@ -252,6 +271,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_20
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/20
   - enemyId: 21
     killCoin: 1
     killDO: 0
@@ -264,6 +284,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_21
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/21
   - enemyId: 22
     killCoin: 40
     killDO: 1
@@ -272,10 +293,11 @@ MonoBehaviour:
     Def: 0
     Mdef: 2
     Name: "\u96EA\u72FC"
-    Introduce: "\u8FD9\u79CD\u91CE\u517D\u65E2\u72E1\u733E\u53C8\u81F4\u547D\u3002"
+    Introduce: "\u901F\u5EA6\u975E\u5E38\u5FEB\u7684\u51B0\u539F\u751F\u7269\uFF0C\u7ECF\u5E38\u53EF\u4EE5\u8EB2\u907F\u653B\u51FB\u3002"
     heart: 1
     path: Enemy/Enemy_22
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/22
   - enemyId: 23
     killCoin: 41
     killDO: 1
@@ -288,6 +310,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_23
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/23
   - enemyId: 24
     killCoin: 45
     killDO: 1
@@ -300,6 +323,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_24
     audio: DieMan5
+    helpSprite: Main/Help/Enemy/24
   - enemyId: 25
     killCoin: 33
     killDO: 1
@@ -312,6 +336,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_25
     audio: DieMan6
+    helpSprite: Main/Help/Enemy/25
   - enemyId: 26
     killCoin: 40
     killDO: 1
@@ -324,6 +349,7 @@ MonoBehaviour:
     heart: 2
     path: Enemy/Enemy_26
     audio: DieAnimal
+    helpSprite: Main/Help/Enemy/26
   - enemyId: 27
     killCoin: 130
     killDO: 2
@@ -336,6 +362,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_27
     audio: DieMan1
+    helpSprite: Main/Help/Enemy/27
   - enemyId: 28
     killCoin: 400
     killDO: 4
@@ -348,6 +375,7 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_28
     audio: DieMan2
+    helpSprite: Main/Help/Enemy/28
   - enemyId: 29
     killCoin: 480
     killDO: 5
@@ -360,6 +388,7 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_29
     audio: DieMan3
+    helpSprite: Main/Help/Enemy/29
   - enemyId: 30
     killCoin: 220
     killDO: 3
@@ -372,6 +401,7 @@ MonoBehaviour:
     heart: 5
     path: Enemy/Enemy_30
     audio: DieMan4
+    helpSprite: Main/Help/Enemy/30
   - enemyId: 31
     killCoin: 22
     killDO: 1
@@ -384,6 +414,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_31
     audio: DieMan5
+    helpSprite: Main/Help/Enemy/31
   - enemyId: 32
     killCoin: 12
     killDO: 0
@@ -396,6 +427,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_32
     audio: DieMan6
+    helpSprite: Main/Help/Enemy/32
   - enemyId: 33
     killCoin: 60
     killDO: 2
@@ -408,6 +440,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_33
     audio: DieMan1
+    helpSprite: Main/Help/Enemy/33
   - enemyId: 34
     killCoin: 60
     killDO: 2
@@ -420,6 +453,7 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_34
     audio: DieMan2
+    helpSprite: Main/Help/Enemy/34
   - enemyId: 35
     killCoin: 85
     killDO: 3
@@ -432,3 +466,4 @@ MonoBehaviour:
     heart: 1
     path: Enemy/Enemy_35
     audio: DieMan3
+    helpSprite: Main/Help/Enemy/35

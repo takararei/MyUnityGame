@@ -18,7 +18,7 @@ public class TowerBuilder : IBuilder<BaseTower>
 
     public void GetOtherResource(BaseTower productClassGo)
     {
-
+        productClassGo.OnInit();
     }
 
     public GameObject GetProduct()
@@ -28,6 +28,7 @@ public class TowerBuilder : IBuilder<BaseTower>
         GameObject go = FactoryMgr.Instance.GetGame(TowerInfoMgr.Instance.towerInfoList[TowerId - 1].path);
         BaseTower tower = GetProductClass(go);
         GetData(tower);
+        GetOtherResource(tower);
         go.transform.SetParent(selectGrid.transform);
         go.transform.position = new Vector3(pos.x,pos.y,2);//此处后期转向需要矫正
         go.transform.up = Vector3.up;
