@@ -71,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 1854168416010314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
+  m_LocalScale: {x: 2.05, y: 2.05, z: 1}
   m_Children: []
   m_Father: {fileID: 4530416086594770}
   m_RootOrder: 1
@@ -118,7 +118,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.3
 --- !u!95 &95778194829976304
 Animator:
   serializedVersion: 3
@@ -174,6 +174,8 @@ MonoBehaviour:
     Introduce: 
     Name: 
     path: 
+    audio: 
+    helpSprite: 
   towerProperty: {fileID: 0}
   enemyTargetList: []
 --- !u!212 &212474982219533428

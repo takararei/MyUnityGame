@@ -49,7 +49,7 @@ public class Level
         {
             roundList[currentRound].Handle(currentRound);
         }
-        //PlayerDataOperator.Instance.SavePlayerData();//TODO
+        PlayerDataOperator.Instance.SavePlayerData();
     }
 
     public void AddRoundNum()

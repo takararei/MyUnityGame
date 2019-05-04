@@ -27,24 +27,24 @@ public class PlayerData
         itemNum = new int[itemCount];
         achievementList = new AchievementRecord[AcCount];
         //levelStar = new List<int>();
-        //for(int i=0;i<levelCount;i++)
-        //{
-        //    levelStar.Add(0);
-        //}
+        for (int i = 0; i < levelCount; i++)
+        {
+            levelStar[i] = 0;
+        }
 
 
         //itemNum = new List<int>();
-        //for(int k=0;k<itemCount;k++)
-        //{
-        //    itemNum.Add(0);
-        //}
+        for (int k = 0; k < itemCount; k++)
+        {
+            itemNum[k]=0;
+        }
 
 
         //achievementList = new List<AchievementRecord>();
-        //for(int j=0;j<AcCount;j++)
-        //{
-        //    achievementList.Add(new AchievementRecord());
-        //}
+        for (int j = 0; j < AcCount; j++)
+        {
+            achievementList[j]=new AchievementRecord();
+        }
     }
 
 

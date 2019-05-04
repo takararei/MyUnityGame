@@ -16,7 +16,7 @@ MonoBehaviour:
     buildCoin: 70
     sellCoin: 50
     damageType: 1
-    damageRange: 1.3
+    damageRange: 2
     CD: 1
     damage: 5
     Range: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     buildCoin: 70
     sellCoin: 50
     damageType: 1
-    damageRange: 1.4
+    damageRange: 2
     CD: 5
     damage: 5
     Range: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
     buildCoin: 120
     sellCoin: 110
     damageType: 1
-    damageRange: 1.5
+    damageRange: 2
     CD: 5
     damage: 15
     Range: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
     buildCoin: 100
     sellCoin: 85
     damageType: 2
-    damageRange: 1.6
+    damageRange: 2
     CD: 3
     damage: 15
     Range: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     buildCoin: 110
     sellCoin: 90
     damageType: 1
-    damageRange: 1.6
+    damageRange: 2.5
     CD: 1
     damage: 9
     Range: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
     buildCoin: 110
     sellCoin: 90
     damageType: 1
-    damageRange: 1.6
+    damageRange: 2.3
     CD: 5
     damage: 7
     Range: 1
@@ -106,7 +106,7 @@ MonoBehaviour:
     buildCoin: 200
     sellCoin: 180
     damageType: 1
-    damageRange: 1.6
+    damageRange: 2.5
     CD: 5
     damage: 30
     Range: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
     buildCoin: 160
     sellCoin: 140
     damageType: 2
-    damageRange: 1.6
+    damageRange: 2.5
     CD: 3
     damage: 33
     Range: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
     buildCoin: 160
     sellCoin: 140
     damageType: 1
-    damageRange: 1.6
+    damageRange: 2.8
     CD: 1
     damage: 15
     Range: 1
@@ -151,7 +151,7 @@ MonoBehaviour:
     buildCoin: 160
     sellCoin: 140
     damageType: 1
-    damageRange: 1.6
+    damageRange: 2.5
     CD: 5
     damage: 10
     Range: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
     buildCoin: 290
     sellCoin: 250
     damageType: 1
-    damageRange: 1.6
+    damageRange: 3
     CD: 5
     damage: 58
     Range: 1
@@ -181,7 +181,7 @@ MonoBehaviour:
     buildCoin: 220
     sellCoin: 190
     damageType: 2
-    damageRange: 1.6
+    damageRange: 2.8
     CD: 3
     damage: 55
     Range: 1
@@ -196,7 +196,7 @@ MonoBehaviour:
     buildCoin: 230
     sellCoin: 195
     damageType: 1
-    damageRange: 1.6
+    damageRange: 3.2
     CD: 0.5
     damage: 20
     Range: 1
@@ -211,7 +211,7 @@ MonoBehaviour:
     buildCoin: 230
     sellCoin: 195
     damageType: 1
-    damageRange: 1.6
+    damageRange: 2.6
     CD: 4
     damage: 16
     Range: 1
@@ -226,7 +226,7 @@ MonoBehaviour:
     buildCoin: 350
     sellCoin: 300
     damageType: 1
-    damageRange: 1.6
+    damageRange: 3.5
     CD: 5
     damage: 75
     Range: 1
@@ -241,7 +241,7 @@ MonoBehaviour:
     buildCoin: 270
     sellCoin: 230
     damageType: 2
-    damageRange: 1.6
+    damageRange: 3.2
     CD: 2
     damage: 80
     Range: 1

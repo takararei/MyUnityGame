@@ -17,20 +17,19 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
     public override void Init()
     {
         //base.Init();
+        SetPath();
+        SetEmptyPath();
         playerData = LoadPlayerData();
         GameRoot.Instance.data = playerData;
     }
-    public PlayerDataOperator()
-    {
-        SetPath();
-        SetEmptyPath();
-    }
+   
     public PlayerData LoadPlayerData()
     {
         //如果路径上有文件，就读取文件
         if (File.Exists(path))
         {
             //读取数据
+            Debug.Log("读取数据");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(path, FileMode.Open);
             playerData = (PlayerData)bf.Deserialize(file);
@@ -39,7 +38,9 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
         //如果没有文件，就new出一个PlayerData
         else
         {
+            Debug.Log("重新生成");
             playerData = new PlayerData();
+            SavePlayerData();
         }
 
         return playerData;
@@ -92,28 +93,28 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
     void SetPath()
     {
         //安卓平台
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            path = Application.persistentDataPath + "/playerData.gd";
-        }
-        //windows编辑器
-        else if (Application.platform == RuntimePlatform.WindowsEditor)
-        {
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+        //    path = Application.persistentDataPath + "/playerData.gd";
+        //}
+        ////windows编辑器
+        //else if (Application.platform == RuntimePlatform.WindowsEditor)
+        //{
             path = Application.streamingAssetsPath + "/playerData.gd";
-        }
+        //}
     }
 
     void SetEmptyPath()
     {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            emptyPath = Application.persistentDataPath + "/playerDataEmpty.gd";
-        }
-        //windows编辑器
-        else if (Application.platform == RuntimePlatform.WindowsEditor)
-        {
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+        //    emptyPath = Application.persistentDataPath + "/playerDataEmpty.gd";
+        //}
+        ////windows编辑器
+        //else if (Application.platform == RuntimePlatform.WindowsEditor)
+        //{
             emptyPath = Application.streamingAssetsPath + "/playerDataEmpty.gd";
-        }
+        //}
     }
  
 }

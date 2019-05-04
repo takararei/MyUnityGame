@@ -276,7 +276,7 @@ public class GameController : MonoBehaviour
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_100, _DO);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_1000, _DO);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_10000, _DO);
-        //PlayerDataOperator.Instance.SavePlayerData();
+        PlayerDataOperator.Instance.SavePlayerData();
         UIMgr.Instance.Show(UIPanelName.GameOverPanel);
     }
 
@@ -312,7 +312,7 @@ public class GameController : MonoBehaviour
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_100, _DO);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_1000, _DO);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_10000, _DO);
-        //PlayerDataOperator.Instance.SavePlayerData();
+        PlayerDataOperator.Instance.SavePlayerData();
         UIMgr.Instance.Show(UIPanelName.GameWinPanel);
     }
     
