@@ -75,7 +75,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         {
             return;
         }
-        animator.speed = 1;
+        if(hasFreeze)
+        {
+            animator.speed = 0;
+        }
+        else
+        {
+            animator.speed = 1;
+        }
 
         EnemyMove();
 

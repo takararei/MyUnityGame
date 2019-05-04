@@ -111,7 +111,7 @@ MonoBehaviour:
     damage: 30
     Range: 1
     nextTowerId: 11
-    bullectPath: Bullect/Bullect_7
+    bullectPath: Bullect/Bullect_3
     Introduce: "\u5F3A\u5316\u578B\u7684\u77EE\u4EBA\u70AE\uFF0C\u5A01\u529B\u66F4\u5F3A\u3002"
     Name: "\u8FDB\u9636\u706B\u70AE"
     path: Tower/Tower_7
@@ -171,7 +171,7 @@ MonoBehaviour:
     damage: 58
     Range: 1
     nextTowerId: 15
-    bullectPath: Bullect/Bullect_11
+    bullectPath: Bullect/Bullect_3
     Introduce: "\u70AE\u5F39\u8D8A\u6765\u8D8A\u5927\uFF0C\u654C\u4EBA\u5DF2\u7ECF\u6BEB\u65E0\u751F\u5B58\u5E0C\u671B\u3002"
     Name: "\u69B4\u5F39\u70AE"
     path: Tower/Tower_11
@@ -231,7 +231,7 @@ MonoBehaviour:
     damage: 75
     Range: 1
     nextTowerId: 0
-    bullectPath: Bullect/Bullect_15
+    bullectPath: Bullect/Bullect_3
     Introduce: "\u53F2\u4E0A\u6700\u5DE8\u5927\u3001\u6700\u51F6\u731B\u7684\u706B\u70AE\u4E4B\u4E00\u3002"
     Name: "\u5927\u8D1D\u838E"
     path: Tower/Tower_15

@@ -156,6 +156,7 @@
     <Compile Include="Assets\Scripts\Tower\BaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\Bullect.cs" />
     <Compile Include="Assets\Scripts\Tower\Effect.cs" />
+    <Compile Include="Assets\Scripts\Tower\FreezeBullect.cs" />
     <Compile Include="Assets\Scripts\Tower\IBaseTower.cs" />
     <Compile Include="Assets\Scripts\Tower\MagicBullect.cs" />
     <Compile Include="Assets\Scripts\Tower\MagicProperty.cs" />
