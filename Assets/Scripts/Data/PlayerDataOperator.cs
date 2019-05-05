@@ -86,7 +86,7 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
         FileStream file = File.Create(path);
         bf.Serialize(file, playerData);
         file.Close();
-
+        Debug.Log("保存数据");
     }
 
     //设置文件的路径，在手机上运行时Application.persistentDataPath这个路径才是可以读写的路径

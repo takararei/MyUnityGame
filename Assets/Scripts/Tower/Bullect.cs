@@ -7,7 +7,6 @@ using UnityEngine;
 public class Bullect : MonoBehaviour
 {
     [HideInInspector]
-    public Transform targetTrans;
     protected Animator animator;
     protected float moveSpeed = 1;
     [HideInInspector]
@@ -19,12 +18,12 @@ public class Bullect : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void SetData(BaseTower baseTower)
-    {
-        this.bsTower = baseTower;
-        targetTrans = bsTower.towerProperty.target;
-    }
-    private void Update()
+    //public void SetData(BaseTower baseTower)
+    //{
+    //    this.bsTower = baseTower;
+    //    targetTrans = bsTower.towerProperty.target;
+    //}
+    protected virtual void Update()
     {
         if (GameController.Instance.isGameOver)
         {
@@ -38,7 +37,7 @@ public class Bullect : MonoBehaviour
         }
 
         //如果飞到一半突然物体已经消失 则子弹也消失
-        if (targetTrans == null || !targetTrans.gameObject.activeSelf)//|| GameController.Instance.isGameOver)
+        if (bsTower.towerProperty.target == null || !bsTower.towerProperty.target.gameObject.activeSelf)//|| GameController.Instance.isGameOver)
         {
             DestoryBullect();
             return;
@@ -49,16 +48,16 @@ public class Bullect : MonoBehaviour
 
     protected virtual void BullectMove()
     {
-        transform.position = Vector3.Lerp(transform.position, targetTrans.position,
-              1 / Vector3.Distance(transform.position, targetTrans.position) * Time.deltaTime * moveSpeed * 10);
-        transform.right = targetTrans.position - transform.position;
+        transform.position = Vector3.Lerp(transform.position, bsTower.towerProperty.target.position,
+              1 / Vector3.Distance(transform.position, bsTower.towerProperty.target.position) * Time.deltaTime * moveSpeed * 10);
+        transform.right = bsTower.towerProperty.target.position - transform.position;
 
     }
 
     protected virtual void DestoryBullect()
     {
         animator.speed = 0;
-        targetTrans = null;
+        //bsTower.towerProperty.target = null;
         if (gameObject.activeSelf == true)//未被回收
         {
             FactoryMgr.Instance.PushGame(bsTower.towerInfo.bullectPath, gameObject);
@@ -71,7 +70,7 @@ public class Bullect : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void  OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "enemy" && other.gameObject.activeSelf)
         {

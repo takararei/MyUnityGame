@@ -12,7 +12,7 @@ public class BullectBuilder : IBuilder<Bullect>
     public void GetData(Bullect productClassGo)
     {
         productClassGo.bsTower = baseTower;
-        productClassGo.targetTrans = baseTower.towerProperty.target;
+        //productClassGo.targetTrans = baseTower.towerProperty.target;
         productClassGo.isSetData = true;
     }
 

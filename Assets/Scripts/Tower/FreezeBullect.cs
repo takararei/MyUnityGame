@@ -10,37 +10,74 @@ public class FreezeBullect:Bullect
     public float freezeTime = 2;
     float showTime = 0.9f;
     float showTimer;
+    bool isAttacked = false;
     protected override void BullectMove()
     {
+        if (!isAttacked)
+        {
+            Attack();
+        }
         if (showTimer < showTime)
         {
             showTimer += Time.deltaTime;
         }
         else
         {
-            Attack();
             DestoryBullect();
         }
     }
 
+    protected override void Update()
+    {
+        if (GameController.Instance.isGameOver)
+        {
+            DestoryBullect();
+            return;
+        }
+        if (GameController.Instance.isPause || !isSetData)
+        {
+            animator.speed = 0;
+            return;
+        }
+
+        animator.speed = 1;
+        BullectMove();
+    }
+
     void Attack()
     {
-        foreach (var item in bsTower.enemyTargetList)
+        isAttacked = true;
+        //transform.localScale = Vector3.one;
+        //GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 255f);
+        animator.Play("Attack", -1, 0);
+        animator.Update(0);
+        for (int i = 0; i < bsTower.enemyTargetList.Count; i++)
         {
+            Transform item = bsTower.enemyTargetList[i];
             if (item.gameObject.activeSelf == false)
             {
                 continue;
             }
-            item.SendMessage("FreezeDebuf", freezeTime);
+            item.SendMessage("SlowDebuf", freezeTime);
             item.SendMessage("TakeDamage", this);
         }
+        //foreach (var item in bsTower.enemyTargetList)
+        //{
+        //    if (item.gameObject.activeSelf == false)
+        //    {
+        //        continue;
+        //    }
+        //    item.SendMessage("FreezeDebuf", freezeTime);
+        //    item.SendMessage("TakeDamage", this);
+        //}
     }
 
     protected override void DestoryBullect()
     {
-        showTimer = 0;
-        animator.Update(0);
         base.DestoryBullect();
+
+        isAttacked = false;
+        showTimer = 0;
     }
 
 }

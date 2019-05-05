@@ -52,6 +52,10 @@ public class BaseTower : MonoBehaviour, IBaseTower
 
     public void OnRemoveEnemy(Transform enemyTrans)
     {
+        if(towerProperty.target==enemyTrans)
+        {
+            towerProperty.target = null;
+        }
         enemyTargetList.Remove(enemyTrans);
     }
 
@@ -104,6 +108,10 @@ public class BaseTower : MonoBehaviour, IBaseTower
 
     public void Recycle()
     {
+        if(!gameObject.activeSelf)
+        {
+            return;
+        }
         towerProperty.Recycle();
         enemyTargetList.Clear();
         FactoryMgr.Instance.PushGame(towerInfo.path, gameObject);

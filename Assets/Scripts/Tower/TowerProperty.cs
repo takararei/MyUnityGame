@@ -68,14 +68,6 @@ public class TowerProperty : MonoBehaviour
         isBeginCD = true;
         GameController.Instance.CreateBullect(baseTower);
         AudioMgr.Instance.PlayEffectMusic(baseTower.towerInfo.audio);
-        //bullectGO = FactoryManager.Instance.GetGame(baseTower.towerInfo.bullectPath);//可以考虑做成BullectBuilderTODO
-        //bullectGO.transform.SetParent(GameController.Instance.gameTrans);
-        //bullectGO.transform.position = transform.position - new Vector3(0, 0, 2);
-        //bullectGO.transform.right = Vector3.right;
-        //Bullect bu = bullectGO.GetComponent<Bullect>();
-        //bu.targetTrans = target;
-        //bu.towerInfo = baseTower.towerInfo;
-        //bu.isSetData = true;
     }
 
     public virtual void Recycle()

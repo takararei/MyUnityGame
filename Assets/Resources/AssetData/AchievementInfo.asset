@@ -80,14 +80,14 @@ MonoBehaviour:
     FinshedSprite: Main/Achievement/Finished/11
   - id: 12
     name: "\u52C7\u6562\u7684\u5FC3"
-    introduce: "\u6740\u6B7B\u654C\u4EBA100"
-    Count: 100
+    introduce: "\u6740\u6B7B\u654C\u4EBA\u6570\u76EE\u8FBE\u52301000"
+    Count: 1000
     unFinishSprite: Main/Achievement/Unfinished/12
     FinshedSprite: Main/Achievement/Finished/12
   - id: 13
     name: "\u5927\u72EC\u88C1\u8005"
-    introduce: "\u6740\u6B7B\u654C\u4EBA1000"
-    Count: 1000
+    introduce: "\u6740\u6B7B\u654C\u4EBA\u6570\u76EE\u8FBE\u523010000"
+    Count: 10000
     unFinishSprite: Main/Achievement/Unfinished/13
     FinshedSprite: Main/Achievement/Finished/13
   - id: 14

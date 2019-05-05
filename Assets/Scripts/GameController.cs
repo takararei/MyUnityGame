@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
                 {
                     return;
                 }
-                AudioMgr.Instance.PlayEffectMusic(StringMgr.EnemyComing);
+                
                 AddRoundNum();
             }
             else
@@ -201,6 +201,11 @@ public class GameController : MonoBehaviour
         currRoundkillNum = 0;
         level.AddRoundNum();
         level.HandleRound();
+        if(level.currentRound>=level.info.totalRound)
+        {
+            return;
+        }
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.EnemyComing);
         nowRound++;
         //更新面板上的回合显示
         ChangeRound();
@@ -283,7 +288,7 @@ public class GameController : MonoBehaviour
     public void GameWin()
     {
         isPause = true;
-        
+        isGameOver = true;
         //更新玩家记录的星级 TODO
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
         int star = 1;
@@ -318,9 +323,13 @@ public class GameController : MonoBehaviour
     
     void UseItem(int itemType)
     {
-        foreach (var item in enemyAliveList)
+        for(int i=0;i<enemyAliveList.Count;i++)
         {
-            item.SendMessage("OnItemEffect", itemType);//TODO
+            enemyAliveList[i].SendMessage("OnItemEffect", itemType);
         }
+        //foreach (var item in enemyAliveList)
+        //{
+        //    item.SendMessage("OnItemEffect", itemType);//TODO
+        //}
     }
 }
