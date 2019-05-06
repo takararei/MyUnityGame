@@ -155,7 +155,7 @@ public class HelpPanel : BasePanel
 
     public void UpdateTowerIntro(int toweID)
     {
-        //更新图片 TODO
+        //更新图片 
         TowerInfo info = TowerInfoMgr.Instance.towerInfoList[toweID];
         Txt_TowerName.text = info.Name;
         Txt_TowerIntroduce.text = info.Introduce;
@@ -185,7 +185,7 @@ public class HelpPanel : BasePanel
 
     public void UpdateEnemyIntro(int EnemyID)
     {
-        //更新图片TODO
+        //更新图片
         EnemyInfo info = EnemyInfoMgr.Instance.enemyInfoList[EnemyID];
         Txt_EnemyName.text = info.Name;
         Txt_EnemyIntroduce.text = info.Introduce;

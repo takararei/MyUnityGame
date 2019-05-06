@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
 
         enemyBuilder = new EnemyBuilder();
         towerBuilder = new TowerBuilder();
-        bullectBuilder = new BullectBuilder(); //TODO
+        bullectBuilder = new BullectBuilder(); 
         currentLevel = GameRoot.Instance.pickLevel;
         info = lvInfoMgr.levelInfoList[currentLevel];
         //初始化地图
@@ -263,7 +263,7 @@ public class GameController : MonoBehaviour
 
     public void ChangeDO(int num)
     {
-        _DO += DO;
+        _DO += num;
     }
 
     public void ChangeRound()
@@ -276,7 +276,7 @@ public class GameController : MonoBehaviour
         isGameOver = true;
         isPause = true;
         
-        //保存数据 TODO 保存钻石
+        //保存数据  保存钻石
         PlayerDataOperator.Instance.playerData.DO += _DO;
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_100, _DO);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_1000, _DO);
@@ -289,7 +289,7 @@ public class GameController : MonoBehaviour
     {
         isPause = true;
         isGameOver = true;
-        //更新玩家记录的星级 TODO
+        //更新玩家记录的星级 
         //如果是通关新的关卡，则更新当前的已经完成的关卡数
         int star = 1;
         if(life>=10)
@@ -318,6 +318,7 @@ public class GameController : MonoBehaviour
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_1000, _DO);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.DO_10000, _DO);
         PlayerDataOperator.Instance.SavePlayerData();
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.GameWin);
         UIMgr.Instance.Show(UIPanelName.GameWinPanel);
     }
     
@@ -329,7 +330,7 @@ public class GameController : MonoBehaviour
         }
         //foreach (var item in enemyAliveList)
         //{
-        //    item.SendMessage("OnItemEffect", itemType);//TODO
+        //    item.SendMessage("OnItemEffect", itemType);
         //}
     }
 }

@@ -103,7 +103,7 @@ public class ShopPanel : BasePanel
             GameObject itemHold = FactoryMgr.Instance.GetUI(StringMgr.ItemHold);
             itemHold.transform.SetParent(PackageContent);
             //itemHold.transform.localScale = Vector3.one;
-            //道具持有数量等,更换图片资源TODO
+            //道具持有数量等,更换图片资源
             ItemHold ih = new ItemHold(i, itemHold);
             itemHoldList.Add(ih);
         }
@@ -115,7 +115,7 @@ public class ShopPanel : BasePanel
             GameObject itemShopButton = FactoryMgr.Instance.GetUI(StringMgr.ItemShopButton);
             itemShopButton.transform.SetParent(GoodsContent);
             itemShopButton.transform.localScale = Vector3.one;
-            //更换图片TODO
+            
             ItemShop itemShop = new ItemShop(i, itemShopButton);
             itemShopBtnList.Add(itemShop);
         }

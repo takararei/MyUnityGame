@@ -48,7 +48,7 @@ MonoBehaviour:
     damageType: 1
     damageRange: 2
     CD: 5
-    damage: 15
+    damage: 12
     Range: 1
     nextTowerId: 7
     bullectPath: Bullect/Bullect_3
@@ -63,7 +63,7 @@ MonoBehaviour:
     damageType: 2
     damageRange: 2
     CD: 3
-    damage: 15
+    damage: 13
     Range: 1
     nextTowerId: 8
     bullectPath: Bullect/Bullect_4
@@ -78,7 +78,7 @@ MonoBehaviour:
     damageType: 1
     damageRange: 2.5
     CD: 0.5
-    damage: 9
+    damage: 10
     Range: 1
     nextTowerId: 9
     bullectPath: Bullect/Bullect_1
@@ -138,7 +138,7 @@ MonoBehaviour:
     damageType: 1
     damageRange: 2.8
     CD: 0.4
-    damage: 15
+    damage: 14
     Range: 1
     nextTowerId: 13
     bullectPath: Bullect/Bullect_1
@@ -168,7 +168,7 @@ MonoBehaviour:
     damageType: 1
     damageRange: 3
     CD: 5
-    damage: 58
+    damage: 45
     Range: 1
     nextTowerId: 15
     bullectPath: Bullect/Bullect_3
@@ -183,7 +183,7 @@ MonoBehaviour:
     damageType: 2
     damageRange: 2.8
     CD: 3
-    damage: 55
+    damage: 57
     Range: 1
     nextTowerId: 16
     bullectPath: Bullect/Bullect_4
@@ -198,7 +198,7 @@ MonoBehaviour:
     damageType: 1
     damageRange: 3.2
     CD: 0.3
-    damage: 20
+    damage: 16
     Range: 1
     nextTowerId: 0
     bullectPath: Bullect/Bullect_1
@@ -243,7 +243,7 @@ MonoBehaviour:
     damageType: 2
     damageRange: 3.2
     CD: 2
-    damage: 80
+    damage: 108
     Range: 1
     nextTowerId: 0
     bullectPath: Bullect/Bullect_4

@@ -123,8 +123,9 @@ public class BeginPanel : BasePanel
     private void OnButtonYesClick()//确认退出游戏
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
+        PlayerDataOperator.Instance.SavePlayerData();
         Application.Quit();
-        //保存数据之类的操作 TODO
+        //保存数据之类的操作 
     }
 
     

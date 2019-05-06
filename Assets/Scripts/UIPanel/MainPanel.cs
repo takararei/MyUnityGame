@@ -241,7 +241,7 @@ public class MainPanel : BasePanel
     private void OnButtonSureClick()
     {
         AudioMgr.Instance.PlayEffectMusic(StringMgr.Button_Clip);
-        //TODO删除数据 回到begin页面
+        //删除数据 回到begin页面
         PlayerDataOperator.Instance.ResetPlayerData();
         SceneStateMgr.Instance.ChangeSceneState(new BeginSceneState());
     }

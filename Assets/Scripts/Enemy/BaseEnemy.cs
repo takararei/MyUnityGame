@@ -218,7 +218,8 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
 
         _Sign.enabled = false;
         //CancelDecreaseDebuff();
-
+        itemMagic = 1;
+        itemPhy = 1;
         FactoryMgr.Instance.PushGame(enemyInfo.path, gameObject);
         GameController.Instance.enemyAliveList.Remove(gameObject);
     }
@@ -230,6 +231,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             //被玩家杀死 处理一些金币等
             GameController.Instance.ChangeCoin(enemyInfo.killCoin);
             //钻石
+            GameController.Instance.ChangeDO(enemyInfo.killDO);
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.FirstKill, 1);
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Kill_100, 1);
             AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Kill_1000, 1);
@@ -262,16 +264,16 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     public virtual void TakeDamage(Bullect bullect)
     {
         int damageType = bullect.bsTower.towerInfo.damageType;
-        int damage = bullect.bsTower.towerInfo.damage;
+        int damage = Mathf.RoundToInt(bullect.bsTower.towerInfo.damage*Random.Range(0.7f,1.3f));
         if (damageType == 1)
         {
-            damage -= (int)(damage * enemyInfo.Def * 0.1f);//加上一些加成护甲之类的
-            damage = (int)(damage * itemPhy);
+            damage -= Mathf.RoundToInt(damage * enemyInfo.Def * 0.1f);//加上一些加成护甲之类的
+            damage = Mathf.RoundToInt(damage * itemPhy);
         }
         else if (damageType == 2)
         {
-            damage -= (int)(damage * enemyInfo.Mdef * 0.1f);
-            damage = (int)(damage * itemMagic);
+            damage -= Mathf.RoundToInt(damage * enemyInfo.Mdef * 0.1f);
+            damage = Mathf.RoundToInt(damage * itemMagic);
         }
         currentLife -= damage;
         if (currentLife <= 0)
