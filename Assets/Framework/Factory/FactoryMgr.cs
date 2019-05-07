@@ -15,7 +15,6 @@ namespace Assets.Framework.Factory
 
     public class FactoryMgr:Singleton<FactoryMgr>
     {
-        //public Dictionary<FactoryType, IBaseFactory> factoryDict = new Dictionary<FactoryType, IBaseFactory>();
         private IBaseFactory uiFactory;
         private IBaseFactory gameFactory;
         private AudioClipFactory auidoClipFactory;
@@ -25,10 +24,6 @@ namespace Assets.Framework.Factory
         
         public override void Init()
         {
-            //base.Init();
-            //factoryDict.Add(FactoryType.UIPanelFactory, new UIPanelFactory());
-            //factoryDict.Add(FactoryType.UIFactory, new UIFactory());
-            //factoryDict.Add(FactoryType.GameFactory, new GameFactory());
             uiFactory = new UIFactory();
             gameFactory = new GameFactory();
             auidoClipFactory = new AudioClipFactory();
@@ -60,25 +55,21 @@ namespace Assets.Framework.Factory
         public GameObject GetUI(string resourcePath)
         {
             return uiFactory.GetItem(resourcePath);
-            //return factoryDict[FactoryType.UIFactory].GetItem(resourcePath);
         }
 
         public GameObject GetGame(string resourcePath)
         {
             return gameFactory.GetItem(resourcePath);
-            //return factoryDict[FactoryType.GameFactory].GetItem(resourcePath);
         }
 
         public void PushUI(string itemName, GameObject itemGo)
         {
             uiFactory.PushItem(itemName, itemGo);
-            //factoryDict[FactoryType.UIFactory].PushItem(itemName, itemGo);
         }
 
         public void PushGame(string itemName, GameObject itemGo)
         {
             gameFactory.PushItem(itemName, itemGo);
-            //factoryDict[FactoryType.GameFactory].PushItem(itemName, itemGo);
         }
 
     }

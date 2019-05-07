@@ -13,30 +13,7 @@ public class MagicBullect : Bullect
     private float attackTimer = 0;
     private float damageTimeCell = 0.2f;
     private float damageTimeCellTimer = 0;
-    Transform target;
 
-    protected override void Update()
-    {
-        if (GameController.Instance.isGameOver)
-        {
-            DestoryBullect();
-            return;
-        }
-        if (GameController.Instance.isPause || !isSetData)
-        {
-            animator.speed = 0;
-            return;
-        }
-
-        //如果飞到一半突然物体已经消失 则子弹也消失
-        if (!target.gameObject.activeSelf || (bsTower.towerProperty.target != target)|| bsTower.towerProperty.target == null || !bsTower.towerProperty.target.gameObject.activeSelf)//|| GameController.Instance.isGameOver)
-        {
-            DestoryBullect();
-            return;
-        }
-        animator.speed = 1;
-        BullectMove();
-    }
 
     protected override void BullectMove()//这个需要持续一段时间
     {

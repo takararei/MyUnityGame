@@ -35,5 +35,5 @@ public static class StringMgr
     public const string ReachEnd = "ReachEnd";
     public const string EnemyComing = "EnemyComing";
     public const string GameWin = "GameWin";
-
+    public const string SellTower = "SellTower";
 }

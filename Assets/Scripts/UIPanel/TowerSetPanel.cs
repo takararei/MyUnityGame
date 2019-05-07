@@ -1,4 +1,5 @@
 ﻿using Assets.Framework;
+using Assets.Framework.Audio;
 using Assets.Framework.Extension;
 using Assets.Framework.Factory;
 using Assets.Framework.UI;
@@ -246,6 +247,7 @@ public class TowerSetPanel : BasePanel
         selectGrid.InitGrid();
         selectGrid.SetTowerID(-1);//重新置为建塔点
         GameController.Instance.ChangeCoin(sellCoin);
+        AudioMgr.Instance.PlayEffectMusic(StringMgr.SellTower);
         EventCenter.Broadcast(EventType.HandleGrid, selectGrid);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.Sell_10);
         AchievementSystem.Instance.Add_Achievement_Record(Achievement_Type.sell_50);

@@ -26,21 +26,6 @@ namespace Assets.Framework.Factory
                     factoryDict.Add(resourcePath, item);
                 }
             }
-            
-            //if(factoryDict.ContainsKey(resourcePath))
-            //{
-            //    item = factoryDict[resourcePath];
-            //}
-            //else
-            //{
-            //    item = Resources.Load<T>(itemLoadPath);
-            //    factoryDict.Add(resourcePath, item);
-            //}
-
-            //if(item==null)
-            //{
-            //    Debug.Log(resourcePath + "获取失败，路径有误" + itemLoadPath);
-            //}
 
             return item;
         }

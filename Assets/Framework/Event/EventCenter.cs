@@ -19,16 +19,7 @@ public class EventCenter
         {
             throw new Exception(string.Format("尝试为事件{0}添加不同类型的委托，当前事件所对应的委托是{1}，要添加的委托类型为{2}", eventType, dlg.GetType(), callBack.GetType()));
         }
-
-        //if (!m_EventTable.ContainsKey(eventType))
-        //{
-        //    m_EventTable.Add(eventType, null);
-        //}
-        //Delegate d = m_EventTable[eventType];
-        //if (d != null && d.GetType() != callBack.GetType())
-        //{
-        //    throw new Exception(string.Format("尝试为事件{0}添加不同类型的委托，当前事件所对应的委托是{1}，要添加的委托类型为{2}", eventType, d.GetType(), callBack.GetType()));
-        //}
+        
     }
     private static void OnListenerRemoving(EventType eventType, Delegate callBack)
     {
@@ -48,22 +39,6 @@ public class EventCenter
         {
             throw new Exception(string.Format("移除监听错误：没有事件码{0}", eventType));
         }
-        //if (m_EventTable.ContainsKey(eventType))
-        //{
-        //    Delegate d = m_EventTable[eventType];
-        //    if (d == null)
-        //    {
-        //        throw new Exception(string.Format("移除监听错误：事件{0}没有对应的委托", eventType));
-        //    }
-        //    else if (d.GetType() != callBack.GetType())
-        //    {
-        //        throw new Exception(string.Format("移除监听错误：尝试为事件{0}移除不同类型的委托，当前委托类型为{1}，要移除的委托类型为{2}", eventType, d.GetType(), callBack.GetType()));
-        //    }
-        //}
-        //else
-        //{
-        //    throw new Exception(string.Format("移除监听错误：没有事件码{0}", eventType));
-        //}
     }
     private static void OnListenerRemoved(EventType eventType)
     {

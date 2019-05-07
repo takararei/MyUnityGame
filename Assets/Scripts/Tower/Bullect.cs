@@ -12,7 +12,8 @@ public class Bullect : MonoBehaviour
     [HideInInspector]
     public bool isSetData;
     public BaseTower bsTower;
-
+    [HideInInspector]
+    public Transform target;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -37,7 +38,7 @@ public class Bullect : MonoBehaviour
         }
 
         //如果飞到一半突然物体已经消失 则子弹也消失
-        if (bsTower.towerProperty.target == null || !bsTower.towerProperty.target.gameObject.activeSelf)//|| GameController.Instance.isGameOver)
+        if (!target.gameObject.activeSelf || (bsTower.towerProperty.target != target)||bsTower.towerProperty.target == null || !bsTower.towerProperty.target.gameObject.activeSelf)//|| GameController.Instance.isGameOver)
         {
             DestoryBullect();
             return;
