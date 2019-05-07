@@ -170,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 1208711710615988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 224247453371468108}
   - {fileID: 4382018021121218}
@@ -185,7 +185,7 @@ Transform:
   m_GameObject: {fileID: 1814608511048536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.28, z: 0}
-  m_LocalScale: {x: 0.8666667, y: 0.8666667, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 4003225594566564}
   m_RootOrder: 1
@@ -276,6 +276,8 @@ MonoBehaviour:
     Introduce: 
     heart: 0
     path: 
+    audio: 
+    helpSprite: 
   pathPointList: []
   currentLife: 0
   isSetData: 0

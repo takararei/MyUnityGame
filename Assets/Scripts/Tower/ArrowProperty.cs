@@ -1,4 +1,5 @@
 ﻿using Assets.Framework.Audio;
+using Assets.Framework.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ public class ArrowProperty : TowerProperty
     Animator animator2;
     Transform bullectBornTrans;
     bool isArrow1Shotted;
-    
+    SpriteRenderer arrowRender1;
+    SpriteRenderer arrowRender2;
 
     private void Awake()
     {
@@ -20,6 +22,8 @@ public class ArrowProperty : TowerProperty
         baseTower = GetComponent<BaseTower>();
         arrow1 = transform.Find("arrow1");
         arrow2 = transform.Find("arrow2");
+        arrowRender1=arrow1.GetComponent<SpriteRenderer>();
+        arrowRender2 = arrow2.GetComponent<SpriteRenderer>();
         animator1 = arrow1.GetComponent<Animator>();
         animator2 = arrow2.GetComponent<Animator>();
     }
@@ -45,13 +49,15 @@ public class ArrowProperty : TowerProperty
         }
         if(!isArrow1Shotted)
         {
-            animator1.Play("Attack");
+            animator1.Play("Attack",-1,0);
+            animator1.Update(0);
             isArrow1Shotted = true;
             bullectBornTrans = arrow1;
         }
         else
         {
-            animator2.Play("Attack");
+            animator1.Play("Attack", -1, 0);
+            animator1.Update(0);
             isArrow1Shotted = false;
             bullectBornTrans = arrow2;
         }
@@ -63,11 +69,15 @@ public class ArrowProperty : TowerProperty
 
     public override void Recycle()
     {
-        base.Recycle();
+        //base.Recycle();
+        timeVal = 0;//攻击计时器
+        isBeginCD = false;
+        target = null;
         isArrow1Shotted = false;
         arrow1.up = Vector3.up;
         arrow2.up = -Vector3.up;
         bullectBornTrans = null;
+        arrowRender1.sprite = FactoryMgr.Instance.GetSprite("Tower/Recycle/" + baseTower.towerInfo.towerId);
     }
 
     public override void GetBullectProperty(Bullect obj)

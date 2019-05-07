@@ -16,10 +16,12 @@ public class TowerProperty : MonoBehaviour
     [HideInInspector]
     //public Transform bullectBornTrans;
     GameObject bullectGO;
+    SpriteRenderer towerSpriteRender;
     private void Awake()
     {
         baseTower = GetComponent<BaseTower>();
         animator = GetComponent<Animator>();
+        towerSpriteRender = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -64,7 +66,8 @@ public class TowerProperty : MonoBehaviour
         {
             return;
         }
-        animator.Play("Attack");
+        animator.Play("Attack", -1, 0);
+        animator.Update(0);
         isBeginCD = true;
         GameController.Instance.CreateBullect(baseTower);
         AudioMgr.Instance.PlayEffectMusic(baseTower.towerInfo.audio);
@@ -75,6 +78,8 @@ public class TowerProperty : MonoBehaviour
         timeVal = 0;//攻击计时器
         isBeginCD = false;
         target = null;
+
+        towerSpriteRender.sprite = FactoryMgr.Instance.GetSprite("Tower/Recycle/" + baseTower.towerInfo.towerId);
     }
 
     public virtual void GetBullectProperty(Bullect obj)
