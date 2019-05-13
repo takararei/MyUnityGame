@@ -32,7 +32,7 @@ MonoBehaviour:
     sellCoin: 50
     damageType: 1
     damageRange: 2
-    CD: 5
+    CD: 4
     damage: 5
     Range: 1
     nextTowerId: 6
@@ -47,7 +47,7 @@ MonoBehaviour:
     sellCoin: 110
     damageType: 1
     damageRange: 2
-    CD: 5
+    CD: 3
     damage: 12
     Range: 1
     nextTowerId: 7
@@ -62,7 +62,7 @@ MonoBehaviour:
     sellCoin: 85
     damageType: 2
     damageRange: 2
-    CD: 3
+    CD: 1
     damage: 13
     Range: 1
     nextTowerId: 8
@@ -92,7 +92,7 @@ MonoBehaviour:
     sellCoin: 90
     damageType: 1
     damageRange: 2.3
-    CD: 5
+    CD: 3
     damage: 7
     Range: 1
     nextTowerId: 10
@@ -107,7 +107,7 @@ MonoBehaviour:
     sellCoin: 180
     damageType: 1
     damageRange: 2.5
-    CD: 5
+    CD: 2.5
     damage: 30
     Range: 1
     nextTowerId: 11
@@ -122,7 +122,7 @@ MonoBehaviour:
     sellCoin: 140
     damageType: 2
     damageRange: 2.5
-    CD: 3
+    CD: 1
     damage: 33
     Range: 1
     nextTowerId: 12
@@ -152,7 +152,7 @@ MonoBehaviour:
     sellCoin: 140
     damageType: 1
     damageRange: 2.5
-    CD: 5
+    CD: 4
     damage: 10
     Range: 1
     nextTowerId: 14
@@ -167,7 +167,7 @@ MonoBehaviour:
     sellCoin: 250
     damageType: 1
     damageRange: 3
-    CD: 5
+    CD: 2.5
     damage: 45
     Range: 1
     nextTowerId: 15
@@ -182,7 +182,7 @@ MonoBehaviour:
     sellCoin: 190
     damageType: 2
     damageRange: 2.8
-    CD: 3
+    CD: 0.8
     damage: 57
     Range: 1
     nextTowerId: 16
@@ -212,7 +212,7 @@ MonoBehaviour:
     sellCoin: 195
     damageType: 1
     damageRange: 2.6
-    CD: 4
+    CD: 3
     damage: 16
     Range: 1
     nextTowerId: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     sellCoin: 300
     damageType: 1
     damageRange: 3.5
-    CD: 5
+    CD: 2
     damage: 75
     Range: 1
     nextTowerId: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
     sellCoin: 230
     damageType: 2
     damageRange: 3.2
-    CD: 2
+    CD: 0.8
     damage: 108
     Range: 1
     nextTowerId: 0

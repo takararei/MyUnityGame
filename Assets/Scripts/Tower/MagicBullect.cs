@@ -9,7 +9,7 @@ public class MagicBullect : Bullect
     float distance;
     private float bullectWidth;
     private float bullectLength;
-    private float attackTime = 1f;
+    private float attackTime = 0.4f;
     private float attackTimer = 0;
     private float damageTimeCell = 0.2f;
     private float damageTimeCellTimer = 0;

@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 95842537349895410}
   - component: {fileID: 58371043172660270}
   - component: {fileID: 114742374510045852}
-  - component: {fileID: 114569109997309166}
+  - component: {fileID: 114589215167765962}
   m_Layer: 0
   m_Name: Tower_14
   m_TagString: Untagged
@@ -137,7 +137,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114569109997309166
+--- !u!114 &114589215167765962
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

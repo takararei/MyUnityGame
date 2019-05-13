@@ -81,12 +81,10 @@ namespace Assets.Framework.UI
         /// <summary>
         /// 保存所有被实例化的BasePanel组件,BasePanel 脚本
         /// </summary>
-        //private Dictionary<string, BasePanel> panelDict;
         private Dictionary<string, IBasePanel> panelDict;
         /// <summary>
         /// 管理所有显示的面板 脚本
         /// </summary>
-        //private Dictionary<string, BasePanel> panelShowDict;
         private Dictionary<string, IBasePanel> panelShowDict;
         /// <summary>
         /// 管理实例化的面板游戏物体，预制体
@@ -126,34 +124,6 @@ namespace Assets.Framework.UI
             
         }
 
-        #region Parse-UIPanelData
-        /// <summary>
-        /// JSON解析对象
-        /// </summary>
-        //[Serializable]
-        //class UIPanelTypeJson
-        //{
-        //    public List<UIPanelInfo> infoList;
-        //}
-
-        /// <summary>
-        /// 解析JSON文件
-        /// </summary>
-        //public void ParseUIPanelTypeJson()
-        //{
-        //    if (panelInfoDict == null)
-        //        panelInfoDict = new Dictionary<string, UIPanelInfo>();
-
-        //    TextAsset ta = Resources.Load<TextAsset>("UIPanelType");
-
-        //    UIPanelTypeJson jsonObject = JsonUtility.FromJson<UIPanelTypeJson>(ta.text);
-
-        //    foreach (UIPanelInfo info in jsonObject.infoList)
-        //    {
-        //        panelInfoDict.Add(info.panelName, info);
-        //    }
-        //}
-
         public void ParseUIpanelTypeAsset()
         {
             if (panelInfoDict == null)
@@ -167,12 +137,11 @@ namespace Assets.Framework.UI
                 panelInfoDict.Add(info.panelName, info);
             }
         }
-        #endregion
 
         /// <summary>
         /// 获取面板的游戏物体
         /// </summary>
-        public GameObject GetPanelGameObject(string panelName,string path)
+        private GameObject GetPanelGameObject(string panelName,string path)
         {
             if(panelGODict==null)
             {
@@ -201,7 +170,7 @@ namespace Assets.Framework.UI
         /// <summary>
         /// 根据面板类型得到实例化面板
         /// </summary>
-        public IBasePanel GetPanel(string panelName)
+        private IBasePanel GetPanel(string panelName)
         {
             if (panelDict == null)
             {
@@ -221,15 +190,7 @@ namespace Assets.Framework.UI
                 }
 
                 GameObject instPanel = GetPanelGameObject(panelName, pInfo.path);
-                //GameObject instPanel=UIManager.Instance.currentScenePanelDict.TryGet(panelName);    
-                
-                //if (instPanel == null)
-                //{
-                //    instPanel = GameObject.Instantiate(Resources.Load(pInfo.path)) as GameObject;
-                //    instPanel.name = panelName;
-                //    UIManager.Instance.currentScenePanelDict.Add(panelName, instPanel);
-                //}
-                
+  
                 switch (pInfo.layer)
                 {
                     case UILayer.Background:

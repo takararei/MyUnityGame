@@ -14,6 +14,8 @@ public class GameWinPanel:BasePanel
     Image star1;
     Image star2;
     Image star3;
+    Text txt_DO;
+
     public override void Init()
     {
         base.Init();
@@ -22,6 +24,7 @@ public class GameWinPanel:BasePanel
         star1 = Find<Image>("star1");
         star2 = Find<Image>("star2");
         star3 = Find<Image>("star3");
+        txt_DO = Find<Text>("Txt_DO");
         star1.gameObject.SetActive(false);
         star2.gameObject.SetActive(false);
         star3.gameObject.SetActive(false);
@@ -32,6 +35,7 @@ public class GameWinPanel:BasePanel
         base.OnShow();
         btn_Restart.onClick.AddListener(OnRestart);
         btn_Continue.onClick.AddListener(OnExitGame);
+        txt_DO.text = GameController.Instance.DO.ToString();
         ShowStar(GameController.Instance.Life);
     }
 

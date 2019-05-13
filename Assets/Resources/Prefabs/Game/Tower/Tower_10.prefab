@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 95557921335502910}
   - component: {fileID: 58044552554561158}
   - component: {fileID: 114024834809038050}
-  - component: {fileID: 114457963412162898}
+  - component: {fileID: 114052897572611138}
   m_Layer: 0
   m_Name: Tower_10
   m_TagString: Untagged
@@ -166,7 +166,7 @@ MonoBehaviour:
     helpSprite: 
   towerProperty: {fileID: 0}
   enemyTargetList: []
---- !u!114 &114457963412162898
+--- !u!114 &114052897572611138
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

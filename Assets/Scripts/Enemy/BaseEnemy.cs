@@ -75,14 +75,14 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         {
             return;
         }
-        if(hasFreeze)
-        {
-            animator.speed = 0;
-        }
-        else
-        {
-            animator.speed = 1;
-        }
+        //if(hasFreeze)
+        //{
+        //    animator.speed = 0;
+        //}
+        //else
+        //{
+        //    animator.speed = 1;
+        //}
 
         EnemyMove();
 
@@ -93,13 +93,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         }
         else
         {
-            if (!hasFreeze)
-            {
-                slowSpeed = 1;
-            }
-            slowTime = 0;
-            slowSpeedTimeVal = 0;
-            hasSlowSpeed = false;
+            CancelSlowDebuf();
         }
 
         if (hasFreeze && freezeTimeVal < freezeTime)
@@ -109,13 +103,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         }
         else
         {
-            if (!hasSlowSpeed)
-            {
-                slowSpeed = 1;
-            }
-            freezeTime = 0;
-            freezeTimeVal = 0;
-            hasFreeze = false;
+            CancelFreezeDebuf();
         }
 
     }
@@ -133,7 +121,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
             transform.position = Vector3.Lerp(
                     transform.position, //起点
                 pathPoint,//终点
-                1 / Vector3.Distance(transform.position, pathPoint) * Time.deltaTime * enemyInfo.speed * slowSpeed*0.4f);
+                1 / Vector3.Distance(transform.position, pathPoint) * Time.deltaTime * enemyInfo.speed * slowSpeed * 0.3f);
 
             if (Vector3.Distance(transform.position, pathPoint) <= 0.01f)
             //if (Vector3.Distance(transform.position, pathPointList[roadPointIndex]) <= 0.01f)
@@ -220,6 +208,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
         //CancelDecreaseDebuff();
         itemMagic = 1;
         itemPhy = 1;
+        animator.speed = 1;
         FactoryMgr.Instance.PushGame(enemyInfo.path, gameObject);
         GameController.Instance.enemyAliveList.Remove(gameObject);
     }
@@ -251,6 +240,7 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         slowTime += time;
         slowSpeed = 0.5f;
+        animator.speed = 0.5f;
         hasSlowSpeed = true;
     }
     //冻结处理
@@ -258,13 +248,39 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
     {
         freezeTime += time;
         slowSpeed = 0f;
+        animator.speed = 0;
         hasFreeze = true;
+    }
+
+    void CancelSlowDebuf()
+    {
+        if (!hasFreeze)
+        {
+            slowSpeed = 1;
+            animator.speed = 1;
+        }
+        slowTime = 0;
+        slowSpeedTimeVal = 0;
+        hasSlowSpeed = false;
+
+    }
+
+    void CancelFreezeDebuf()
+    {
+        if (!hasSlowSpeed)
+        {
+            slowSpeed = 1;
+            animator.speed = 1;
+        }
+        freezeTime = 0;
+        freezeTimeVal = 0;
+        hasFreeze = false;
     }
     //处理伤害
     public virtual void TakeDamage(Bullect bullect)
     {
         int damageType = bullect.bsTower.towerInfo.damageType;
-        int damage = Mathf.RoundToInt(bullect.bsTower.towerInfo.damage*Random.Range(0.7f,1.3f));
+        int damage = Mathf.RoundToInt(bullect.bsTower.towerInfo.damage * Random.Range(0.7f, 1.3f));
         if (damageType == 1)
         {
             damage -= Mathf.RoundToInt(damage * enemyInfo.Def * 0.1f);//加上一些加成护甲之类的
@@ -316,10 +332,10 @@ public class BaseEnemy : MonoBehaviour, IBaseEnemy
                     itemMagic = 1;
                 });
                 //计时
-                break; 
+                break;
             case 4:
                 FreezeDebuf(time);
-                break; 
+                break;
         }
     }
 }

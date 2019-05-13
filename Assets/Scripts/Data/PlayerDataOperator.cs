@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEngine;
 
-public class PlayerDataOperator:Singleton<PlayerDataOperator>
+public class PlayerDataOperator : Singleton<PlayerDataOperator>
 {
     public PlayerData playerData;///<玩家对象
 
@@ -22,7 +22,7 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
         playerData = LoadPlayerData();
         GameRoot.Instance.data = playerData;
     }
-   
+
     public PlayerData LoadPlayerData()
     {
         //如果路径上有文件，就读取文件
@@ -72,7 +72,7 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
         SavePlayerData();
     }
 
-    
+
 
     //保存玩家的数据
     public void SavePlayerData()
@@ -92,29 +92,15 @@ public class PlayerDataOperator:Singleton<PlayerDataOperator>
     //设置文件的路径，在手机上运行时Application.persistentDataPath这个路径才是可以读写的路径
     void SetPath()
     {
-        //安卓平台
-        //if (Application.platform == RuntimePlatform.Android)
-        //{
-        //    path = Application.persistentDataPath + "/playerData.gd";
-        //}
-        ////windows编辑器
-        //else if (Application.platform == RuntimePlatform.WindowsEditor)
-        //{
-            path = Application.streamingAssetsPath + "/playerData.gd";
-        //}
+        path = Application.streamingAssetsPath + "/playerData.gd";
+
     }
 
     void SetEmptyPath()
     {
-        //if (Application.platform == RuntimePlatform.Android)
-        //{
-        //    emptyPath = Application.persistentDataPath + "/playerDataEmpty.gd";
-        //}
-        ////windows编辑器
-        //else if (Application.platform == RuntimePlatform.WindowsEditor)
-        //{
-            emptyPath = Application.streamingAssetsPath + "/playerDataEmpty.gd";
-        //}
+
+        emptyPath = Application.streamingAssetsPath + "/playerDataEmpty.gd";
+
     }
- 
+
 }

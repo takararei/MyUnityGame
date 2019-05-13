@@ -238,7 +238,7 @@ public class GameController : MonoBehaviour
         EventCenter.Broadcast(EventType.Play_CoinUpdate, _Coin);
         EventCenter.Broadcast(EventType.Play_LifeUpdate, life);
         EventCenter.Broadcast(EventType.Play_NowRoundUpdate, nowRound);
-        //钻石更新
+        Debug.Log("关卡" + info.levelID);
     }
     
 

@@ -58,7 +58,7 @@ public class FreezeBullect:Bullect
             {
                 continue;
             }
-            item.SendMessage("SlowDebuf", freezeTime);
+            item.SendMessage("FreezeDebuf", freezeTime);
             item.SendMessage("TakeDamage", this);
         }
         //foreach (var item in bsTower.enemyTargetList)

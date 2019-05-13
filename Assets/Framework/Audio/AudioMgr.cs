@@ -51,8 +51,8 @@ namespace Assets.Framework.Audio
             if (mAudioListener == null)
                 mAudioListener = Root.AddComponent<AudioListener>();
         }
-        
-        public void PlayBGM(string bgmName, bool loop=true)
+
+        public void PlayBGM(string bgmName, bool loop = true)
         {
             AudioClip bgm = FactoryMgr.Instance.GetAudioClip(bgmName);
             mBGMSource.clip = bgm;
@@ -66,7 +66,7 @@ namespace Assets.Framework.Audio
             {
                 BGMOff();
             }
-           
+
         }
         public void PlayEffectMusic(string effectName)
         {
@@ -149,6 +149,6 @@ namespace Assets.Framework.Audio
         }
 
 
-        
+
     }
 }

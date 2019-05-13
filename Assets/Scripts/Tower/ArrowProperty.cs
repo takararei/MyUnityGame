@@ -56,8 +56,8 @@ public class ArrowProperty : TowerProperty
         }
         else
         {
-            animator1.Play("Attack", -1, 0);
-            animator1.Update(0);
+            animator2.Play("Attack", -1, 0);
+            animator2.Update(0);
             isArrow1Shotted = false;
             bullectBornTrans = arrow2;
         }
@@ -78,6 +78,7 @@ public class ArrowProperty : TowerProperty
         arrow2.up = -Vector3.up;
         bullectBornTrans = null;
         arrowRender1.sprite = FactoryMgr.Instance.GetSprite("Tower/Recycle/" + baseTower.towerInfo.towerId);
+        arrowRender2.sprite = FactoryMgr.Instance.GetSprite("Tower/Recycle/" + baseTower.towerInfo.towerId);
     }
 
     public override void GetBullectProperty(Bullect obj)

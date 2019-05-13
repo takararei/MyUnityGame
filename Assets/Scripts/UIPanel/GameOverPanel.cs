@@ -11,12 +11,13 @@ public class GameOverPanel:BasePanel
 {
     Button btn_Restart;
     Button btn_ExitGame;
-
+    Text txt_DO;
     public override void Init()
     {
         base.Init();
         btn_Restart = Find<Button>("Btn_Restart");
         btn_ExitGame = Find<Button>("Btn_ExitGame");
+        txt_DO = Find<Text>("Txt_DO");
     }
 
     public override void OnShow()
@@ -24,6 +25,7 @@ public class GameOverPanel:BasePanel
         base.OnShow();
         btn_Restart.onClick.AddListener(OnRestart);
         btn_ExitGame.onClick.AddListener(OnExitGame);
+        txt_DO.text = GameController.Instance.DO.ToString();
     }
 
     public override void OnHide()

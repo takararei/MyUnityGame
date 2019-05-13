@@ -289,17 +289,17 @@ public class TowerSetPanel : BasePanel
         else
         {
             upCoin = TowerInfoMgr.Instance.towerInfoList[index - 1].buildCoin;
+            Img_UpPriceBG.gameObject.SetActive(true);
+            Txt_UpPrice.text = upCoin.ToString();
             if (upCoin <= GameController.Instance.Coin)
             {
                 UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerCanUp);
-                Img_UpPriceBG.gameObject.SetActive(true);
-                Txt_UpPrice.text = upCoin.ToString();
                 isUpLevel = true;
             }
             else
             {
                 UpLevelBtn.image.sprite = FactoryMgr.Instance.GetSprite(StringMgr.towerCantUp);
-                Img_UpPriceBG.gameObject.SetActive(false);
+                
             }
         }
         

@@ -7,7 +7,7 @@ using UnityEngine;
 public class SlowBullect : Bullect
 {
     public float slowTime = 2;
-    float showTime = 1f;
+    float showTime =0.9f;
     float showTimer;
     bool isAttacked = false;
     protected override void BullectMove()
