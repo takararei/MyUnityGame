@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-
+using System.Diagnostics;
 namespace Assets.Framework.Util
 {
     /// <summary>
@@ -152,7 +152,6 @@ namespace Assets.Framework.Util
                 GUI.contentColor = logTypeColors[log.type];
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(log.message);
-                //GUILayout.Button(log.message);
                 if (GUILayout.Button("stackTrace", GUILayout.Width(100)))
                 {
                     LogStackTrace = log.stackTrace;

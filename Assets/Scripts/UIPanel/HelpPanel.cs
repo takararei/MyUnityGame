@@ -99,6 +99,8 @@ public class HelpPanel : BasePanel
     public override void OnHide()
     {
         base.OnHide();
+        mBtn_TowerClose.onClick.RemoveAllListeners();
+        mBtn_EnemyClose.onClick.RemoveAllListeners();
         mBtn_Close.onClick.RemoveAllListeners();
     }
 
@@ -236,6 +238,7 @@ public class HelpPanel : BasePanel
     {
         foreach (var item in towerBtnList)
         {
+            FactoryMgr.Instance.PushUI(StringMgr.HelpItemBtn, TowerContent.GetChild(0).gameObject);
             item.Clear();
         }
         towerBtnList.Clear();
@@ -245,6 +248,7 @@ public class HelpPanel : BasePanel
     {
         foreach (var item in enemyBtnList)
         {
+            FactoryMgr.Instance.PushUI(StringMgr.HelpItemBtn, EnemyContent.GetChild(0).gameObject);
             item.Clear();
         }
         enemyBtnList.Clear();

@@ -28,7 +28,6 @@ namespace Assets.Framework
         {
             DontDestroyOnLoad(this);
             _instance = this;
-            
             FactoryMgr.Instance.Init();
             AudioMgr.Instance.Init();
             UIMgr.Instance.Init();
